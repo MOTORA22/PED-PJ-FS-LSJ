@@ -41,14 +41,59 @@
                 -> 우리가 사용할 때는 특정요소에 특정 이름을 밝혀야 하는 경우
                 -> 같은 클래스를 다른 디자인에 적용할 때
                 예) div.on{} heaer.on{}
+                5. 그룹 선택자 : ,(콤마)
+                예) h1,div,a{}
             */
 
+            /*기본 마진 패딩 없애기*/
+            html, body{
+                margin: 0;
+                padding: 0;
+                /* 실제는 body에만 마진:8px가 있지만 사용자가 별도로 초기화 할 때 한꺼번에 최상위 요소인 html, body 등의 마진, 패딩, 초기화값을 0으로 세팅한다.*/
+            }
+
+            /* 박스 공동 클래스 */
+            .bx{
+                /* 가로크기 w */
+                /*아무값도 안쓰면 auto인데 이는 부모 요소 끝까지 차지한다.*/
+                width: 800px;
+                /* 세로크기 h */
+                /*아무값도 안쓰면 auto인데 이는 블록 내용만큼만 늘어난다.*/
+                /* height: 200px; */
+                /* 경계선(보더) bd 
+                border : 두께 종류 색상
+                    - border-width : 두께
+                    - border-style : 종류
+                    - border-color : 색상
+                */
+                border: 5px solid rgb(179, 52, 52);
+                /* 둥근 모서리 보더 brad : border-radius */
+                border-radius: 10%;
+                /* 안쪽여백(패딩) p 
+                    padding 1개 : 4방향
+                    padding 2개 : 위아래 양쪽
+                    padding 3개 : 위 양쪽 아래
+                    padding 4개 : 각 방향(위 오른 아래 왼)
+                */
+                padding: 20px;
+                /* 바깥여백 (마진) m 
+                마진이 바디를 바깥쪽으로 밀어낸다.*/
+                /* margin: 30px; */
+                margin: 0 auto;
+                margin-top: 30px;
+                /* 
+                    마영오씨가 누구지?
+                    -일반적인 블록요소가 가로크기를 가질 때 이를 중앙정렬할려면 양쪽 마진을 auto로 설정한다.
+                    이 때 위아래 0 양쪽 auto를 줄여서 마영오라고 한다 ㅎ
+                */
+                
+            }
 
         </style>
     </head>
     <body>
         <!-- 1. 상단 영역 -->
-        <header class="top">
+        <header class="top bx">
             <!-- 1-1. 제목 -->
             <h1>네이버 요약 뉴스</h1>
             <!-- 1-2.GNB(Global Navigation Bar) 메뉴(어디서든 나오는 네비게이션 메뉴)  -->
@@ -66,13 +111,13 @@
             </nav>
         </header>
         <!-- 2. 메인 영역 -->
-        <main class="cont">
+        <main class="cont bx">
             <a href="#">
                 <img src="./images/프로필-사진.png" alt="귀여운 나몰빼미">
             </a>
         </main>
         <!-- 3. 하단 영역 -->
-        <footer class="info">
+        <footer class="info bx">
             <address>
                 서울시 강남구 역삼동 <br>
                 대표: Lee Seung Jun <br>
