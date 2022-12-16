@@ -71,6 +71,48 @@ body {
     padding-bottom: 50px;
 }
 
+/* 박스 공동 클래스 */
+.bx {
+    /* 가로크기 w */
+    /*아무값도 안쓰면 auto인데 이는 부모 요소 끝까지 차지한다.*/
+    width: 800px;
+    /* 세로크기 h */
+    /*아무값도 안쓰면 auto인데 이는 블록 내용만큼만 늘어난다.*/
+    /* height: 200px; */
+    /* 경계선(보더) bd 
+        border : 두께 종류 색상
+        - border-width : 두께
+        - border-style : 종류
+        - border-color : 색상
+        참고) https://www.w3schools.com/css/css_border.asp
+    */
+    border: 5px solid rgb(177, 103, 18);
+    /* 둥근 모서리 보더 brad : border-radius */
+    /* border-radius: 10%; */
+    /* 안쪽여백(패딩) p 
+        padding 1개 : 4방향
+        padding 2개 : 위아래 양쪽
+        padding 3개 : 위 양쪽 아래
+        padding 4개 : 각 방향(위 오른 아래 왼)
+    */
+    padding: 20px;
+    /* 바깥여백 (마진) m 
+        마진이 바디를 바깥쪽으로 밀어낸다.
+    */
+    /* margin: 30px; */
+    margin: 0 auto;
+    margin-top: 30px;
+    /* 
+        마영오씨가 누구지?
+        -일반적인 블록요소가 가로크기를 가질 때 이를 중앙정렬할려면 양쪽 마진을 auto로 설정한다.
+        이 때 위아래 0 양쪽 auto를 줄여서 마영오라고 한다 ㅎ
+    */
+}
+
+.cont {
+    border-radius: 10%;
+}
+
 /* 1.상단 영역 */
 
 .top > h1 {
@@ -123,49 +165,7 @@ body {
 
 /* 2.메인 영역 */
 
-/* 박스 공동 클래스 */
-.bx {
-    /* 가로크기 w */
-    /*아무값도 안쓰면 auto인데 이는 부모 요소 끝까지 차지한다.*/
-    width: 800px;
-    /* 세로크기 h */
-    /*아무값도 안쓰면 auto인데 이는 블록 내용만큼만 늘어난다.*/
-    /* height: 200px; */
-    /* 경계선(보더) bd 
-        border : 두께 종류 색상
-        - border-width : 두께
-        - border-style : 종류
-        - border-color : 색상
-        참고) https://www.w3schools.com/css/css_border.asp
-    */
-    border: 5px solid rgb(177, 103, 18);
-    /* 둥근 모서리 보더 brad : border-radius */
-    /* border-radius: 10%; */
-    /* 안쪽여백(패딩) p 
-        padding 1개 : 4방향
-        padding 2개 : 위아래 양쪽
-        padding 3개 : 위 양쪽 아래
-        padding 4개 : 각 방향(위 오른 아래 왼)
-    */
-    padding: 20px;
-    /* 바깥여백 (마진) m 
-        마진이 바디를 바깥쪽으로 밀어낸다.
-    */
-    /* margin: 30px; */
-    margin: 0 auto;
-    margin-top: 30px;
-    /* 
-        마영오씨가 누구지?
-        -일반적인 블록요소가 가로크기를 가질 때 이를 중앙정렬할려면 양쪽 마진을 auto로 설정한다.
-        이 때 위아래 0 양쪽 auto를 줄여서 마영오라고 한다 ㅎ
-    */
-}
-
-#no2.bx {
-    border-radius: 10%;
-}
-
-#no1 {
+#name_index {
     /* 배경색 : bgc (background-color) */
     background-color: rgb(243 203 158);
     /* 글자 중앙 정렬 : tac (text-align: center) */
@@ -174,7 +174,7 @@ body {
 }
 
 /* 타이틀 */
-#no1 > h2 {
+#name_index > h2 {
     font-weight: lighter;
     font-size: 80px;
     letter-spacing: 15px;
@@ -226,7 +226,8 @@ body {
     vertical-align: -8px;
 }
 
-#no2 img {
+/* 메인 영역 이미지 */
+.cont img {
     width: 100%;
     border-radius: 50%;
     /* 한쪽만 크기를 주면 이미지는 자동으로 비율유지를 하면서 변경된다. 100%는 부모박스를 채움 */
