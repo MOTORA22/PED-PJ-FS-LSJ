@@ -45,7 +45,7 @@
                 예) h1,div,a{}
                 6. 자손 선택자 : 띄어쓰기
                 예) div a{} -> div 하위의 모든 a요소들 전부 선택
-                7.자식 선택자 : >
+                7. 직계 자식 선택자 : > (꺽쇠)
                 예) div>a{} -> div 바로 아래 자식 중에서 a인 요소만 선택
 
             */
@@ -99,6 +99,37 @@
                 background-color: rgb(243 203 158);
                 /* 글자 중앙 정렬 : tac (text-align: center) */
                 text-align: center;
+            }
+            /* 타이틀 */
+            header>h1{
+                /* 1. 글자 스타일 fs :
+                font-style
+                italic : 이탈릭
+                normal : 이탈릭 해제(기본값)*/
+                font-style: normal;
+                /* 2. 글자 두께 fw :
+                font-weight
+                normal : 두께 없음
+                bold : 두꺼움*/
+                font-weight: bold;
+                /* 3. 글자 크기 fz :
+                font-siz (기본은 픽셀)
+                - 글자 단위 : pt,px,em,rem,vw,vh */
+                font-size: 70px;
+                /* 4. 글자 줄 간격 lh :
+                line-height
+                (글이 여러줄일 때 사이간격용 또는 글자 박스에서 세로 중앙정렬 시 사용)
+                단위가 없다면 n배수 */
+                line-height: 0.5;
+                /* 5. 글자체 ff :
+                font-family
+                ,(콤마)로 여러개를 쓸 수 있는데 이는 대체체를 설정하는 것, 앞에 폰트가 존재하지 않으면 뒤의 폰트가 적용된다.
+                혹은 영어 전용 폰트와 한글 전용 폰트를 혼합 할때도 사용된다.
+                */
+                font-family: fantasy;
+            }
+            header>nav{
+                font-size: 30px;
             }
 
             /* 2.메인 영역 */
