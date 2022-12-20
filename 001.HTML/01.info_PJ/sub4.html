@@ -195,6 +195,103 @@
                 < 여는 꺽쇠 &lt; (less than ~ 작은)
                 > 닫는 꺽쇠 &gt; (greater than ~ 보다 큰)
             -->
+
+            <!--
+                [순서 없는 리스트] :ul
+                Unordered list
+                [순서 있는 리스트] : ol
+                ordered list
+                [ul/ol 공통사항]
+                - 하위 필수 리스트 : li (개별 리스트)
+                - 주의 : 하위에 li 이외의 블록요소 및 그 어떤 요소도 사용할 수 없다.\
+                - 참고 : 블릿 옵션 (https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ul_type_css)
+                - 참고 : 순서 표시 옵션 (https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ol_type_all_css)
+                    - start 속성 : 시작번호
+                    - reverse 속성 : 거꾸로
+            -->
+
+            <!-- 주요 뉴스 : ul -->
+            <article class="cnews">
+                <h3>주요뉴스</h3>
+                <ul>
+                    <li><a href="https://www.newsis.com/view/?id=NISX20221214_0002123168" target="_blank">손흥민 아버지 "왼발 잘 쓰려고 오른쪽에 압정 꽂아"</a></li>
+                    <li><a href="https://www.newsis.com/view/?id=NISX20221213_0002121312" target="_blank">안정환 아들, 중학생 맞아?…"아빠 느낌 나오네"</a></li>
+                    <li><a href="https://www.newsis.com/view/?id=NISX20221213_0002121413" target="_blank">'골프여제' 박인비, 결혼 8년만에 임신</a></li>
+                </ul>
+
+            </article>
+
+            <!-- 랭킹뉴스 : ol -->
+            <articli class="rank">
+                <h3>랭킹뉴스</h3>
+                <ol>
+                    <li><a href="https://n.news.naver.com/mnews/ranking/article/003/0011599659?ntype=RANKING" target="_blank">월드컵 결승전 메시 연장전 골 무효?…득점 취소 어려워</a></li>
+                    <li><a href="https://n.news.naver.com/mnews/ranking/article/003/0011600371?ntype=RANKING" target="_blank">내일 새벽 중부내륙 중심 눈폭탄…대중교통 이용 당부</a></li>
+                    <li><a href="https://n.news.naver.com/mnews/ranking/article/003/0011600407?ntype=RANKING" target="_blank">코로나19 재유행 시작되나…신규 확진 8만 7559명 3개월 만에 '최다' [뉴시스Pic]</a></li>
+                </ol>
+            </articli>
+
+            <!--
+                [용어 정의 리스트] : dl
+                (defines the description list)
+                dl > dt + dd
+                - 주의 : dl른 반드시 자식 요소로 dt와 dd를 최소 한번 이상은 사용해야 한다.
+                - 주의 : dt > dd인 자식 관계가 아닌 dt + dd인 형제이다. 그리고 dt 뒤에는 반드시 dd가 나와야 한다.
+
+                dl : 용어 리스트 (defines the description list)
+                dt : 용어 정의 (defines the term)
+                dd : 용어 설명 (defines each term)
+
+                dl 에밋 : dl>(dt+dd*2>a[target=_blank])*3
+            -->
+
+            <!-- 분야별 뉴스 : dl -->
+            <article class="secnews">
+                <h3>분야별 뉴스</h3>
+                <dl>
+                    <dt>경제</dt>
+                    <dd><a href="https://n.news.naver.com/mnews/article/052/0001827526?sid=101" target="_blank">GTX 열차 완성품 첫 공개..."지하철보다 3배 빨라"</a></dd>
+                    <dd><a href="https://n.news.naver.com/mnews/article/008/0004830839?sid=101" target="_blank">현대차그룹, 신규 임원 3분의 1이 40대…'안전 속 혁신'에 방점</a></dd>
+                    <dt>사회</dt>
+                    <dd><a href="https://n.news.naver.com/mnews/article/016/0002080550?sid=102" target="_blank">"아들 취업시켜줄테니 간 내놔"…'장기 밀매' 시도한 건설사 회장님</a></dd>
+                    <dd><a href="https://n.news.naver.com/mnews/article/009/0005062751?sid=102" target="_blank">‘필로폰 14회 투약’ 돈스파이크 징역 5년 구형...선처 호소</a></dd>
+                    <dt>생활/문화</dt>
+                    <dd><a href="https://n.news.naver.com/mnews/article/422/0000575413?sid=103" target="_blank"> 강추위 주춤…내일 전국 눈·비, 그치고 다시 한파[날씨]</a></dd>
+                    <dd><a href="https://n.news.naver.com/mnews/article/025/0003247280?sid=103" target="_blank">그랜저 느낌 품었네…5년만에 싹 달라진 현대차 '코나'</a></dd>
+                </dl>
+            </article>
+
+            <!--
+                [테이블 요소] : table
+                table > tr > td
+
+                table : 테이블 박스 부모 요소
+                tr : 테이블 행 요소 (table row)
+                td : 테이블 데이터 요소 (table data)
+            -->
+
+            <!-- 사진 뉴스 : table -->
+            <article class="pnews">
+                <h3>사진 뉴스</h3>
+                <table border="1">
+                    <tr>
+                        <td>1</td>
+                        <td><a href="https://n.news.naver.com/mnews/article/030/0003067184?sid=105" target="_blank">해외서 먼저 인정받은 '라그나로크X', 내달 5일 국내 출시</a></td>
+                        <td><a href="https://n.news.naver.com/mnews/article/030/0003067184?sid=105" target="_blank"><img src="./images/pn1.jpg" alt="1"></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="https://n.news.naver.com/mnews/article/023/0003735671?sid=102" target="_blank">내일 전국 출근길 함박눈… 서울 최대 8㎝ 눈 쌓인다</a></td>
+                        <td><a href="https://n.news.naver.com/mnews/article/023/0003735671?sid=102" target="_blank"><img src="./images/pn2.jpg" alt="2"></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="https://n.news.naver.com/mnews/article/001/0013652343?sid=100" target="_blank">'최강' 美 F-22 4년만에 한국 출동…B-52H도 전개해 연합훈련</a></td>
+                        <td><a href="https://n.news.naver.com/mnews/article/001/0013652343?sid=100" target="_blank"><img src="./images/pn3.jpg" alt="3"></a></td>
+                    </tr>
+                </table>
+            </article>
+
         </main>
         
         <!-- 3. 하단 영역 -->
