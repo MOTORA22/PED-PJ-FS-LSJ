@@ -36,6 +36,10 @@
     /* 단어 간격 word-spacing : ws 
     기본 값 0(normal), 양수는 멀어지고 음수는 가까워진다.*/
     word-spacing: 1px;
+
+    /* 줄 바꿈 방지 : white-space
+    값 -> nowrap(기본값은 normal)*/
+    white-space: nowrap;
 }
 /* 2-3.기사사진(+사진설명) */
 /* 2-4.기사내용 */
