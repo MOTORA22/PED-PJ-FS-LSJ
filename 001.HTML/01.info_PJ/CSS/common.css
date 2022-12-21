@@ -73,6 +73,12 @@ body {
     /* 하단패딩 pb */
 }
 
+/* 전체 a요소 공통 세팅 */
+a{
+    color: #222;
+    text-decoration: none;
+}
+
 /* 박스공통 클래스 */
 .bx {
     /* 가로크기 w */

@@ -80,7 +80,7 @@
 }
 /* p요소 아래 em요소 디자인 변경 */
 .arti p em{
-    /* 글자 그림자 : text-shadow
+    /* 글자 그림자 : text-shadow(ts)
     값 순서 : x축 y축 블러 색
     블러는 그림자 경계 흐림 정도*/
     text-shadow: 2px 2px 2px rgb(207, 16, 198);
@@ -89,5 +89,38 @@
     font-weight: bold;
 }
 /* 2-5.기자정보 */
-
+.rpt{
+    font-size: 14px;
+    background-color: rgb(235, 235, 235);
+    display: inline-block;
+    /* inline만 하면 디자인을 적용시킬 수 없다. */
+    padding: 5px;
+    margin: 15px 0;
+}
 /* 2-6.기사원문 */
+.cont>h5{
+    /* 내부의 인라인요소를 오른쪽 정렬 */
+    text-align: right;
+}
+.cont>h5>a{
+    /* 디자인 적용을 위해 display를 주자. */
+    display: inline-block;
+    margin: 20px 0;
+    padding: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;/* brad */
+    border: 1px solid #bdbdbd;
+    text-align: center;
+    /* 세로 중앙은 줄간견으로(vertical-align은 안됨) */
+    line-height: 70px;
+    background-color: #f7e5e5;
+}
+/* 가상클래스로 오버시 박스 그림자 넣기 */
+.cont>h5>a:hover{
+    /* 박스 그림자 : box-shadow(bsh) 
+    box-shadow: x y blur spread color
+    내부그림자는 inset을 사용
+    spread는 박스 그림자 크기(필요할때만 입력함)*/
+    box-shadow: 0 0 5px darkblue;
+}
