@@ -38,10 +38,56 @@
     word-spacing: 1px;
 
     /* 줄 바꿈 방지 : white-space
-    값 -> nowrap(기본값은 normal)*/
-    white-space: nowrap;
+    값 -> nowrap(기본값은 normal)
+    한 줄에만 있어야 하는 버튼 글자나 말 줄임표를 쓸 때 사용한다*/
+    /* white-space: nowrap;*/
 }
 /* 2-3.기사사진(+사진설명) */
+.afig{
+    margin: 15px 0;
+
+}
+/* 기사 이미지 */
+.afig img{
+    width: 100%;
+}
+/* 기사 이미지 설명글 */
+.afig small{
+    font-size: 12px;
+    /* 글자 크기의 최저는 10px이다. */
+    color: rgb(66, 66, 66);
+}
 /* 2-4.기사내용 */
+.arti p{
+    font-size: 18px;
+    line-height: 25px;
+    padding: 0 10px;
+    letter-spacing: 1px;
+    /* 글자 들여쓰기,내어쓰기 ti */
+    /* text-indent: 20px; */
+}
+/* mark요소를 변경해보기 */
+.arti p mark{
+    display: block;
+    font-size: 24px;
+    line-height: 2;
+    padding: 20px 50px;
+    background-color: #c7c7c7;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    text-align: center;
+    margin: 15px 0;
+}
+/* p요소 아래 em요소 디자인 변경 */
+.arti p em{
+    /* 글자 그림자 : text-shadow
+    값 순서 : x축 y축 블러 색
+    블러는 그림자 경계 흐림 정도*/
+    text-shadow: 2px 2px 2px rgb(207, 16, 198);
+    font-style: normal;
+    color: darkmagenta;
+    font-weight: bold;
+}
 /* 2-5.기자정보 */
+
 /* 2-6.기사원문 */
