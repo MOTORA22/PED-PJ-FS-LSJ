@@ -2,13 +2,6 @@
 탐쌤이멜: tombap@naver.com
 
 자동저장 및 버전관리 연습
-aaa
-bbb
-<<<<<<< HEAD
-ccc
-ddd
-=======
->>>>>>> parent of 0ef34db (Update 001.기본전달사항.txt)
 
 1. 교재: NCS 4권
 
