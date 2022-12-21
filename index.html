@@ -3,22 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        body{
+            /* 배경이미지 넣기 bgi */
+            background-image: url(./imgs/worksbg.jpg);
+            /* 배경 반복 여부 : no-repeat(반복안함) bgr */
+            background-repeat: no-repeat;
+            /* 배경 크기 : cover(채우기) bgz */
+            background-size: cover;
+            padding-top: 50px;
+        }
+        .mybox{
+            width: 1200px;
+            height: 800px;
+            background-color: #ffffff60;
+            border-radius: 20px;
+            /* 가로중앙(마영오씨) */
+            margin: 0 auto;
+            margin-top: px;
+        }
+        .tit{
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
 </head>
 <!-- https://drive.google.com/drive/folders/1Izk-WmniUezFsuySbPDaN3mtHdGcD2BK -->
 <body>
-    <h1>이승준의 아카이브 페이지</h1>
-    <h2>
-        <ol>
-            <li>
-                <a href="./001.HTML/01.info_PJ/index.html" target="_blank">Info PJ</a>
-            </li>
-            <li>
-                <a href="./001.HTML/01.info_PJ/sub4.html" target="_blank">IT/과학 페이지</a>
-            </li>
-            <li>
-                <a href="./006.와이어프레이밍/도깨비PJ연습.pdf" target="_blank">도깨비 PJ 와이어프레임</a>
-            </li>
-        </ol>
-    </h2>
+    <div class="mybox">
+        <h1 class="tit">
+            <img src="./imgs/mylogo_01.png" alt="나의 로고">
+            <br>
+            이승준의 아카이브 페이지
+        </h1>
+        <h2>
+            <ol>
+                <li>
+                    <a href="./001.HTML/01.info_PJ/index.html" target="_blank">Info PJ</a>
+                </li>
+                <li>
+                    <a href="./001.HTML/01.info_PJ/sub4.html" target="_blank">IT/과학 페이지</a>
+                </li>
+                <li>
+                    <a href="./006.와이어프레이밍/도깨비PJ연습.pdf" target="_blank">도깨비 PJ 와이어프레임</a>
+                </li>
+            </ol>
+        </h2>
+    </div>
 </body>
 </html>
