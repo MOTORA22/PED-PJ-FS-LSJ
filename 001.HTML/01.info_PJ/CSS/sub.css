@@ -1,3 +1,43 @@
 @charset "utf-8";
 /* 서브페이지 공통 CSS - sub.css */
 
+/* 
+    [import로 파일 합치기]
+    외부 CSS 파일에서 다른 외부 CSS파일을 import 벙식으로 불러올 때 장점은?
+    html 파일에서 link 요소로 호출할 경우 http request (웹 요청)이 많아져서
+    페이지 랜더링 속도에 영향을 미친다!
+    따라서 import 방식을 쓰면 더 적은 웹요청에 따라 처리 속도에 도움이 된다.
+
+    - 주의 : import는 CSS파일 상단에서 처리해야 한다.
+*/
+/* @import url(파일주소); */
+@import url(./common.css);
+
+/* 본 CSS 설정 코드는 하단에 한다. */
+
+/* 메인 영역 박스 */
+.cont{
+    /* 패딩을 기존 20에서 15로 변경 */
+    padding: 15px;
+}
+
+/* 2-1.언론사 로고 */
+.prlogo img{
+    height: 32px;
+    /* 이미지는 가로 세로 비율 중 한쪽만 주면 나머지는 자동 조정된다. */
+}
+/* 2-2.기사제목 */
+.atit{
+    font-size: 30px;/* fz */
+    font-weight: normal;/* fwn */
+    /* 글자 간격(자간) letter-spacing : ls 
+    기본 값 0(normal), 양수는 멀어지고 음수는 가까워진다.*/
+    letter-spacing: -1px;
+    /* 단어 간격 word-spacing : ws 
+    기본 값 0(normal), 양수는 멀어지고 음수는 가까워진다.*/
+    word-spacing: 1px;
+}
+/* 2-3.기사사진(+사진설명) */
+/* 2-4.기사내용 */
+/* 2-5.기자정보 */
+/* 2-6.기사원문 */
