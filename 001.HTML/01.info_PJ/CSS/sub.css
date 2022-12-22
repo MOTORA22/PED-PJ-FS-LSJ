@@ -318,10 +318,10 @@ article.pnews{
 }
 /* dt별 글자색 다르게 하기 */
 /*
-    [여러 종류가 섞여 있을 경우 형제 선택하기]
-    요소 : first-of-type -> 같은 요소 중 첫번째
-    요소 : nth-of-type(n) -> 같은 요소 중 n번째
-    요소 : last-of-type -> 같은 요소 중 마지막 
+        [여러 종류가 섞여 있을 경우 형제 선택하기]
+        요소 : first-of-type -> 같은 요소 중 첫번째
+        요소 : nth-of-type(n) -> 같은 요소 중 n번째
+        요소 : last-of-type -> 같은 요소 중 마지막 
 
 
 */
