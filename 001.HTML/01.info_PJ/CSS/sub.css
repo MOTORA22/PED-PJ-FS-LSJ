@@ -339,6 +339,18 @@ article.pnews{
     margin-left: 100px;
 }
 
+/* 사진 뉴스 타이틀 */
+.pnews h3{
+    text-align: center;
+}
+/* 사진 뉴스 타이틀에 가상요소 아이콘 넣기 */
+/* 맨 앞 가상 요소 ::before */
+.pnews h3::before{
+    content: '📷';
+}
+.pnews h3::after{
+    content: '📸';
+}
 /* 사진 뉴스 테이블 박스 */
 .pnews table{
     border: 1px solid #cdcdcd;
@@ -361,7 +373,7 @@ article.pnews{
     width: 50px;
     text-align: center;
     background-color: #bcbcbc;
-    height: 70px;
+    height: 80px;
 }
 /* 두번째 td - 제목 */
 .pnews td:nth-child(2){
@@ -383,4 +395,22 @@ article.pnews{
 /* 앞에 tr이 있는 tr에만 하위 td에 디자인하기 */
 .pnews tr+tr td{
     border-top: 1px solid #cdcdcd;
+}
+
+/* 넘치는 말을 줄이고 ...으로 요약하기 */
+/****************************************
+    말줄임 표시 기본 세팅
+ ****************************************/
+ul a,ol a,dl a{
+    /* 디자인 적용을 위해 block 적용 */
+    display: block;
+    /* 가로크기로 크기 조절 */
+    width: 250px;
+    /* border: 1px solid red; */
+    /* 줄 바꿈 방지 */
+    white-space: nowrap;
+    /* 넘치는 자식 요소 숨기기 */
+    overflow: hidden;
+    /* ...으로 치환하기 */
+    text-overflow: ellipsis;
 }
