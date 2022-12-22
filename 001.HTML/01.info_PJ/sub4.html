@@ -267,7 +267,9 @@
 
             <!--
                 [테이블 요소] : table
-                table > tr > td
+                table > tbody > tr > td
+                tbody는 안써도 브라우저가 알아서 그려준다.
+                단 직계자식으로 선택할 때 tbody를 생략하면 적용이 되지 않는다.
 
                 table : 테이블 박스 부모 요소
                 tr : 테이블 행 요소 (table row)
@@ -277,7 +279,8 @@
             <!-- 사진 뉴스 : table -->
             <article class="pnews">
                 <h3>사진 뉴스</h3>
-                <table border="1">
+                <!-- <table border="1"> -->
+                <table>
                     <tr>
                         <td>1</td>
                         <td><a href="https://n.news.naver.com/mnews/article/030/0003067184?sid=105" target="_blank">해외서 먼저 인정받은 '라그나로크X', 내달 5일 국내 출시</a></td>

@@ -163,6 +163,17 @@
     color: #333;
 }
 
+/* 패딩으로 세로열 맞추기 */
+.cnews{
+    padding: 15px;
+}
+article.secnews{
+    padding: 0;
+}
+article.pnews{
+    padding: 0;
+}
+
 /* 주해 박스 */
 .desc div{
     /* 패딩 3개 : 위 양쪽 아래 */
@@ -219,7 +230,7 @@
 /* 파트별 a링크 요소 공통 디자인 */
 .cont article a{
     font-size: 17px;
-    line-height: 2.5;
+    line-height: 1.5;
     letter-spacing: -1px;
 }
 /* 가상클래스 hover 오버시 */
@@ -326,4 +337,50 @@
 /* dd 공통 디자인 */
 .secnews dd{
     margin-left: 100px;
+}
+
+/* 사진 뉴스 테이블 박스 */
+.pnews table{
+    border: 1px solid #cdcdcd;
+    margin: 0 auto;
+    /* 마영오씨는 블록요소 또는 테이블에 적용된다. */
+
+    /* 테이블 기본 사이간격 없애기 */
+    border-collapse: collapse;/* bdcl */
+}
+/* 테이블 a 요소 */
+/* 위에 상위 존재인 .cont article a가 있어서 .pnews a로는 적용이 안된다. */
+.cont .pnews a{
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* tr이나 td에 child 선택자를 사용 가능하다. 같은 종류의 요소만 올 수 있기 때문이다. */
+/* 첫번째 td - 숫자 */
+.pnews td:first-child{
+    width: 50px;
+    text-align: center;
+    background-color: #bcbcbc;
+    height: 70px;
+}
+/* 두번째 td - 제목 */
+.pnews td:nth-child(2){
+    background-color: #cdcdcd;
+    padding: 0 20px;
+}
+/* 세번째 td - 사진 */
+.pnews td:last-child{
+    padding-right: 5px;
+    background-color: #dedede;
+}
+/* 사진 뉴스 이미지 */
+.pnews img{
+    height: 70px;
+    vertical-align: middle;
+    /* vertical-align: middle;은 td 안에서만 세로 정렬이되고 인라인 요소간의 세로방향 정렬이다. */
+}
+
+/* 앞에 tr이 있는 tr에만 하위 td에 디자인하기 */
+.pnews tr+tr td{
+    border-top: 1px solid #cdcdcd;
 }
