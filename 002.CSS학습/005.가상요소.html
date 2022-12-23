@@ -52,14 +52,44 @@
 
              */
         /* h2요소 맨앞에 이미지 넣기 */
-        
+        h2::before{
+            /* 내용을 넣기 위한 필수 속성 content
+            content 속성 -> 요소 코딩 시 <>나 ''를 사용하는 것 같음*/
+            content: url(./imgs/blogo.png);
+            /* width: 20px; 이거 안 통한다.
+            이미지 태그가 아니기 때문이다. 그저 가상 요소로 원본 주소를 불러올 뿐
+            만약 가로 세로를 변경하고 싶으면 박스로 만들고 배경이미지로 처리하면 된다.*/
+
+            /* 근데 마진은 적용이 된다. */
+            margin-right: 20px;
+            /* 인라인 요소간 세로 정렬 */
+            vertical-align: top;
+        }
 
         /* 맨뒤 추가요소 ::after */
-        
+        h2::after{
+            content: '';
+            /* content의 빈값은 마치 <span></span> 이라고 쓴 것과 비슷하다. 인라인 요소이다. */
+            border: 2px solid gray;
+            border-radius: 5px;
+            display: inline-block;
+            /* display: inline-block;가 없으면 width랑 height가 통하지 않게 된다. */
+            width: 40px;
+            height: 60px;
+
+            /* 이제 배경이미지를 넣을 수 있다. 넣어보자 */
+            background: url(./imgs/bg_logo_a_01.png) no-repeat center/80%;
+            /* 그림자를 넣어보자. 참고로 그림자는 콤마로 추가해서 넣을 수 있다. */
+            box-shadow: 0 0 10px gray, 5px 5px 2px #ddd;
+
+            /* 인라인 요소간 세로 정렬 */
+            vertical-align: middle;
+            margin-left: 20px;
+        }
 
 
         /* dl요소 디자인 */
-        dl {
+        dl{
             width: 800px;
             max-width: 90%;
             /* 설정 크기보다 화면이 작아지면 90%적용 */
@@ -67,42 +97,78 @@
             margin-left: 50px;
         }
 
+        dt{
+            /* 마진 위 양쪽 아래 */
+            margin: 25px 0 15px;
+        }
+
         /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
-        
+        dt::before{
+            content: '🎀★';
+            font-size: 30px;
+            vertical-align: 2px;
+            color: pink;
+        }
 
         /* dd전체와 
         dd.story>h3에 가상요소 before적용하기 */
-        
-
+        dd::before,
+        dd.story>h3::before{
+            content: '🎃';
+            margin-right: 10px;
+        }
 
         /* 출연배우의 dd부터 아이콘변경 */
-        
+        dt:nth-of-type(2)~dd::before{
+            content: '🎇';
+        }
         /* 아티스트의 dd부터 아이콘변경 */
-        
+        dt:nth-of-type(3)~dd::before{
+            content: '🎆';
+        }
 
         /* 스토리의 dd는 가상요소 없애기 */
+        dd.story::before{
+            display: none;
+        }
         
         /* 스토리의 dd 아래 h3 이모지변경 */
-        
+        dd.story h3::before{
+            content: '⚔';
+        }
 
         /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
-        
+        .story p:nth-of-type(1)::first-letter{
+            font-size: 40px;
+            color: red;
+            font-weight: bold;
+        }
 
-        /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
-        
+        /* .story의 첫번째 p태그의 첫번째 줄 디자인 변경하기 */
+        .story p:nth-of-type(1)::first-line{
+            color: #a84141;
+        }
 
 
 
         /* 두번째 p태그는 태그로 
         첫번째 글자(b태그), 첫번째 줄(span)변경 */
-        
+        .story p:nth-of-type(2) b{
+            font-size: 40px;
+            color: red;
+        }
+        .story p:nth-of-type(2) span{
+            color: #a84141;
+        }
 
         /* 기타 가상요소 ::selection */
         /* 드래그 선택시 글자색 배경색 설정변경! */
-        
+        p::selection{
+            color: blue;
+            background-color: pink;
+        }
         /* ::selection만쓰면 전체가 다 적용됨! 
-        특정선택자::selection 으로 쓰면 자식태그로
-        싸지 않은 글자만 적용됨!*/
+        특정선택자::selection 으로 쓰면 자식 태그로 싸지 않은 글자만 적용됨!*/
     </style>
 </head>
 

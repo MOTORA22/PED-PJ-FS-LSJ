@@ -121,8 +121,9 @@
         h3{
             width: 800px;
             margin: 0 auto;
-            outline: 1px solid red;
             text-align: right;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         /* 
@@ -140,10 +141,10 @@
             list-style: none;
         }
 
-        /* ul 기본 리셋하기 */
-        ul.part1{
+        /* 부모박스 세팅하기 */
+        ul.part1, div.part2{
             width: 800px;
-            margin: 0 auto;
+            margin: 30px auto;
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 20px;
@@ -157,6 +158,8 @@
         /*
             [font 한번에 세팅하기] 
             font : 스타일 두께 크기/줄간격 글자체
+            반드시 2개 이상 사용해야 한다.
+            글자체는 반드시 들어가야 한다.
         */
 
         /* 모든 li에 오버시 손가락 모양으로 하기 */
@@ -246,6 +249,37 @@
             color: coral;
         }
 
+        /* 두번째 파트 
+        여러 종류의 요소가 섞여 있으면 first-of-type, nth-of-type(n), last-of type을 사용 */
+
+        /* 두번째 div 
+        font - 30px 궁서
+        글자색 - blueviolet */
+        .part2 div:nth-of-type(2){
+            font: 30px "궁서";
+            color: blueviolet;
+        }
+
+        /* 첫번째 i
+        font - bold 20px
+        글자색 - palevioletred*/
+        .part2 i:first-of-type{
+            font-weight: bold;
+            font-size: 20px;
+            color: palevioletred;
+        }
+
+        /* 세번째 div 이후 div 형제요소 모두
+        .part2 div:nth-of-type(3)~div{} */
+        /* 세번째 div 이후 i 형제요소 모두
+        .part2 div:nth-of-type(3)~i{} */
+        /* 세번째 div 이후 모든 형제요소 모두
+        .part2 div:nth-of-type(3)~*{} */
+
+        .part2 div:nth-of-type(3)~*{
+            font-family: "궁서";
+            color: rgb(190, 128, 47);
+        }
 
         /* 
         [ CSS 선택자 우선순위 ]
