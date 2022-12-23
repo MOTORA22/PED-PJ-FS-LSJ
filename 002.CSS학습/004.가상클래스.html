@@ -68,9 +68,183 @@
         - 포커스가 없어지는 상태를 blur(블러)라고함
 
         참고) 탭키를 눌러서 a요소의 포커스를 이동시킬 수 있음
-
     */
 
+        h1,h2{
+            text-align: center;
+        }
+
+         /* a 요소에 다양한 가상클래스 주기 */
+
+        /* :link 링크 최초상태 */
+        h2 a:link{
+            color: red;
+            text-decoration: none;
+        }
+        
+        /* :hover 마우스 오버시 */
+        h2 a:hover{
+            color: darkgreen;
+            text-decoration: overline;
+            text-decoration-style: wavy;
+        }
+
+        /* :visited 클릭 후 (방문 후) 상태 */
+        /* h2 a:visited{
+            color: lime;
+        } */
+
+        /* :active 클릭 왼쪽버튼을 누른상태 */
+        h2 a:active{
+            color: pink;
+            text-shadow: 2px 2px 2px #000;
+        }
+
+        /* 요즘은 a요소에 바로 세팅하고 :hover 정도만 변경해 준다. */
+        /* a 보다 a:가상클래스가 더 상위 요소이다. */
+        h2 a{
+            color: darkorange;
+        }
+
+        /* :focus 요소를 클릭/탭하여 초점이 올 때 */
+        h2 a:focus{
+            /* 외각선 : outline : ot
+            값 : 두께 종류 색상 (boder와 유사하다)
+            보더와의 차이점은 주변에 영향을 주지 않는다.
+            보더는 패딩 마진과 같이 외부 크기에 영향을 주지만 아웃라인은 아니다.
+            박스의 기본구성 속성이 아니다. 박스 바깥쪽에 위치하고 있다.
+            주로 포커스를 사용할 때 사용한다.*/
+            outline: 10px dotted orangered;
+        }
+
+        /* 시인 이름 */
+        h3{
+            width: 800px;
+            margin: 0 auto;
+            outline: 1px solid red;
+            text-align: right;
+        }
+
+        /* 
+            요소명.클래스명 / 요소명#아이디명
+            [종속 선택자를 쓰는 경우]
+            1. 개발자가 요소를 밝히고 싶을 때
+            2. 같은 클래스를 다르게 세팅할 때
+        */
+
+        /* ul/ol 요소 기본 초기화 */
+        ul,ol{
+            /* 3가지 없애기! */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* ul 기본 리셋하기 */
+        ul.part1{
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            /* 보더,패딩의 크기를 내부로 포함시키기
+            box-sizing: border-box; (bxb)*/
+            box-sizing: border-box;
+            /* 글자 중앙 */
+            text-align: center;
+        }
+
+        /*
+            [font 한번에 세팅하기] 
+            font : 스타일 두께 크기/줄간격 글자체
+        */
+
+        /* 모든 li에 오버시 손가락 모양으로 하기 */
+        .part1 li{
+            cursor: pointer;
+        }
+
+        /* 1번 li */
+        .part1 li:first-child{
+            /* 글자크기 40px 글자체 "궁서" 글자색 빨강 */
+            font : 40px "궁서";
+            color: red;
+        }
+        /* 마우스 오버 시 글자크기 50px 글자색 blueviolet */
+        .part1 li:first-child:hover{
+            font-size : 50px;
+            color: blueviolet;
+        }
+
+        /* 2번 li */
+        /* 글자두께 굵게 글자크기 30px 글자체 "굴림" 글자색 lightcoral*/
+        .part1 li:nth-child(2){
+            font : bold 30px "굴림";
+            color: lightcoral;
+        }
+        /* 마우스 오버 시 글자색 skyblue */
+        .part1 li:nth-child(2):hover{
+            color: skyblue;
+        }
+
+        /* 3번 li */
+        /* 글자스타일 italic 글자두께 굵게 글자크기 24px 글자체 "돋움" 글자색 brown*/
+        .part1 li:nth-child(3) {
+            font: italic bold 24px "돋움";
+            color: brown;
+        }
+        /* 마우스 오버 시 글자스타일 normal */
+        .part1 li:nth-child(3):hover {
+            font-style: normal;
+        }
+
+        /* 4번 li */
+        /* 글자크기 50px 글자체 "궁서" 글자색 dodgerblue*/
+        .part1 li:nth-child(4){
+            font: 50px "궁서";
+            color: dodgerblue;
+        }
+        /* 한글(b태그) 처음에 안보이게 하기 */
+        .part1 li:nth-child(4) b{
+            display: none;
+        }
+        /* 마우스 오버 시 한글(b태그) 보이게 하기 */
+        .part1 li:nth-child(4):hover b{
+            display: inline;
+        }
+        /* 마우스 오버 시 한자(span태그) 숨기기 */
+        .part1 li:nth-child(4):hover span{
+            display: none;
+        }
+        /* 마우스 오버 시 li에 노란 배경색 널기 */
+        .part1 li:nth-child(4):hover{
+            background-color: #ff0;
+        }
+
+        /* 4번 li 이후의 모든 li를 전부 세팅하기 */
+        /* 
+            틸드(~)(물결표 기호) : 다중 형제 선택
+            선택요소~요소명 : 선택요소 뒤에 있는 모든 형제 요소를 선택함
+        */
+        .part1 li:nth-child(4)~li{
+            font: 25px "고딕";
+            color: #ff7a90;
+        }
+        /* 마우스 오버 시 글자크기 28px 글자색 blue */
+        .part1 li:nth-child(4)~li:hover{
+            font-size: 28px;
+            color: #51c751;
+        }
+
+        /* 마지막 li 변경하기 */
+        /* 글자크기 40px 글자체 "맑은 고딕" 글자색 coral*/
+        /* li:nth-child(4)~li가 li:last-child보다 우선순위가 높다.
+        틸드(~) 선택자가 한단계 더 선택했기 때문이다. 상위요소를 써주면 쉽게 해결된다.
+        (!important는 가능하면 쓰지 말자) */
+        body .part1 li:last-child{
+            font: 40px "맑은고딕";
+            color: coral;
+        }
 
 
         /* 
