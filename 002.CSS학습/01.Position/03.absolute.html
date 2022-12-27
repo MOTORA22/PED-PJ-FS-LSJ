@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01. absolute 포지션</title>
+    <style>
+        .bx{
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 100px;
+        }
+
+        /* 첫번째 박스에 포지션 체크하기 */
+        /* 
+            [CSS의 표지션은 무엇일까?]
+            위치를 효과적으로 배치하기 위한 코딩법을 제공하는 속성
+        */
+        #a1{
+            /*
+                position: absolute; (poa) 앱솔루트
+            */
+            position: absolute;
+            background: url(./images/ab1.jpg) no-repeat center/cover;
+        }
+        #a2{
+            position: absolute;
+            background: url(./images/ab2.jpg) no-repeat center/cover;
+        }
+        #r1{
+            position: relative;
+            background: url(./images/ab3.jpg) no-repeat center/cover;
+        }
+        #r2{
+            position: relative;
+            background: url(./images/ab4.jpg) no-repeat center/cover;
+        }
+        #s1{
+            background: url(./images/ab5.jpg) no-repeat center/cover;
+        }
+        #s2{
+            background: url(./images/ab0.jpg) no-repeat center/cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="r1" class="bx">r1</div>
+    <div id="s1" class="bx">s1</div>
+    <div id="a1" class="bx">a1</div>
+    <div id="r2" class="bx">r2</div>
+    <div id="s2" class="bx">s2</div>
+    <div id="a2" class="bx">a2</div>
+</body>
+</html>
