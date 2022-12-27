@@ -17,24 +17,32 @@
             /* 기본적으로 인라인요소나 글자는 박스의 텍스트정렬로 셋팅한다! */
             /* 1번박스 - 가로중앙정렬*/
             .bx1{
+                text-align: center;
                 height: 100px;
+                line-height: 100px;
             }
             /* 2번박스 - 가로오른쪽정렬 */
             .bx2{
+                text-align: right;
                 /* 텍스트 정렬은 인라인요소에도 동일하게 적용! */
                 height: 100px;
             }
             /* 3번박스 - 이미지 가로중앙정렬 */
             .bx3{
+                text-align: center;
                 height: 200px;
             }
             /* 인라인 요소의 세로정렬은 일반적으로 line-height를 사용한다! */
             /* 4번박스 - 글자정중앙 */
             .bx4{
-                width: 400px;
+                width: auto;
+                /* 기존 공통 .bx에서 width가 세팅되어 있어서 max-width가 적용이 안되므로 이것을 auto로 한번 리셋을 해야한다. */
+                max-width: 400px;
                 height: 400px;
                 /* 박스자식요소 인라인 가로중앙 - text-align */
+                text-align: center;
                 /* 박스자식요소 인라인 세로중앙 - line-height */
+                line-height: 400px;
                 /* 
                     세로중앙은 높이값과 같은 값으로 설정!
                     -> 단, 한줄짜리 글자일때만 적용
@@ -42,7 +50,12 @@
                     방지하기 위해 white-space: nowrap;
                     줄바꿈방지 설정을 함!
                  */
-                 
+                 /* 이 줄바꿈 방지를 안하면 한줄짜리가 확대 혹은 윈도우 창 줄어들기로 인해 2줄이 되는데 line-height를 줘서 다음 줄이 엄청 아래에 나온다. */
+                white-space: nowrap;
+                /* 넘치는 자식 요소를 숨기기 */
+                overflow: hidden;
+                /* 넘치는 문자 ...말줄임표 세팅하기 */
+                text-overflow: ellipsis;
             }
 
             /* 5번박스 - 이미지 정중앙 */
@@ -51,18 +64,22 @@
                 height: 300px;
                 
                 /* 이미지도 텍스트 정렬이 동일하게 적용됨! */
+                text-align: center;
                 /* 300px + 이미지높이값 36px의 절반인 18px */
+                line-height: 318px;
                 /* 
                     이미지 세로중앙정렬은 이미지 높이값의 절반을
                     line-height에 더하여 셋팅한다!
-                 */
+                */
             }
             /* 6번박스 - 인라인 요소간 간격밀기 : 양쪽마진으로 밀어준다! */
             .bx6 i{
+                margin-right: 100px;
             }
             .bx6 strong{
                 /* 마진: 위 오른 아래 왼 */
-                /* 인라인요소의 위아래 마진은 적용되지 않는다! */
+                margin: 100px 50px 0 80px;
+                /* 인라인요소의 위아래 마진(100px)은 적용되지 않는다! */
             }
 
         </style>
