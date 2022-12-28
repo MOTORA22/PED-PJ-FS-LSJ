@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>01. absolute 포지션</title>
+    <style>
+        .bx{
+            width: 200px;
+            height: 150px;
+            border: 5px dotted #000;
+            text-align: center;
+            font-size: 50px;
+            color: #fff;
+            font-weight: bold;
+            line-height: 150px;
+        }
+
+        #a1{
+            /* position: absolute; */
+            background-color: red;
+        }
+
+        #a2{
+            /* position: absolute; */
+            background-color: orange;
+        }
+
+        #r1{
+            position: relative;
+            background-color: blue;
+        }
+
+        #r2{
+            position: relative;
+            background-color: cyan;
+        }
+
+        #s1{
+            position: static;
+            background-color: green;
+        }
+
+        #s2{
+            position: static;
+            background-color: rgb(114, 255, 133);
+        }
+
+        /* 부모를 찾는 absolute */
+        .bx2{
+            border: 2px dotted orange;
+            padding: 50px;
+            font-size: 24px;
+            text-align: center;
+        }
+        /* 각 부모 박스 */
+        .s5{
+            position: relative;
+            background-color: lightblue;
+        }
+        .s6{
+            position: relative;
+            background-color: lightcoral;
+        }
+        .s7{
+            position: relative;
+            background-color: lightgreen;
+        }
+        .s8{
+            position: relative;
+            background-color: lightgoldenrodyellow;
+        }
+
+        /* 부모를 찾는 absolute 박스 */
+        .abs{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            background: url(./images/ab1.jpg) no-repeat center/cover;
+        }
+        /* .a3는 위치 이동 값이 없으므로 자신을 감싼 박스 안에 젠틀하게 가만히 있는다. */
+        /* .a4는 위치 이동 값을 줘서 자신을 감싼 놈을 부모로 여기지 않고 자신의 부모를 찾을려고 날뛴다. */
+        .a4{
+            top: 0;
+            left: 0;
+            /* 나의 부모는? */
+        }
+
+        .a5{
+            position: absolute;
+            /* 따로 크기를 안주면 내용만큼만 늘어난다. */
+            top: 20%;
+            right: 10%;
+            outline: 2px solid red;
+        }
+        .a5 img{
+            vertical-align: top;
+            /* 박스에 단일한 이미지를 넣을 경우 하단에 약 4px의 간극이 자연스레 존재한다
+            그럼 이미지 자체에 vertical-align : top/middle/bottom중 하나를 주면 사라진다.*/
+        }
+
+        /* 블록 요소가 아닌 span도 absolute가 될 수 있나??? */
+        .spabs{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            /* 부모는 .s8이다. */
+            border: 4px dotted red;
+            /* 잘만 작동된다. absolute를 적용한 블록이 아닌 요소는 블록으로 바뀐다. */
+        }
+    </style>
+</head>
+<body>
+    <div id="r1" class="bx">r1</div>
+    <div id="s1" class="bx">s1</div>
+    <div id="a1" class="bx">a1</div>
+    <div id="r2" class="bx">r2</div>
+    <div id="s2" class="bx">s2</div>
+    <div id="a2" class="bx">a2</div>
+
+    <!--  -->
+    <div class="a5">
+        <img src="./images/ab2.jpg" alt="타노스">
+    </div>
+    <hr>
+    <br><br><br><br><br>
+    <hr>
+    <!-- 부모를 찾는 absolute -->
+    <div class="bx2 s5">s5
+        <div class="bx2 s6">s6
+            <div class="bx2 s7">s7
+                <div class="bx2 s8">s8
+                    <div class="abs a3">a3</div>
+                    <div class="abs a4">a4</div>
+                    <span class="spabs">
+                        나는 span absolute이다.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
