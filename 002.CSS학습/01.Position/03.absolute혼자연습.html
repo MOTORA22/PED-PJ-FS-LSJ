@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>01. absolute 포지션</title>
+    <title>01. absolute 포지션 혼자 연습</title>
     <style>
-        .bx{
+        /* 각 포지션별 위치 관계 */
+        .bx1{
             width: 200px;
             height: 150px;
             border: 5px dotted #000;
@@ -15,129 +16,144 @@
             line-height: 150px;
         }
 
-        #a1{
-            /* position: absolute; */
-            background-color: red;
+        .mom{
+            position: relative;
+            margin-left: 150px;
         }
 
+        #a1{
+            position: absolute;
+            background-color: red;
+            top: 50px;
+            left: 100px;
+        }
         #a2{
-            /* position: absolute; */
+            position: fixed;
             background-color: orange;
         }
 
         #r1{
             position: relative;
             background-color: blue;
+            
         }
-
         #r2{
             position: relative;
             background-color: cyan;
+            left: 150px;
         }
 
         #s1{
             position: static;
             background-color: green;
         }
-
         #s2{
             position: static;
             background-color: rgb(114, 255, 133);
         }
 
-        /* 부모를 찾는 absolute */
+        /* 부모 자격을 따지는 absolute */
         .bx2{
-            border: 2px dotted orange;
-            padding: 50px;
-            font-size: 24px;
+            border: 5px dotted orange;
+            padding: 30px;
+            font-size: 50px;
+            color: #fff;
             text-align: center;
         }
-        /* 각 부모 박스 */
-        .s5{
+
+        .ss1{
             position: relative;
             background-color: lightblue;
         }
-        .s6{
+        .ss2{
             position: relative;
             background-color: lightcoral;
         }
-        .s7{
+        .ss3{
             position: relative;
             background-color: lightgreen;
+            /* 부모의 영향력을 무시하는지 실험 1-1 */
+            color: red;
         }
-        .s8{
-            position: relative;
-            background-color: lightgoldenrodyellow;
+        .ss4{
+            /* position: relative; */
+            position: static;
+            background-color: rgb(250, 210, 245);
+            height: 500px;
+            /* 부모의 영향력을 무시하는지 실험 1-2 */
+            color: green;
         }
 
-        /* 부모를 찾는 absolute 박스 */
-        .abs{
+        .poa{
             position: absolute;
-            width: 50px;
+            width: 150px;
             height: 50px;
-            color: #fff;
-            background: url(./images/ab1.jpg) no-repeat center/cover;
+            line-height: 50px;
+            font-size: 25px;
+            /* color: #fff; */
+            background-color: rgb(116, 137, 255);
         }
-        /* .a3는 위치 이동 값이 없으므로 자신을 감싼 박스 안에 젠틀하게 가만히 있는다. */
-        /* .a4는 위치 이동 값을 줘서 자신을 감싼 놈을 부모로 여기지 않고 자신의 부모를 찾을려고 날뛴다. */
-        .a4{
-            top: 0;
+        /* .aa1은 위치 이동 값이 없으므로 자신을 감싼 박스 안에 젠틀하게 가만히 있는다.
+        이 때, 디폴트가 left top이라 좌측 상단에 고정되고 부모의 패딩의 영향을 받는다.*/
+
+        /* .aa2는 위치 이동 값을 줘서 자신을 감싼 놈을 부모로 여기지 않고 자신의 부모를 찾을려고 날뛴다. */
+        .aa2{
+            bottom: 0;
             left: 0;
-            /* 나의 부모는? */
+        }
+        
+        /* 블록 요소가 아닌 span도 absolute가 될 수 있을까??? */
+        .sppoa{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-size: 30px;
+            background-color: rgb(194, 255, 80);
+            border: 4px dotted red;
+            /* 잘만 작동된다. 현재 부모는 4세대고, absolute를 적용한 블록이 아닌 요소는 블록으로 바뀐다. */
         }
 
-        .a5{
+        /* 내용물에 맞춘 크기 변화 */
+        .flying{
             position: absolute;
-            /* 따로 크기를 안주면 내용만큼만 늘어난다. */
-            top: 20%;
-            right: 10%;
+            /* 따로 크기를 안주면 내용만큼만 늘어나거나 줄어든다. */
+            top: 30%;
+            right: 20%;
             outline: 2px solid red;
         }
-        .a5 img{
+        .flying img{
             vertical-align: top;
             /* 박스에 단일한 이미지를 넣을 경우 하단에 약 4px의 간극이 자연스레 존재한다
             그럼 이미지 자체에 vertical-align : top/middle/bottom중 하나를 주면 사라진다.*/
         }
-
-        /* 블록 요소가 아닌 span도 absolute가 될 수 있나??? */
-        .spabs{
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            /* 부모는 .s8이다. */
-            border: 4px dotted red;
-            /* 잘만 작동된다. absolute를 적용한 블록이 아닌 요소는 블록으로 바뀐다. */
-        }
     </style>
 </head>
 <body>
-    <div id="r1" class="bx">r1</div>
-    <div id="s1" class="bx">s1</div>
-    <div id="a1" class="bx">a1</div>
-    <div id="r2" class="bx">r2</div>
-    <div id="s2" class="bx">s2</div>
-    <div id="a2" class="bx">a2</div>
-
-    <!--  -->
-    <div class="a5">
-        <img src="./images/ab2.jpg" alt="타노스">
+    <div class="mom">
+        <div id="r1" class="bx1">r1</div>
+        <div id="s1" class="bx1">s1</div>
+        <div id="a1" class="bx1">a1</div>
+        <div id="r2" class="bx1">r2</div>
+        <div id="s2" class="bx1">s2</div>
+        <div id="a2" class="bx1">a2</div>
     </div>
     <hr>
-    <br><br><br><br><br>
-    <hr>
+
     <!-- 부모를 찾는 absolute -->
-    <div class="bx2 s5">s5
-        <div class="bx2 s6">s6
-            <div class="bx2 s7">s7
-                <div class="bx2 s8">s8
-                    <div class="abs a3">a3</div>
-                    <div class="abs a4">a4</div>
-                    <span class="spabs">
-                        나는 span absolute이다.
-                    </span>
+    <div class="bx2 ss1">1세대
+        <div class="bx2 ss2">2세대
+            <div class="bx2 ss3">3세대
+                <div class="bx2 ss4">4세대<br>입니다.
+                    <div class="poa aa1">5세대 첫째</div>
+                    <div class="poa aa2">5세대 둘째</div>
+                    <span class="sppoa">인라인 요소</span>
                 </div>
             </div>
         </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="flying">
+        <img src="./images/ab2.jpg" alt="타노스">
     </div>
 </body>
 </html>
