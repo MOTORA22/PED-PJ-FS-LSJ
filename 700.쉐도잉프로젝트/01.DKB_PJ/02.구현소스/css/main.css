@@ -50,7 +50,16 @@ body{
     /* 블록박스 옆으로 흐르게 하기 */
     float: left;
     /* 4등분할 가로크기 -> 25% */
-    width: 25%;
+    width: 24%;
+    margin: 0 .5%;
+}
+
+/* 캐릭터 이미지 박스 */
+.cat .ci{
+    transition: margin-top .4s;
+}
+.cat:hover .ci{
+    margin-top: -100%;
 }
 
 /* 캐릭터 이미지 (.ci 직계 img만 적용되도록 한다.) */
@@ -85,4 +94,43 @@ body{
 }
 .cat:hover .ci figcaption img:last-child{
     display: none;
+}
+
+/* 캐릭터 설명 박스 */
+.cd{
+    height: 0px;
+    /*
+        넘치는 자식 요소 y축 스크롤 세팅하는 2가지 방법
+        overflow-y: scroll;
+        overflow: auto; -> 세로로만 내용이 넘치면 자동으로 Y축 스크롤바 생성
+    */
+    overflow-y: scroll;
+    background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+    /*
+        트랜지션
+        두가지 변화 상태를 애니메이션해주는 속성
+        transition : 속성 시간 이징 지연
+    */
+    transition: height 0.5s;
+}
+/* .cat에 마우스 오버시 .cd값 높이기 */
+.cat:hover .cd{
+    height: 500px;
+}
+
+/* 캐릭터 설명 타이틀 */
+.cd h3{
+    font-family: 'Gugi', cursive;
+    font-size: 24px;
+    font-weight: normal;
+    padding: 15px 10px 5px;
+    letter-spacing: -1px;
+}
+/* 캐릭터 설명 문단 */
+.cd p{
+    font-family: 'Single Day','ZCOOL KuaiLe', cursive;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 10px;
+    text-align: justify;
 }
