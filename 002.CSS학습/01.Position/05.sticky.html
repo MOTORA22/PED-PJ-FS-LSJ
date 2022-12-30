@@ -22,7 +22,15 @@
                     도달할때 요소를 fixed하게 화면에 고정해준다!
                     -> 만약 top값을 설정하지 않으면
                     relative와 유사하게 그대로 위치함!
-
+                3. 주의사항 :
+                    1) 전체 스크롤시엔 적용요소가
+                        body 바로 아래 있어야한다.
+                    2) 부모요소 중 
+                        overflow: auto / hidden / scroll 이 적용된 경우 안됨
+                        (이유: 스크롤이 이용한 방법이기 때문-visible인 경우만됨)
+                    3) 특정 박스 하위요소인 경우 스티키는 박스내부에서만
+                        보이는 화면 기준으로 작동하기 때문에 
+                        반드시 height값이 셋팅되어 있어야함!
 
 
             **********************************/
@@ -42,7 +50,7 @@
         /* fixed 박스 공통 */
         .fxd{
             position: fixed;/* pof */
-          
+        
             width: 80%;
             height: 100px;
             text-align: center;
@@ -81,7 +89,7 @@
         #a1{
             position: absolute;
 
-          
+        
             background: url(./images/ab1.jpg) no-repeat center/cover;
 
         }
@@ -268,12 +276,24 @@
             vertical-align: middle;
         }
 
+        /* 스티키를 싸고 있는 .s7박스에 높이값 주기 -> 그래야 내부 박스의 스티키가 적용된다
+        그리고 overflow 설정을 유의하자 */
+        .s7{
+            /* overflow: visible; -> 가능 (기본 값)
+            overflow: hidden; -> 불가능
+            overflow: scroll; -> 불가능
+            overflow: auto; -> 불가능
+            심지어 부모가 아닌 조상 중에 오버플로우가 있어도 작동이 안된다. */
+            height: 600px;
+        }
+
         /* 스티키 버튼 */
         .stkbtn{
             position: sticky;
             top: 60%;
             /* top은 보이는 화면기준위치다! */
             font-size: 50px;
+            z-index: 999;
         }
     </style>
 </head>
@@ -332,6 +352,8 @@
                         <span>포스터보기</span>
                     </div>
                 </div>
+                <!-- 스티키 버튼 -->
+                <button class="stkbtn">나는 스티키!!</button>
             </div>
         </div>
     </div>
