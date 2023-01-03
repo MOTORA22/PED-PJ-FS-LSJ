@@ -28,7 +28,7 @@ body{
     /* 배경이미지 채우기 */
     background: url(../ab_img/bg01.png) no-repeat fixed center/cover;
     /* 전체 body를 넘칠 경우, 스크롤 바 숨기기 */
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 /* body의 높이 값을 보이는 화면에 맞추기 */
 html,body{
@@ -106,6 +106,9 @@ html,body{
     box-shadow: x y blur spread 색; */
     box-shadow: 0 0 50px 10px cyan,
     inset 0 0 20px lightblue;
+
+    /* 트랜지션 : 속시이지 trs */
+    transition: transform 0.8s ease-in-out;
 }
 
 /* 캐릭터 박스 */
@@ -162,11 +165,17 @@ html,body{
     /* 트랜지션 : 속시이지 trs */
     transition: transform 0.8s ease-in-out;
 }
-/* 오버 시 이미지 변경 */
-body:hover .cbx > img {
-    /* 트랜스폼 회전하기 tfry */
-    transform: rotateY(720deg);
+
+/* *********************************************** */
+/* 내가 생각한 트랜스폼 적용해 보기 : 5개의 작은 원이 큰원을 중심으로 나선형태로 회전하기 */
+body:hover .pknm01>.cbx{
+    transform: rotate(1080deg);
 }
+
+body:hover .pknm02{
+    transform: rotate(720deg);
+}
+/* *********************************************** */
 
 /* body에 오버 시 전체 opacity 보이게하기 */
 body:hover .cbx{
