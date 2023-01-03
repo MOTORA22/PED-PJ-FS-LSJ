@@ -159,6 +159,13 @@ html,body{
     border-radius: 50%;
     /* 글로우 효과 */
     box-shadow: 0 0 30px 10px lightgreen;
+    /* 트랜지션 : 속시이지 trs */
+    transition: transform 0.8s ease-in-out;
+}
+/* 오버 시 이미지 변경 */
+body:hover .cbx > img {
+    /* 트랜스폼 회전하기 tfry */
+    transform: rotateY(720deg);
 }
 
 /* body에 오버 시 전체 opacity 보이게하기 */

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>메일메일 스케줄</title>
     <style>
-        h1{
+        h1, h2{
             text-align: center;
         }
         /* 전체 스케줄 */
@@ -23,7 +23,7 @@
         }
         /* n교시 */
         .period{
-            width: 5%;
+            width: 50px;
             text-align: center;
         }
         a{
@@ -39,13 +39,13 @@
         .li01 td:nth-child(2),
         td:nth-child(1):not(.period){
             background-color: rgb(230, 230, 230);
-            width: 25%;
+            width: 22%;
         }
         /* 두번째 줄 */
         .li01 td:nth-child(3),
         td:nth-child(2):not(.main){
             background-color: rgb(245, 245, 245);
-            width: 35%;
+            width: 33%;
         }
         /* 쉬는 시간 */
         .schedule tr>.thr{
@@ -57,6 +57,7 @@
 <body>
     <div class="mom">
         <h1>데일리 스케줄</h1>
+        <h2>crtl + F 로 날짜를 입력해서 해당 테이블로 이동하세요.</h2>
         <table border="1" class="schedule">
             <th colspan="4">2022년 12월 14일 수요일</th>
             <tr class="li01">
@@ -2361,137 +2362,95 @@
                     <br>
                     <a href="" target='_blank'>유투브</a>
                     <br>
-                    <a href="" target='_blank'>깃허브</a>
+                    <a href="https://www.figma.com/file/XbHWrxbHCzNTIVMyjOMKA0/Desktop-Work?node-id=0%3A1&t=u0YlIfA8AMJGylZR-1" target='_blank'>피그마</a>
                 </td>
-                <td class="main">
-                    오늘의 일정 확인하기
-                </td>
-                
+                <td class="main">오늘의 일정 확인하기</td>
+                <td><a href="">네이버 블로그</a></td>
             </tr>
             <tr>
                 <td>프로토타이핑 학습하기</td>
                 <td>피그마 - 이벤트 컴포넌트 제작하기</td>
-                <td>서브02</td>
+                <td>Constraints: 프레임 변형시 같이 변형되기</td>
             </tr>
             <tr>
-                <td>내용03</td>
-                <td>서브01</td>
-                <td>서브02</td>
+                <td>프로토타이핑 학습하기</td>
+                <td>피그마 - 이벤트 컴포넌트 제작하기</td>
+                <td>Component에 Variant를 추가해서 이벤트 적용하기</td>
             </tr>
             <td colspan="4" class="thr"></td>
             <tr class="li01">
-                <td rowspan="3" class="period">
+                <td class="period">
                     2교시
                     <br>
                     <a href="" target='_blank'>유투브</a>
                     <br>
-                    <a href="" target='_blank'>깃허브</a>
+                    <a href="https://www.figma.com/file/XbHWrxbHCzNTIVMyjOMKA0/Desktop-Work?node-id=3%3A7&t=u0YlIfA8AMJGylZR-1" target='_blank'>피그마</a>
                 </td>
-                <td class="main">내용01</td>
-                <td>서브01</td>
-                <td>서브02</td>
-            </tr>
-            <tr>
-                <td>내용02</td>
-                <td>서브01</td>
-                <td>서브02</td>
-            </tr>
-            <tr>
-                <td>내용03</td>
-                <td>서브01</td>
-                <td>서브02</td>
+                <td class="main">프로토타이핑 학습하기</td>
+                <td>피그마 - 이벤트 컴포넌트 제작하기</td>
+                <td>Component에 Variant를 추가해서 이벤트 적용하기</td>
             </tr>
             <td colspan="4" class="thr"></td>
             <tr class="li01">
-                <td rowspan="3" class="period">
+                <td class="period">
                     3교시
                     <br>
                     <a href="" target='_blank'>유투브</a>
                     <br>
                     <a href="" target='_blank'>깃허브</a>
                 </td>
-                <td class="main">내용01</td>
-                <td>서브01</td>
-                <td>서브02</td>
-            </tr>
-            <tr>
-                <td>내용02</td>
-                <td>서브01</td>
-                <td>서브02</td>
-            </tr>
-            <tr>
-                <td>내용03</td>
-                <td>서브01</td>
-                <td>서브02</td>
+                <td class="main">CSS 학습하기</td>
+                <td>트랜스폼 속성의 종류 알아보기</td>
+                <td>축 회전</td>
             </tr>
             <td colspan="4" class="thr"></td>
             <tr class="li01">
-                <td rowspan="3" class="period">
+                <td class="period">
                     4교시
                     <br>
                     <a href="" target='_blank'>유투브</a>
                     <br>
                     <a href="" target='_blank'>깃허브</a>
                 </td>
-                <td class="main">내용01</td>
-                <td>서브01</td>
-                <td>서브02</td>
-            </tr>
-            <tr>
-                <td>내용02</td>
-                <td>서브01</td>
-                <td>서브02</td>
-            </tr>
-            <tr>
-                <td>내용03</td>
-                <td>서브01</td>
-                <td>서브02</td>
+                <td class="main">CSS 학습하기</td>
+                <td>트랜스폼 속성의 종류 알아보기</td>
+                <td>축 이동</td>
             </tr>
             <td colspan="4" class="thr"></td>
             <tr class="li01">
-                <td rowspan="3" class="period">
+                <td rowspan="2" class="period">
                     5교시
                     <br>
                     <a href="" target='_blank'>유투브</a>
                     <br>
                     <a href="" target='_blank'>깃허브</a>
                 </td>
-                <td class="main">내용01</td>
-                <td>서브01</td>
-                <td>서브02</td>
+                <td class="main">CSS 학습하기</td>
+                <td>트랜스폼 속성의 종류 알아보기</td>
+                <td>축 복합 이동, 원형 회전, 원형 회전축 변경, 기울이기, 스케일 적용</td>
             </tr>
             <tr>
-                <td>내용02</td>
-                <td>서브01</td>
-                <td>서브02</td>
-            </tr>
-            <tr>
-                <td>내용03</td>
-                <td>서브01</td>
-                <td>서브02</td>
+                <td>CSS 학습하기</td>
+                <td>트랜스폼 속성의 종류 알아보기</td>
+                <td>어제 작업한 어벤져스에 트랜스폼 적용하기</td>
             </tr>
             <td colspan="4" class="thr"></td>
             <tr class="li01">
-                <td rowspan="3" class="period">
+                <td rowspan="2" class="period">
                     6교시
                     <br>
                     <a href="" target='_blank'>유투브</a>
                     <br>
                     <a href="" target='_blank'>깃허브</a>
                 </td>
-                <td class="main">내용01</td>
-                <td>서브01</td>
-                <td>서브02</td>
+                <td class="main">CSS 학습하기</td>
+                <td>트랜스폼 속성의 종류 알아보기</td>
+                <td>앞뒤로 있는 이미지 뒤집기</td>
             </tr>
             <tr>
-                <td>내용02</td>
-                <td>서브01</td>
-                <td>서브02</td>
-            </tr>
-            <tr>
-                <td>내용03</td>
-                <td>서브01</td>
-                <td>서브02</td>
+                <td>CSS 학습하기</td>
+                <td>트랜스폼 속성의 종류 알아보기</td>
+                <td>스타벅스로 트랜스폼 응용하기</td>
             </tr>
             <td colspan="4" class="thr"></td>
             <tr class="li01">
