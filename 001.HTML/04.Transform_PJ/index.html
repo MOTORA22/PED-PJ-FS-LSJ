@@ -33,6 +33,7 @@
             border-radius: 20px;
             padding: 20px;
             margin: 100px auto;
+            box-sizing: border-box;
         }
 
         /* 가상 요소로 clear 세팅 */
@@ -63,13 +64,56 @@
             - 선택 요소의 크기, 회전, 이동, 기울임 등 변형을 하기 위한 속성
             - 2D, 3D 전부 지원됨
             * deg는 각도의 단위(도: degree)
-            1. rotate(각도deg) - y축 회전
+
+            1. rotateY(각도deg) - y축 회전 (tfry)
+            2. rotateX(각도deg) - X축 회전 (tfrx)
+            3. translateX(거리) - X축 이동 (tftx)
+            - 단위 : px, % 등
+            - 현재 위치로부터 이동
+            - 기준점은 요소의 왼쪽
+            - % 단위를 쓸경우 기준은 요소의 width값
+            - 이동방향: + 오른쪽, -는 왼쪽
+            4. translateY(거리) - Y축 이동 (tfty)
+            - 단위 : px, % 등
+            - 현재 위치로부터 이동
+            - 기준점은 요소의 윗쪽
+            - % 단위를 쓸경우 기준은 요소의 height값
+            - 이동방향: + 아랫쪽, -는 윗쪽
         */
 
         #trans01:hover img{
             /* 트랜스폼 y축 회전 (tfry) */
             transform: rotateY(180deg);
-            /* CSS 필터 적용하기 */
+            /*
+            CSS 필터 적용하기
+            필터 속성은 흑백, 흐림, 세피아, 명암, 채도 등 출력 이미지를 변경하고자 할때 사용하는 속성이다.
+            (참고) 
+            https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px)
+            */
+            filter: grayscale(100%);
+        }
+
+        #trans02 img{
+            /* 트랜스폼 X축 회전 (tfrx) */
+            transform: rotateX(180deg);
+            /* 필터 흐림 효과 */
+            filter: blur(2px);
+        }
+        #trans02:hover img{
+            /* 트랜스폼 X축 회전 (tfrx) */
+            transform: rotateX(0deg);
+            /* 흐림 복원 */
+            filter: blur(0px);
+        }
+
+        #trans03:hover img{
+            /* 트랜스폼 X축 위치 이동 (tftx) */
+            transform: translateX(-50%);
+        }
+
+        #trans04:hover img{
+            /* 트랜스폼 Y축 위치 이동 (tfty) */
+            transform: translateY(200%);
         }
     </style>
 </head>
