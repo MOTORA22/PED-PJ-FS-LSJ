@@ -39,7 +39,7 @@ animation: 이시이지반방마
 /* 1-2. 키프레임 호출설정! - 대상  */
 .robx{
     /* 애니메이션: 이시이지반방마 */
-    animation: showRobot 2s ease-in-out .5s 3;
+    /* animation: showRobot 2s ease-in-out .5s 3; */
 }
 
 
@@ -106,6 +106,78 @@ animation: 이시이지반방마
 .head::before{
     animation-name: hair_change;
     animation-duration:8s;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-fill-mode: none;
+}
+
+@keyframes move_mouth{
+    0%{
+        height: 80px;
+        top: 55%;
+    }
+    50%{
+        height: 40px;
+        top: 65%;
+    }
+    100%{
+        height: 80px;
+        top: 55%;
+    }
+}
+.mouth{
+    animation-name: move_mouth;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-fill-mode: none;
+}
+
+@keyframes move_eye{
+    0%{
+        translate: 0 0;
+    }
+    25%{
+        translate: -20% 0;
+    }
+    50%{
+        translate: -20% -20%;
+    }
+    75%{
+        translate: 0 -20%;
+    }
+    100%{
+        translate: 0 0;
+    }
+}
+.L_eye{
+    animation-name: move_eye;
+    animation-duration:.5s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-fill-mode: none;
+}
+
+@keyframes turn_eye{
+    0%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.R_eye{
+    animation-name: turn_eye;
+    animation-duration:.5s;
     animation-iteration-count:infinite;
     animation-direction:normal;
     animation-fill-mode: none;
