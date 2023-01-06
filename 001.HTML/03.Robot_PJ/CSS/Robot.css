@@ -43,10 +43,19 @@ body *{
 }
 /* 2-1-1. 로봇 머리 */
 .head{
-width: 250px;
-height: 250px;
-margin: 0 auto;
+    /* 하위 div들을 위한 부모 자격 부여 */
+    position: relative;
+
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 25% 25% 50% 50%;
 }
+/* 로봇 머리 직계 하위 div는 모두 앱솔루트 */
+.head>div{
+    position: absolute;
+}
+
 /* 2-1-1. 눈 공통 클래스 */
 .eye{
     width: 50px;
@@ -66,15 +75,48 @@ margin: 0 auto;
 /* 2-1-1. 왼쪽 눈 */
 .L_eye{
     background-image: url(../images/eye-L.png);
+    top: 43px;
+    left: 50px;
 }
 /* 2-1-1. 오른쪽 눈 */
 .R_eye{
+    top: 57px;
+    right: 50px;
     background-image: url(../images/eye-R.png);
 }
+/* 2-1-1. 귀 공통 클래스 */
+.ear{
+    top: 60px;
+    width: 50px;
+    height: 70px;
+}
 /* 2-1-1. 왼쪽 귀 */
+.L_ear{
+    left: -50px;
+    border-radius: 35px 0 0 60px;
+}
 /* 2-1-1. 오른쪽 귀 */
+.R_ear{
+    left: 250px;
+    border-radius: 0 35px 60px 0;
+}
 /* 2-1-1. 코 */
+.nose{
+    width: 40px;
+    height: 40px;
+    background: url(../images/nose.jpg) no-repeat 0/110% 100%;
+    top: 45%;
+    left: calc(50% - 20px);
+    border-radius: 20%;
+}
 /* 2-1-1. 입 */
+.mouth{
+    width: 200px;
+    height: 80px;
+    background: url(../images/mouth.png) no-repeat 0/100% 100%;
+    top: 55%;
+    left: calc(50% - 100px);
+}
 
 
 /*********************************** 3. 하단 영역 ***********************************/
