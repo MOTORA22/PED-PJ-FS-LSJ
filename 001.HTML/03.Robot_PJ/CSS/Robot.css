@@ -37,19 +37,21 @@ body *{
 
 /*********************************** 2. 메인 영역 ***********************************/
 
-/* 2-1. 로봇 박스 */
+/***************
+2-1. 로봇 박스
+***************/
 .robx{
     padding: 200px 0 400px;
 }
-/* 2-1-1. 로봇 머리 */
+/***** 2-1-1. 로봇 머리 *****/
 .head{
     /* 하위 div들을 위한 부모 자격 부여 */
     position: relative;
 
-    width: 250px;
+    width: 200px;
     height: 250px;
     margin: 0 auto;
-    border-radius: 30% 30% 50% 50%;
+    border-radius: 50% 50% 100% 100%;
 }
 /* 로봇 머리 직계 하위 div는 모두 앱솔루트 */
 .head>div{
@@ -62,14 +64,13 @@ body *{
     display: block;
     position: absolute;
     /* 이때 부모는 .head */
-    top: -95px;
-    left: -150px;
-    width: 550px;
-    height: 500px;
+    top: -75px;
+    left: -147px;
+    width: 500px;
+    height: 400px;
     /* background-color: #900; */
-    background: url(../images/hair2.png) no-repeat center/100% 100%;
+    background: url(../images/hair01.png) no-repeat center/100% 100%;
 }
-
 
 /* 2-1-1. 눈 공통 클래스 */
 .eye{
@@ -91,48 +92,139 @@ body *{
 .L_eye{
     background-image: url(../images/eye-L.png);
     top: 53px;
-    left: 50px;
+    left: 28px;
 }
 /* 2-1-1. 오른쪽 눈 */
 .R_eye{
     top: 67px;
-    right: 50px;
+    right: 25px;
     background-image: url(../images/eye-R.png);
 }
+/* 눈물점으로 별 박아보기 */
+.R_eye::before{
+    content: '';
+    display: block;
+    position: absolute;
+    /* 부모는? R_eye */
+    top: 40px;
+    right: -15px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+
+    /* 클리핑으로 별 만들기 */
+    clip-path: polygon(50% 0,63% 37%,100% 37%,70% 62%,80% 100%,50% 77%,20% 100%,30% 62%,0 37%,37% 37%);
+
+    /* 
+    [ css 클리핑 속성 ]
+    -> clip-path (cpp) : polygon(x1 y1,x2 y2, ...)
+    -> 각 좌표위치는 띄어쓰기로 구분, 각 점은 콤마로 구분한다.
+    -> 각 점을 연결하는 도형을 출력
+    -> px는 각 도형의 크기를 수치로 쓰고
+    -> %는 도형을 기준한 위치를 사용한다.
+    */
+}
+
 /* 2-1-1. 귀 공통 클래스 */
 .ear{
-    top: 70px;
-    width: 50px;
-    height: 70px;
+    top: 90px;
+    width: 30px;
+    height: 50px;
 }
 /* 2-1-1. 왼쪽 귀 */
 .L_ear{
-    left: -50px;
+    left: -30px;
     border-radius: 35px 0 0 60px;
 }
 /* 2-1-1. 오른쪽 귀 */
 .R_ear{
-    left: 250px;
+    left: 200px;
     border-radius: 0 35px 60px 0;
 }
+
 /* 2-1-1. 코 */
 .nose{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background: url(../images/nose.jpg) no-repeat 0/110% 100%;
     top: 50%;
-    left: calc(50% - 20px);
+    left: calc(50% - 15px);
     border-radius: 20%;
 }
+
 /* 2-1-1. 입 */
 .mouth{
-    width: 200px;
+    width: 160px;
     height: 80px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
     top: 55%;
-    left: calc(50% - 100px);
+    left: calc(50% - 80px);
 }
 
+/***************
+2-2. 로봇 몸통
+***************/
+.body{
+    position: relative;
+    /* 하위 div들을 위한 부모 자격 부여 */
+    width: 200px;
+    height: 400px;
+    margin: 50px auto 0;
+}
+/* 로봇 몸통 직계 하위 div는 모두 앱솔루트 */
+.body>div{
+    position: absolute;
+}
 
+/* 몸통 가상요소로 상단만들기 */
+.body::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: -50px;
+    width: 300px;
+    height: 150px;
+    /* 그라데이션 */
+    background-image: 
+    linear-gradient(-25deg,#eee, #818181,#e2e2e2,#acacac);
+    /* 몸깍기 */
+    clip-path: 
+    polygon(0 0,10% 100%,90% 100%,100% 0);
+}
+
+/* 몸통 가상요소로 하단만들기 */
+.body::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: -50px;
+    width: 300px;
+    height: 150px;
+    /* 그라데이션 */
+    background-image: 
+    linear-gradient(-25deg,rgb(0, 217, 255), #4feaff,#038ef8,#02e6ff);
+    
+    /* 몸깍기 */
+    clip-path: 
+    polygon(10% 0,0 20%,0 50%,10% 100%,90% 100%,100% 50%,100% 20%,90% 0);
+}
+
+/* 2-2-1. 목 */
+.neck{
+    top: -70px;
+    left: 75px;
+    width: 50px;
+    height: 90px;
+    border-radius: 0 0 20px 20px;
+    z-index: -1;
+}
+/* 2-2-1. 왼팔 */
+/* 2-2-1. 오른팔 */
+/* 2-2-1. 왼다리 */
+/* 2-2-1. 오른다리 */
+/* 2-2-1. 왼어깨 */
+/* 2-2-1. 오른어깨 */
+/* 2-2-1. TV */
 /*********************************** 3. 하단 영역 ***********************************/
 
