@@ -1,1 +1,81 @@
 @charset "utf-8";
+
+/* 로봇 PJ 메인 CSS - Robot.css */
+
+/* 초기화 */
+html,body,h1,h2,p,ol,ul{
+    margin: 0;
+    padding: 0;
+}
+
+/*********************************** 공통 클래스 ***********************************/
+
+/* 메탈 소재1 배경 */
+.mt1{
+    background: url(../images/metal01.jpg) no-repeat center/cover;
+}
+/* 메탈 소재2 배경 */
+.mt2{
+    background: url(../images/metal02.jpg) no-repeat center/cover;
+}
+
+
+body{
+    background: url(../images/bg.jpg) no-repeat fixed top/cover;
+}
+
+/* 코딩 중에 가독성을 위한 임시 표시 */
+body *{
+    outline: 2px dashed yellow;
+}
+
+/*********************************** 1. 상단 영역 ***********************************/
+
+/* 1-1. 로고 */
+/* 1-2. 링크 타이틀 */
+/* 1-3. 탑 이동 버튼 */
+
+/*********************************** 2. 메인 영역 ***********************************/
+
+/* 2-1. 로봇 박스 */
+.robx{
+    padding: 200px 0 400px;
+}
+/* 2-1-1. 로봇 머리 */
+.head{
+width: 250px;
+height: 250px;
+margin: 0 auto;
+}
+/* 2-1-1. 눈 공통 클래스 */
+.eye{
+    width: 50px;
+    height: 50px;
+
+    /* 배경 공통 */
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+    /* 둥근 모서리 */
+    border-radius: 50%;
+    /* 보더 이중선 */
+    border: 4px double #000;
+}
+/* 2-1-1. 왼쪽 눈 */
+.L_eye{
+    background-image: url(../images/eye-L.png);
+}
+/* 2-1-1. 오른쪽 눈 */
+.R_eye{
+    background-image: url(../images/eye-R.png);
+}
+/* 2-1-1. 왼쪽 귀 */
+/* 2-1-1. 오른쪽 귀 */
+/* 2-1-1. 코 */
+/* 2-1-1. 입 */
+
+
+/*********************************** 3. 하단 영역 ***********************************/
+
