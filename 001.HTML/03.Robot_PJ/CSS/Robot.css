@@ -49,12 +49,27 @@ body *{
     width: 250px;
     height: 250px;
     margin: 0 auto;
-    border-radius: 25% 25% 50% 50%;
+    border-radius: 30% 30% 50% 50%;
 }
 /* 로봇 머리 직계 하위 div는 모두 앱솔루트 */
 .head>div{
     position: absolute;
 }
+
+/* 로봇 머리에 가상요소로 머리털 박스 만들기 */
+.head::before{
+    content: '';
+    display: block;
+    position: absolute;
+    /* 이때 부모는 .head */
+    top: -95px;
+    left: -150px;
+    width: 550px;
+    height: 500px;
+    /* background-color: #900; */
+    background: url(../images/hair2.png) no-repeat center/100% 100%;
+}
+
 
 /* 2-1-1. 눈 공통 클래스 */
 .eye{
@@ -75,18 +90,18 @@ body *{
 /* 2-1-1. 왼쪽 눈 */
 .L_eye{
     background-image: url(../images/eye-L.png);
-    top: 43px;
+    top: 53px;
     left: 50px;
 }
 /* 2-1-1. 오른쪽 눈 */
 .R_eye{
-    top: 57px;
+    top: 67px;
     right: 50px;
     background-image: url(../images/eye-R.png);
 }
 /* 2-1-1. 귀 공통 클래스 */
 .ear{
-    top: 60px;
+    top: 70px;
     width: 50px;
     height: 70px;
 }
@@ -105,7 +120,7 @@ body *{
     width: 40px;
     height: 40px;
     background: url(../images/nose.jpg) no-repeat 0/110% 100%;
-    top: 45%;
+    top: 50%;
     left: calc(50% - 20px);
     border-radius: 20%;
 }
