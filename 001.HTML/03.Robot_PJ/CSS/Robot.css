@@ -48,7 +48,7 @@ body *{
     /* 하위 div들을 위한 부모 자격 부여 */
     position: relative;
     z-index: 1;
-    
+
     width: 200px;
     height: 250px;
     margin: 0 auto;
@@ -168,29 +168,38 @@ body *{
 .body{
     position: relative;
     /* 하위 div들을 위한 부모 자격 부여 */
-    width: 200px;
+    z-index: -2;
+    width: 100px;
     height: 400px;
-    margin: 50px auto 0;
+    margin: 30px auto 0;
+    
+    /* clip-path: polygon(0 0,100% 0,90% 50%,100% 100%,0 100%,10% 50%);
+    overflow: none; 
+    클리핑으로 개미 허리를 만들려고 했지만 클리핑을 하면 기본으로 오버플로우 히든 기능이 있어서 팔 다리가 전부 가려진다.
+    오버플로우 논을 입력해도 풀리지 않는다. */
 }
 /* 로봇 몸통 직계 하위 div는 모두 앱솔루트 */
 .body>div{
     position: absolute;
 }
 
+/* 개미허리를 body에서 만들 수 없었으니 body의 width 값을 200에서 좀 줄이고 가상요소로 위에 덧붙이자. */
 /* 몸통 가상요소로 상단만들기 */
 .body::before{
     content: '';
     display: block;
     position: absolute;
+    /* z-index: -1; */
     left: -50px;
-    width: 300px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     /* 그라데이션 */
     background-image: 
-    linear-gradient(-25deg,#eee, #818181,#e2e2e2,#acacac);
+    linear-gradient(-25deg,rgb(255, 230, 240), rgb(255, 129, 200),rgb(255, 220, 235),rgb(255, 172, 200));
+    /* linear-gradient(-25deg,#eee, #818181,#e2e2e2,#acacac); */
     /* 몸깍기 */
     clip-path: 
-    polygon(0 0,10% 100%,90% 100%,100% 0);
+    polygon(0 0,2% 10%,4% 30%,5% 50%,12% 65%,15% 75%,17% 80%,25% 100%,75% 100%,83% 80%,85% 75%,88% 65%,95% 50%,96% 30%,98% 10%,100% 0);
 }
 
 /* 몸통 가상요소로 하단만들기 */
@@ -198,9 +207,10 @@ body *{
     content: '';
     display: block;
     position: absolute;
+    /* z-index: -1; */
     bottom: 0;
     left: -50px;
-    width: 300px;
+    width: 200px;
     height: 150px;
     /* 그라데이션 */
     background-image: 
@@ -213,18 +223,111 @@ body *{
 
 /* 2-2-1. 목 */
 .neck{
-    top: -70px;
-    left: 75px;
-    width: 50px;
-    height: 90px;
+    top: -40px;
+    left: 35px;
+    width: 30px;
+    height: 60px;
     border-radius: 0 0 20px 20px;
 }
+
+/* 2-2-1. 팔 공통 클래스 */
+.arm{
+    width: 40px;
+    height: 150px;
+    z-index: -1;
+    border-radius: 15px 15px 5px 5px;
+    transform-origin: center 20px;
+}
+/* 공통 팔에 가상 요소로 팔꿈치 만들기 */
+.arm::before{
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    bottom: -12%;
+    width: 36px;
+    height: 36px;
+    border: 3px solid #333;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+/* 손~팔꿈치 구현 */
+.arm span{
+    position: absolute;
+    /* 부모는? arm */
+    left: 3px;
+    top: 150px;
+    width: 34px;
+    height: 120px;
+    border-radius: 5px 5px 15px 15px;
+}
+/* 공통 팔 하단에 가상 요소로 손 공간 만들기 */
+.arm span::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -80px;
+    width: 50px;
+    height: 80px;
+    outline: 1px solid red;
+}
 /* 2-2-1. 왼팔 */
+.L_arm{
+    top: 10px;
+    left: -85px;
+    transform: rotate(30deg);
+}
+/* 왼팔 하단 */
+.L_arm span{
+    transform: rotate(270deg);
+    transform-origin: center 0;
+}
+/* 왼 손 */
+.L_arm span::after{
+    background: url(../images/hand_left.png) no-repeat top/100%;
+    left: -5px;
+}
 /* 2-2-1. 오른팔 */
+.R_arm{
+    top: 10px;
+    left: 145px;
+    transform: rotate(350deg);
+    /* transform: rotateX(180deg); */
+}
+/* 오른팔 하단 */
+.R_arm span{
+    transform: rotate(350deg);
+    /* transform: rotateX(40deg); */
+    transform-origin: center 0;
+}
+/* 오른 손 */
+.R_arm span::after{
+    background: url(../images/hand_right.png) no-repeat top/100%;
+    left: -12px;
+}
+
 /* 2-2-1. 왼다리 */
 /* 2-2-1. 오른다리 */
+
+/* 2-2-1. 어깨 공통 클래스 */
+.shd{
+    width: 40px;
+    height: 50px;
+}
 /* 2-2-1. 왼어깨 */
+.L_shd{
+    left: -90px;
+    transform-origin: right top;
+    transform: rotate(346deg);
+    border-radius: 20px 0 20px 20px;
+}
 /* 2-2-1. 오른어깨 */
+.R_shd{
+    left: 150px;
+    transform-origin: left top;
+    transform: rotate(14deg);
+    border-radius: 0 20px 20px 20px;
+}
 /* 2-2-1. TV */
 /*********************************** 3. 하단 영역 ***********************************/
 
