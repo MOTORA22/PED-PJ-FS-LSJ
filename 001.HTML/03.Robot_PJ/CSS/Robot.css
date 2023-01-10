@@ -19,16 +19,17 @@ html,body,h1,h2,p,ol,ul{
     background: url(../images/metal02.jpg) no-repeat center/cover;
 }
 
-
+/* html{
+    overflow: hidden;
+} */
 body{
     background: url(../images/bg.jpg) no-repeat fixed top/cover;
-    margin-top: -150px;
 }
 
 /* 코딩 중에 가독성을 위한 임시 표시 */
-body *{
-    /* outline: 2px dashed yellow; */
-}
+/* body *{
+    outline: 2px dashed yellow;
+} */
 
 /*********************************** 1. 상단 영역 ***********************************/
 
@@ -42,8 +43,11 @@ body *{
 2-1. 로봇 박스
 ***************/
 .robx{
-    padding: 200px 0 400px;
+    /* padding: 100px 0 600px; */
 }
+/* .robx>div{
+    transform-origin: 100px 2000px;
+} */
 /***** 2-1-1. 로봇 머리 *****/
 .head{
     /* 하위 div들을 위한 부모 자격 부여 */
@@ -113,13 +117,16 @@ body *{
     background-image: url(../images/eye-R.png);
 }
 /* 눈물점으로 별 박아보기 */
-.R_eye::before{
+/* .R_eye::after{ 
+    오른쪽 눈이 회전할 때 별도 같이 돌아서 별을 귀에다 박는다.*/
+.R_ear::before{
     content: '';
     display: block;
     position: absolute;
+    z-index: 1;
     /* 부모는? R_eye */
-    top: 15px;
-    right: -8px;
+    top: 18px;
+    right: 20px;
     width: 10px;
     height: 10px;
     background-color: red;
@@ -326,16 +333,15 @@ body *{
     left: -5px;
 }
 /* 2-2-1. 오른팔 */
-.R_arm{
+.R_arm_plus{
     top: 10px;
     left: 145px;
+    transform-origin: center 20px;
     transform: rotate(350deg);
-    /* transform: rotateX(180deg); */
 }
 /* 오른팔 하단 */
 .R_arm span{
-    transform: rotate(350deg);
-    /* transform: rotateX(40deg); */
+    /* transform: rotate(350deg); */
     transform-origin: center 0;
 }
 /* 오른 손 */
