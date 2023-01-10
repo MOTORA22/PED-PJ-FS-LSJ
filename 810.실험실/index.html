@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쥬얼리 사이트</title>
+    <!-- https://rouvenat.com/ -->
     <style>
         html,body{
             margin: 0;
@@ -31,6 +32,31 @@
             가로 : left, center, right, 수치 값
             세로 : top, center, bottom, 수치 값 */
         }
+
+        /* 테스트할 페이지 */
+        .tpg{
+            /* 기존 높이 값 100% 해제하기 */
+            height: auto;
+        }
+        .tpg img{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 50px;
+        }
+
+        .mm{
+            text-align: center;
+        }
+        .mm img{
+            width: 50%;
+        }
+
+        #stk{
+            position: sticky;
+            top: 0;
+            /* 부모 박스 범위 안에서 fixed처럼 상단에 고정했다가 범위가 끝나면 부모 박스와 함께 위로 static하게 올라간다. */
+        }
     </style>
 </head>
 <body>
@@ -52,21 +78,24 @@
         </div>
     </section>
 
-    <section>
-        <div>
-            <img src="./쥬얼리사이트/images/5.jpg" alt="이미지">
+    <section class="tpg">
+        <div class="mm">
+            <!-- 멈출 스틱키 이미지 -->
+            <img id="stk" src="./쥬얼리사이트/images/5.jpg" alt="이미지">
         </div>
         <div>
             <img src="./쥬얼리사이트/images/6.png" alt="이미지">
+            <img src="./쥬얼리사이트/images/7.png" alt="이미지">
+            <img src="./쥬얼리사이트/images/8.png" alt="이미지">
         </div>
     </section>
 
     <section>
         <div>
-            <img src="./쥬얼리사이트/images/7.png" alt="이미지">
+            <img src="./쥬얼리사이트/images/1.jpg" alt="이미지">
         </div>
         <div>
-            <img src="./쥬얼리사이트/images/8.png" alt="이미지">
+            <img src="./쥬얼리사이트/images/2.png" alt="이미지">
         </div>
     </section>
 </body>
