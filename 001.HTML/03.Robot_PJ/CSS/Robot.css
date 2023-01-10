@@ -22,11 +22,12 @@ html,body,h1,h2,p,ol,ul{
 
 body{
     background: url(../images/bg.jpg) no-repeat fixed top/cover;
+    margin-top: -150px;
 }
 
 /* 코딩 중에 가독성을 위한 임시 표시 */
 body *{
-    outline: 2px dashed yellow;
+    /* outline: 2px dashed yellow; */
 }
 
 /*********************************** 1. 상단 영역 ***********************************/
@@ -49,34 +50,45 @@ body *{
     position: relative;
     z-index: 1;
 
-    width: 200px;
-    height: 250px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
-    border-radius: 50% 50% 100% 100%;
+    
 }
 /* 로봇 머리 직계 하위 div는 모두 앱솔루트 */
 .head>div{
     position: absolute;
 }
-
-/* 로봇 머리에 가상요소로 머리털 박스 만들기 */
+/* 각진 턱을 만들어주기 */
 .head::before{
     content: '';
     display: block;
     position: absolute;
     /* 이때 부모는 .head */
-    top: -75px;
-    left: -147px;
-    width: 500px;
-    height: 400px;
-    /* background-color: #900; */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: url(../images/metal01.jpg) no-repeat center/cover;
+    clip-path: polygon(0 0,0 50%,15% 75%,25% 85%,50% 100%,75% 85%,85% 75%,100% 50%,100% 0);
+    
+}
+/* 로봇 머리에 가상요소로 머리털 박스 만들기 */
+.head::after{
+    content: '';
+    display: block;
+    position: absolute;
+    /* 이때 부모는 .head */
+    top: -35px;
+    left: -50px;
+    width: 200px;
+    height: 220px;
     background: url(../images/hair01.png) no-repeat center/100% 100%;
 }
 
 /* 2-1-1. 눈 공통 클래스 */
 .eye{
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
 
     /* 배경 공통 */
     background-color: #fff;
@@ -86,19 +98,18 @@ body *{
 
     /* 둥근 모서리 */
     border-radius: 50%;
-    /* 보더 이중선 */
-    border: 4px double #000;
+    border: 1px solid rgb(255, 172, 172);
 }
 /* 2-1-1. 왼쪽 눈 */
 .L_eye{
     background-image: url(../images/eye-L.png);
-    top: 53px;
-    left: 28px;
+    top: 27px;
+    left: 20px;
 }
 /* 2-1-1. 오른쪽 눈 */
 .R_eye{
-    top: 67px;
-    right: 25px;
+    top: 33px;
+    right: 23px;
     background-image: url(../images/eye-R.png);
 }
 /* 눈물점으로 별 박아보기 */
@@ -107,10 +118,10 @@ body *{
     display: block;
     position: absolute;
     /* 부모는? R_eye */
-    top: 40px;
-    right: -15px;
-    width: 20px;
-    height: 20px;
+    top: 15px;
+    right: -8px;
+    width: 10px;
+    height: 10px;
     background-color: red;
 
     /* 클리핑으로 별 만들기 */
@@ -128,38 +139,39 @@ body *{
 
 /* 2-1-1. 귀 공통 클래스 */
 .ear{
-    top: 90px;
-    width: 30px;
-    height: 50px;
+    top: 30px;
+    width: 10px;
+    height: 20px;
 }
 /* 2-1-1. 왼쪽 귀 */
 .L_ear{
-    left: -30px;
+    left: -5px;
     border-radius: 35px 0 0 60px;
 }
 /* 2-1-1. 오른쪽 귀 */
 .R_ear{
-    left: 200px;
+    right: -5px;
     border-radius: 0 35px 60px 0;
 }
 
 /* 2-1-1. 코 */
 .nose{
-    width: 30px;
-    height: 30px;
-    background: url(../images/nose.jpg) no-repeat 0/110% 100%;
+    width: 10px;
+    height: 15px;
+    background-color: rgb(255, 226, 212);
+    /* background: url(../images/nose.jpg) no-repeat 0/110% 100%; */
+    clip-path: polygon(50% 0,0 100%,100% 100%);
     top: 50%;
-    left: calc(50% - 15px);
-    border-radius: 20%;
+    left: calc(50% - 5px);
 }
 
 /* 2-1-1. 입 */
 .mouth{
-    width: 160px;
-    height: 80px;
+    width: 40px;
+    height: 20px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
-    top: 55%;
-    left: calc(50% - 80px);
+    top: 65%;
+    left: calc(50% - 20px);
 }
 
 /***************
@@ -171,7 +183,7 @@ body *{
     z-index: -2;
     width: 100px;
     height: 400px;
-    margin: 30px auto 0;
+    margin: 10px auto 0;
     
     /* clip-path: polygon(0 0,100% 0,90% 50%,100% 100%,0 100%,10% 50%);
     overflow: none; 
@@ -195,8 +207,7 @@ body *{
     height: 200px;
     /* 그라데이션 */
     background-image: 
-    linear-gradient(-25deg,rgb(255, 230, 240), rgb(255, 129, 200),rgb(255, 220, 235),rgb(255, 172, 200));
-    /* linear-gradient(-25deg,#eee, #818181,#e2e2e2,#acacac); */
+    linear-gradient(-45deg,#ffc8f0, #ff8c8c,#ff5a5a,#ff8769);
     /* 몸깍기 */
     clip-path: 
     polygon(0 0,2% 10%,4% 30%,5% 50%,12% 65%,15% 75%,17% 80%,25% 100%,75% 100%,83% 80%,85% 75%,88% 65%,95% 50%,96% 30%,98% 10%,100% 0);
@@ -213,21 +224,41 @@ body *{
     width: 200px;
     height: 150px;
     /* 그라데이션 */
-    background-image: 
-    linear-gradient(-25deg,rgb(0, 217, 255), #4feaff,#038ef8,#02e6ff);
+    background-image:
+    linear-gradient(-20deg,rgb(75, 75, 160), rgb(45, 45, 100),rgb(35, 35, 80),rgb(80, 80, 180));
     
     /* 몸깍기 */
     clip-path: 
-    polygon(10% 0,0 20%,0 50%,10% 100%,90% 100%,100% 50%,100% 20%,90% 0);
+    polygon(50px 0,15px 15px,0 50px,5px 85px,6px 90px,10% 100%,90% 100%,194px 90px,195px 85px,100% 50px,185px 15px,150px 0);
 }
 
 /* 2-2-1. 목 */
 .neck{
-    top: -40px;
+    top: -25px;
     left: 35px;
     width: 30px;
-    height: 60px;
+    height: 40px;
     border-radius: 0 0 20px 20px;
+}
+
+/* 2-2-1. 어깨 공통 클래스 */
+.shd{
+    width: 40px;
+    height: 50px;
+}
+/* 2-2-1. 왼어깨 */
+.L_shd{
+    left: -90px;
+    transform-origin: right top;
+    transform: rotate(346deg);
+    border-radius: 20px 0 20px 20px;
+}
+/* 2-2-1. 오른어깨 */
+.R_shd{
+    left: 150px;
+    transform-origin: left top;
+    transform: rotate(14deg);
+    border-radius: 0 20px 20px 20px;
 }
 
 /* 2-2-1. 팔 공통 클래스 */
@@ -239,7 +270,8 @@ body *{
     transform-origin: center 20px;
 }
 /* 공통 팔에 가상 요소로 팔꿈치 만들기 */
-.arm::before{
+.arm::before,
+.arm::after{
     content: '';
     display: block;
     position: absolute;
@@ -247,11 +279,17 @@ body *{
     bottom: -12%;
     width: 36px;
     height: 36px;
-    border: 3px solid #333;
+    border: 2px solid #ff8c8c;
     border-radius: 50%;
     background-color: #ccc;
 }
-/* 손~팔꿈치 구현 */
+/* 팔꿈치에 원형 그라데이션으로 입체감 살리기 */
+.arm::after{
+    transform: scale(.8);
+    /* 선형 그라데이션 */
+    background-image: linear-gradient(-45deg,#222 10%,#ccc 60%,#eee);
+}
+/* 팔 하단 구현 */
 .arm span{
     position: absolute;
     /* 부모는? arm */
@@ -269,7 +307,7 @@ body *{
     bottom: -80px;
     width: 50px;
     height: 80px;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 /* 2-2-1. 왼팔 */
 .L_arm{
@@ -306,27 +344,83 @@ body *{
     left: -12px;
 }
 
-/* 2-2-1. 왼다리 */
-/* 2-2-1. 오른다리 */
-
-/* 2-2-1. 어깨 공통 클래스 */
-.shd{
-    width: 40px;
+/* 2-2-1. 다리 공통 클래스 */
+.leg{
+    top: 90%;
+    width: 80px;
+    height: 220px;
+    border: 1px solid rgb(255, 229, 182);
+}
+/* 공통 다리에 가상 요소로 무릎 만들기 */
+.leg::before,
+.leg::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -25px;
+    z-index: 1;
+    width: 50px;
     height: 50px;
+    background-color: #ccc;
+    border-radius: 15px;
+    border: 2px solid #444;
+    /* 트랜스폼 : 먼저x축 축소하고 회전
+    -> 무엇을 먼저했느냐에 따라 결과 달라짐! */
+    transform: scaleX(.8) rotate(45deg);
 }
-/* 2-2-1. 왼어깨 */
-.L_shd{
-    left: -90px;
-    transform-origin: right top;
-    transform: rotate(346deg);
-    border-radius: 20px 0 20px 20px;
+/* 무릎에 원형 그라데이션으로 입체감 살리기 */
+.leg::after{
+    transform: scale(.65,.8) rotate(45deg);
+    /* 선형 그라데이션 */
+    background-image: linear-gradient(-45deg,#222 10%,#ccc 60%,#eee);
 }
-/* 2-2-1. 오른어깨 */
-.R_shd{
-    left: 150px;
-    transform-origin: left top;
-    transform: rotate(14deg);
-    border-radius: 0 20px 20px 20px;
+/* 공통 다리 하단 구현 */
+.leg span{
+    position: absolute;
+    top: 100%;
+    /* 부모는? .leg */
+    width: 50px;
+    height: 180px;
+    border-radius: 25% 25% 80% 80%;
+}
+/* 공통 다리 하단에 가상 요소로 발 만들기 */
+.leg span::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    width: 30px;
+    height: 40px;
+    background-color: #ffebc8;
+    border-radius: 40px 40px 0 0;
+    border: 4px solid #ff6464;
+    border-bottom: 20px solid #ff6464;
+    box-sizing: border-box;
+}
+/* 2-2-1. 왼쪽 다리 */
+.L_leg{
+    left: -32px;
+    border-radius: 30% 30% 40% 60%;
+}
+.L_leg::before,
+.L_leg::after{
+    left: 18px;
+}
+.L_leg span{
+    left: 20px;
+}
+/* 2-2-1. 오른쪽 다리 */
+.R_leg{
+    right: -32px;
+    border-radius: 30% 30% 60% 40%;
+}
+.R_leg::before,
+.R_leg::after{
+    right: 18px;
+}
+.R_leg span{
+    right: 20px;
 }
 /* 2-2-1. TV */
 /*********************************** 3. 하단 영역 ***********************************/
