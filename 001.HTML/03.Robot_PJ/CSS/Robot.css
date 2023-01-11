@@ -19,7 +19,7 @@ html,body,h1,h2,p,ol,ul{
     background: url(../images/metal02.jpg) no-repeat center/cover;
 }
 
-/* html{
+/* html,body{
     overflow: hidden;
 } */
 body{
@@ -43,16 +43,14 @@ body{
 2-1. 로봇 박스
 ***************/
 
-/* .robx{
-    padding: 100px 0 600px;
-} */
+    .robx{
+        padding: 100px 0 600px;
+    }
 
 /***** 2-1-1. 로봇 머리 *****/
 .head{
     /* 하위 div들을 위한 부모 자격 부여 */
     position: relative;
-    z-index: 1;
-
     width: 100px;
     height: 100px;
     margin: 0 auto;
@@ -99,7 +97,7 @@ body{
 
     /* 둥근 모서리 */
     border-radius: 50%;
-    border: 1px solid rgb(255, 172, 172);
+    border: 1px solid #FFDEAD;
 }
 /* 2-1-1. 왼쪽 눈 */
 .L_eye{
@@ -120,7 +118,6 @@ body{
     content: '';
     display: block;
     position: absolute;
-    z-index: 1;
     /* 부모는? R_eye */
     top: 18px;
     right: 20px;
@@ -184,7 +181,7 @@ body{
 .body{
     position: relative;
     /* 하위 div들을 위한 부모 자격 부여 */
-    z-index: -2;
+    z-index: -1;
     width: 100px;
     height: 400px;
     border-radius: 50% 50% 0 0;
@@ -206,7 +203,6 @@ body{
     content: '';
     display: block;
     position: absolute;
-    /* z-index: -1; */
     left: -30px;
     width: 160px;
     height: 200px;
@@ -229,7 +225,7 @@ body{
     content: '';
     display: block;
     position: absolute;
-    /* z-index: -2; */
+    z-index: -1;
     top: 220px;
     left: -45px;
     width: 190px;
@@ -258,6 +254,8 @@ body{
     146px 7px,145px 0,139px 5px,136px 7px,131px 10px,123px 14px,118px 16px,115px 17px,111px 18px,106px 19px,
     98px 20px
     );
+    transform: scaley(.8);
+    transform-origin: center top;
 }
 
 /* 2-2-1. 목 */
@@ -267,13 +265,14 @@ body{
     width: 30px;
     height: 40px;
     border-radius: 0 0 20px 20px;
+    outline: 1px solid #FFDEAD;
 }
 
 /* 2-2-1. 어깨 공통 클래스 */
 .shd{
     width: 40px;
     height: 40px;
-    z-index: -1;
+    z-index: 1;
 }
 /* 2-2-1. 왼어깨 */
 .L_shd{
@@ -296,8 +295,9 @@ body{
 .arm{
     width: 36px;
     height: 160px;
-    border-radius: 18px;
+    border-radius: 18px 18px 40% 40%;
     transform-origin: center 18px;
+    outline: 1px solid #FFDEAD;
 }
 /* 공통 팔에 가상 요소로 팔꿈치 만들기 */
 .arm::before,
@@ -310,7 +310,7 @@ body{
     left: 1px;
     width: 30px;
     height: 30px;
-    border: 2px solid #FFDEAD;
+    border: 1px solid #FFDEAD;
     border-radius: 50%;
     background-color: #ccc;
 }
@@ -328,19 +328,19 @@ body{
     top: 100%;
     width: 30px;
     height: 140px;
-    border-radius: 15px;
+    border-radius: 20px 20px 50% 50%;
     transform-origin: center 0;
+    outline: 1px solid #FFDEAD;
 }
 /* 공통 팔 하단에 가상 요소로 손 공간 만들기 */
 .arm span::after{
     content: '';
     display: block;
     position: absolute;
-    z-index: 1;
     bottom: -75px;
     width: 50px;
     height: 80px;
-    outline: 1px solid red;
+    outline: 1px solid #FFDEAD;
 }
 /* 2-2-1. 왼팔 */
 .L_arm{
@@ -372,11 +372,11 @@ body{
 
 /* 2-2-1. 다리 공통 클래스 */
 .leg{
-    z-index: -3;
-    top: 90%;
+    z-index: -1;
+    top: 75%;
     width: 80px;
     height: 220px;
-    border: 1px solid rgb(255, 229, 182);
+    outline: 1px solid #FFDEAD;
 }
 /* 공통 다리에 가상 요소로 무릎 만들기 */
 .leg::before,
@@ -384,13 +384,13 @@ body{
     content: '';
     display: block;
     position: absolute;
-    bottom: -25px;
     z-index: 1;
-    width: 50px;
-    height: 50px;
+    bottom: -20px;
+    width: 40px;
+    height: 40px;
     background-color: #ccc;
-    border-radius: 15px;
-    border: 2px solid #444;
+    border-radius: 20px;
+    border: 1px solid #FFDEAD;
     /* 트랜스폼 : 먼저x축 축소하고 회전
     -> 무엇을 먼저했느냐에 따라 결과 달라짐! */
     transform: scaleX(.8) rotate(45deg);
@@ -406,48 +406,49 @@ body{
     position: absolute;
     top: 100%;
     /* 부모는? .leg */
-    width: 50px;
-    height: 180px;
-    border-radius: 25% 25% 80% 80%;
+    width: 40px;
+    height: 200px;
+    border-radius: 30px 30px 80% 80%;
+    outline: 1px solid #FFDEAD;
 }
 /* 공통 다리 하단에 가상 요소로 발 만들기 */
 .leg span::after{
     content: '';
     display: block;
     position: absolute;
-    bottom: -20px;
-    left: 10px;
+    bottom: -35px;
+    left: 5px;
     width: 30px;
     height: 40px;
     background-color: #ffebc8;
     border-radius: 40px 40px 0 0;
-    border: 4px solid #ff6464;
-    border-bottom: 20px solid #ff6464;
+    border: 5px solid #ff6464;
+    border-bottom: 15px solid #ff6464;
     box-sizing: border-box;
 }
 /* 2-2-1. 왼쪽 다리 */
 .L_leg{
-    left: -32px;
+    left: -35px;
     border-radius: 30% 30% 40% 60%;
 }
 .L_leg::before,
 .L_leg::after{
-    left: 18px;
+    left: 25px;
 }
 .L_leg span{
-    left: 20px;
+    left: 27px;
 }
 /* 2-2-1. 오른쪽 다리 */
 .R_leg{
-    right: -32px;
+    right: -35px;
     border-radius: 30% 30% 60% 40%;
 }
 .R_leg::before,
 .R_leg::after{
-    right: 18px;
+    right: 25px;
 }
 .R_leg span{
-    right: 20px;
+    right: 27px;
 }
 /* 2-2-1. TV */
 /*********************************** 3. 하단 영역 ***********************************/

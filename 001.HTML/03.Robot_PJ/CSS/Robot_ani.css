@@ -51,14 +51,16 @@ animation: 이시이지반방마
         transform:
         scale(0)
         rotateZ(-90deg)
-        translate(-40%,-90%);
-        transform-origin: 60% 60%;
+        /* translate(-40%,-90%); */
+        translate(10%,30%);
+        /* transform-origin: 60% 60%; */
     }
     100%{
         transform:
         scale(.8)
         rotateZ(0)
-        translate(0,38%);
+        /* translate(0,38%); */
+        translate(0,0);
     }
 }
 /* 1-2. 키프레임 호출설정! - 대상  */
@@ -88,9 +90,6 @@ animation: 이시이지반방마
 
 /* 머리카락 색이 계속 바뀌도록 하기 */
 @keyframes hair_change {
-    0% {
-        background: url(../images/hair01.png) no-repeat center/100% 100%;
-    }
     10% {
         background: url(../images/hair02.png) no-repeat center/100% 100%;
     }
@@ -126,6 +125,7 @@ animation: 이시이지반방마
 .head::after{
     animation-name: hair_change;
     animation-duration:8s;
+    animation-timing-function: ease-out;
     animation-iteration-count:infinite;
     animation-direction:normal;
     animation-fill-mode: none;

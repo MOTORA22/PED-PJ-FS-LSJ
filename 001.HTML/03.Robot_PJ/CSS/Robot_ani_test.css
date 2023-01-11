@@ -13,7 +13,7 @@
     }
 }
 .L_arm{
-    animation: up_L_arm 1s ease-out 1 normal forwards;
+    animation: up_L_arm 1s ease-out 1.9s 1 normal forwards;
 }
 
 /* 왼팔 하단 허리로 이동하기 */
@@ -26,7 +26,7 @@
     }
 }
 .L_arm span{
-    animation: move_L_arm_span 1s linear 1 normal forwards;
+    animation: move_L_arm_span 1s linear 1.9s 1 normal forwards;
 }
 
 /* 왼손 꺽기 */
@@ -42,5 +42,5 @@
 }
 .L_arm span::after{
     transform-origin: center top;
-    animation: move_L_hand 1s linear 1 normal forwards;
+    animation: move_L_hand 1s linear 1.9s 1 normal forwards;
 }
