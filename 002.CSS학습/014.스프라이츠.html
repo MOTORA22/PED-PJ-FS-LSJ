@@ -6,13 +6,12 @@
     <title>CSS심화 - Sprites, IR</title>
     <style>
         .icons {
+            display: flex;
+
             /* 3無 */
             margin: 0;
             padding: 0;
             list-style: none;
-
-            overflow: hidden;
-            /* float된 자식요소 높이값인식 */
 
             outline: 1px solid red;
         }
@@ -20,11 +19,41 @@
         .icons li {
             width: 128px;
             height: 128px;
+            background: url(./images/icons.png) no-repeat;
 
             outline: 1px dotted blue;
+            transition: .5s;
+        }
+        /* 트위터 */
+        .icons li:nth-child(1){
+            background-position: 0px 0px;
+        }
+        .icons li:nth-child(1):hover{
+            background-position: 0px -128px;
+        }
+        /* 인스타 */
+        .icons li:nth-child(2){
+            background-position: -128px 0px;
+        }
+        /* 인스타 */
+        .icons li:nth-child(2):hover{
+            background-position: -128px -128px;
+        }
+        /* 페이스북 */
+        .icons li:nth-child(3){
+            background-position: -256px 0px;
+        }
+        /* 페이스북 */
+        .icons li:nth-child(3):hover{
+            background-position: -256px -128px;
         }
 
-
+        /* a요소 확장하기 */
+        .icons a{
+            display: block;
+            width: 128px;
+            height: 128px;
+        }
 
         /*************************************************
 
@@ -104,11 +133,40 @@
             ***********************************************/
 
         /* IR 숨기기 class */
-        
+        .ir{
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
 
 
         /* 스프라이츠 연습 */
-        
+        .sp{
+            border: 1px solid #000;
+            background: url(./images/sp_main_dba1af.png) no-repeat;
+            background-size: 457px;
+        }
+        .sp1{
+            width: 83px;
+            height: 27px;
+            background-position: -196px -267px;
+        }
+        .sp2{
+            width: 54px;
+            height: 18px;
+            background-position: -202px -301px;
+        }
+        .sp3{
+            width: 60px;
+            height: 10px;
+            background-position: -200px -330px;
+        }
+        .sp4{
+            width: 98px;
+            height: 37px;
+            background-position: -275px -166px;
+        }
     </style>
 </head>
 
