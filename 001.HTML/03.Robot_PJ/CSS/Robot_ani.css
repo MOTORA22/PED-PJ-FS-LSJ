@@ -224,12 +224,14 @@ animation: 이시이지반방마
     animation-fill-mode: none;
 }
 
+/************ 지구에서 달에 착륙하는 애니메이션 2초 후 동작을 변경(2초 지연후 움직이기) ************/
+
 /* 오른팔을 위로 들기 */
 @keyframes up_R_arm{
     0%{
         transform:
         rotateX(0)
-        rotateZ(0);
+        rotateZ(-10deg);
     }
     50%{
         transform:
@@ -249,11 +251,12 @@ animation: 이시이지반방마
     animation-name: up_R_arm;
     animation-duration:1s;
     animation-timing-function: linear;
-    animation-delay: 2.5s;
+    animation-delay: 1.9s;
     animation-iteration-count:1;
     animation-direction:normal;
     animation-fill-mode:forwards;
 }
+
 /* 오른팔을 흔들기 */
 @keyframes shake_R_arm{
     0%{
@@ -273,11 +276,12 @@ animation: 이시이지반방마
     animation-name: shake_R_arm;
     animation-duration:1s;
     animation-timing-function:linear;
-    animation-delay: 3.6s;
+    animation-delay: 2.9s;
     animation-iteration-count:infinite;
     animation-direction:normal;
     animation-fill-mode:none;
 }
+
 /* 오른팔 하단을 꺽기 */
 @keyframes shake_R_arm_span{
     0%{
@@ -294,5 +298,5 @@ animation: 이시이지반방마
     }
 }
 .R_arm span{
-    animation: shake_R_arm_span 1s linear 3.6s infinite normal none;
+    animation: shake_R_arm_span 1s linear 2.9s infinite normal none;
 }
