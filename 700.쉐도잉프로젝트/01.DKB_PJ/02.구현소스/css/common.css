@@ -63,6 +63,8 @@ aside.tmenu{
 .tmenu>ul>li>ol>li{
     margin: 0 5px;
 }
+
+
 /*************************** 2. 메인 영역 ***************************/
 .cont{
     min-height: 800px;
