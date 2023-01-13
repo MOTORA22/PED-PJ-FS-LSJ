@@ -7,6 +7,39 @@
     <link rel="shortcut icon" type="image/x-icon" href="./images/logo_cgv.png" />
     <!-- 메인 페이지 외부 css -->
     <link rel="stylesheet" href="./css/main.css">
+
+    <!-- 자바 스크립트 코드 구역 (인터널 방식) -->
+    <script>
+        // 자바 스크립트의 한줄 주석
+        /* 자바 스크립트의 여러줄 주석 */
+        
+        // alert("나야 나"); // alert은 창을 띄우는 기능
+
+        /*
+            JS는 만나는 즉시 실행한다.
+            JS를 바로 실행하지 않고 내가 호출할때만 코드를 실행하도록 코드 저장 구역을 만드는 것 : 함수(function)
+        */
+
+        /*
+            함수를 작성하는 방법
+            function 이름(전달변수){코드}
+        */
+        function 멍멍(먹이){// 먹이는 전달변수이다. 이곳에 입력한 값이 내부로 전달된다. 여기서 변수 '먹이'는 메모리 공간의 이름이다.
+            //alert(먹이);// '먹이'라는 단어가 출력되는게 아니라 먹이라는 이름의 메모리 공간 안에 내가 입력한 값이 출력된다.
+            // 함수가 제데로 작동하는 것을 확인 했으니 alert함수는 주석 처리한다.
+
+            // 아까 닥스에 적은 동영상 호출을 여기 적자.
+            document.getElementById('ifr').src="https://www.youtube.com/embed/"+먹이+"?autoplay=1";
+            // 자바스크립트는 대소문자를 구분한다!
+            // 전체 문서 객체 : document
+            // 가져올 요소 아이디 이름으로 : ()
+            // -> getElementById(아이디명)
+            // -> src 선택된 요소의 src 속성
+
+        } // 멍멍함수(하나의 함수가 끝나면 내가 헷갈리지 않게, 가시성을 위해 지금처럼 주석으로 설명을 달자.) //
+    </script>
+    <!-- 자바 스크립트 코드 외부파일 호출 (익스터널 방식) -->
+    <!-- <script src="JS외부파일.js"></script> -->
 </head>
 <body>
     <!-- 1. 상단 영역 -->
@@ -24,7 +57,7 @@
             <!-- 2-1. 스크린 -->
             <div class="screen">
                 <!-- 유투브 아이프레임 -->
-                <iframe src="https://www.youtube.com/embed/vteD1f-SV5I?autoplay=1&mute=1&loop=1&playlist=vteD1f-SV5I" allow="autoplay"></iframe>
+                <iframe id="ifr" src="https://www.youtube.com/embed/vteD1f-SV5I?autoplay=1&mute=1&loop=1&playlist=vteD1f-SV5I" allow="autoplay"></iframe>
                 <!-- allow="autoplay"를 해야지 유튜브 동영상 요청시 자동재생이 된다.(?autoplay=1) -->
                 <!--
                     유투브 동영상 고유 아이디는? URL 주소의 embed/ 뒤의 코드값
@@ -54,33 +87,85 @@
             <nav class="mlist">
                 <ul>
                     <li>
-                        <a href="#">
+                        <!-- 
+                            [ 이벤트 속성 ]
+                            1. 모든 요소에 이미 이벤트 속성이 있다!
+                            on+이벤트명 / ex) 클릭 이벤트 -> onclick
+                            2. 이벤트 속성의 값은 JS문법 구역이다! 쌍따음표("") 안에 넣는 값이 JS코드 구역이다.
+                            3. 자바스크립트도 스타일처럼 위에 따로 적을 수 있다.
+                        -->
+                        <!-- <a href="#" onclick="document.getElementById('ifr').src='https://www.youtube.com/embed/mI9oyFMUlfg?autoplay=1'">
+                            여기 적었던걸 주석 처리후 모든 a태그에 멍멍함수를 삽입, 그후 이 코드는 위의 JS영역으로 이동한다.-->
+                        <a href="#" onclick="멍멍('mI9oyFMUlfg')">
+                            <!--
+                                "" 안에는 반드시 ''을 넣을 것
+                                '' 안에 있지 않다면, 전부 고유의 기능이 있다는 뜻
+                                . 은 하위로 들어간다는 뜻
+                                = 은 같다는 뜻이 아니라 오른쪽 것을 왼쪽으로 할당하는 것
+                            -->
                             <img src="./images/m1.jpg" alt="닥터스트레인지2">
+                            <!-- 영화 정보 -->
+                            <ol class="movtxt">
+                                <li>닥터스트레인지2</li>
+                                <li>베네딕트 컴버배치</li>
+                                <li>액션, 판타지, 모험</li>
+                            </ol>
+                            <!-- 원레 a 태그 안에는 ol태그를 넣을 수 없었지만 사람들이 계속 항의한 결과 a태그안에 넣을 수 있게 되었다. -->
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('_atu3Gl4-AY')">
                             <img src="./images/m2.jpg" alt="쥬라기월드:도미니언">
+                            <!-- 영화 정보 -->
+                            <ol class="movtxt">
+                                <li>쥬라기월드:도미니언</li>
+                                <li>크리스 프랫</li>
+                                <li>액션, 모험</li>
+                            </ol>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('DpVAb7Bi5UQ')">
                             <img src="./images/m3.jpg" alt="브로커">
+                            <!-- 영화 정보 -->
+                            <ol class="movtxt">
+                                <li>브로커</li>
+                                <li>송강호, 강동원</li>
+                                <li>드라마</li>
+                            </ol>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('aw9j_23nORs')">
                             <img src="./images/m4.jpg" alt="범죄도시2">
+                            <!-- 영화 정보 -->
+                            <ol class="movtxt">
+                                <li>범죄도시2</li>
+                                <li>마동석, 손석구</li>
+                                <li>범죄, 액션</li>
+                            </ol>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('ELuQ4sMp4yw')">
                             <img src="./images/m5.jpg" alt="몬스터싱어">
+                            <!-- 영화 정보 -->
+                            <ol class="movtxt">
+                                <li>몬스터싱어</li>
+                                <li>바네사 파라디</li>
+                                <li>애니메이션</li>
+                            </ol>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('W7edvITC9g4')">
                             <img src="./images/m6.jpg" alt="스파이더맨:노웨이홈">
+                            <!-- 영화 정보 -->
+                            <ol class="movtxt">
+                                <li>스파이더맨:노웨이홈</li>
+                                <li>톰 홀랜드</li>
+                                <li>액션,모험</li>
+                            </ol>
                         </a>
                     </li>
                 </ul>

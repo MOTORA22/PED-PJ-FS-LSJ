@@ -77,6 +77,8 @@ body{
     /* 정 가운데로 오게 하기 = 부모의 절반만큼 오른쪽 이동 후 자신의 절반만큼 왼쪽 이동 */
     left: 50%;
     transform: translateX(-48.9%);
+    /* 앱솔루트 사용 시 오버플로우는 부모자격이 있는 놈한테 줘야 한다. */
+    overflow: hidden;
 }
 /* 선택 메뉴 ul */
 .mlist ul{
@@ -95,8 +97,35 @@ body{
     height: 140px;
 }
 
+/* 영화 정보 박스 */
+.movtxt{
+    /* 플렉스 박스 */
+    display: flex;
+    /* 진행 방향 */
+    flex-direction: column;
+    /* 진행 방향 정렬 : 중앙 */
+    justify-content: space-evenly;
 
+    /* 앱솔루트 포지션 */
+    position: absolute;
+    top: 100%;
+    width: 99px;
+    height: 140px;
+    text-align: center;
+    background-color: #000000cc;
 
+    /* 글자 세팅 */
+    font-family: 'Cute Font', cursive;
+    font-size: 14px;
+    line-height: 2;
+
+    /* 트래지션 속시이지 */
+    transition: top .5s cubic-bezier(0.86, 3.12, 0.57, -0.61);
+}
+/* 상위 li에 마우스 오버시 영화 정보 올라오기 */
+.mlist ul>li:hover .movtxt{
+    top: 0;
+}
 
 /******************** 3. 하단 영역 ********************/
 .info{
