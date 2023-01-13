@@ -4,6 +4,8 @@
 html{
     scroll-behavior: smooth;
     /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함 */
+    /* rem 계산시 쉽도록 10px로 지정 */
+    font-size: 10px;
 }
 
 /* 상단영역 */
@@ -16,7 +18,14 @@ html{
     z-index: 9;
 }
 
-/* gnb메뉴 */
+/* ul ol 초기화 */
+ul, ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/***** gnb메뉴 *****/
 /* 미션!!
     1.GNB박스 width 크기를 주고 마영오
     2.ul 초기화 (3무)
@@ -27,11 +36,11 @@ html{
     width: 500px;
     margin: 0 auto;
 }
-.gnb ul{
+/* .gnb ul{
     margin: 0;
     padding: 0; 
     list-style: none;
-}
+} */
 .gnb li{
     float: left;
     text-align: center;
@@ -64,6 +73,7 @@ html,body{
 }
 body{
     /* padding-top: 50px; */
+    /* overflow: hidden; */
 }
 
 /* 페이지박스 : div 블록박스 */
@@ -107,8 +117,31 @@ body{
     
     background-color: #ffffff60;
     border-radius: 20px;
-    /* 가로중앙(마영오씨) */
-    margin: 0 auto;
+
+    /* 플렉스 박스 */
+    display: flex;
+}
+/* .pwrap 하위 .part박스 */
+.part{
+    flex: 1px;
+    /* 1 대 1 비율로 등분할 */
+    padding: 20px;
+}
+/* 서브 타이틀 */
+.part h2{
+    background-color: #00000070;
+    padding: 20px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
+}
+/* .part a 요소 */
+.part a{
+    color: #222;
+    text-decoration: none;
+    font-size: 3.5rem;
 }
 
 /* h1 요소 */
