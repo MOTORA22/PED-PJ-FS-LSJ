@@ -13,6 +13,29 @@ html,body,h1{
 
 body{
     background-color: #9c0;
+    /* 배경색 애니메이션 : 이시이지반방마 */
+    animation: bgAni 10s linear infinite;
+}
+/* 배경색 키프레임 */
+@keyframes bgAni {
+    0%{
+        background-color: #9c0;
+    }
+    20%{
+        background-color: #7a1;
+    }
+    40%{
+        background-color: #593;
+    }
+    60%{
+        background-color: #374;
+    }
+    80%{
+        background-color: #155;
+    }
+    100%{
+        background-color: #9c0;
+    }
 }
 
 /* 전체 타이틀 */
@@ -44,6 +67,8 @@ body{
 /* 전체 랩핑 박스 */
 .wrap{
     overflow: hidden;
+    /* 오버플로우 히든 상태라 문이 움직일 때 짤린다. 위아래 패딩을 주자 */
+    padding: 50px 0;
 }
 
 /* 전체 문 부모 */
@@ -52,10 +77,11 @@ body{
     height: 300px;
     margin: 0 auto;
     background-color: #800;
-    /* 트랜스폼 Y축 이동 */
-    transform: translateY(0);
+    /* 트랜스폼 Y축 이동 
+    패딩을 고려해서 100%보다 조금 더 주기 */
+    transform: translateY(120%);
     /* 애니메이션 : 이시이지반방마 */
-    animation: upAni .6s ease-out 1s forwards;
+    animation: upAni .6s cubic-bezier(0, 2.78, 0.39, 0.34) 1s forwards;
 }
 /* 문 프레임 */
 .frame{
