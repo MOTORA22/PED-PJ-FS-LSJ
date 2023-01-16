@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+/* 태양계 크기 애니 - solar2D.css */
+
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    background: url(../images/space.jpg) no-repeat center/cover;
+    /* 스크롤바 없애기 */
+    overflow: hidden;
+}
+
+/* 공사중 아웃라인 */
+body *{
+    outline: 2px dotted lightblue;
+}
+
+/* 공통 클래스 */
+
+/* 배경 이미지 설명 숨기기 */
+
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 태양계 박스 */
+#solar{
+    position: absolute;
+    /* 박스 정중앙 이동 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    width: 250px;
+    height: 250px;
+
+}
+/* 태양 박스 */
+#sun{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+}
+/* 태양 이미지 */
+#sun img{
+    width: 100%;
+    height: 100%;
+}
+
+/*
+    변수 설정하기
+    :root{
+        --변수명1: 값1;
+        --변수명2: 값2;
+        --변수명3: 값3;
+    }
+    [ 변수 호출사용 ]
+    var(--변수명)
+
+    [ 변수는 언제 사용하나? ]
+    같은 값이 여러 부분에서 사용될 때 사용한다.
+    미디어쿼리 등에서 변경이 필요할 경우 변수 값만 변경하면 복잡한 변경을 할 필요가 없다.
+*/
+:root{
+    /* 지구 크기 */
+    --esz: 80px;
+    /* 목성 크기 */
+    --jsz: 150px;
+    /* 명왕성 크기 */
+    --psz: 50px;
+}
+
+
+
+/* 지구 */
+#earth{
+    position: absolute;
+    /* 중앙 이동 */
+    top: calc(50% - var(--esz)/2);
+    left: calc(50% - var(--esz)/2);
+
+    width: var(--esz);
+    height: var(--esz);
+    background: url(../images/earth.png) no-repeat 0/100%;
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: earth 5s linear infinite;
+}
+
+/* 지구 회전 키프레임 */
+@keyframes earth {
+    from{
+        transform:
+        rotate(0deg)
+        translateX(-250px)
+        rotate(0deg);
+        /* 
+            주변 회전 만들기
+            로테이트는 한번에 2번 줄 수 있다!
+            이 때, 서로 반대 방향으로 주면 머리가 계속 위를 향한체로 회전한다.
+            1. 첫번째 rotate : 0deg -> 360deg (중앙회전)
+            2. 위치이동 translateX(-250deg) (주변을 도는 효과 생김)
+            3. 두번째 rotate : 0deg -> -360deg (반대회전은 옆으로 이동한 박스에 적용되어 세워져서 주변을 도는 효과가 생김)
+        */
+    }
+    to{
+        transform:
+        rotate(360deg)
+        translateX(-250px)
+        rotate(-1080deg);
+    }
+}
+
+/* 목성 */
+#jupiter{
+    position: absolute;
+    /* 중앙 이동 */
+    top: calc(50% - var(--jsz)/2);
+    left: calc(50% - var(--jsz)/2);
+
+    width: var(--jsz);
+    height: var(--jsz);
+    background: url(../images/jupiter.png) no-repeat 0/100%;
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: jupiter 20s linear infinite;
+}
+
+/* 목성 회전 키프레임 */
+@keyframes jupiter {
+    from{
+        transform:
+        rotate(0deg)
+        translateX(-400px)
+        rotate(0deg);
+    }
+    to{
+        transform:
+        rotate(360deg)
+        translateX(-400px)
+        rotate(-720deg);
+    }
+}
+
+/* 명왕성 */
+#pluto{
+    position: absolute;
+    /* 중앙 이동 */
+    top: calc(50% - var(--psz)/2);
+    left: calc(50% - var(--psz)/2);
+
+    width: var(--psz);
+    height: var(--psz);
+    background: url(../images/pluto.png) no-repeat 0/100%;
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: pluto 3s linear infinite;
+}
+
+/* 명왕성 회전 키프레임 */
+@keyframes pluto {
+    from{
+        transform:
+        rotate(0deg)
+        translateY(-530px)
+        rotate(0deg);
+    }
+    to{
+        transform:
+        rotate(360deg)
+        translateY(-530px)
+        rotate(-360deg);
+    }
+}
