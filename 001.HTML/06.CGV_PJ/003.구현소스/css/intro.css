@@ -70,18 +70,51 @@ html,body{
 }
 /* 엔터박스 오버시 글자박스변경 */
 #enter:hover span{
-    transform: scale(2);
+    transform: scale(2) rotateX(360deg);
     color: chartreuse;
 }
 
 /* 엔터박스 로고 이미지 */
-#enter img{
-    /* 트랜지션: 속시이지 */
-    transition: 
-    all .3s ease-out .2s;
-}
+/* #enter img{
+    트랜지션: 속시이지
+    transition: all .5s linear;
+} */
 /* 엔터박스 오버시 로고이미지변경 */
 #enter:hover img{
-    transform: 
-    rotate(-15deg) scale(1.5);
+    /* 애니메이션 : 이시이지반방마 */
+    animation:
+    /* 먼저 커지고 왼쪽 회전 */
+    logoAni1 .5s linear forwards,
+    /* 왼쪽, 오른쪽 반복 회전 */
+    logoAni2 .5s linear .5s infinite alternate;
+}
+
+/* 로고 애니 키프레임 1 */
+@keyframes logoAni1 {
+    0%{
+        transform:
+        rotate(0deg) scale(1);
+    }
+    50%{
+        transform:
+        rotate(0deg) scale(1.5);
+    }
+    100%{
+        transform:
+        rotate(-15deg) scale(1.5);
+    }
+    
+}
+
+/* 로고 애니 키프레임 2 */
+@keyframes logoAni2 {
+    0%{
+        transform:
+        rotate(-15deg) scale(1.5);
+    }
+    100%{
+        transform:
+        rotate(15deg) scale(1.5);
+    }
+    
 }
