@@ -1,63 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>메일메일 스케줄</title>
-    <style>
-        h1, h2{
-            text-align: center;
-        }
-        /* 전체 스케줄 */
-        .schedule{
-            width: 95%;
-            margin: 10px auto;
-        }
-        /* 날짜 */
-        th{
-            background-color: rgb(150, 255, 255);
-        }
-        /* 내용 */
-        td{
-            /* height: 60px; */
-            /* line-height: 1.5; */
-        }
-        /* n교시 */
-        .period{
-            width: 50px;
-            text-align: center;
-        }
-        a{
-            text-decoration: none;
-        }
-        a.youtube{
-            color: rgb(0, 150, 255);
-        }
-        a.n_blog{
-            color: rgb(60, 175, 125);
-        }
-        a:not(.youtube):not(.n_blog){
-            color: rgb(150, 0, 255);
-        }
-        /* 첫번째 줄 */
-        .li01 td:nth-child(2),
-        td:nth-child(1):not(.period){
-            background-color: rgb(230, 230, 230);
-            width: 22%;
-        }
-        /* 두번째 줄 */
-        .li01 td:nth-child(3),
-        td:nth-child(2):not(.main){
-            background-color: rgb(245, 245, 245);
-            width: 33%;
-        }
-        /* 쉬는 시간 */
-        .schedule tr>.thr{
-            height: 1px;
-            background-color: rgb(150, 220, 190);
-        }
-    </style>
+    <link rel="stylesheet" href="./dy_sch.css">
 </head>
 <body>
+    <!-- 매일 수업 진도 리스트 -->
     <div class="mom">
         <h1>데일리 스케줄</h1>
         <h2>crtl + F 로 날짜를 입력해서 해당 테이블로 이동하세요.</h2>
