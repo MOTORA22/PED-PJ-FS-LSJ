@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>데일리 리스트 테스트 01</title>
+    <title>데일리 리스트</title>
     <style>
         /* 초기화 */
         html,body,h1,h2{
@@ -43,8 +43,10 @@
 
         /* 테이블 공통 */
         .list{
-            width: 1500px;
-            /* 테이블은 width 값을 지정하지 않으면 내용만큼 늘어나서 칸이 좁으면 아래로 내용이 줄바꿈 된다. */
+            /* width: 1500px; */
+            /* width: 90vw; */
+            /* 테이블은 % 말고 정확한 width 값을 지정하지 않으면 내용만큼 늘어나서 칸이 좁으면 아래로 내용이 줄바꿈 된다. */
+            width: max(90vw,1250px);
             margin: 0 auto; 
             font-size: 20px;
 
