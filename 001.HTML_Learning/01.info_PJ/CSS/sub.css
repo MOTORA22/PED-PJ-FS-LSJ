@@ -2,13 +2,11 @@
 /* 서브페이지 공통 CSS - sub.css */
 
 /* 
-    [import로 파일 합치기]
+    [ import로 파일 합치기 ]
     외부 CSS 파일에서 다른 외부 CSS파일을 import 벙식으로 불러올 때 장점은?
-    html 파일에서 link 요소로 호출할 경우 http request (웹 요청)이 많아져서
-    페이지 랜더링 속도에 영향을 미친다!
+    html 파일에서 link 요소로 호출할 경우 http request (웹 요청)이 많아져서 페이지 랜더링 속도에 영향을 미친다!
     따라서 import 방식을 쓰면 더 적은 웹요청에 따라 처리 속도에 도움이 된다.
-
-    - 주의 : import는 CSS파일 상단에서 처리해야 한다.
+    주의 : import는 CSS파일 상단에서 처리해야 한다.
 */
 /* @import url(파일주소); */
 @import url(./common.css);
@@ -21,31 +19,30 @@
     padding: 15px;
 }
 
-/* 2-1.언론사 로고 */
+/* 2-1. 언론사 로고 */
 .prlogo img{
     height: 32px;
     /* 이미지는 가로 세로 비율 중 한쪽만 주면 나머지는 자동 조정된다. */
 }
-/* 2-2.기사제목 */
+/* 2-2. 기사 제목 */
 .atit{
     font-size: 30px;/* fz */
     font-weight: normal;/* fwn */
-    /* 글자 간격(자간) letter-spacing : ls 
+    /* 글자 간격 (자간) letter-spacing (ls) 
     기본 값 0(normal), 양수는 멀어지고 음수는 가까워진다.*/
     letter-spacing: -1px;
-    /* 단어 간격 word-spacing : ws 
+    /* 단어 간격 word-spacing (ws) 
     기본 값 0(normal), 양수는 멀어지고 음수는 가까워진다.*/
     word-spacing: 1px;
 
-    /* 줄 바꿈 방지 : white-space
+    /* 줄 바꿈 방지 white-space whs
     값 -> nowrap(기본값은 normal)
     한 줄에만 있어야 하는 버튼 글자나 말 줄임표를 쓸 때 사용한다*/
     /* white-space: nowrap;*/
 }
-/* 2-3.기사사진(+사진설명) */
+/* 2-3. 기사 사진 + 사진 설명 */
 .afig{
     margin: 15px 0;
-
 }
 /* 기사 이미지 */
 .afig img{
@@ -55,21 +52,21 @@
 .afig small{
     font-size: 12px;
     /* 글자 크기의 최저는 10px이다. */
-    color: rgb(66, 66, 66);
+    color: #424242;
 }
-/* 2-4.기사내용 */
+/* 2-4. 기사 내용 */
 .arti p{
     font-size: 18px;
     line-height: 25px;
     padding: 0 10px;
     letter-spacing: 1px;
-    /* 글자 들여쓰기,내어쓰기 ti */
+    /* 글자 들여쓰기,내어쓰기 text-indent (ti) */
     /* text-indent: 20px; */
 
     /* 글의 양쪽을 정렬해서 균일하고 반득하게 자른다 : taj */
     text-align: justify;
 }
-/* mark요소를 변경해보기 */
+/* mark 요소를 변경해보기 */
 .arti p mark{
     display: block;
     font-size: 24px;
@@ -81,17 +78,16 @@
     text-align: center;
     margin: 15px 0;
 }
-/* p요소 아래 em요소 디자인 변경 */
+/* p 요소 아래 em요소 디자인 변경 */
 .arti p em{
-    /* 글자 그림자 : text-shadow(ts)
-    값 순서 : x축 y축 블러 색
-    블러는 그림자 경계 흐림 정도*/
+    /* 글자 그림자 text-shadow (ts)
+    값 순서 : x축 y축 블러(그림자 경계 흐림 정도) 색*/
     text-shadow: 2px 2px 2px rgb(207, 16, 198);
     font-style: normal;
     color: darkmagenta;
     font-weight: bold;
 }
-/* 2-5.기자정보 */
+/* 2-5. 기자 정보 */
 .rpt{
     font-size: 14px;
     background-color: rgb(235, 235, 235);
@@ -101,7 +97,7 @@
     margin: 15px;
     border-radius: 20px;
 }
-/* 2-6.기사원문 */
+/* 2-6. 기사 원문 */
 .cont>h5{
     /* 내부의 인라인요소를 오른쪽 정렬 */
     text-align: right;
@@ -113,16 +109,16 @@
     padding: 0;
     width: 70px;
     height: 40px;
-    border-radius: 20px;/* brad */
+    border-radius: 20px;
     border: 3px solid #e4e4e4;
     text-align: center;
     /* 세로 중앙은 줄간견으로(vertical-align은 안됨) */
     line-height: 40px;
     background-color: #fffeb1;
 }
-/* 가상클래스로 오버시 박스 그림자 넣기 */
+/* 가상 클래스로 오버시 박스 그림자 넣기 */
 .cont>h5>a:hover{
-    /* 박스 그림자 : box-shadow(bsh) 
+    /* 박스 그림자 box-shadow (bsh) 
     box-shadow: x y blur spread color
     내부그림자는 inset을 사용
     spread는 박스 그림자 크기(필요할때만 입력함)*/
@@ -199,19 +195,22 @@ article.pnews{
 /* 미술 작품 */
 .work{
     text-align: center;
-    /* 배경에 그라데이션 : bgi */
-    /* linear-gradient(방향,색1 %, 색2 %, 색3 %,...)
-    색상을 콤마로 나열하면 등분할 되어서 표현되고, %수치를 적으면 특정 비율을 조절할 수 있다.
-    방향 : to top, to bottom, to left, to right
-    (방향에 각도를 쓰면 그라데이션에 각도가 적용된다. ex) 45deg */
+    /* 
+        배경 이미지 background-image (bgi)
+        배경 그라데이션 background-image: linear-gradient(방향,색1 %, 색2 %, 색3 %,...);
+        색상을 콤마로 나열하면 등분할 되어서 표현되고, %수치를 적으면 특정 비율을 조절할 수 있다.
+        방향 : to top, to bottom, to left, to right, 각도(deg)
+    */
     background-image: linear-gradient( 20deg, lightcoral 10%, lightsalmon 20%, lightcoral 50%, lightcoral 70%, lightpink 90%);
-    /* 배경 옵션 */
-    /* 기본적으로 패딩과 보더까지 배경색에 포함 되는데 적용 안하는 방법도 있다. bgcl
-    background-clip : 배경이 적용되는 범위 설정
-    border-box : 보더까지 적용
-    padding-box : 패딩까지 적용 (기본 값)
-    content-box : 내용 영역만 적용 (패딩 보더 빠짐)
-    background-clip: x면 x까지만 칠해라(영역을 잡아라) */
+    /*
+        기본적으로 패딩과 보더까지 배경색에 포함 되는데 적용 안하는 방법도 있다.
+
+        배경 적용 범위 설정 background-clip (bgcl)
+        - 보더까지 적용 background-clip: border-box;
+        - 패딩까지 적용 (기본 값) background-clip: padding-box;
+        - 내용 영역만 적용 (패딩 보더 빠짐) background-clip: content-box;
+        - x까지만 칠해라(영역을 잡아라) background-clip: x;
+    */
     background-clip: content-box;
 }
 /* 작품명 */
@@ -242,7 +241,7 @@ article.pnews{
 
 /* 공통 ul */
 .cont article ul{
-     /* 리스트 타입 : lst */
+     /* 리스트 타입 list-style-type (lst) */
     list-style-type: "🤷‍♀️";
     /* square 사각형 disc 원형 circle 반원
     -> 따옴표안에 다른 문자형을 넣을 수 있음
@@ -260,9 +259,9 @@ article.pnews{
 /* 주요 뉴스 li별 글자색 변경하기 */
 /* 
     [자식 요소 선택 가상 클래스]
-    요소 : first-child -> 첫번째 자식 요소
-    요소 : nth-child(n) -> n번째 자식 요소
-    요소 : last-child -> 마지막 자식 요소
+    첫번째 자식 요소 :first-child
+    n번째 자식 요소 :nth-child(n)
+    마지막 자식 요소 :last-child
 */
 /* 첫번째 자식 요소 */
 .cont article ul li:first-child a{
@@ -318,12 +317,10 @@ article.pnews{
 }
 /* dt별 글자색 다르게 하기 */
 /*
-        [여러 종류가 섞여 있을 경우 형제 선택하기]
-        요소 : first-of-type -> 같은 요소 중 첫번째
-        요소 : nth-of-type(n) -> 같은 요소 중 n번째
-        요소 : last-of-type -> 같은 요소 중 마지막 
-
-
+    [여러 종류가 섞여 있을 경우 형제 선택하기]
+    같은 요소 중 첫번째 요소 : first-of-type
+    같은 요소 중 n번째 요소 : nth-of-type(n)
+    같은 요소 중 마지막 요소 : last-of-type
 */
 .secnews dt:first-of-type{
     color: red;

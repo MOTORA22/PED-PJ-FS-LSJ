@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- meta : description 사이트 설명-->
-        <meta name="description" content="네이버 요약 뉴스, 최신 뉴스, 정치, 경제, 사회, IT/과학, 연애">
-        <!-- meta : charset 필수 인코딩 설정-->
+        <!-- meta : charset 필수 인코딩 설정 -->
         <meta charset="utf-8">
+        <!-- meta : description 사이트 설명 -->
+        <meta name="description" content="네이버 요약 뉴스, 최신 뉴스, 정치, 경제, 사회, IT/과학, 연애">
         <!-- title : 탭에 표시 타이틀-->
         <title>네이버 요약 뉴스 - IT/과학</title>
         <!-- 익스터널 스타일시트 요소 집어넣기 -->
-        <!-- <link rel="stylesheet" href="./CSS/common.css">
+        <!--
+        <link rel="stylesheet" href="./CSS/common.css">
         <link rel="stylesheet" href="./css/sub.css"> 
-        common.css는 웹요청을 줄이기 위해 sub.css에서 import한다! -->
+        common.css는 웹요청을 줄이기 위해 sub.css에서 import하고 sub.css만 요청한다.
+        -->
         <link rel="stylesheet" href="./css/sub.css">
     </head>
     <body>
@@ -18,47 +20,46 @@
         <header class="top bx">
             <!-- 1-1. 제목 -->
             <h1>네이버 요약 뉴스 - IT/과학</h1>
-            <!-- 1-2.GNB(Global Navigation Bar) 메뉴(어디서든 나오는 네비게이션 메뉴)  -->
+            <!-- 1-2. GNB(Global Navigation Bar) 메뉴 (어디서든 나오는 네비게이션 메뉴) -->
             <nav id="gnb">   
-                <a href="index.html">
+                <a href="./index.html">
                     <img
-                        src="images/logo.png"
+                        src="./IMAGE/naver_logo.png"
                         alt="네이버로고"
                         style="width: 20px"
-                        title="메인 바로가기" />
+                    />
                 </a>
-                <a href="sub1.html">정치</a> | 
-                <a href="sub2.html">경제</a> |
-                <a href="sub3.html">사회</a> | 
-                <a href="sub4.html">IT/과학</a> |
-                <a href="sub5.html">TV/연예</a>
+                <a href="./sub01.html">정치</a> | 
+                <a href="./sub02.html">경제</a> |
+                <a href="./sub03.html">사회</a> | 
+                <a href="./sub04.html">IT/과학</a> |
+                <a href="./sub05.html">TV/연예</a>
             </nav>
         </header>
             
         <!-- 2. 메인 영역 -->
         <main class="cont bx">
             
-            <!-- 2-1.언론사 로고 -->
+            <!-- 2-1. 언론사 로고 -->
             <div class="prlogo">
                 <a href="http://www.newsis.com/" target="_blank">
-                    <img src="./images/pr4.jpg" alt="newsis" />
+                    <img src="./IMAGE/pr04.jpg" alt="newsis" />
                 </a>
                 <!-- 
-                    a 요소: anchor(닻)
-                    href 속성 : 이동할 페이지주소
-                    (hyper text reference)
-                    target 속성 : 새창일 경우 "_blank"세팅
+                    a 요소 : anchor(닻)
+                    href(hyper text reference) 속성 : 이동할 페이지주소
+                    target 속성 : 새창일 경우 "_blank" 세팅
                 -->
             </div>
 
-            <!-- 2-2.기사제목 -->
+            <!-- 2-2. 기사 제목 -->
             <h2 class="atit">
                 다누리, 넉달 여행 끝 '달나라'로…"이제 총알을 잡아라"
             </h2>
 
-            <!-- 2-3.기사사진(+사진설명) -->
+            <!-- 2-3. 기사 사진 + 사진 설명 -->
             <figure class="afig">
-                <img src="./images/arti4.jpg" alt="과학기사사진" />
+                <img src="./IMAGE/arti_4.jpg" alt="과학기사사진" />
                 <!-- 이미지설명 -->
                 <figcaption>
                     <small>한국의 첫 달 궤도선 '다누리' 상상도. (사진=한국항공우주연구원)</small>
@@ -66,10 +67,10 @@
             </figure>
             <!-- 
                 figure 요소 : 이미지나 표를 넣는 박스
-                -> figure요소 안에 figcaption은 세분화한 구분을 위해서 하는 것이지 필수는 아님
+                figure요소 안에 figcaption은 세분화한 구분을 위해서 하는 것이지 필수는 아니다.
             -->
 
-            <!-- 2-4.기사내용 -->
+            <!-- 2-4. 기사 내용 -->
             <section class="arti">
                 <p>
                     [서울=뉴시스]윤현성 기자 = 우리나라의 첫 달 궤도선 '다누리'<sup>①</sup>가 
@@ -78,7 +79,6 @@
                     어려운 임무<sub>mission</sub> 중 하나를 수행하게 된다. 
                     <b>총알보다 빠른 다누리</b>를 총알과 같은 속도<sub>速度</sub>의 달에 정확하게 맞춰야 한다.
                 </p>
-
                 <p>
                     16일 과학계에 따르면 다누리는 달에서 약 108㎞까지 가까워지는
                     <strong>다음날 새벽 2시45분</strong> 달 임무궤도 진입을 위한 1차 달 임무궤도
@@ -86,7 +86,6 @@
                     상공 100㎞ 원궤도에 안착시키기 위해 다누리에 탑재된 추력기를
                     통해 <strong>속도를 줄이는 기동이다.</strong>
                 </p>
-
                 <p>
                     다누리는 지난 8월5일 발사된 이후 <i>총 594만㎞를 비행</i>했는데, 그
                     과정에서 속도가 <i>시속 8000㎞까지 가속</i>된 상태다.
@@ -94,33 +93,28 @@
                     다누리가 달의 중력에 안정적으로 붙잡혀 <em> 달을 지나치지 
                     않도록 하는 가장 중요한 과정이라고 강조</em>했다.
                 </p>
-
                 <p>
                     1차 진입기동에서 다누리는 약 13분간 추력기를 가동해 시속
                     8000㎞에서 시속 7500㎞까지 속도를 줄이고, 
                     <mark>총알의 속도인 시속 3600㎞로 이동 중인<br />달 궤도에 진입하는 것을 목표로 한다.</mark>
                     이같은 1차 진입기동의 결과는 데이터 분석 과정을 거쳐 오는 19일 도출될 예정이다.
                 </p>
-
                 <p>
                     다누리는 달 궤도 1차 진입기동을 진행한 이후에도 21, 23, 26,
                     28일까지 총 4차례의 진입기동을 추가로 진행하게 된다. 이처럼
                     총 5차례의 달궤도 진입기동 이후 데이터 분석까지 마치면 29일
                     중 달 궤도 안착 성공 여부를 최종 확인할 수 있다.
                 </p>
-
                 <p>
                     항우연 수석연구원 공유씨가 이렇게 말했다. <q>
                     이처럼 달 궤도 진입기동은 굉장한 고난이도의 작업이지만,
                     이 또한 임무 성공 가능성을 최대한 높이기 위한 항우연의 계산·분석의 산물입니다!</q>
                 </p>
-
                 <p>
                     다누리가 달까지 4개월이 넘는 긴 시간을 소요한 것은 'WSB(BLT)
                     궤적'을 사용했기 때문이다. BLT궤적은 달 방향이 아닌 태양
                     쪽으로 우주선을 발사하는 방식이다.
                 </p>
-
                 <p>
                     지구와 태양 사이에는 중력이 평형을 이루는 '라그랑주 포인트
                     L1'(지구에서 150만㎞)이라는 지점이 있는데, 이곳에서는 약한
@@ -128,7 +122,6 @@
                     이용해 궤적을 크게 변화시킴으로써 달에 도착할 때 보다
                     효과적으로 감속을 진행할 수 있다.
                 </p>
-
                 <p>
                     당초 항우연은 다누리를 달까지 약 1~2개월이 소요되는
                     <abbr title="위상전이궤적">'위적'</abbr>방식을 사용하려 했으나 준비 과정에서 다누리
@@ -140,24 +133,22 @@
                     <bdo dir="rtl">우리나라대한민국만세</bdo>
                 </p>
                 <!-- 
-                    p 요소 : pharagraph(문단)
-                    주의! - 내부에 block요소 사용금지!
-                    -> 예) h1~h6 이런태그 쓰지마!
+                    p 요소 : pharagraph (문단)
+                    주의! - 내부에 block 요소 사용 금지!
+                    -> 예) h1 ~ h6 이런 태그 쓰지마!
                 -->
             </section>
 
-            <!-- 구분선 : hr -->
-            <!-- <hr /> -->
+            <!-- 주해 -->
             <article class="desc">
                 <h5>주해</h5>
                 <div>
                     <sub>① 다누리는 한국항공우주연구원이 개발하여 2022년 8월 5일에 발사한 대한민국 최초의 달 궤도 탐사선이다. 달 궤도를 돌며 달을 탐사하는 것을 목표로 한다. 성공한다면 대한민국은 세계 7번째 달 탐사국 반열에 오른다.</sub>
                     <br />
-                    <!-- break 요소 : 인라인 줄바꿈요소 -->
+                    <!-- br 요소 : break 인라인 줄바꿈요소 -->
                     <sub>② 달의 반지름은 지구 반지름의 약 4분의 1이며, 질량은 지구 질량의 1/81.3이고, 달과 지구의 공통 중심은 지구 내부에 있다. 달 궤도의 반지름은 38만 4,400km이며, 이것이 달과의 평균 거리가 된다.</sub>
                 </div>
             </article>
-            <!-- <hr /> -->
 
             <!-- 인용 블록 영역 -->
             <article class="qb">
@@ -169,24 +160,21 @@
                 </blockquote>
             </article>
 
-            <!-- <hr /> -->
-            <!-- 2-5.기자정보 -->
+            <!-- 2-5. 기자 정보 -->
             <div class="rpt">윤현성 기자(hsyhs@newsis.com)</div>
 
-            <!-- 2-6.기사원문 -->
+            <!-- 2-6. 기사 원문 -->
             <h5>
                 <a href="https://n.news.naver.com/mnews/article/003/0011594397?sid=105" target="_blank">
                     기사원문
                 </a>
             </h5>
 
-            <!-- <hr> -->
-
             <!-- 오늘의 작품 & 느낌 -->
             <article class="work">
                 <h3>오늘의 작품 &amp; 느낌</h3>
                 <figure>
-                    <img src="./images/img_the_scream.jpg" alt="뭉크의 절규">
+                    <img src="./IMAGE/img_the_scream.jpg" alt="뭉크의 절규">
                     <figcaption>
                         뭉크의 <cite>&lt;절규&gt;</cite>
                     </figcaption>
@@ -201,13 +189,11 @@
             -->
 
             <!--
-                [순서 없는 리스트] :ul
-                Unordered list
-                [순서 있는 리스트] : ol
-                ordered list
-                [ul/ol 공통사항]
+                순서 없는 리스트 Unordered list (ul)
+                순서 있는 리스트 ordered list (ol)
+                [ ul / ol 공통 사항 ]
                 - 하위 필수 리스트 : li (개별 리스트)
-                - 주의 : 하위에 li 이외의 블록요소 및 그 어떤 요소도 사용할 수 없다.\
+                - 주의 : 하위에 li 이외의 블록요소 및 그 어떤 요소도 사용할 수 없다.
                 - 참고 : 블릿 옵션 (https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ul_type_css)
                 - 참고 : 순서 표시 옵션 (https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_ol_type_all_css)
                     - start 속성 : 시작번호
@@ -225,7 +211,7 @@
 
             </article>
 
-            <!-- 랭킹뉴스 : ol -->
+            <!-- 랭킹 뉴스 : ol -->
             <article class="rank">
                 <h3>랭킹뉴스</h3>
                 <ol>
@@ -236,8 +222,7 @@
             </articli>
 
             <!--
-                [용어 정의 리스트] : dl
-                (defines the description list)
+                용어 정의 리스트 defines the description list (dl)
                 dl > dt + dd
                 - 주의 : dl른 반드시 자식 요소로 dt와 dd를 최소 한번 이상은 사용해야 한다.
                 - 주의 : dt > dd인 자식 관계가 아닌 dt + dd인 형제이다. 그리고 dt 뒤에는 반드시 dd가 나와야 한다.
@@ -246,7 +231,7 @@
                 dt : 용어 정의 (defines the term)
                 dd : 용어 설명 (defines each term)
 
-                dl 에밋 : dl>(dt+dd*2>a[target=_blank])*3
+                dl 에밋 예시 : dl>(dt+dd*2>a[target=_blank])*3
             -->
 
             <!-- 분야별 뉴스 : dl -->
@@ -266,7 +251,7 @@
             </article>
 
             <!--
-                [테이블 요소] : table
+                테이블 요소 table
                 table > tbody > tr > td
                 tbody는 안써도 브라우저가 알아서 그려준다.
                 단 직계자식으로 선택할 때 tbody를 생략하면 적용이 되지 않는다.
@@ -284,21 +269,20 @@
                     <tr>
                         <td>1</td>
                         <td><a href="https://n.news.naver.com/mnews/article/030/0003067184?sid=105" target="_blank">해외서 먼저 인정받은 '라그나로크X', 내달 5일 국내 출시</a></td>
-                        <td><a href="https://n.news.naver.com/mnews/article/030/0003067184?sid=105" target="_blank"><img src="./images/pn1.jpg" alt="1"></a></td>
+                        <td><a href="https://n.news.naver.com/mnews/article/030/0003067184?sid=105" target="_blank"><img src="./IMAGE/pn01.jpg" alt="1"></a></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td><a href="https://n.news.naver.com/mnews/article/023/0003735671?sid=102" target="_blank">내일 전국 출근길 함박눈… 서울 최대 8㎝ 눈 쌓인다</a></td>
-                        <td><a href="https://n.news.naver.com/mnews/article/023/0003735671?sid=102" target="_blank"><img src="./images/pn2.jpg" alt="2"></a></td>
+                        <td><a href="https://n.news.naver.com/mnews/article/023/0003735671?sid=102" target="_blank"><img src="./IMAGE/pn02.jpg" alt="2"></a></td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td><a href="https://n.news.naver.com/mnews/article/001/0013652343?sid=100" target="_blank">'최강' 美 F-22 4년만에 한국 출동…B-52H도 전개해 연합훈련</a></td>
-                        <td><a href="https://n.news.naver.com/mnews/article/001/0013652343?sid=100" target="_blank"><img src="./images/pn3.jpg" alt="3"></a></td>
+                        <td><a href="https://n.news.naver.com/mnews/article/001/0013652343?sid=100" target="_blank"><img src="./IMAGE/pn03.jpg" alt="3"></a></td>
                     </tr>
                 </table>
             </article>
-
         </main>
         
         <!-- 3. 하단 영역 -->
@@ -306,83 +290,82 @@
             <!-- 주소 블록 요소 -->
             <address>
                 서울시 강남구 역삼동 119 대호B 8F <br />
-                대표: Tom Brace Parker <br />
+                대표: Lee Seung Jun <br />
                 전화: 010-2222-3333
             </address>
         </footer>
-        
+
         <!-- 
-            [ 1. 서식 관련 대그들 ]
+            [ 서식 관련 태그들 ]
             1. 두꺼운 글자
-            <b> - 단순히 글자 두꺼움 (Bold Text)
-            <strong> - 중요함의 의미 (Strong Text)
-            
-            2. 이탈릭 글자
-            <i> - 단순한 이탤릭체 (Italic Text)
-            <em> - 강조의 의미 (Emphasized Txet)
-            
+            <b> - 단순히 글자 두꺼움 (Bold text) 
+            <strong> - 중요함의 의미 (Important text)
+
+            2. 이탤릭 글자
+            <i> - 단순히 이탤릭체 (Italic text)
+            <em> - 강조의 의미 (Emphasized text)
+
             3. 색상 표시
-            <mark> - (Marked Text)
-            
+            <mark> - 표시 글자 (Marked text)
+
             4. 작은 글자
-            <small> - 좀 더 작은 글자 (Smaller text)
+            <small> - 좀더 작은 글자 (Smaller text)
                 -> h5 요소의 글자와 같은 크기임
-                -> 상속된 글자 크기에 대한 상대적인 크기이므로 브라우저에서 소수점으로 표시될 수 있다.
-            
+                -> 상속된 글자 크기에 대한 상대적인 크기이므로 브라우저에서 소수점으로 표시될 수 있다!
+
             5. 삭제된 글자 표시
-            <del> - 중간 지움 표시 글자 (Deleted Text)
-                ->text-decoration: line-through;과 동일한 기능
-            
+            <del> - 중간 지움 표시 글자 (Deleted text)
+                -> text-decoration: line-through
+
             6. 삽입된 글자 표시
-            <ins> - 밑줄 표시로 삽입 글자 (Inserted Text)
-                ->text-decoration: underline;과 동일한 기능
-            
+            <ins> - 밑줄 표시로 삽입 글자 (Inserted text)
+                -> text-decoration: underline
+
             7. 첨자 표시
-            <sub> - 아랫 첨자
-                - 약간 아랫쪽 작은 글자 (Subscript Text)
-                - 병행 표시 글자(영문,한문 등) 사용할 때 주로 사용
-            <sup> - 윗 첨자
-                - 약간 윗쪽 작은 글자 (Superscript Text)
-                - 주석 표시 숫자(숫자와 설명을 연결함) 사용할 때 주로 사용
-            
-            [ 2. 인용 관련 요소들 ]
+                1) 아랫 첨자 <sub> 
+                - 약간 아랫쪽 작은 글자 (Subscript text)
+                - 병행 표시 글자 (영문,한문 등)
+                2) 윗 첨자 <sup> 
+                - 약간 윗쪽 작은 글자 (Superscript text)
+                - 주석 표시 숫자 (숫자와 설명을 연결함)
+
+            [ 인용 관련 요소 ]
             1. 블록 인용 요소
-            <blockquote>
-                - 블록요소로 별도의 인용구를 구분하는 박스
-                - 주의 : 내부에 p 요소와 같은 다른 블록을 쓰면 안된다.
-                - cite 속성 : 출처를 표시, 필수 속성은 아니다. url주소가 들어가서 링크로 오해할 수 있지만 아니다. 단순 출처일 뿐
+            <blockquote>	 
+                - 블록 요소로 별도의 인용구를 구분하는 박스
+                - 주의 : 내부에 p 요소와 같은 다른 블록 쓰면 안된다.
+                - cite 속성 : 출처 표시
+                (필수속성은 아니다. url주소가 들어가기 때문에 링크로 오해될 수 있으나 단순 출처 정보이다.)
 
             2. 인라인 인용 요소
             <q> 
-                - 작은 인용구 (쌍따음표""가 자동생성)
-                - 주의 : 인라인 요소다.(blockquote과 구분할 것)
+                - 작은 인용구 (쌍따옴표가 자동 생성) 
+                - 주의: 인라인 요소이다. (blockquote와 구분할것!)
 
-            3. 줄임말 인용 요소
-            <abbr> 
+            3. 줄임말 인용
+            <abbr>	
                 - 줄임말의 원래 뜻을 표시하는 요소
-                - 필수 속성 ->> title 속성으로 툴팁을 띄운다.(원레 뜻)
-                참고) title 속성은 툴팁을 띄우고자 하는 어떤 요소에도 넣어서 사용할 수 있다.
-            
-            4. 주소 인용 요소
-            <address>
-                - 주소, 대표자, 전화번호 등 사이트 정보 표시
+                - 필수속성 : title 속성으로 툴팁을 띄운다 (원래뜻)
+                참고 : title 속성은 툴팁을 띄우고자 하는 어떤 요소에도 사용할 수 있다!
 
-            5. 작품명 인용 요소
-            <cite>
-                - 인용하고 있는 작품명을 표시하기 위한 요소
+            4. 주소 인용
+            <address> - 주소, 대표자, 전화번호 등 사이트 정보표시
             
-            6. 반대 방향 글 인용 요소
+            5. 작품명 인용
+            <cite> - 인용하고 있는 작품명을 표시하기 위한 요소
+
+            6. 반대 방향글 인용
             <bdo>
-                - 글 방향이 반대일 때 사용함
-                - Bi-Directional
-                - dir 속성 : rtl (right to left), 오른쪽에서 왼쪽에서 진행함
-                - 특정언어는 오른쪽에서 왼쪽으로 읽는데 그런 경우에 사용한다.
+                - 글방향이 반대일때 사용한다.
+                - Bi-Directional Override(줄임)
+                - dir 속성 : rtl (right to left: 오른쪽에서 왼쪽으로 진행함)
+                - 아랍어, 이스라엘어 등 반대방향으로 출력해야하는 문자를 인용할때 사용함!
 
             [ 시멘틱 태그란? ]
-            - sementic(의미론적인, 의미있는)
-            즉, 태그가 어떤 구분하는 의미가 있을 경우 시멘틱 태그라고 부른다!
-            예) strong, em, address, header, footer, nav, main, section, article 등이 있다.
-            html5에서 더욱 강조됨! (검색엔진에서 시멘틱 태그를 한번더 거쳐서 더욱 정밀한 검색을 수행할 수 있다.)
+            - sementic (의미론적인, 의미있는)
+            - 즉, 태그가 어떤 구분하는 의미가 있을 경우 시멘틱 태그라고 부른다!
+            ex) strong, em, address, header, footer, nav, main, section, article 등 html5 에서 더욱 강조됨!
+            - 시멘틱태그를 쓰면 검색을 더욱 정교하게 분석적으로 수행할 수 있는 바탕이 마련된다! (검색최적화!)
         -->
-        </body>
+    </body>
 </html>

@@ -1,5 +1,5 @@
 @charset "utf-8";
-/* 외부CSS 상단엔 @charset 필수!  */
+/* 외부CSS 상단엔 @charset를 반드시 써야 한다. */
 /* Info PJ 공통 CSS - common.css */
 
 /* 웹폰트 CDN */
@@ -16,230 +16,230 @@
 */
 
 /*
-    [스타일 시트 문법 영역! 
-    기본 문법]
+    [ 스타일 시트 기본 문법 영역 ]
     선택자{
         속성 : 값;
     }
 
-    [CSS 박스모델 ]
-    -> 모든 요소는 박스형태로 그 디자인을 설정한다.
+    [ CSS 박스 모델 ]
+    1. 모든 요소는 박스 형태로 그 디자인을 설정한다.
     참고) https://www.w3schools.com/css/css_boxmodel.asp
-    -> 5가지 속성으로 세팅을 한다.
-    1. width : 가로 크기
-    2. height : 세로 크기
-    3. padding : 안쪽 여백
-    4. border : 경계선
-    5. margin : 바깥 여백
+    2. 모든 요소는 5가지 속성으로 세팅을 한다.
+        1) width : 가로 크기
+        2) height : 세로 크기
+        3) padding : 안쪽 여백
+        4) border : 경계 선
+        5) margin : 바깥 여백
+    3. 박스 모델의 적용은 블록요소를 기본으로 한다. (영향을 거의 못 준다.)
 
-    -> 박스 모델의 적용은 블록요소를 기본으로 한다. (영향을 거의 못 준다.)
-
-    [CSS 선택자 (Selector)]
+    [ CSS 선택자 (Selector) ]
     1. 타입 선택자 : 요소명으로 선택
-    예) h1{}, div{}, a{}
+        예) h1{}, div{}, a{}
     2. 아이디 선택자 : #
-    예) #my{}
+        예) #my{}
     3. 클래스 선택자 : .
-    예) .my{}
-    4. 종속 선택자 : 
-    요소명#아이디명 / 요소명.클래스명
-    요소명#아이디명.클래스명
-    예) div#my{} -> div요소인데 아이디가 my이다.
-    예) a.my{}  -> a요소인데 클래스가 my이다.
-    -> 기본적으로 종속선택자는 요소분석기에 사용된다.
-    -> 우리가 사용할 때는 특정요소에 특정 이름을 밝혀야 하는 경우
-    -> 같은 클래스를 다른 디자인에 적용할 때
-    예) div.on{} heaer.on{}
+        예) .my{}
+    4. 종속 선택자 : 요소명#아이디명 / 요소명.클래스명 / 요소명#아이디명.클래스명
+        예) div#my{} -> div요소인데 아이디가 my이다.
+        예) a.my{}  -> a요소인데 클래스가 my이다.
+    4-1. 기본적으로 종속선택자는 요소를 분석할 때 사용된다.
+        - 특정 요소에 특정 이름을 밝혀야 하는 경우 (개발자용)
+        - 같은 클래스를 다른 디자인에 적용할 때
+        예) div.on{} heaer.on{} (같은 클래스인데 다른 디자인을 적용할 수 있다.)
     5. 그룹 선택자 : ,(콤마)
-    예) h1,div,a{}
+        예) h1,div,a{}
     6. 자손 선택자 : 띄어쓰기
-    예) div a{} -> div 하위의 모든 a요소들 전부 선택
+        예) div a{} -> div 하위의 모든 a요소들 전부 선택
     7. 직계 자식 선택자 : > (꺽쇠)
-    예) div>a{} -> div 바로 아래 자식 중에서 a인 요소만 선택
+        예) div>a{} -> div 바로 아래 자식 중에서 a인 요소만 선택
     8. 형제 선택자 : +
-    예) div+div{} -> 앞에 형제div가 있는 div선택
-    -> 첫번째를 제외한 나머지 형제요소들을 선택할 때 많이 사용한다.
+        예) div+div{} -> 앞에 형제div가 있는 div선택
+        - 첫번째를 제외한 나머지 형제요소들을 선택할 때 많이 사용한다.
 */
 
-/* 기본마진 패딩 없애기 */
-html,
-body {
+/* 기본 마진 패딩 없애기 */
+html,body{
     margin: 0;
     padding: 0;
-    /* 실제는 body에만 마진:8px가 있지만 사용자가 별도로 초기화 할 때 한꺼번에 최상위 요소인 html, body 등의 마진, 패딩, 초기화값을 0으로 세팅한다.*/
+    /* body에는 기본적으로 마진:8px가 있다. 이런 디폴트 값들이 있는 경우가 많기에, 사용자가 별도로 초기화 할 때 한꺼번에 최상위 요소인 html, body 등의 마진, 패딩 밑 기타 초기화 할 값을 0으로 세팅한다. */
 }
-body {
+
+body{
+    /* 하단 패딩 pb */
     padding-bottom: 50px;
-    /* 하단패딩 pb */
 }
 
 /* 전체 a요소 공통 세팅 */
 a{
+    /* 글자색 c */
     color: #222;
+    /* 밑줄 없애기 tdn */
     text-decoration: none;
 }
 
-/* 박스공통 클래스 */
-.bx {
-    /* 가로크기 w */
-    /*아무값도 안쓰면 auto인데 이는 부모 요소 끝까지 차지한다.*/
+/* 박스 공통 클래스 */
+.bx{
+    /* 가로 크기 width (w) */
+    /* 아무값도 안쓴 디폴트는 auto인데 이는 부모 요소의 가로크기 만큼 늘어난다. */
     width: 800px;
-    /* 세로크기 h */
-    /*아무값도 안쓰면 auto인데 이는 블록 내용만큼만 늘어난다.*/
+    /* 세로크기 height (h) */
+    /* 아무값도 안쓴 디폴트는 auto인데 이는 블록 내용만큼만 늘어난다. */
     /* height: 200px; */
-    /* 경계선(보더) bd 
-        border : 두께 종류 색상
-        - border-width : 두께
-        - border-style : 종류
-        - border-color : 색상
+    /*
+        경계선 border (bd) 
+        border : 두께 종류 색상; 순으로 적는다. 개별적으로 적을 수도 있다.
+        - border-width : 두께; bdw
+        - border-style : 종류; bds
+        - border-color : 색상; bdc
         참고) https://www.w3schools.com/css/css_border.asp
     */
     border: 3px solid #6c946b;
-    /* 둥근 모서리 보더 brad : border-radius
-        - 값을 50%를 주면 원이생김 */
+    /* 둥근 모서리 보더 border-radius (brad bdrd) */
+    /* 값을 50%를 주면 원이 생긴다. */
     /* border-radius: 10%; */
-    /* 안쪽여백(패딩) p 
-        padding 1개 : 4방향
-        padding 2개 : 위아래 양쪽
-        padding 3개 : 위 양쪽 아래
-        padding 4개 : 각 방향(위 오른 아래 왼)
-        ->>> 마진도 동일함!
-    */
+    /* 안쪽 여백 padding (p) */
     padding: 20px;
-    /* 바깥여백 (마진) m 
-        마진이 바디를 바깥쪽으로 밀어낸다.
-    */
+    /* 바깥 여백 margin (m) */
+    /* 마진은 바디를 바깥쪽으로 밀어낸다. */
     /* margin: 30px; */
-    margin: 0 auto;
-    /* 마진탑 덮어쓰기 mt */
-    margin-top: 30px;
     /* 
-        마영오씨가 누구지?
-        -일반적인 블록요소가 가로크기를 가질 때 이를 중앙정렬할려면 양쪽 마진을 auto로 설정한다.
-        이 때 위아래 0 양쪽 auto를 줄여서 마영오라고 한다 ㅎ
+        마영오를 사용하자! 마영오란? 마진 0 오토!
+        일반적인 블록 요소가 가로 크기를 가지고 있고 이를 중앙 정렬을 할려면 좌우 마진을 auto로 설정한다.
+        이 때, 위아래 0 양쪽 auto를 줄여서 마영오라고 한다 ㅎ
     */
+    margin: 0 auto;
+    /* 상단 마진 덮어쓰기 mt */
+    margin-top: 30px;
+    /*
+        [ 마진과 패딩의 공통점 ]
+        1. 뒤의 값을 몇개 적는지로 방향을 설정할 수 있다.
+            padding / margin : a; 4 방향 a
+            padding / margin : a b; 위아래 a 양쪽 b
+            padding / margin : a b c; 위 a 양쪽 b 아래 c
+            padding / margin : a b c d; 위a 오른쪽b 아래c 왼쪽d
+        2. 특정 방향에만 여백을 줄 수도 있다.
+            padding / margin-top : 위에 여백 생김 pt / mt
+            padding / margin-bottom : 아래에 여백 생김 pb / mb
+            padding / margin-left : 왼쪽에 여백 생김 pl / ml
+            padding / margin-right : 오른쪽에 여백 생김 pr / mr
+    */ 
 }
 
-.cont {
-    border-radius: 35px;
-    font-family: 'Gowun Dodum', sans-serif;
-}
-
-/* 1.상단 영역 */
-
-.top {
+/********** 1. 상단 영역 **********/
+.top{
+    /* 경계선 보더 border (bd) */
     border: 5px double #497416;
-    /* 배경색 : bgc (background-color) */
+    /* 배경색 background-color (bgc) */
     background-color: #bae9d9;
-    /* 글자 중앙 정렬 : tac (text-align: center) */
+    /* 글자 중앙 정렬 text-align: center; (tac) */
     text-align: center;
 }
 
 /* 타이틀 */
-.top > h1 {
+.top>h1{
     /* 
-        1. 글자 스타일 fs :
-        font-style
-        italic : 이탤릭
-        normal : 이탤릭 해제(기본값)
+        1. 글자 스타일 font-style (fs)
+        - 이탤릭 font-style : italic; (fsi)
+        - 기본값 font-style : normal; (fsn)
     */
     /* font-style: normal; */
     /* 
-        2. 글자 두께 fw :
-        font-weight
-        normal : 두께 없음
-        bold : 두꺼움
+        2. 글자 두께 font-weight (fw)
+        - 두께 없음 font-weight: normal; (fwn)
+        - 두꺼움 font-weight: bold; (fwb)
     */
     font-weight: normal;
     /*
-        3. 글자 크기 fz :
-        font-siz (기본은 픽셀)
-        - 글자 단위 : pt,px,em,rem,vw,vh
+        3. 글자 크기 font-size (fz)
+        - 글자 단위 : px,pt,em,rem,vw,vh (디폴트는 px)
     */
     font-size: 60px;
     /*
-        4. 글자 줄 간격 lh :
-        line-height
-        (글이 여러줄일 때 사이간격용 또는 글자 박스에서 세로 중앙정렬 시 사용)
-        단위가 없다면 n배수
+        4. 글자 줄 간격 line-height (lh)
+        - 글이 여러 줄일 때, 사이 간격용으로 사용 또는 글자 박스에서 세로 중앙 정렬시 사용
+        - 단위가 없다면 n배수
     */
     line-height: 0.1;
     /*
-        5. 글자체 ff :
-        font-family
-        ,(콤마)로 여러개를 쓸 수 있는데 이는 대체체를 설정하는 것, 앞에 폰트가 존재하지 않으면 뒤의 폰트가 적용된다.
-        혹은 영어 전용 폰트와 한글 전용 폰트를 혼합 할때도 사용된다.
-        font-family: fantasy,"굴림","궁서";
+        5. 글자체 font-family (ff)
+        - ,(콤마)로 여러개를 쓸 수 있는데 이는 대체체를 설정하는 것, 앞에 폰트가 존재하지 않으면 뒤의 폰트가 적용된다.
+        - 혹은 영어 전용 폰트와 한글 전용 폰트를 혼합 할때도 사용된다.
+        ex) font-family: fantasy,"굴림","궁서";
     */
     font-family: 'Gugi', cursive;
     /*
-        6. 글자색 c : 
-        color : 해시코드/RGB/HSL/웹색상명
+        6. 글자색 color (c)
+        color : 해시코드/RGB/HSL/웹색상명;
     */
-    color: rgb(0, 75, 0);
+    color: #004b00;
 }
 
 /* GNB 메뉴 a */
-#gnb a {
-    /* 글자체 */
+#gnb a{
+    /* 글자체 ff */
     font-family: 'Dongle', sans-serif;
-    /* a요소는 기본적으로 밑줄과 글자색이 셋팅됨! 반드시 a에서 변경해야만 적용된다.(부모에서는 안됨) */
+    /* a 요소는 기본적으로 밑줄과 글자색이 셋팅됨! 반드시 a에서 변경해야만 적용된다. (부모에서는 안됨) */
     /* 글자크기 fz */
     font-size: 35px;
-    /* 글자색 */
+    /* 글자색 c */
     color: rgb(19, 70, 57);
-    /* 밑줄 없애기 tdn : text-decoration: none */
-    text-decoration: none; /* tdn */
+    /* 글자 밑줄 없애기 text-decoration: none; (tdn) */
+    text-decoration: none;
     line-height: 0.3;
 }
-
-/* a요소 오버시 */
-/* :hover 가상클래스 hv
-    -> 마우스오버된 상태에 대한 디자인 세팅 */
-/* a+a:hover 앞에 a형제가 있는 a에 오버시 */
-#gnb a + a:hover {
-    /* 글자색 */
+/* a 요소 오버시 */
+/*
+    가상클래스 :hover (hv)
+    - 마우스 오버된 상태일 때만 적용되는 디자인 세팅
+*/
+/* a+a:hover => 앞에 a형제가 있는 a에 오버시에만 적용 */
+#gnb a+a:hover{
     color: rgb(20, 141, 135);
     /*
-        글자 데코레이션 td : text-decoration
-        underline(밑줄)/overline(윗줄)
-        line-through(중간줄)/none(없음)
+        글자 데코레이션 text-decoration (td)
+        - 밑줄 text-decoration: underline; (tdu)
+        - 윗줄 text-decoration: overline; (tdo)
+        - 중간줄 text-decoration: line-through; (tdl)
+        - 줄 없애기 text-decoration: none; (tdn)
     */
     text-decoration: underline;
 }
 
 /* 로고 이미지 */
-#gnb img {
+#gnb img{
     /*
-        인라인 요소간 세로 정렬(진행방향) va 
-        vertical-align
-        -값 : top, bottom, middle, 수치(px)
+        인라인 요소간 세로 정렬 (진행 방향) vertical-align (va) 
+        - 상단 정렬 vertical-align: top; (vat)
+        - 하단 정렬 vertical-align: bottom; (vab)
+        - 중앙 정렬 vertical-align: middle; (vam)
+        - 수치 정렬 vertical-align: px; (va숫자)
     */
     vertical-align: -3px;
 }
 
-/* 2.메인영역 */
-
-/* 메인영역 이미지
--> 메인의 .cont 직계자식 img만 적용되게함! */
-.cont>img {
-    width: 100%;
-    /* 한쪽만 크기를 주면 이미지는 자동으로 비율유지를 하면서 변경된다. 100%는 부모박스를 채움 */
+/********** 2. 메인 영역 **********/
+.cont{
+    border-radius: 35px;
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
-/* 3.하단영역 */
+/* 메인 영역 이미지 -> 메인의 .cont 직계 자식 img만 적용 되게함! */
+.cont>img{
+    width: 100%;
+    /* 이미지에서 가로 세로 중 한쪽만 크기를 주면 나머지는 자동으로 비율 유지를 하면서 변경된다.
+    100%는 부모 박스의 가로 크기만큼 채운다. */
+}
 
-.info {
-    /* 배경색 */
+/********** 3. 하단 영역 **********/
+.info{
     background-color: #e2eee6;
-    /* 글자중앙정렬 */
     text-align: center;
 }
-/* 하단주소 */
-.info address {
+/* 하단 주소 */
+.info address{
     /* 글자체 */
     font-family: 'Nanum Brush Script', cursive;
-    /* address는 기본 이탤릭이므로 해제하기 */
+    /* <address></address>는 기본 이탤릭체이므로 해제하기 */
     /* font-style: normal; */
     /* 글자색 */
     color: #333;
