@@ -52,8 +52,11 @@
             // 비교문은 1 대 1 대응이기 때문에 80>score>=60 같은건 안된다.
                 msg = "평균입니다.";
                 jexp.innerText = "평가 결과는? " + msg;
-            }else if(score>=0){
+            }else if(score>0){
                 msg = "성적이 낮습니다.";
+                jexp.innerText = "평가 결과는? " + msg;
+            }else if(score=="0"){
+                msg = "0점입니다. 낙제입니다.";
                 jexp.innerText = "평가 결과는? " + msg;
             }else{
                 msg = "몰?루, 정상적인 값이 아닙니다.";
