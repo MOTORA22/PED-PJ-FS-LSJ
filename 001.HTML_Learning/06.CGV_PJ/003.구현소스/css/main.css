@@ -1,0 +1,324 @@
+@charset "utf-8";
+
+/* CGV PJ 메인 페이지 CSS - main.css */
+
+/* 외부 공통 css 합치기 */
+@import url(./reset.css);
+@import url(./core.css);
+
+/* 작업 중 가시성을 위한 공사 중 표시 */
+body *{
+    outline: 2px dashed #00ffff;
+}
+
+/* 전체 배경색 */
+body{
+    background-color: #000;
+}
+
+/******************** 1. 상단 영역 ********************/
+/* 속 박스 */
+.top{
+    position: relative;
+    /* .gnb의 부모 자격 */
+    z-index: 9;
+    /* GNB 서브 메뉴를 제일 위로 올리기 위해 부모에게 z인덱스 부여 */
+    height: 80px;
+    /* 배경이미지 */
+    background: url(../images/curtain.jpg) repeat-x;
+}
+/* 1-1. 로고 */
+.tit{
+    font-family: 'Jua', sans-serif;
+    color: aquamarine;
+    font-size: 40px;
+    line-height: 80px;
+    text-align: center;
+
+    /* 글로우 효과 */
+    text-shadow: 0 0 4px aquamarine;
+    /* 애니메이션 : 이시이지반방마 */
+    animation: titblur .5s ease-in infinite alternate;
+}
+/* 타이트에 글로우 효과의 범위를 조절 */
+@keyframes titblur {
+    to{
+        text-shadow: 0 0 12px aquamarine;
+    }
+}
+
+/* 1-2. GNB 메뉴 */
+.gnb{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+/* ul 박스 */
+.gnb ul{
+    display: flex;
+    font-family: 'Jua', sans-serif;
+}
+/* 상위li */
+.gnb ul>li{
+    position: relative;
+    /* 부모자격 : .smenu */
+    /* 서브메뉴와 공간연결을 위해 하단패딩줌! */
+    padding-bottom: 5px;
+}
+/* 상위 li 두번째부터 */
+.gnb ul>li+li{
+    margin-left: 20px;
+}
+/* 상위 메뉴 a */
+.gnb ul>li>a{
+    /* 트랜스폼 적용위해 인라인블록 */
+    display: inline-block;
+    font-size: 2rem;/* 20px */
+    /* 트랜지션 */
+    transition: .3s;
+}
+/* 오버시 변경 */
+.gnb ul>li:hover>a{
+    transform: scale(1.3);
+    color: aquamarine;
+    /* 애니메이션: 이시이지반방마 */
+    animation: titblur .5s ease-in infinite alternate;
+}
+
+/* 서브 메뉴 */
+.smenu{
+    position: absolute;
+    /* 부모박스 가로방향 중앙맞추기 */
+    left: 50%;
+    /* 부모는? .gnb ul>li */
+    transform: translate(-50%,5px);
+    /* x축은 자기크기의 
+    50%만큼 왼쪽이동, y축은 5px이동 */
+    width: 140px;
+    padding: 5px;
+    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff;
+
+    /* 처음에 서브메뉴 숨기기 */
+    display: none;
+}
+/* 상위메뉴 li오버시 서브메뉴 보이기 */
+.gnb ul>li:hover .smenu{
+    display: block;
+}
+
+/* 메뉴박스 가상요소로 삼각형 만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+
+    /* 삼각형만들기:보더사용 */
+    border-bottom: 10px solid #313131;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+}
+/* 서브메뉴 ol */
+.smenu ol{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+/* 서브메뉴 a */
+.smenu a{
+    display: block;
+    /* a요소확장 */
+    font-size: 1.6rem;
+    line-height: 1.7;
+}
+/* 서브마우스 오버시 */
+.smenu a:hover{
+    color: red;
+}
+/* 오버시 가상요소로 이모티콘 */
+.smenu a:hover::after{
+    content: '🎃';
+    /* 오른쪽 끝으로 보내기 */
+    float: right;
+}
+/* 예매 */
+.gnb ul>li:nth-child(2) 
+.smenu a:hover::after{
+    content: '🎪';
+}
+/* 극장 */
+.gnb ul>li:nth-child(3) 
+.smenu a:hover::after{
+    content: '👓';
+}
+/* 이벤트&컬처 */
+.gnb ul>li:nth-child(4) 
+.smenu a:hover::after{
+    content: '😻';
+}
+
+/* 서브메뉴 li보더 상단 구분선 클래스 */
+.bdt{
+    border-top: 1px solid #ccc;
+}
+
+
+/******************** 2. 메인 영역 ********************/
+/* 속 박스 */
+.cont{
+    /* 부모 자격 부여 */
+    position: relative;
+    height: 788px;
+    /* 극장 배경 주기 */
+    background: url(../images/bg.jpg) no-repeat center top/100%;
+}
+/* 2-1. 스크린 */
+.screen{
+    position: absolute;
+    top: 136px;
+    left: 257px;
+    width: 701px;
+    height: 397px;
+    background-color: #000;
+}
+/* 유투브 아이프레임 */
+.screen iframe{
+    /* 화면 채우고 보더 없애기 */
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 2-2. 예고편 선택 메뉴 */
+.mlist{
+    position: absolute;
+    width: 702px;
+    bottom: 55px;
+    /* 정 가운데로 오게 하기 = 부모의 절반만큼 오른쪽 이동 후 자신의 절반만큼 왼쪽 이동 */
+    left: 50%;
+    transform: translateX(-48.9%);
+    /* 앱솔루트 사용 시 오버플로우는 부모자격이 있는 놈한테 줘야 한다. */
+    overflow: hidden;
+}
+/* 선택 메뉴 ul */
+.mlist ul{
+    /* 플렉스 박스 */
+    display: flex;
+    /* 진행방향 정렬 */
+    justify-content: space-between;
+}
+/* 선택 메뉴 상위 li */
+.mlist ul>li{
+    overflow: hidden;
+}
+/* 포스터 이미지 세팅 */
+.mlist img{
+    width: 99px;
+    height: 140px;
+}
+
+/* 영화 정보 박스 */
+.movtxt{
+    /* 플렉스 박스 */
+    display: flex;
+    /* 진행 방향 */
+    flex-direction: column;
+    /* 진행 방향 정렬 : 중앙 */
+    justify-content: center;
+
+    /* 앱솔루트 포지션 */
+    position: absolute;
+    top: 100%;
+    width: 99px;
+    height: 140px;
+    text-align: center;
+    background-color: #000000cc;
+
+    /* 글자 세팅 */
+    font-family: 'Cute Font', cursive;
+    font-size: 14px;
+    line-height: 2;
+
+    /* 트래지션 속시이지 */
+    transition: top .5s cubic-bezier(0.86, 3.12, 0.57, -0.61);
+}
+/* 상위 li에 마우스 오버시 영화 정보 올라오기 */
+.mlist ul>li:hover .movtxt{
+    top: 0;
+}
+
+/******************** 3. 하단 영역 ********************/
+.info{
+    height: 100px;
+    /* 플렉스 박스 */
+    display: flex;
+    /* 수직 방향 정렬 (aic) */
+    align-items: center;
+}
+
+/* 3-1. 로고 */
+.logo{
+    margin-right: 20px;
+}
+/* 3-2. 회사 정보 */
+.corp address{
+    font-family: 'Cute Font', cursive;
+    color: #fff;
+    font-style: normal;
+    font-size: 1.8rem;
+    line-height: 2rem;
+}
+
+/* 3-3. SNS */
+.sns{
+    /* 오른쪽 끝에 위치 */
+    margin-left: auto;
+}
+.sns ol{
+    display: flex;
+}
+.sns li{
+    width: 34px;
+    height: 34px;
+}
+/* 사이 간격 */
+.sns li+li{
+    margin-left: 5px;
+}
+/* a 확장 */
+.sns a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 34px;
+    text-align: center;
+}
+/* sns 오버시 글자색 바꾸기 */
+
+/*
+    [ 속성 선택자 -> [속성명] ]
+    - 속성명의 특정값을 비교하는 4가지 방법
+    1. [속성명=값] -> 정확히 값이 일치해야 함
+    2. [속성명*=값] -> 내용 중 값이 있기만 하면 됨
+    3. [속성명^=값] -> 시작 부분에 값이 있어야 함
+    4. [속성명$=값] -> 끝 부분에 값이 있어야 함
+*/
+
+/* 페이스북 */
+.sns a[class$=facebook]:hover{
+    color: lightskyblue;
+}
+/* 트위터 */
+.sns a[class^="fa-brands fa-square-t"]:hover{
+    color: lightgreen;
+}
+/* 인스타그램 */
+.sns a[class*=fa-inst]:hover{
+    color: lightcoral;
+}

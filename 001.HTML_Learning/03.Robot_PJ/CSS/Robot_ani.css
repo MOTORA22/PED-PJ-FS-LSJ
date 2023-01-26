@@ -1,0 +1,302 @@
+@charset "utf-8";
+
+/* Robot PJ - 애니메이션 CSS */
+
+/* 키프레임 : 애니메이션 장면 연출 
+[ 키프레임이란? ]
+- 애니메이션 변화를 지정하는 코딩영역
+[ 2장면 코딩법 ]
+@keyframes 키프레임명{
+    from{시작CSS}
+    to{마지막CSS}
+}
+[ 여러장면 코딩법 ]
+- 퍼센트로 장면을 분할하여 사용함
+(무한대의 장면 연출가능)
+@keyframes 키프레임명{
+    0%{CSS설정}
+    10%{CSS설정}
+    20%{CSS설정}
+    ...
+    90%{CSS설정}
+    100%{CSS설정}
+}
+[ 설정된 키프레임 호출하는 방법 ]
+animation: 이시이지반방마
+(이름 시간 이징 지연 반복 방향 마지막상태)
+*/
+/* 
+    [ 애니메이션 기본특성 ]
+    1. 기본적으로 1회만 실행
+    2. 애니메이션 후 처음 설정된 값으로 돌아감
+    3. 반복할 경우 시작->끝 순으로 반복함
+    [ 기본특성 변경하기 ]
+    1. 반복실행하고 싶으면 
+    반복여부(animation-iteration-count)
+    속성값으로 반복횟수를 쓰거나
+    계속반복실행하고 싶으면 infinite
+    2. 마지막 애니메이션 설정값으로 
+    끝나고 싶으면
+    마지막상태(animation-fill-mode)
+    속성값을 forwards로 쓴다!
+    3. 시작->끝, 끝->시작 반복 애니메이션을
+    역순으로도 설정하고 싶으면
+    방향(animation-direction) 
+    속성값을 alternate로 쓴다!
+*/
+
+/* 1-1. 로봇 등장 키프레임 */
+@keyframes showRobot {
+    0%{
+        transform:
+        scale(0)
+        rotateZ(-90deg)
+        /* translate(-40%,-90%); */
+        translate(10%,30%);
+        /* transform-origin: 60% 60%; */
+    }
+    100%{
+        transform:
+        scale(.8)
+        rotateZ(0)
+        /* translate(0,38%); */
+        translate(0,0);
+    }
+}
+/* 1-2. 키프레임 호출설정! - 대상  */
+.robx{
+    /* 애니메이션: 이시이지반방마 */
+    animation: showRobot 2s ease-in-out 1;
+    animation-fill-mode:forwards;
+}
+@keyframes moveRobot {
+    0% {
+        transform:
+        rotateX(85deg);
+    }
+    50% {
+        transform:
+        rotateX(85deg);
+    }
+    100% {
+        transform:
+        rotateX(0);
+    }
+}
+.robx>div{
+    /* transform: rotateX(85deg); */
+    animation: moveRobot 2s ease-in-out 1;
+}
+
+/* 머리카락 색이 계속 바뀌도록 하기 */
+@keyframes hair_change {
+    10% {
+        background: url(../images/hair02.png) no-repeat center/100% 100%;
+    }
+    20% {
+        background: url(../images/hair03.png) no-repeat center/100% 100%;
+    }
+    30% {
+        background: url(../images/hair04.png) no-repeat center/100% 100%;
+    }
+    40% {
+        background: url(../images/hair05.png) no-repeat center/100% 100%;
+    }
+    50% {
+        background: url(../images/hair06.png) no-repeat center/100% 100%;
+    }
+    60% {
+        background: url(../images/hair07.png) no-repeat center/100% 100%;
+    }
+    70% {
+        background: url(../images/hair08.png) no-repeat center/100% 100%;
+    }
+    80% {
+        background: url(../images/hair09.png) no-repeat center/100% 100%;
+    }
+    90% {
+        background: url(../images/hair10.png) no-repeat center/100% 100%;
+    }
+    100% {
+        background: url(../images/hair01.png) no-repeat center/100% 100%;
+    }
+    
+}
+.head::after{
+    animation-name: hair_change;
+    animation-duration:8s;
+    animation-timing-function: ease-out;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-fill-mode: none;
+}
+
+/* 눈 움직이기 */
+@keyframes scale_eye{
+    0%{
+        height: 20px;
+        top: 27px;
+    }
+    50%{
+        height: 15px;
+        top: 29.5px;
+    }
+    100%{
+        height: 20px;
+        top: 27px;
+    }
+}
+.L_eye{
+    animation-name: scale_eye;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-fill-mode: none;
+}
+
+@keyframes turn_eye{
+    0%{
+        transform: rotate(0);
+    }
+    
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+.R_eye{
+    animation-name: turn_eye;
+    animation-duration:1s;
+    animation-timing-function: linear;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-fill-mode: none;
+}
+
+/* 별 색이 계속 바뀌도록 하기 */
+@keyframes star_color {
+    25% {
+        background-color: pink;
+    }
+    50% {
+        background-color: #5affb4;
+    }
+    75% {
+        background-color: #ffff96;
+    }
+    100% {
+        background-color: #a5dcff;
+    }
+}
+.R_ear::before{
+    animation-name: star_color;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-fill-mode: none;
+}
+
+/* 입이 움직이게 하기 */
+@keyframes move_mouth{
+    0%{
+        /* width: 50px;
+        left: calc(50% - 25px); */
+        height: 25px;
+        top: 60%;
+    }
+    50%{
+        /* width: 40px;
+        left: calc(50% - 20px); */
+        height: 20px;
+        top: 65%;
+    }
+    100%{
+        /* width: 50px;
+        left: calc(50% - 25px); */
+        height: 25px;
+        top: 60%;
+    }
+}
+.mouth{
+    animation-name: move_mouth;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-fill-mode: none;
+}
+
+/************ 지구에서 달에 착륙하는 애니메이션 2초 후 동작을 변경(2초 지연후 움직이기) ************/
+
+/* 오른팔을 위로 들기 */
+@keyframes up_R_arm{
+    0%{
+        transform:
+        rotateX(0)
+        rotateZ(-10deg);
+    }
+    50%{
+        transform:
+        rotateX(90deg)
+        rotateZ(-60deg);
+        z-index: 1;
+    }
+    100%{
+        transform:
+        rotateZ(90deg)
+        rotateX(180deg);
+        z-index: 1;
+    }
+}
+.R_arm_plus{
+    
+    animation-name: up_R_arm;
+    animation-duration:1s;
+    animation-timing-function: linear;
+    animation-delay: 1.9s;
+    animation-iteration-count:1;
+    animation-direction:normal;
+    animation-fill-mode:forwards;
+}
+
+/* 오른팔을 흔들기 */
+@keyframes shake_R_arm{
+    0%{
+        transform:
+        rotateZ(0);
+    }
+    50%{
+        transform:
+        rotateZ(30deg);
+    }
+    100%{
+        transform:
+        rotateZ(0);
+    }
+}
+.R_arm{
+    animation-name: shake_R_arm;
+    animation-duration:1s;
+    animation-timing-function:linear;
+    animation-delay: 2.9s;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+    animation-fill-mode:none;
+}
+
+/* 오른팔 하단을 꺽기 */
+@keyframes shake_R_arm_span{
+    0%{
+        transform:
+        rotateZ(0);
+    }
+    50%{
+        transform:
+        rotateZ(90deg);
+    }
+    100%{
+        transform:
+        rotateZ(0);
+    }
+}
+.R_arm span{
+    animation: shake_R_arm_span 1s linear 2.9s infinite normal none;
+}

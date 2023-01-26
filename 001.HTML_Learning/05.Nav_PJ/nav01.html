@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1. 가로네비 서브별 드롭다운 세로형</title>
+    <!-- 어썸 아이콘 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        body{
+            color: #fff;
+            background: #06114b url(./images/nav01_bg.png) no-repeat fixed center/cover;
+        }
+        h1{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* ul, ol 초기화 */
+        ul, ol{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* 상단 영역 박스 */
+        .top{
+            /* 플렉스 박스 - 직계하위 컨트롤(h1, nav, aside) */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* 로고 박스 */
+        h1.logo{
+            margin: 0;
+            padding: 0;
+            margin-left: 50px;
+            margin-top: -20px;
+        }
+
+        /* 네비게이션 전체 박스 */
+        .gnb ul{
+            /* 플렉스 박스 */
+            display: flex;
+            /* 진행 방향 정렬 : 중앙 jcc */
+            justify-content: center;
+            /* 줄바꿈 방지 */
+            white-space: nowrap;
+        }
+        /* 상위 메뉴 li만 적용하기 */
+        .gnb ul>li{
+            /* 앱솔루트인 서브 메뉴의 위치를 조정시키기 위해 li에게 부모자격을 주기 */
+            position: relative;
+
+            /* 서브메뉴에 마진탑으로 위치를 조정했다. 그런데 li랑 서브메뉴 사이에 틈이 생겨서 마우스가 li를 벗어나면 서브메뉴가 사라져 보기가 힘들다.
+            그러니 li 아래쪽에 (서브메뉴에 준 마진탑 만큼의) 패딩을 주면 해당 문제는 해결된다. */
+            padding: 0 20px 20px;
+        }
+        .gnb a{
+            /* a 요소 필수 세팅 : 글자색이랑 밑줄 없애기 */
+            color: #fff;
+            text-decoration: none;
+
+            font-size: 32px;
+            font-weight: bold;
+        }
+        /* 가상요소로 밑줄 애니 만들기 */
+        .gnb>ul>li>a::after,
+        .tmenu>ul>li:nth-child(-n+2)>a::after{
+            content: '';
+            display: block;
+            width: 0%;
+            margin-left: 100%;
+            height: 3px;
+            margin-top: 2px;
+            background-color: #fff;
+            /* 트래지션 : 속시이지 (trs) */
+            transition: all .3s;
+        }
+        /* 오버 시 바 보이기 */
+        .gnb>ul>li:hover>a::after,
+        .tmenu>ul>li>a:hover::after{
+            width: 100%;
+            margin-left: 0%;
+            /* 마진 left 값은 트랜지션이 안돠고 width만 트랜지션이 되어야 한다. */
+            transition-property: width;
+            /* 마우스 오버 시, 트랜지션 속성을 width만 적용 */
+        }
+
+        /* 서브 메뉴 박스 */
+        .smenu{
+            /* 서브 메뉴는 위에 떠다녀야 하므로 앱솔루트 사용 */
+            position: absolute;
+            /* 1만 해도 위로 오지만 강조의 의미로 99를 사용 */
+            z-index: 99;
+            /* 상제한 위치 조정
+            상하는 문제가 없으니 top은 젠틀하게 유지하고 좌우만 설정
+            부모 크기의 절반만큼 오른쪽으로, 자기 크기의 절반만큼 왼쪽으로 이동하면 딱 중앙에 위치한다. */
+            left: 50%;/* 부모 크기의 절반 */
+            transform: translateX(-50%);/* 자기 크기의 절반 */
+
+            /* 기본 디자인 */
+            width: 180px;
+            background-color: rgba(20, 20, 20, 0.5);
+            border-radius: 10px;
+            /* 탑 값을 주지 않고 위치 이동하기 */
+            margin-top: 20px;
+
+            /* 평상시에는 오버플로우 히든으로 숨겨 놓기 */
+            height: 0;
+            overflow: hidden;
+
+            /* 처음에 투명도 없애기 */
+            opacity: 0;
+
+            /* 오버시 슬라이드 형식으로 나타나는 것처럼 보이기 */
+            transition: all .3s ease-out;
+        }
+        /* 상위 메뉴 오버시 하위 메뉴 보이게 하기 */
+        .gnb>ul>li:first-child:hover .smenu{
+            height: 200px;
+        }
+        .gnb>ul>li:nth-child(2):hover .smenu{
+            height: 120px;
+        }
+        .gnb>ul>li:nth-child(2)~li:hover .smenu{
+            height: 40px;
+        }
+        /* 공통 li 투명도 주기 */
+        .gnb>ul>li:hover .smenu{
+            opacity: 1;
+        }
+        
+        /* 서브 메뉴 a요소 */
+        .smenu a{
+            display: block;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 16px;
+            font-weight: normal;
+            /* 트랜지션 */
+            transition: .3s;
+        }
+        .smenu a:hover{
+            transform: scale(1.2);
+            color: orange;
+        }
+
+        /* 컨텐츠 박스 */
+        .cont{
+            /* Z-index 관계 파악을 위해 relative 설정 */
+            position: relative;
+
+            max-width: 1000px;
+            height: 400px;
+            border-radius: 15px;
+            border: 10px solid red;
+            margin: 200px auto;
+            text-align: center;
+            font-size: 40px;
+            line-height: 400px;
+            background-color: #00000070;
+        }
+
+        /* 사이드 메뉴 */
+        .tmenu{
+            margin-right: 50px;
+        }
+        .tmenu ul{
+            /* 플렉스 박스 */
+            display: flex;
+        }
+        .tmenu li{
+            margin: 0 10px;
+        }
+        .tmenu a{
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>1. 가로네비 서브별 드롭다운 세로형</h1>
+
+    <!-- 상단 영역 -->
+    <header class="top">
+        <!-- 로고 박스 -->
+        <h1 class="logo">
+            <a href="#">
+                <img src="./images/nav01_logo.png" alt="로고">
+            </a>
+        </h1>
+        <!-- 메인 네비게이션 -->
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#">Vision Processor</a>
+                    <!-- 서브 메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li><a href="">RVC</a></li>
+                            <li><a href="">In-cabin</a></li>
+                            <li><a href="">FVC</a></li>
+                            <li><a href="">SVM</a></li>
+                            <li><a href="">E-mirror</a></li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">ADAS Processor</a>
+                    <!-- 서브 메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li><a href="">APACHE4</a></li>
+                            <li><a href="">APACHE5</a></li>
+                            <li><a href="">APACHE6</a></li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">AHD™</a>
+                    <!-- 서브 메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li><a href="">1<sup>st</sup>Gen</a></li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">News</a>
+                    <!-- 서브 메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li><a href="">News</a></li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                    <!-- 서브 메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li><a href="">About Us</a></li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Career</a>
+                    <!-- 서브 메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li><a href="">Career</a></li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- 사이드 메뉴 -->
+        <aside class="tmenu">
+            <ul>
+                <li>
+                    <a href="#">Kor</a>
+                </li>
+                <li>
+                    <a href="#">Eng</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-grip"></i>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </header>
+
+    <!-- 컨텐츠 박스 -->
+    <main class="cont">
+        내용내용~
+    </main>
+</body>
+</html>

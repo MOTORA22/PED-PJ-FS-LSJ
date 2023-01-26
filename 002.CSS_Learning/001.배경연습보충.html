@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배경연습 - 배경 크기 세팅</title>
+    <style>
+        .tit{
+            text-align: center;
+        }
+        /* 부모박스 */
+        .wrap{
+            padding: 20px;
+        }
+        /* 하위 div */
+        .wrap>div{
+            /* 공통 배경 세팅 */
+            background-image: url(./imgs/bg_mainvisual.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+
+            width: 50%;
+            height: 400px;
+            border: 3px dashed hotpink;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+        /* 종류가 섞여있는 div 순서대로 선택하기 (:nth-of-type(n))*/
+        /* 1. 가로 채우기 (뒤에 auto 생략 가능) (공백이 생길 수 있음) (비율 유지) */
+        .wrap>div:nth-of-type(1){
+            background-size: 100% auto;
+        }
+        /* 2. 세로 채우기 (공백이 생길 수 있음) (비율 유지) */
+        .wrap>div:nth-of-type(2){
+            background-size: auto 100%;
+        }
+        /* 3. 가로 세로 강제로 채우기 (공백 없음) (이미지가 변형됨) */
+        .wrap>div:nth-of-type(3){
+            background-size: 100% 100%;
+        }
+        /* 4. 배경이미지가 항상 전부 보이도록 채우기 (공백이 생길 수 있음) (비율 유지) */
+        .wrap>div:nth-of-type(4){
+            background-size: contain;
+        }
+        /* 5. 배경이미지에 공백 없이 박스를 채우기 (공백 없음) (비율 유지) */
+        .wrap>div:nth-of-type(5){
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="tit">배경연습 - backgroung-size</h1>
+    <div class="wrap">
+        <h2 class="tit">background-size: 100% auto</h2>
+        <div></div>
+        <h2 class="tit">background-size: auto 100%</h2>
+        <div></div>
+        <h2 class="tit">background-size: 100% 100%</h2>
+        <div></div>
+        <h2 class="tit">background-size: contain</h2>
+        <div></div>
+        <h2 class="tit">background-size: cover</h2>
+        <div></div>
+    </div>
+</body>
+</html>

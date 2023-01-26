@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01. static 포지션</title>
+    <style>
+        .bx{
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 100px;
+        }
+
+        /* 첫번째 박스에 포지션 체크하기 */
+        /* 
+            [CSS의 표지션은 무엇일까?]
+            위치를 효과적으로 배치하기 위한 코딩법을 제공하는 속성
+        */
+        #s1{
+            position: static;
+            /*
+                position: static; (poss) 스태틱
+                포지션의 기본 값이다.
+                위치 이동 속성(top,left,bottom,right)이 적용되지 않는다.
+                스태틱의 위치 이동은 마진을 사용해야 한다.
+                마진 이동 시 다른 static 요소의 박스가 있으면 같이 이동된다.
+                단, 마진에 -값을 같이 이동하지 않고 곂치게 된다.(나중에 적은게 위로 온다.)
+            */
+            background-color: rgb(240, 162, 162);
+            margin-top: 50px;
+        }
+
+        #s2{
+            background-color: coral;
+            margin-left: 50px;
+            margin-top: -50px;
+        }
+        #s3{
+            background-color: purple;
+            margin-top: -20px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="s1" class="bx">s1</div>
+    <div id="s2" class="bx">s2</div>
+    <div id="s3" class="bx">s3</div>
+</body>
+</html>
