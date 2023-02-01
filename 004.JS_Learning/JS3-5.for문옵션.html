@@ -41,6 +41,19 @@
 
             console.log(btns);
 
+            
+            function isPrime(N) {
+                // 1은 소수가 아니다.
+                if (N === 1) return true;
+                // 2부터 N-1까지의 수로 N을 나눴을 때
+                for (let i = 2; i < N; i++) {
+                    // 나누어 떨어지는 경우가 한 번이라도 있으면 N은 소수가 아니다.
+                    if (N % i === 0) return true;
+                }
+                // 모두 나누어 떨어지지 않으면 N은 소수이다.
+                return false;
+            }
+
             // 2. 이벤트 설정 미 기능 구현
             for(var i = 0;i<btns.length;i++){
                 console.log("for문으로 반복중");
@@ -71,19 +84,22 @@
                         
                         // 1. 두번째버튼일때 4,7번 생략하고 출력하기
                         if(btxt==="for문옵션1"&&(j===4 || j===7)) continue;
-                            // continue 키워드
-                            // -> 안내려가고 for문 계속진행
-                            // -> 중간 코드 건너뛰기를 함!
 
-                            // 2. 세번째버튼일때 6번째에 나감!
-                            // break 키워드 -> 제어문을 나감!
-                            if(btxt==="for문옵션2"&&j===6) break;
+                        // 2. 세번째버튼일때 6번째에 나감!
+                        if(btxt==="for문옵션2"&&j===6) break;
 
-                            // 3. 2~4,9 빼고 돌리기
-                            if(btxt==="for문옵션연습"&&
-                            (j>=2&&j<=4)||j===9) continue;
+                        // continue와 break 모두 제외하는 키워드이다.
+                        // break 키워드는 실행하는 그 순간 제어문을 나간다. 그 뒤에 코드들은 실행되지 않는다. (자르기)
+                        // continue 키워드는 실행하면 그 부분을 제외한 후 계속 뒤에 코드들도 진행된다. (건너뛰기)
+                        
+                        // 3. 2~4,9 빼고 돌리기
+                        if(btxt==="for문옵션연습"&&((j>=2&&j<=4)||j===9)) continue;
 
-                            
+                        // 4. 소수만 나타나게 하기
+
+                        if(btxt==="for문옵션연습2"&&isPrime(j)) continue;
+
+
                         // 이미지 넣을 대상은? .forCls를 담은 변수tg
                         tg.innerHTML += `<img src="./images/num/num_0${j}.png" alt="숫자이미지">`;
                     } // for문 //
