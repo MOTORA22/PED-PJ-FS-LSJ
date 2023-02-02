@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS실험실 1</title>
+    <style>
+        body{
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .mover{
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            /* background-color: #ff000070; */
+            background: url(../../../포토샵/나몰빼미/귀요미_나몰빼미.png) no-repeat center/cover;
+            transition: ease-out .3s;
+        }
+    </style>
+    <!-- JS 코드 구역 -->
+    <script>
+        // 로딩 구역
+        window.addEventListener("load",function(){
+            // 움직일 대상 : 돌아다니는 원 .mover
+            var mover = document.querySelector(".mover");
+            // 이벤트 대상 : body
+            // 이벤트 종류 : mousemove - 마우스가 대상 위에서 움직일 때 발생하는 이벤트
+            document.body.onmousemove = function(){
+                // 마우스 포인터 위치 알아내기
+                // X 좌표 : event.pageX
+                // Y 좌표 : event.pageY
+                console.log("X : ",event.pageX,"\nY : ",event.pageY);
+
+                // 내 무버에세 위치값 이동 세팅하기 + 마우스 끝에 오도록 정밀 조정
+                mover.style.top = (event.pageY - 15)+"px";
+                mover.style.left = (event.pageX - 15)+"px";
+
+            }; // 마우스 무브 이벤트 함수 //
+        }); // 로드 구역 //
+    </script>
+</head>
+<body>
+    <!-- 돌아다니는 원 -->
+    <div class="mover">
+
+    </div>
+</body>
+</html>
