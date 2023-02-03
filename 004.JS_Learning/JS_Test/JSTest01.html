@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS실험실 1</title>
     <style>
+        /**************************************** 
+            [ CSS에서 변수 사용하기 ]
+
+            1. 변수 셋팅법
+            :root{
+                --변수명1: 값1;
+                --변수명2: 값2;
+                --변수명3: 값3;
+            }
+
+            2. 변수 호출 사용법
+            var(--변수명)
+
+            ->>> 변수는 언제 사용하나?
+            - 같은 값이 여러부분에서 사용될때
+            미디어쿼리 등에서 변경이 필요한 경우
+            변수값만 변경하면 복잡한 값변경이 대체됨!
+
+        ****************************************/
+        /* CSS 변수 처리 */
+        :root{
+            --msz: 50px;
+        }
+
         body{
             margin: 0;
             width: 100vw;
@@ -12,12 +36,73 @@
         }
         .mover{
             position: fixed;
-            width: 30px;
-            height: 30px;
+            z-index: 1;
+            /*
+                [ z-index 무버에 주는 기준 ]
+                -> 오버시 위에 와야 하므로 가장 높게 설정한 z-index보다 크게 준다.(현재 html에서 맨 아래에 코딩해서 z-index가 같아도 위로 온다.) - 일반 요소들의 z-index 값인 0보다 크게 한다.
+            */
+            width: var(--msz);
+            height: var(--msz);
             border-radius: 50%;
             /* background-color: #ff000070; */
             background: url(../../../포토샵/나몰빼미/귀요미_나몰빼미.png) no-repeat center/cover;
-            transition: ease-out .3s;
+
+            /*
+                겹치는 색상 처리 블랜디 모드 속성
+                [ mix-blend-mode 속성 ]
+                - 겹쳐지는 요소의 색상을 섞어서 디스플레이 해주는 처리 속성
+                - 포토샵에 있는 레이어 겹칠 때, 반전 색 등을 보여주는 거
+                - 밝은 색 섞기(screen 계열)
+                - 어두운 색 섞기(darken 계열)
+                ex) https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode
+            */
+            mix-blend-mode: exclusion;
+
+            transition: ease-out .2s;
+        }
+
+        .cont{
+            position: relative;
+            /* z-index: 99; 
+                -> mover가 z-index로 위치관계 비교를 내부의 a요소와 할려면 부모 박스에 z-index를 주지 않아야 비교할 수 있다.
+            */
+            display: flex;
+        }
+        .cont>div{
+            position: relative;
+            flex: 1;
+            text-align: center;
+        }
+        .cont>div>img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* 컨텐츠 a링크 */
+        .cont>div>a{
+            position: absolute;
+            /*
+                무버보다 위에 오도록 z-index 주기
+                a 요소는 포지션이 없으면 z-index가 적용이 안된다.
+                그러니 만약 포지션이 없다면 relative라도 줘야 한다.
+                현재 mover의 z-index가 1이므로 그보단 크게 z-index를 줘야 한다.
+            */
+            z-index: 2;
+            bottom: 10%;
+            /* 가로 중앙 이동 */
+            left: 50%;
+            transform: translateX(-50%);
+
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #000;
+            white-space: nowrap;
+        }
+        
+        .cont>div>a:hover{
+            color: #f00;
         }
     </style>
     <!-- JS 코드 구역 -->
@@ -26,26 +111,84 @@
         window.addEventListener("load",function(){
             // 움직일 대상 : 돌아다니는 원 .mover
             var mover = document.querySelector(".mover");
+            // mover 크기의 절반 계산
+            var gap = mover.clientWidth/2;
+            console.log("무버 width : ",gap);
+            /******************************************
+                [ 자바 스크립트에서 요소의 크기 구하기 (패딩포함) ]
+                가로 크기 : 요소.clientWidth;
+                세로 크기 : 요소.clientHeight;
+            ******************************************/
             // 이벤트 대상 : body
             // 이벤트 종류 : mousemove - 마우스가 대상 위에서 움직일 때 발생하는 이벤트
             document.body.onmousemove = function(){
                 // 마우스 포인터 위치 알아내기
                 // X 좌표 : event.pageX
                 // Y 좌표 : event.pageY
-                console.log("X : ",event.pageX,"\nY : ",event.pageY);
+                // console.log("X : ",event.pageX,"\nY : ",event.pageY);
+
+                // 위치 값 보정 (gap은 무버 크기의 절반)
+                var posX = event.pageX-gap;
+                var posY = event.pageY-gap;
 
                 // 내 무버에세 위치값 이동 세팅하기 + 마우스 끝에 오도록 정밀 조정
-                mover.style.top = (event.pageY - 15)+"px";
-                mover.style.left = (event.pageX - 15)+"px";
+                mover.style.top = posY + "px";
+                mover.style.left = posX + "px";
 
             }; // 마우스 무브 이벤트 함수 //
+
+            // a 요소 오버시 원 크게하기
+            // 대상 : .cont a -> .pt
+            var pt = document.querySelectorAll(".pt");
+
+            // for문으로 모든 a 요소에 이벤트 설정하기
+            for(var i = 0 ;i<pt.length;i++){
+                // 마우스 오버시 -> mouseenter
+                pt[i].onmouseenter = function(){
+                    // 무버가 커지게 함
+                    mover.style.transform = "scale(2)";
+                }; // mouseenter 이벤트 함수 //
+                
+                // 마우스 아웃시 -> mouseleave
+                pt[i].onmouseleave = function(){
+                    mover.style.transform = "scale(1)";
+                }; // mouseleave 이벤트 함수 //
+
+            } // for문 //
+            /**********************************************************
+                [ 마우스 오버 / 아웃 이벤트 ]
+                1. 오버 시 이벤트
+                    1) mouseover -> 요소 위에 올라갈 때 발생
+                    2) mouseenter -> 요소 경계선 안으로 들어갈 때 발생
+                2. 아웃 시 이벤트
+                    1) mouseout -> 요소를 벗어날 때 발생
+                    2) mouseleave -> 요소 경계선 밖으로 나갈 때 발생
+            **********************************************************/
         }); // 로드 구역 //
     </script>
 </head>
 <body>
-    <!-- 돌아다니는 원 -->
-    <div class="mover">
+    <!-- 컨텐츠 박스 -->
+    <section class="cont">
+        <div>
+            <img src="../images/dress/1.jpg" alt="dress">
+            <a href="#" class="pt">This is Ur New Dress!</a>
+        </div>
+        <div>
+            <img src="../images/dress/2.jpg" alt="dress">
+            <a href="#" class="pt">This is Ur New Dress!</a>
+        </div>
+        <div>
+            <img src="../images/dress/3.jpg" alt="dress">
+            <a href="#" class="pt">This is Ur New Dress!</a>
+        </div>
+        <div>
+            <img src="../images/dress/4.jpg" alt="dress">
+            <a href="#" class="pt">This is Ur New Dress!</a>
+        </div>
+    </section>
 
-    </div>
+    <!-- 돌아다니는 원 -->
+    <div class="mover"></div>
 </body>
 </html>
