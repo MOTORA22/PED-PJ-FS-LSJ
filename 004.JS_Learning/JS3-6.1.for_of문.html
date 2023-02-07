@@ -6,6 +6,7 @@
     <title>for문 확장 - for of문</title>
     <script>
         // 배열 만들기
+        // 배열 구성 [제목,주연,내용]
         const mv1 = [
             "조제",
             "한지민(조제), 남주혁(영석)",
@@ -36,9 +37,93 @@
         // DOMContentLoaded -> html태그를 모두 그리면 발생이벤트
         window.addEventListener("DOMContentLoaded", () => {
 
+            //////////////////////////////////
+            // querySelector 함수 만들어보기 //
+            /////////////////////////////////
+            // const qs = (x) => {return document.querySelector(x)}; -> 이 함수를 아래처럼 생략 가능하다.
+            const qs = x => document.querySelector(x);
+            const qsa = x => document.querySelectorAll(x);
+            // 길게 써야하는 부분을 함수로 만들고, 이것을 호출하여 리턴받는 함수 기능을 활용한다!
+            // 위의 함수는 선택자 객체를 컬렉션으로 만드는 코드를 리턴하여, 실제로 사용할 때 함수명을 아주 짧게 줄일 수 있다.
+
             // 1. 로딩구역 확인
             console.log("로딩완료!");
 
+            // 2. 대상 선정
+            // 2-1. 이벤트 대상 : .btngo
+            // const btngo = document.querySelectorAll(".btngo"); -> 위에서 querySelector 함수를 만들어서 아래처럼 생략 가능하다.
+            const btngo = qsa(".btngo");
+            console.log(btngo);
+
+            // 2-2. 출력 대상 : .minfo
+            // const minfo = document.querySelectorAll(".minfo"); -> 위에서 querySelector 함수를 만들어서 아래처럼 생략 가능하다.
+            const minfo = qsa(".minfo");
+            console.log(minfo);
+
+            // 3. 버튼에 클릭 이벤트 설정하기
+            // for(시;한;증){코드} -> 일반 for문 설정하는 법
+            // 시작 값은 0부터, 한계 값은 개수보다 작게, 증감은 ++ => 맨날 시;한;증은 똑같다!
+            // 이를 ES6에서 자동화한 for문이 등장했는데 그것이 for of문이다!
+
+            // x변수는 of 뒤에 배열 또는 컬렉션을 하나씩 담고 for문 안으로 들어간다.
+            // let 변수이므로 for문 중괄호 안의 지역변수가 된다.
+
+            
+            /*
+            for(let i = 0 ; i<btngo.length ; i++){
+                console.log(btngo[i]);
+                btngo[i].onclick = function(){
+                    let btxt = this.innerText;
+                    console.log(btxt);
+                }
+            }
+            
+            이것을 아래처럼 생략이 가능하다!!
+            ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+            
+            for(let x of btngo){
+                console.log("x는? : ",x);
+                x.onclick = () => {
+                    let btxt = x.innerText;
+                    console.log(btxt);
+                }
+            }
+            */
+            
+            for(let x of btngo){
+                console.log("x는? : ",x);
+
+                // 클릭 이벤트 설정하기
+                // x 변수에 각각의 버튼 요소가 들어옴!
+                x.onclick = () => {
+                    // 1. 버튼 텍스트 읽어오기
+                    // let btxt = this.innerText; -> 안된다.
+                    // let btxt = event.currentTarget.innerText; -> 너무 길다.
+                    let btxt = x.innerText; // 짧고 간편!!
+                    // for문의 x가 let이기 때문에 이벤트 함수에 하나씩 개별 전달이 된다. var면 안된다!
+                    console.log(btxt);
+
+                    // 2. 버튼별 배열 할당하기 : switch 사용하기
+                    // 버튼에 따른 배열변수 할당한 변수
+                    let data;
+
+                    // 버튼별 분기하기
+                    switch(btxt){
+                        case "공조2: 인터내셔날": data = mv4; break;
+                        case "육사오(6/45)": data = mv5; break;
+                        case "조제": data = mv1; break;
+                        case "원더 우먼 1984": data = mv2; break;
+                        case "도굴": data = mv3; break;
+                    } // switch문 //
+
+                    // 매칭 데이터 찍어보기
+                    console.log(data);
+
+
+                }  // click 이벤트 함수
+            } // for of문 //
+
+            // 대상의 내용이 바뀌지 않은 값이면 const, 값이 바뀌는 값이면 let을 사용하면 된다.
             /******************************************* 
                 [ for of 문 ]
                 ___________________________
