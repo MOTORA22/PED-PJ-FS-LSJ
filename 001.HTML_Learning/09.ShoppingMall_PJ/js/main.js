@@ -36,6 +36,55 @@ window.addEventListener("DOMContentLoaded", loadFn);
     함수명: loadFn
     기능: 로딩 후 버튼 이벤트 및 기능구현
 ******************************************/
+function loadFn() {
+    console.log("로딩 완료!");
 
- //////////////// loadFn 함수 ///////////////
+    // 슬라이드 번호 변수
+    let snum = 0;
+    // 슬라이드 개수
+    let scnt = document.querySelectorAll("#slide>li").length;
+    console.log("슬라이드 개수 : ",scnt);
+
+    // 1. 대상선정
+    // 1-1. 이벤트 대상 : .abtn
+    const abtn = document.querySelectorAll(".abtn");
+    console.log(abtn);
+
+    // 1-2. 변경 대상 : #slide
+    const slide = document.querySelector("#slide");
+
+    // 2. 슬라이드 변경 함수 만들기
+    const goSlide = (seq) => {
+        console.log("슬고우!",seq);
+
+        // 1. 방향에 따른 분기
+        // 1-1. 오른쪽 버튼 클릭시 : seq === 1 일때,
+        if(seq){
+            snum++;
+            console.log("오른쪽!",snum);
+        }
+        // 1-2. 왼쪽 버튼 클릭시 : seq === 0 일때,
+        else{
+            snum--;
+            console.log("왼쪽!",snum);
+        }
+        // 2. 한계값 체크
+        // 처음 이전 -> 끝
+        if(snum===-1) snum = scnt-1;
+        // 끝 다음 -> 처음
+        else if(snum===scnt) snum = 0;
+        // 3. 이동하기
+        // 이동대상 : slide
+        slide.style.left= (snum*-100)+"%";
+        slide.style.transition="left .4s ease-in-out";
+    }; // goSlide 함수 //
+
+    // 3. 대상에 이벤트 설정하기
+    abtn.forEach((ele, idx) => {
+        ele.onclick = () => {
+            goSlide(idx);
+        }; // click 함수 //
+    }); // forEach //
+}
+//////////////// loadFn 함수 ///////////////
 /////////////////////////////////////////////
