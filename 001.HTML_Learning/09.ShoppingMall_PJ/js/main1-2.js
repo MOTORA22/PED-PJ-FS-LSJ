@@ -58,7 +58,7 @@ function loadFn() {
 
     // 1-3. 블릿 대상: .indic li
     const indic = document.querySelectorAll(".indic li");
-    console.log(indic);
+    // console.log(indic);
     
     // 광클 금지 변수 : 0 - 허용, 1 - 불허용
     let prot = 0;
@@ -66,7 +66,7 @@ function loadFn() {
     // 2. 슬라이드 변경 함수 만들기
     // 호출시 seq에 들어오는 값중 1은 오른쪽, 0은 왼쪽
     const goSlide = (seq) => {
-        console.log("슬고우!",seq);
+        // console.log("슬고우!",seq);
 
         // 광클 금지 설정하기
         if(prot) return;
@@ -84,7 +84,7 @@ function loadFn() {
         // 1. 방향에 따른 분기
         // 1-1. 오른쪽 버튼 클릭시
         if(seq){
-            console.log("오른쪽!");
+            // console.log("오른쪽!");
             slide.style.left= "-100%";
             slide.style.transition="left .4s ease-in-out";
             setTimeout(()=>{
@@ -95,7 +95,7 @@ function loadFn() {
         }
         // 1-2. 왼쪽 버튼 클릭시
         else{
-            console.log("왼쪽!");
+            // console.log("왼쪽!");
             // slide.insertBefore(넣을놈,넣을놈전놈);
             slide.insertBefore(clist[clist.length-1],clist[0]);
             slide.style.left= "-100%";
@@ -116,7 +116,7 @@ function loadFn() {
 
         // 2-2.방향별 읽어올 슬라이드 순번으로 "data-seq"값 읽어오기
         let cseq = clist[seq].getAttribute("data-seq");
-        console.log("현재순번:", cseq);
+        // console.log("현재순번:", cseq);
 
         // 2-3. 블릿초기화
         for (let x of indic) x.classList.remove("on");
@@ -125,12 +125,66 @@ function loadFn() {
         indic[cseq].classList.add("on");
     }; // goSlide 함수 //
 
-    // 3. 대상에 이벤트 설정하기
+    // 3. 이동 버튼 대상에 이벤트 설정하기
     abtn.forEach((ele, idx) => {
         ele.onclick = () => {
+            // 1. 인터벌 지우기 함수 호출!
+            clearAuto();
+            // 2. 슬라이드 함수 호출
             goSlide(idx);
         }; // click 함수 //
     }); // forEach //
+
+    ////////////////////
+    // 자동 넘김 설정하기
+    ////////////////////
+
+    // 일정 시간 간격으로 넘어가기
+    // -> setInterval(함수, 시간)
+
+    // [인터발함수의 함수전달값 사용예
+    // (타임아웃함수도 동일함)]
+    // 1. 함수에 전달값이 없으면 함수명만 사용가능
+    // setInterval(goSlide,3000);
+    // 2. 전달값이 있다면 익명함수구역에 코딩
+    // setInterval(function(){goSlide(1)},3000);
+    // 3. 화살표함수사용가능
+    // setInterval(()=>{goSlide(1)},3000);
+    // 4. 화살표함수에서 중괄호 생략가능
+    // setInterval(()=>goSlide(1),3000);
+
+    // 인터벌함수를 지우기 위한 변수
+    let autoI;
+    // 타임 아웃 함수 멈추기 위한 변수
+    let autoT;
+
+    /*******************************************************************
+        함수명 : autoSlide
+        기능 : 인터벌 함수로 슬라이드 함수 호출
+    *******************************************************************/
+    function autoSlide(){
+        console.log("인터벌 시작!");
+        // 인터벌 함수로 슬라이드 함수 호출하기
+        autoI = setInterval(() => goSlide(1), 3000);
+    } // autoSlide 함수 //
+
+    // 자동 넘김 최초 호출!
+    autoSlide();
+
+    /*******************************************************************
+        함수명 : clearAuto
+        기능 : 인터벌 함수를 지우고 다시 세팅하기
+    *******************************************************************/
+    function clearAuto(){
+        console.log("인터벌 멈추기!");
+        // 1. 인터벌 지우기
+        clearInterval(autoI);
+        // 2. 타임아웃도 지우지 않으면 쌓여서 타임아웃이 몰려서 다중으로 발생한다.
+        clearTimeout(autoT);
+        // 3. 잠시 후 다시 작동하도록 타임아웃으로 인터벌함수를 호출한다.
+        // 5초 후에 다시 시작하고 인터벌 3초까지 더해져서 총 8초 후에 시작한다.
+        autoT = setTimeout(autoSlide,5000);
+    } // clearAuto 함수 //
 }
 //////////////// loadFn 함수 ///////////////
 /////////////////////////////////////////////
