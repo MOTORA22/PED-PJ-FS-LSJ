@@ -1,5 +1,42 @@
 // JS 실험실 : 03.배너스타일 JS - banner.js
 
+// HTML태그 로딩후 loadFn함수 호출! ///
+window.addEventListener("DOMContentLoaded", loadFn);
+
+/***************************************************** 
+    [ 슬라이드 이동 기능정의 ]
+    1. 이벤트 종류: click
+    2. 이벤트 대상: 이동버튼(.abtn)
+    3. 변경 대상: 슬라이드 박스(#slide)
+    4. 기능 설계:
+
+        (1) 오른쪽 버튼 클릭시 다음 슬라이드가
+            나타나도록 슬라이드 박스의 left값을
+            -330%로 변경시킨다.
+            -> 슬라이드 이동후!!! 
+            바깥에 나가있는 첫번째 슬라이드
+            li를 잘라서 맨뒤로 보낸다!
+            동시에 left값을 -220%으로 변경한다!
+
+        (2) 왼쪽버튼 클릭시 이전 슬라이드가
+            나타나도록 하기위해 우선 맨뒤 li를
+            맨앞으로 이동하고 동시에 left값을
+            -330%로 변경한다.
+            그 후 left값을 -220%으로 애니메이션하여
+            슬라이드가 왼쪽에서 들어온다.
+
+        (3) 공통기능: 슬라이드 위치표시 블릿
+            - 블릿 대상: .indic li
+            - 변경 내용: 슬라이드 순번과 같은 순번의
+            li에 클래스 "on"주기(나머진 빼기->초기화!)
+
+*****************************************************/
+
+/****************************************** 
+    함수명: loadFn
+    기능: 로딩 후 버튼 이벤트 및 기능구현
+******************************************/
+
 function loadFn() {
     console.log("로딩 완료!");
 
@@ -49,11 +86,11 @@ function loadFn() {
         // 1-1. 오른쪽 버튼 클릭시
         if(seq){
             // console.log("오른쪽!");
-            slide.style.left= "-100%";
+            slide.style.left= "-330%";
             slide.style.transition="left .4s ease-in-out";
             setTimeout(()=>{
                 slide.appendChild(clist[0]);
-                slide.style.left= "0";
+                slide.style.left= "-220%";
                 slide.style.transition="none";
             },400); // 타임아웃 //
         }
@@ -62,10 +99,10 @@ function loadFn() {
             // console.log("왼쪽!");
             // slide.insertBefore(넣을놈,넣을놈전놈);
             slide.insertBefore(clist[clist.length-1],clist[0]);
-            slide.style.left= "-100%";
+            slide.style.left= "-330%";
             slide.style.transition="none";
             setTimeout(()=>{
-                slide.style.left= "0";
+                slide.style.left= "-220%";
                 slide.style.transition="left .4s ease-in-out";
             },0); // 타임아웃 //
         }
