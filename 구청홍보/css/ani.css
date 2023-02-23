@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* 구청 홍보 사이트 애니메이션 CSS - main.css */
+
+/* 전제조건:
+모든 애니메이션은 body.on 인 경우에 적용됨! */
+
+/* 메인 페이지 배경 이동 애니메이션 */
+body{
+    animation: bgMove 1s ease-in 1 forwards;
+}
+@keyframes bgMove {
+    to{
+        background: url(../img/1920bg.003.jpg) no-repeat fixed left/cover;
+    }
+}
+
+/* 메인 페이지 메뉴 왼쪽 바깥에서 나타나기 */
+#top{
+    animation: menuMove 1.5s ease-out 1 forwards;
+}
+@keyframes menuMove {
+    to{
+        left: 0;
+        opacity: 1;
+    }
+}
