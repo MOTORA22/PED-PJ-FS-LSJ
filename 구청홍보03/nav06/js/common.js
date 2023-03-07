@@ -41,7 +41,7 @@ function loadFn() {
                             <a href="#">전체보기 ＞</a>
                         </h2>
                         <div class="swrap">
-               `;
+                `;
 
         // 2. 하위메뉴 반복코드
         // -> 객체데이터 이므로 for in문 사용!
