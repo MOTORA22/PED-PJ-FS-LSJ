@@ -8,22 +8,23 @@
     position: relative;
     z-index: 999;
     /* 서브메뉴 배경은 1) 흰색에 검정 테두리 2) 검정 배경에 흰 글씨 중에서 선택 */
-    background-color: #ffffffbb;
+    background-color: #ffffffe0;
     /* 보더 */
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #999;
 }
 .top {
-    height: 128px;
+    height: 100px;
+    display: flex;
+    align-items: center;
 }
 
 /* 로고 */
 .logo{
-    width: 100px;
-    margin: 0 auto;
-    padding-top: 20px;
+    width: 260px;
+    margin-left: 20px;
 }
 .logo img{
-    width: 100px;
+    width: 240px;
 }
 
 /* GNB 메뉴 */
