@@ -72,8 +72,10 @@
     }
     /* 상위메뉴 li오버시 서브메뉴 보이기 */
     /* 프로그램소개 */
-    .gnb > ul > li:first-child:hover::before {
+    .gnb>ul>li:first-child:hover::before {
         height: 120px;
     }
-    
+    .gnb>ul>li:first-child:hover .smenu {
+        height: 120px;
+    }
 } /* 780px 이상일때 오버시 적용! */
