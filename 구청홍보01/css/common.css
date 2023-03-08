@@ -7,12 +7,14 @@
     position: relative;
     z-index: 999;
     background-color: #ffffffe0;
-    border-bottom: 1px solid #999;
+    /* border-bottom: 10px solid #777; */
+    box-shadow: 0 1px 0 1px #777 inset;
 }
 .top {
     height: 100px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 /* 로고 */
@@ -27,15 +29,51 @@
 /* GNB 메뉴 */
 .gnb ul{
     display: flex;
-    margin-top: 27px;
+    margin-top: 75px;
+    margin-right: 20px;
 }
-.gnb>ul>li{
-    margin: 0 10px;
+.gnb>ul>li:nth-child(1),
+.gnb>ul>li:nth-child(2){
+    width: 120px;
+}
+.gnb>ul>li:nth-child(3){
+    width: 240px;
+}
+.gnb>ul>li:nth-child(4){
+    width: 60px;
+}
+.gnb>ul>li+li{
+    margin-left: 20px;
 }
 .gnb>ul>li>a{
-    position: relative;
+    /* position: relative; */
+    font-family: 'Nanum Gothic', sans-serif;
     color: #222;
     text-decoration: none;
-    font-size: 1.7rem;
-    line-height: 2rem;
+    font-size: 2.4rem;
+    /* line-height: 5rem; */
 }
+
+/* 모바일 버전과 구분하기 위해 미디어 쿼리 사용 -> 780px 이상일때만 적용됨! */
+@media screen and (min-width: 780px) {
+
+    /* GNB 서브메뉴 배경 
+    상위메뉴 li에 가상요소로 만들기
+    서브메뉴가 있는 li에 sm이름의 클래스를 준다! */
+    .gnb>ul>li.sm::before {
+        content: "";
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #fff;
+        transition: 0.45s ease-out;
+    }
+    /* 상위메뉴 li오버시 서브메뉴 보이기 */
+    /* 프로그램소개 */
+    .gnb > ul > li:first-child:hover::before {
+        height: 120px;
+    }
+    
+} /* 780px 이상일때 오버시 적용! */
