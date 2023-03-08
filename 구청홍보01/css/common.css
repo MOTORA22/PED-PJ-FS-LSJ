@@ -13,7 +13,7 @@
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 /* 로고 */
@@ -26,23 +26,13 @@
 }
 
 /* GNB 메뉴 */
-.gnb{
-    height: 100px;
-}
 .gnb ul{
     display: flex;
-    margin-top: 75px;
-    margin-right: 20px;
+    margin-top: 5px;
+    margin-left: 20px;
 }
-.gnb>ul>li:nth-child(1),
-.gnb>ul>li:nth-child(2){
-    width: 120px;
-}
-.gnb>ul>li:nth-child(3){
-    width: 240px;
-}
-.gnb>ul>li:nth-child(4){
-    width: 60px;
+.gnb>ul>li>a{
+    white-space: nowrap;
 }
 .gnb>ul>li+li{
     margin-left: 20px;
@@ -53,14 +43,13 @@
     color: #222;
     text-decoration: none;
     font-size: 2.4rem;
-    /* line-height: 5rem; */
+    line-height: 9.2rem;
 }
 
 /* 모바일 버전과 구분하기 위해 미디어 쿼리 사용 -> 780px 이상일때만 적용됨! */
 @media screen and (min-width: 780px) {
 
-    /* GNB 서브메뉴 배경 
-    상위메뉴 li에 가상요소로 만들기
+    /* GNB 서브메뉴 배경 상위메뉴 li에 가상요소로 만들기
     서브메뉴가 있는 li에 sm이름의 클래스를 준다! */
     .gnb>ul>li.sm::before {
         content: "";
@@ -69,15 +58,38 @@
         left: 0;
         width: 100%;
         height: 0;
-        background-color: #fff;
+        background-color: #e0f0f8;
         transition: 0.45s ease-out;
+    }
+    /* 상위메뉴 오버시 서브배경보이기 */
+    .gnb>ul>li.sm:hover::before {
+        border-bottom: 2px solid darkblue;
+        transition-duration: 0.3s;
     }
     /* 상위메뉴 li오버시 서브메뉴 보이기 */
     .gnb>ul>li:first-child:hover::before {
         height: 100px;
     }
     .gnb>ul>li:first-child:hover .smenu {
-        /* height: 100px; */
+        height: 100px;
+    }
+    .gnb>ul>li:nth-child(2):hover::before {
+        height: 160px;
+    }
+    .gnb>ul>li:nth-child(2):hover .smenu {
+        height: 160px;
+    }
+    .gnb>ul>li:nth-child(3):hover::before {
+        height: 70px;
+    }
+    .gnb>ul>li:nth-child(3):hover .smenu {
+        height: 70px;
+    }
+    .gnb>ul>li:last-child:hover::before {
+        height: 100px;
+    }
+    .gnb>ul>li:last-child:hover .smenu {
+        height: 100px;
     }
 } /* 780px 이상일때 오버시 적용! */
 
@@ -90,8 +102,7 @@
     width: 0%;
     margin-left: 50%;
     height: 3px;
-    margin-top: 5px;
-    background-color: #f00;
+    background-color: darkblue;
     transition: all 0.3s;
 }
 /* 오버시 바 보이기 - 중앙에서 펼져짐! */
@@ -106,20 +117,33 @@
     /* .smenu 앱솔루트의 부모! */
 }
 .smenu{
-    /* position: absolute;
+    position: absolute;
     left: 50%;
-    transform: translateX(-50%); */
-    width: 100%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    /* 상단 위치이동 */
+    margin-top: 10px;
+    text-align: center;
+    white-space: nowrap;
     height: 0;
     overflow: hidden;
-    /* 배경색 
-    - 상위메뉴 오버시 배경색과 동일 */
-    /* background-color: darkblue; */
-    transition: height .4s ease-out;
-    /* 줄바꿈방지 */
-    white-space: nowrap;
+    transition: .4s ease-out;
 }
-/* 상위메뉴 li오버시 서브메뉴 보이기*/
-.gnb>ul>li:hover .smenu{
-    /* height: 100px; */
+/* 서브메뉴 a */
+.smenu a{
+    font-family: 'Nanum Gothic', sans-serif;
+    /* a요소 확장 */
+    display: block;
+    /* 글자셋팅 */
+    color: black;
+    text-decoration: none;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    transition: .1s;
+    }
+    /* 서브메뉴 a 오버시 */
+    .smenu a:hover{
+    color: blue;
+    font-weight: bold;
+    transform: scale(1.1);
 }
