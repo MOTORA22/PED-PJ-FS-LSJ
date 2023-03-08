@@ -7,8 +7,7 @@
     position: relative;
     z-index: 999;
     background-color: #ffffffe0;
-    /* border-bottom: 10px solid #777; */
-    box-shadow: 0 1px 0 1px #777 inset;
+    border-bottom: 2px solid #777;
 }
 .top {
     height: 100px;
@@ -27,6 +26,9 @@
 }
 
 /* GNB 메뉴 */
+.gnb{
+    height: 100px;
+}
 .gnb ul{
     display: flex;
     margin-top: 75px;
@@ -63,7 +65,7 @@
     .gnb>ul>li.sm::before {
         content: "";
         position: absolute;
-        top: 100px;
+        top: 101px;
         left: 0;
         width: 100%;
         height: 0;
@@ -71,11 +73,53 @@
         transition: 0.45s ease-out;
     }
     /* 상위메뉴 li오버시 서브메뉴 보이기 */
-    /* 프로그램소개 */
     .gnb>ul>li:first-child:hover::before {
-        height: 120px;
+        height: 100px;
     }
     .gnb>ul>li:first-child:hover .smenu {
-        height: 120px;
+        /* height: 100px; */
     }
 } /* 780px 이상일때 오버시 적용! */
+
+/* 가상 요소로 밑줄 애니만들기 */
+/* GNB 메뉴의 상위 메뉴 a요소 */
+.gnb>ul>li>a::after {
+    content: "";
+    display: block;
+    /* 변경속성 - 바가 중앙에 있음! */
+    width: 0%;
+    margin-left: 50%;
+    height: 3px;
+    margin-top: 5px;
+    background-color: #f00;
+    transition: all 0.3s;
+}
+/* 오버시 바 보이기 - 중앙에서 펼져짐! */
+.gnb>ul>li:hover>a::after {
+    width: 100%;
+    margin-left: 0%;
+}
+
+/* GNB 서브메뉴 */
+.smbx {
+    position: relative;
+    /* .smenu 앱솔루트의 부모! */
+}
+.smenu{
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    /* 배경색 
+    - 상위메뉴 오버시 배경색과 동일 */
+    /* background-color: darkblue; */
+    transition: height .4s ease-out;
+    /* 줄바꿈방지 */
+    white-space: nowrap;
+}
+/* 상위메뉴 li오버시 서브메뉴 보이기*/
+.gnb>ul>li:hover .smenu{
+    /* height: 100px; */
+}
