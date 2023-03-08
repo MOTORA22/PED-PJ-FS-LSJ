@@ -13,14 +13,3 @@ body{
         background: url(../img/1920bg.004.jpg) no-repeat fixed left/cover;
     }
 }
-
-/* 메인 페이지 메뉴 왼쪽 바깥에서 나타나기 */
-#top{
-    animation: menuMove 1.5s ease-out 1 forwards;
-}
-@keyframes menuMove {
-    to{
-        left: 0;
-        opacity: 1;
-    }
-}
