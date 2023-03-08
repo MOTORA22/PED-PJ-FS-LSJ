@@ -4,12 +4,9 @@
 
 /*************** 1.상단영역 ***************/
 #top {
-    /* 메인영역보다위 - 이유: GNB서브메뉴가 위로와야함 */
     position: relative;
     z-index: 999;
-    /* 서브메뉴 배경은 1) 흰색에 검정 테두리 2) 검정 배경에 흰 글씨 중에서 선택 */
     background-color: #ffffffe0;
-    /* 보더 */
     border-bottom: 1px solid #999;
 }
 .top {
@@ -30,7 +27,6 @@
 /* GNB 메뉴 */
 .gnb ul{
     display: flex;
-    justify-content: center;
     margin-top: 27px;
 }
 .gnb>ul>li{
@@ -42,128 +38,4 @@
     text-decoration: none;
     font-size: 1.7rem;
     line-height: 2rem;
-}
-
-/* 모바일에서는 오버시 설정이 적용되지 않도록
-미디어쿼리 min-width사용한 구역에 넣어준다!
--> 780px 이상일때만 적용됨! */
-@media screen and (min-width: 780px) {
-
-    /* GNB 서브메뉴 배경 
-    상위메뉴 li에 가상요소로 만들기
-    서브메뉴가 있는 li에 sm이름의 클래스를 준다! */
-    .gnb > ul > li.sm::before {
-        content: "";
-        position: absolute;
-        top: 129px;
-        left: 0;
-        /* z-index: -1; */
-        width: 100%;
-        /* 부모는? */
-        height: 0;
-        background-color: #fff;
-        /* 트랜지션 */
-        transition: 0.45s ease-out;
-    }
-    /* 상위메뉴 오버시 서브배경보이기 */
-    .gnb > ul > li.sm:hover::before {
-        border-bottom: 2px solid red;
-        transition-duration: 0.3s;
-    }
-
-    /* 상위메뉴 li오버시 서브메뉴 보이기 */
-
-    /* 프로그램소개 */
-    .gnb > ul > li:first-child:hover::before {
-        height: 120px;
-    }
-    .gnb > ul > li:first-child:hover .smenu {
-        height: 120px;
-    }
-    /* 동영상 */
-    .gnb > ul > li:nth-child(2):hover::before {
-        height: 120px;
-    }
-    .gnb > ul > li:nth-child(2):hover .smenu {
-        height: 120px;
-    }
-    /* 사진첩 */
-    .gnb > ul > li:nth-child(3):hover::before {
-        height: 120px;
-    }
-    .gnb > ul > li:nth-child(3):hover .smenu {
-        height: 120px;
-    }
-    .gnb > ul > li:last-child:hover::before {
-        height: 120px;
-    }
-    .gnb > ul > li:last-child:hover .smenu {
-        height: 120px;
-    }
-} /* 780px 이상일때 오버시 적용! */
-
-/* 가상요소로 밑줄 애니만들기 */
-/* GNB메뉴의 상위메뉴 a요소 */
-.gnb > ul > li > a::after {
-    content: "";
-    display: block;
-
-    /* 변경속성 - 바가 중앙에 있음! */
-    width: 0%;
-    margin-left: 50%;
-
-    height: 3px;
-
-    margin-top: 15px;
-    background-color: #f00;
-    /* 트랜지션: 속시이지 trs */
-    transition: all 0.3s;
-}
-/* 오버시 바 보이기 - 중앙에서 펼져짐! */
-.gnb > ul > li:hover > a::after {
-    width: 100%;
-    margin-left: 0%;
-}
-
-/* GNB 서브메뉴 */
-.smbx {
-    position: relative;
-    /* .smenu 앱솔루트의 부모! */
-}
-.smenu{
-    /* position: absolute;
-    left: 50%;
-    transform: translateX(-50%); */
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    /* 배경색 
-    - 상위메뉴 오버시 배경색과 동일 */
-    /* background-color: darkblue; */
-    transition: height .4s ease-out;
-    /* 줄바꿈방지 */
-    white-space: nowrap;
-}
-/* 상위메뉴 li오버시 서브메뉴 보이기*/
-    .gnb>ul>li:hover .smenu{
-        height: 100px;
-    }
-
-/* 서브메뉴 a */
-.smenu a{
-    /* a요소 확장 */
-    display: block;
-    /* 글자셋팅 */
-    color: lightskyblue;
-    text-decoration: none;
-    font-size: 1.4rem;
-    line-height: 2;
-    /* 트랜지션: 속시이지 */
-    transition: .2s;
-    }
-    /* 서브메뉴 오버시 */
-    .smenu a:hover{
-    background-color: lightskyblue;
-    color: darkblue;
-    transform: scale(1.1);
 }
