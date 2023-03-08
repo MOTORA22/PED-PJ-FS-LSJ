@@ -5,6 +5,12 @@
 /* 1200px 사이즈 이하 미디어쿼리 끝 */
 
 /* 1024px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1024px){
+    .gnb>ul>li:last-child .smenu {
+        transform: translateX(-85%);
+        text-align: right;
+    }
+}
 /* 1024px 사이즈 이하 미디어쿼리 끝 */
 
 /* 780px 사이즈 이하 미디어쿼리 시작 */
