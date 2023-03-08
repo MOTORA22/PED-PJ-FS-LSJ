@@ -114,7 +114,7 @@
 /* GNB 서브메뉴 */
 .smbx {
     position: relative;
-    /* .smenu 앱솔루트의 부모! */
+    /* .smenu 앱솔루트의 부모 */
 }
 .smenu{
     position: absolute;
