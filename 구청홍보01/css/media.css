@@ -79,6 +79,8 @@
         z-index: 9999;
         color: #fff;
         transform: scale(1.5);
+        font-size: 60px;
+        line-height: 0;
     }
     .top.on .ham::before {
         content: '×';

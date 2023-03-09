@@ -5,7 +5,7 @@
 모든 애니메이션은 body.on 인 경우에 적용됨! */
 
 /* 메인 페이지 배경 이동 애니메이션 */
-body{
+body.on{
     animation: bgMove 1s ease-in 1 forwards;
 }
 @keyframes bgMove {
