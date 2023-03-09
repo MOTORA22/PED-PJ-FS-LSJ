@@ -2,7 +2,7 @@
 
 //////////////////// 로딩구역 ////////////////////
 window.addEventListener("DOMContentLoaded", () => {
-    console.log("로딩완료!");
+    // console.log("로딩완료!");
 
     // 링크 시스템 : 메뉴의 a요소 링크를 셋업한다! //
     // 대상: .top a -> 상단영역의 모든 a요소
@@ -97,27 +97,9 @@ window.addEventListener("DOMContentLoaded", () => {
                 `);
             } // if //
             else {
+                // 로고를 클릭해서 메인페이지로 이동할 경우 html?code=m 을 보내주자!
 
-                // 메인페이지 이동일 경우
-                // html?code=m 을 보내주자!
-
-                location.href = 
-                url + ".html"+
-                (atxt==="북구청로고"?"?code=m":"");
-                /* 
-                [ 페이지 이동하기 ]
-
-                ((현재창열기))
-                window.location.href = 이동할주소
-                -> window는 주로 생략함
-                location.href = 이동할주소
-
-                ((새창열기))
-                window.open()
-                .location.href = 이동할주소
-
-                -> window.open()은 원래 팝업창 띄우기임!
-                */
+                location.href = url + ".html"+ (atxt==="북구청로고"?"?code=m":"");
             } // else //
             return false;
         }; // click 이벤트함수 //
