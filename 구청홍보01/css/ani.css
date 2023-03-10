@@ -29,7 +29,8 @@ body {
 }
 @keyframes manMove {
     to{
-        left: -50%;
+        left: -1000px;
+        visibility: hidden;
     }
 }
 @keyframes girlRotate {
@@ -42,15 +43,16 @@ body {
 }
 @keyframes girlMove {
     to{
-        right: -50%;
+        right: -1000px;
+        visibility: hidden;
     }
 }
 
 .ci:first-child>img:first-child{
     position: absolute;
     z-index: 9;
-    top: 30%;
-    left: 40%;
+    top: 175px;
+    left: -105px;
     transform: translateX(-50%);
     transform-origin: bottom center;
     animation:
@@ -61,8 +63,8 @@ body {
 .ci:first-child>img:last-child{
     position: absolute;
     z-index: 9;
-    top: 34%;
-    right: 40%;
+    top: 210px;
+    right: -105px;
     transform: translateX(50%);
     transform-origin: bottom center;
     animation:
@@ -83,13 +85,13 @@ body {
 }
 .ci:nth-child(2){
     position: absolute;
-    top: 15%;
-    left: 20%;
+    top: 35px;
+    left: -505px;
 }
 .ci:nth-child(3){
     position: absolute;
-    top: 30%;
-    left: 35%;
+    top: 180px;
+    left: -270px;
 }
 .ci:nth-child(n+2):nth-child(-n+3) img:first-child{
     margin-right: 20px;
@@ -108,8 +110,16 @@ body {
 
 .ci:nth-child(4){
     position: absolute;
-    top: 20%;
-    right: 10%;
+    top: 100px;
+    right: -540px;
     opacity:0;
     animation: opacity01 1.5s ease-out 2.3s 1 forwards;
+}
+
+.cat{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    /* background-color: red; */
+    margin: 0 auto;
 }
