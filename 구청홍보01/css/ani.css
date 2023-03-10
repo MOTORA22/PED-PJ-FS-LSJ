@@ -6,7 +6,7 @@
 
 /* 메인 페이지 배경 이동 애니메이션 */
 body.on{
-    animation: bgMove 1.5s ease-in 1 3.4s forwards;
+    animation: bgMove 1s ease-in 1 3.4s forwards;
 }
 @keyframes bgMove {
     to{
@@ -46,8 +46,9 @@ body {
     }
 }
 
-.cat>.ci:nth-child(1){
+.ci:first-child>img:first-child{
     position: absolute;
+    z-index: 9;
     top: 30%;
     left: 40%;
     transform: translateX(-50%);
@@ -57,8 +58,9 @@ body {
     manMove 1.5s ease-in 1 1.9s forwards;
 }
 
-.cat>.ci:nth-child(2){
+.ci:first-child>img:last-child{
     position: absolute;
+    z-index: 9;
     top: 34%;
     right: 40%;
     transform: translateX(50%);
@@ -66,4 +68,48 @@ body {
     animation:
     girlRotate 2s ease-in-out 1 forwards,
     girlMove 1.5s ease-in 1 1.9s forwards;
+}
+
+@keyframes opacity01 {
+    to{
+        opacity:1;
+    }
+}
+.ci:nth-child(n+2):nth-child(-n+3){
+    display: flex;
+    align-items: center;
+    opacity:0;
+    animation: opacity01 1.5s ease-out 2.3s 1 forwards;
+}
+.ci:nth-child(2){
+    position: absolute;
+    top: 15%;
+    left: 20%;
+}
+.ci:nth-child(3){
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}
+.ci:nth-child(n+2):nth-child(-n+3) img:first-child{
+    margin-right: 20px;
+    height: 70px;
+}
+@keyframes gradation {
+    to{
+        filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(360deg);
+    }
+}
+.ci:nth-child(n+2):nth-child(-n+3) img:last-child{
+    height: 130px;
+    filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
+    animation: gradation 2s ease-in-out 3.5s 3 forwards;
+}
+
+.ci:nth-child(4){
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    opacity:0;
+    animation: opacity01 1.5s ease-out 2.3s 1 forwards;
 }
