@@ -6,10 +6,64 @@
 
 /* 메인 페이지 배경 이동 애니메이션 */
 body.on{
-    animation: bgMove 1.5s ease-in 1 forwards;
+    animation: bgMove 1.5s ease-in 1 3.4s forwards;
 }
 @keyframes bgMove {
     to{
         background: url(../img/blue_bg01.jpg) no-repeat fixed left/cover;
     }
+}
+
+
+body {
+    overflow-x: hidden;
+}
+
+@keyframes manRotate {
+    50%{
+        transform: translateX(-50%) rotate(10deg);
+    }
+    100%{
+        transform: translateX(-50%) rotate(-2deg);
+    }
+}
+@keyframes manMove {
+    to{
+        left: -50%;
+    }
+}
+@keyframes girlRotate {
+    50%{
+        transform: translateX(50%) rotate(-10deg);
+    }
+    100%{
+        transform: translateX(50%) rotate(2deg);
+    }
+}
+@keyframes girlMove {
+    to{
+        right: -50%;
+    }
+}
+
+.cat>.ci:nth-child(1){
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translateX(-50%);
+    transform-origin: bottom center;
+    animation:
+    manRotate 2s ease-in-out 1 forwards,
+    manMove 1.5s ease-in 1 1.9s forwards;
+}
+
+.cat>.ci:nth-child(2){
+    position: absolute;
+    top: 34%;
+    right: 40%;
+    transform: translateX(50%);
+    transform-origin: bottom center;
+    animation:
+    girlRotate 2s ease-in-out 1 forwards,
+    girlMove 1.5s ease-in 1 1.9s forwards;
 }
