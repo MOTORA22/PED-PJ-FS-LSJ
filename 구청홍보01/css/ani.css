@@ -145,3 +145,8 @@ body {
     top: 600px;
     right: 600px;
 }
+.ci:nth-child(6) img:last-child{
+    position: absolute;
+    top: 600px;
+    right: -500px;
+}
