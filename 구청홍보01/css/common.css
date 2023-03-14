@@ -3,6 +3,7 @@
 -> 상단영역, 하단영역 디자인 */
 
 /*************** 1.상단영역 ***************/
+/* 범위 지정 */
 #top {
     position: relative;
     z-index: 999;
@@ -13,7 +14,6 @@
     height: 100px;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
 }
 
 /* 로고 */
@@ -31,70 +31,52 @@
     margin-top: 5px;
     margin-left: 20px;
 }
-.gnb>ul>li>a{
-    white-space: nowrap;
-}
 .gnb>ul>li+li{
     margin-left: 20px;
 }
 .gnb>ul>li>a{
-    /* position: relative; */
     font-family: 'Nanum Gothic', sans-serif;
     color: #222;
     text-decoration: none;
     font-size: 2.4rem;
     line-height: 9.2rem;
+    white-space: nowrap;
+}
+/* GNB 서브메뉴용 배경을 ul>li.sm에 가상요소로 만들기 */
+.gnb>ul>li.sm::before {
+    content: "";
+    position: absolute;
+    top: 101px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #e0f0f8;
+    transition: 0.45s ease-out;
+}
+/* 상위메뉴 li 오버시 서브메뉴에 파란 밑줄 생성내기 */
+.gnb>ul>li.sm:hover::before {
+    border-bottom: 2px solid darkblue;
+    transition-duration: 0.3s;
+}
+/* 상위메뉴 li 오버시 서브메뉴 보이기 */
+.gnb>ul>li:first-child:hover::before,
+.gnb>ul>li:first-child:hover .smenu {
+    height: 100px;
+}
+.gnb>ul>li:nth-child(2):hover::before,
+.gnb>ul>li:nth-child(2):hover .smenu {
+    height: 160px;
 }
 
-/* 모바일 버전과 구분하기 위해 미디어 쿼리 사용 -> 780px 이상일때만 적용됨! */
-@media screen and (min-width: 780px) {
-
-    /* GNB 서브메뉴 배경 상위메뉴 li에 가상요소로 만들기
-    서브메뉴가 있는 li에 sm이름의 클래스를 준다! */
-    .gnb>ul>li.sm::before {
-        content: "";
-        position: absolute;
-        top: 101px;
-        left: 0;
-        width: 100%;
-        height: 0;
-        background-color: #e0f0f8;
-        transition: 0.45s ease-out;
-    }
-    /* 상위메뉴 오버시 서브배경보이기 */
-    .gnb>ul>li.sm:hover::before {
-        border-bottom: 2px solid darkblue;
-        transition-duration: 0.3s;
-    }
-    /* 상위메뉴 li오버시 서브메뉴 보이기 */
-    .gnb>ul>li:first-child:hover::before {
-        height: 100px;
-    }
-    .gnb>ul>li:first-child:hover .smenu {
-        height: 100px;
-    }
-    .gnb>ul>li:nth-child(2):hover::before {
-        height: 160px;
-    }
-    .gnb>ul>li:nth-child(2):hover .smenu {
-        height: 160px;
-    }
-    .gnb>ul>li:nth-child(3):hover::before {
-        height: 70px;
-    }
-    .gnb>ul>li:nth-child(3):hover .smenu {
-        height: 70px;
-    }
-    .gnb>ul>li:last-child:hover::before {
-        height: 100px;
-    }
-    .gnb>ul>li:last-child:hover .smenu {
-        height: 100px;
-    }
-} /* 780px 이상일때 오버시 적용! */
-
-/* 가상 요소로 밑줄 애니만들기 */
-/* GNB 메뉴의 상위 메뉴 a요소 */
+.gnb>ul>li:nth-child(3):hover::before,
+.gnb>ul>li:nth-child(3):hover .smenu {
+    height: 70px;
+}
+.gnb>ul>li:last-child:hover::before,
+.gnb>ul>li:last-child:hover .smenu {
+    height: 100px;
+}
+/* 가상 요소로 상위메뉴에 움직이는 바 애니만들기 */
 .gnb>ul>li>a::after {
     content: "";
     display: block;
@@ -146,25 +128,4 @@
     color: blue;
     font-weight: bold;
     transform: scale(1.1);
-}
-
-/* 모바일 햄버거 버튼 */
-.ham {
-    position: absolute;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    font-size: 80px;
-    line-height: 0;
-    transform: scaleX(1.5);
-
-    /* 처음에 숨기기 */
-    display: none;
-}
-/* 햄버거모양 가상요소넣기 */
-.ham::before{
-    content: '≡';
 }
