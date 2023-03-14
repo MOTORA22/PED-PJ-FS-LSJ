@@ -28,7 +28,7 @@ body {
     margin: 0 auto;
 }
 
-/* 마스코트 이미지 */
+/* 마스코트 우리두리 */
 @keyframes manRotate {
     50%{
         transform: translateX(-50%) rotate(10deg);
@@ -137,13 +137,20 @@ body {
 }
 
 /* 비둘기 실루엣 이미지 */
+@keyframes birdFly {
+    to{
+        top: 550px;
+        right: 400px;
+    }
+}
 .ci:nth-child(6) img{
     height: 100px;
 }
 .ci:nth-child(6) img:first-child{
     position: absolute;
-    top: 600px;
-    right: 600px;
+    top: 100px;
+    right: 500px;
+    animation: birdFly 2s ease-out 2.3s 1 forwards;
 }
 .ci:nth-child(6) img:last-child{
     position: absolute;
