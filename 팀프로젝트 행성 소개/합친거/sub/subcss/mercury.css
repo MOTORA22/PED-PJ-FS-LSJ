@@ -138,6 +138,7 @@
 /* 수성03 */
 .mercury03{
     height: 50vh;
+    /* background: url(../subimg/Mercury/Mercury02.jpg) no-repeat center/cover; */
     background-image: url(../subimg/Mercury/Mercury02.jpg);
     background-repeat: no-repeat;
     background-position: center;
