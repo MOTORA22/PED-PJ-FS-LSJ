@@ -20,6 +20,8 @@ function loadFn() {
         iseq++;
         if(iseq === inum.length) iseq = 0;
         mrcy.style.cssText = `height: 50vh; background-image: url(./subimg/Mercury/Mercury${inum[iseq]}.jpg);background-repeat: no-repeat;background-position: center;background-size: cover;background-attachment: fixed;`;
+
+        mrcy.style.background = ""
     }, 1000);
     
     ;
