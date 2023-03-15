@@ -7,7 +7,7 @@
 
 .mercury {
     font-family: "Kanit", sans-serif;
-    background: url(../subimg/Mercury/shooting_star01.gif) repeat top/50%;
+    background: url(../subimg/Mercury/Mercury_shooting_star01.gif) repeat top/50%;
 }
 
 /* 수성01 */
@@ -15,7 +15,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: url(../subimg/Mercury/Galaxy.png) center/cover;
+    background: url(../subimg/Mercury/Mercury_galaxy.png) center/cover;
 }
 .mercury01_video{
     position: absolute;
