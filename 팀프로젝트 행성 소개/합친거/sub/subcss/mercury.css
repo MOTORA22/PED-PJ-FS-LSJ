@@ -39,8 +39,7 @@
         opacity: 1;
     }
 }
-.mercury01_text {/* js 23458
-10 12 */
+.mercury01_text {
     color: #fff;
     position: absolute;
     top: 60%;
@@ -139,7 +138,10 @@
 /* 수성03 */
 .mercury03{
     height: 50vh;
-    background: url(../subimg/Mercury/Mercury02.jpg) no-repeat center/cover;/* js */
+    background-image: url(../subimg/Mercury/Mercury02.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     background-attachment: fixed;
 }
 
