@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // 링크 시스템 : 메뉴의 a요소 링크를 셋업한다! //
     // 대상: .top a -> 상단영역의 모든 a요소
-    const link = document.querySelectorAll(".top a");
+    const link = document.querySelectorAll(".logo a,.gnb a");
     // console.log(link);
 
     // 클릭 이벤트 함수 셋팅하기 //

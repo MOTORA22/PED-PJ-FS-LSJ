@@ -6,7 +6,7 @@
 
 /* 메인 페이지 배경 이동 애니메이션 */
 body.on{
-    animation: bgMove 1s ease-in 1 3.4s forwards;
+    animation: bgMove 1.5s ease-in 1.9s 1 forwards;
 }
 @keyframes bgMove {
     to{
@@ -25,7 +25,7 @@ body {
     width: 100px;
     height: 100px;
     /* background-color: red; */
-    margin: 0 auto;
+    margin: 50px auto 0;
 }
 
 /* 마스코트 우리두리 */
@@ -39,8 +39,8 @@ body {
 }
 @keyframes manMove {
     to{
-        left: -1000px;
-        visibility: hidden;
+        left: -650px;
+        /* visibility: hidden; */
     }
 }
 @keyframes girlRotate {
@@ -53,8 +53,8 @@ body {
 }
 @keyframes girlMove {
     to{
-        right: -1000px;
-        visibility: hidden;
+        right: -650px;
+        /* visibility: hidden; */
     }
 }
 .ci:first-child>img:first-child{
@@ -114,7 +114,7 @@ body {
 .ci:nth-child(n+2):nth-child(-n+3) img:last-child{
     height: 130px;
     filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
-    animation: gradation 2s ease-in-out 3.5s 3 forwards;
+    animation: gradation 2s ease-in-out 3.5s infinite forwards;
 }
 
 /* 반투명 로고 이미지 */
@@ -130,17 +130,49 @@ body {
 .ci:nth-child(5){
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
     position: absolute;
-    top: 360px;
-    right: -600px;
+    top: 370px;
+    left: 50%;
     transform: translateX(-50%);
+    width: 950px;
 }
-
-/* 비둘기 실루엣 이미지 */
+.ci:nth-child(5) img{
+    opacity: 0;
+}
+/* 비둘기 나타나기 */
+.ci:nth-child(5) img:nth-child(1){
+    animation: opacity01 2s ease-out 3.5s 1 forwards;
+}
+.ci:nth-child(5) img:nth-child(2){
+    animation: opacity01 2s ease-out 2.5s 1 forwards;
+}
+.ci:nth-child(5) img:nth-child(3){
+    height: 80px;
+    animation: opacity01 2s ease-in-out 5.5s 1 forwards;
+}
+.ci:nth-child(5) img:nth-child(4){
+    animation: opacity01 2s ease-out 3s 1 forwards;
+}
+.ci:nth-child(5) img:nth-child(5){
+    animation: opacity01 2s ease-out 3.5s 1 forwards;
+}
+/* 비둘기 날아오기 */
 @keyframes birdFly {
     to{
-        top: 550px;
-        right: 400px;
+        top: 500px;
+        left: 50px;
+    }
+}
+@keyframes birdFadeOut {
+    15%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
     }
 }
 .ci:nth-child(6) img{
@@ -148,12 +180,9 @@ body {
 }
 .ci:nth-child(6) img:first-child{
     position: absolute;
-    top: 100px;
-    right: 500px;
-    animation: birdFly 2s ease-out 2.3s 1 forwards;
-}
-.ci:nth-child(6) img:last-child{
-    position: absolute;
-    top: 600px;
-    right: -500px;
+    top: 50px;
+    left: 350px;
+    opacity: 0;
+    animation: birdFly 2.5s ease-in-out 4s 1 forwards,
+    birdFadeOut 3s ease-in-out 3.5s 1 forwards;
 }

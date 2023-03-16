@@ -6,6 +6,6 @@
 @import url(core.css);
 @import url(common.css);
 
-body.on{
+body{
     background: url(../img/blue_bg01.jpg) no-repeat fixed right/cover;
 }

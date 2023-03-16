@@ -3,24 +3,23 @@
 -> 상단영역, 하단영역 디자인 */
 
 /*************** 1.상단영역 ***************/
-/* 범위 지정 */
 #top {
     position: relative;
     z-index: 999;
-    background-color: #ffffffe0;
+    background-color: #e0f0f8;
     border-bottom: 2px solid #777;
 }
 .top {
-    height: 100px;
+    width: 1200px;
+    /* width: calc(100% - 40px); */
+    height: 90px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 /* 로고 */
-.logo{
-    width: 260px;
-    margin-left: 20px;
-}
 .logo img{
     width: 240px;
 }
@@ -29,7 +28,6 @@
 .gnb ul{
     display: flex;
     margin-top: 5px;
-    margin-left: 20px;
 }
 .gnb>ul>li+li{
     margin-left: 20px;
@@ -38,15 +36,16 @@
     font-family: 'Nanum Gothic', sans-serif;
     color: #222;
     text-decoration: none;
-    font-size: 2.4rem;
-    line-height: 9.2rem;
+    font-size: 2.5rem;
+    line-height: 8.1rem;
     white-space: nowrap;
+    letter-spacing: -1px;
 }
 /* GNB 서브메뉴용 배경을 ul>li.sm에 가상요소로 만들기 */
 .gnb>ul>li.sm::before {
     content: "";
     position: absolute;
-    top: 101px;
+    top: 91px;
     left: 0;
     width: 100%;
     height: 0;
@@ -83,7 +82,7 @@
     /* 변경속성 - 바가 중앙에 있음! */
     width: 0%;
     margin-left: 50%;
-    height: 3px;
+    height: 4px;
     background-color: darkblue;
     transition: all 0.3s;
 }
@@ -129,6 +128,58 @@
     font-weight: bold;
     transform: scale(1.1);
 }
+
+/* tmenu */
+.sns > li + li {
+    margin-left: 10px;
+}
+.sns{
+    display: flex;
+}
+.sns li {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* background: url(../images/icons.png) no-repeat; */
+    background-color: green;
+    transition: 0.2s;
+}
+/* 트위터 */
+.sns li:nth-child(1) {
+    background-position: 0px 0px;
+}
+/* 트위터 오버시 */
+.sns li:nth-child(1):hover {
+    background-position: 0px -30px;
+}
+/* 인스타그램 */
+.sns li:nth-child(2) {
+    background-position: -30px 0px;
+}
+/* 인스타그램 오버시 */
+.sns li:nth-child(2):hover {
+    background-position: -30px -30px;
+}
+/* 페이스북 */
+.sns li:nth-child(3) {
+    background-position: -60px 0px;
+}
+/* 페이스북 오버시 */
+.sns li:nth-child(3):hover {
+    background-position: -60px -30px;
+}
+.sns a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
 
 /* 메인 페이지 */
 .left_menu{
