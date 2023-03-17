@@ -19,149 +19,132 @@ body {
     overflow-x: hidden;
 }
 
-/* 이미지 들의 상위 태그인 섹션에 포지션과 가로 세로 크기를 줘서 이미지들의 위치를 고정 */
-.cat{
-    position: relative;
-    width: 100px;
-    height: 100px;
-    /* background-color: red; */
-    margin: 50px auto 0;
-}
-
-/* 마스코트 우리두리 */
-@keyframes manRotate {
-    50%{
-        transform: translateX(-50%) rotate(10deg);
-    }
-    100%{
-        transform: translateX(-50%) rotate(-2deg);
-    }
-}
-@keyframes manMove {
-    to{
-        left: -650px;
-        /* visibility: hidden; */
-    }
-}
-@keyframes girlRotate {
-    50%{
-        transform: translateX(50%) rotate(-10deg);
-    }
-    100%{
-        transform: translateX(50%) rotate(2deg);
-    }
-}
-@keyframes girlMove {
-    to{
-        right: -650px;
-        /* visibility: hidden; */
-    }
-}
-.ci:first-child>img:first-child{
-    position: absolute;
-    z-index: 9;
-    top: 175px;
-    left: -105px;
-    transform: translateX(-50%);
-    transform-origin: bottom center;
-    animation:
-    manRotate 2s ease-in-out 1 forwards,
-    manMove 1.5s ease-in 1 1.9s forwards;
-}
-.ci:first-child>img:last-child{
-    position: absolute;
-    z-index: 9;
-    top: 210px;
-    right: -105px;
-    transform: translateX(50%);
-    transform-origin: bottom center;
-    animation:
-    girlRotate 2s ease-in-out 1 forwards,
-    girlMove 1.5s ease-in 1 1.9s forwards;
-}
-
-/* 문구 이미지 */
 @keyframes opacity01 {
     to{
         opacity:1;
     }
 }
-.ci:nth-child(n+2):nth-child(-n+3){
+
+/* 슬로건 */
+.slogan{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    width: 1200px;
+    margin: 100px auto 0;
     opacity:0;
     animation: opacity01 1.5s ease-out 2.3s 1 forwards;
 }
-.ci:nth-child(2){
-    position: absolute;
-    top: 35px;
-    left: -505px;
+.slogan div{
+    background: url(../img/slogan.png) no-repeat;
 }
-.ci:nth-child(3){
-    position: absolute;
-    top: 180px;
-    left: -270px;
-}
-.ci:nth-child(n+2):nth-child(-n+3) img:first-child{
-    margin-right: 20px;
+.slogan div:nth-child(1){
+    width: 300px;
     height: 70px;
+    background-position: 0px 0px;
+}
+.slogan div:nth-child(2){
+    width: 420px;
+    height: 130px;
+    background-position: 0px -160px;
+    filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
+    animation: gradation 2s ease-in-out 3.5s infinite forwards;
+}
+.slogan div:nth-child(3){
+    width: 450px;
+    height: 70px;
+    margin: 0px 0 0 20%;
+    background-position: 0px -80px;
+}
+.slogan div:nth-child(4){
+    width: 380px;
+    height: 130px;
+    background-position: 0px -300px;
+    filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
+    animation: gradation 2s ease-in-out 3.5s infinite forwards;
 }
 @keyframes gradation {
     to{
         filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(360deg);
     }
 }
-.ci:nth-child(n+2):nth-child(-n+3) img:last-child{
-    height: 130px;
-    filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
-    animation: gradation 2s ease-in-out 3.5s infinite forwards;
-}
-
-/* 반투명 로고 이미지 */
-.ci:nth-child(4){
+/* 슬로건 옆에 반투명 로고 */
+.slogan_logo{
     position: absolute;
-    top: 100px;
-    right: -540px;
+    top: 240px;
+    left: 1330px;
+    width: 242px;
+    height: 231px;
+    background: url(../img/character.png) no-repeat;
+    background-position: -360px -300px;
     opacity:0;
     animation: opacity01 1.5s ease-out 2.3s 1 forwards;
 }
-
-/* 사람들 실루엣 이미지 */
-.ci:nth-child(5){
+/* 마스코트 캐릭터 */
+.mascot{
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    position: absolute;
-    top: 370px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 950px;
+    width: 500px;
+    margin: -150px auto 0;
+    animation: mascotMove 1.5s ease-in 1 1.9s forwards;
 }
-.ci:nth-child(5) img{
-    opacity: 0;
+.mascot div{
+    background: url(../img/character.png) no-repeat;
+    transform: rotate(0deg);
+    transform-origin: bottom center;
 }
-/* 비둘기 나타나기 */
-.ci:nth-child(5) img:nth-child(1){
-    animation: opacity01 2s ease-out 3.5s 1 forwards;
+.mascot div:nth-child(1){
+    width: 194px;
+    height: 471px;
+    background-position: 0px 0px;
+    animation: manRotate 2s ease-in-out 1 forwards;
 }
-.ci:nth-child(5) img:nth-child(2){
-    animation: opacity01 2s ease-out 2.5s 1 forwards;
+.mascot div:nth-child(2){
+    width: 156px;
+    height: 439px;
+    background-position: -200px 0px;
+    animation: girlRotate 2s ease-in-out 1 forwards;
 }
-.ci:nth-child(5) img:nth-child(3){
-    height: 80px;
-    animation: opacity01 2s ease-in-out 5.5s 1 forwards;
+@keyframes manRotate {
+    50%{
+        transform: rotate(10deg);
+    }
+    100%{
+        transform: rotate(-2deg);
+    }
 }
-.ci:nth-child(5) img:nth-child(4){
-    animation: opacity01 2s ease-out 3s 1 forwards;
+@keyframes girlRotate {
+    50%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(2deg);
+    }
 }
-.ci:nth-child(5) img:nth-child(5){
-    animation: opacity01 2s ease-out 3.5s 1 forwards;
-}
-/* 비둘기 날아오기 */
-@keyframes birdFly {
+@keyframes mascotMove {
     to{
-        top: 500px;
-        left: 50px;
+        width: 1600px;
+    }
+}
+/* 날아오는 새 */
+.fly_bird{
+    position: absolute;
+    top: 200px;
+    left: 1250px;
+    width: 86px;
+    height: 102px;
+    background: url(../img/character.png) no-repeat;
+    background-position: 0px -480px;
+    opacity: 0;
+    animation:
+    birdFlying 2.5s ease-in-out 4.5s 1 forwards,
+    birdFadeOut 3s ease-in-out 4s 1 forwards;
+}
+@keyframes birdFlying {
+    to{
+        top: 620px;
+        left: 970px;
     }
 }
 @keyframes birdFadeOut {
@@ -175,14 +158,45 @@ body {
         opacity: 0;
     }
 }
-.ci:nth-child(6) img{
-    height: 100px;
+/* 마을 주민들 */
+.villagers{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 900px;
+    margin: -280px auto 0;
 }
-.ci:nth-child(6) img:first-child{
-    position: absolute;
-    top: 50px;
-    left: 350px;
+.villagers div{
+    background: url(../img/character.png) no-repeat;
     opacity: 0;
-    animation: birdFly 2.5s ease-in-out 4s 1 forwards,
-    birdFadeOut 3s ease-in-out 3.5s 1 forwards;
+}
+.villagers div:nth-child(1){
+    width: 229px;
+    height: 280px;
+    background-position: -360px 0px;
+    animation: opacity01 2s ease-out 3.5s 1 forwards;
+}
+.villagers div:nth-child(2){
+    width: 85px;
+    height: 160px;
+    background-position: -610px -300px;
+    animation: opacity01 2s ease-out 2.5s 1 forwards;
+}
+.villagers div:nth-child(3){
+    width: 126px;
+    height: 82px;
+    background-position: -100px -480px;
+    animation: opacity01 2s ease-in-out 6s 1 forwards;
+}
+.villagers div:nth-child(4){
+    width: 219px;
+    height: 259px;
+    background-position: -600px 0px;
+    animation: opacity01 2s ease-out 3s 1 forwards;
+}
+.villagers div:nth-child(5){
+    width: 86px;
+    height: 258px;
+    background-position: -710px -300px;
+    animation: opacity01 2s ease-out 3.5s 1 forwards;
 }
