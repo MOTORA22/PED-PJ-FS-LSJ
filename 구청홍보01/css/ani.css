@@ -132,6 +132,9 @@ body {
         width: 1600px;
     }
 }
+@keyframes mascot_link {
+    
+}
 /* 날아오는 새 */
 .fly_bird{
     position: absolute;
