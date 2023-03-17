@@ -16,7 +16,7 @@ body.on{
 
 /* 마스코트가 밖으로 퇴장시 가로 스크롤바가 생겨서 오버플로우 주기 */
 body {
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 @keyframes opacity01 {
