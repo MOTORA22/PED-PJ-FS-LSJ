@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // 클릭 이벤트 함수 셋팅하기 //
     for (let x of link) {
         // x는 각a요소
-        x.onclick = () => {
+        // x.onclick = () => {
             // 1. a요소의 글자데이터
             let atxt = x.innerText;
             // console.log(atxt);
@@ -98,10 +98,9 @@ window.addEventListener("DOMContentLoaded", () => {
             } // if //
             else {
                 // 로고를 클릭해서 메인페이지로 이동할 경우 html?code=m 을 보내주자!
-
-                location.href = url + ".html"+ (atxt==="북구청로고"?"?code=m":"");
+                x.setAttribute("href",url + ".html")
             } // else //
-            return false;
-        }; // mousedown 이벤트함수 //
+            // return false;
+        // }; // mousedown 이벤트함수 //
     } // for of문 //
 }); //////////////////// 로드구역 ////////////////////

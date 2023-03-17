@@ -6,12 +6,12 @@
 #top {
     position: relative;
     z-index: 999;
-    background-color: #e0f0f8;
+    /* background-color: #e0f0f8; */
+    background-color: #fff;
     border-bottom: 2px solid #777;
 }
 .top {
     width: 1200px;
-    /* width: calc(100% - 40px); */
     height: 90px;
     margin: 0 auto;
     display: flex;
@@ -49,7 +49,8 @@
     left: 0;
     width: 100%;
     height: 0;
-    background-color: #e0f0f8;
+    /* background-color: #e0f0f8; */
+    background-color: #fff;
     transition: 0.45s ease-out;
 }
 /* 상위메뉴 li 오버시 서브메뉴에 파란 밑줄 생성내기 */
@@ -213,30 +214,68 @@
 
 
 /* 메인 페이지 */
+.cont2{
+    position: relative;
+    width: 1600px;
+    height: 1050px;
+    margin: 0 auto;
+    /* background-color: #fff; */
+}
 .left_menu{
     position: absolute;
-    top: 0;
-    left: 5%;
-    width: 250px;
-    height: 100vh;
-    background-color: blue;
+    width: 270px;
+    height: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    /* border: 1px solid #ccc; */
+}
+.left_menu div{
+    box-sizing: border-box;
+}
+.lm01{
+    width: 100%;
+    height: 120px;
+    background-color: #3f70af;
+}
+.lm02{
+    width: 100%;
+    height: 55px;
+    background-color: #339e67;
+}
+.lm03{
+    width: 100%;
+    height: 55px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.ddd{
+    background-color: #e8e8e8;
 }
 
-.ds{
-    position: absolute;
-    right: 20%;
-    background-color: red;
-}
+
 
 .video{
     position: absolute;
-    top: 25%;
+    top: 50px;
     left: 50%;
     transform: translate(-50%);
-    border: 1px solid #000;
+    width: 1000px;
+    margin:  auto;
 }
+.video video{
+    width: 1000px;
+}
+
 .map{
-    position: absolute;
-    top: 80%;
-    left: 30%;
+    /* position: absolute;
+    top: 780px;
+    left: 530px; */
+    /* width: 450px;
+    height: 400px;
+    background: url(../img/map00.png) no-repeat;
+    background-position: 0px -480px; */
+    margin-top: 50px;   
+}
+.map img{
+    width: 450px;
 }
