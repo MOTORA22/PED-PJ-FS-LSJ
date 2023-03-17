@@ -20,20 +20,20 @@
 }
 
 /* 로고 */
-.logo img{
+.logo img {
     width: 240px;
 }
 
 /* GNB 메뉴 */
-.gnb ul{
+.gnb ul {
     display: flex;
     margin-top: 5px;
 }
-.gnb>ul>li+li{
+.gnb > ul > li + li {
     margin-left: 20px;
 }
-.gnb>ul>li>a{
-    font-family: 'Nanum Gothic', sans-serif;
+.gnb > ul > li > a {
+    font-family: "Nanum Gothic", sans-serif;
     color: #222;
     text-decoration: none;
     font-size: 2.5rem;
@@ -42,7 +42,7 @@
     letter-spacing: -1px;
 }
 /* GNB 서브메뉴용 배경을 ul>li.sm에 가상요소로 만들기 */
-.gnb>ul>li.sm::before {
+.gnb > ul > li.sm::before {
     content: "";
     position: absolute;
     top: 91px;
@@ -54,30 +54,30 @@
     transition: 0.45s ease-out;
 }
 /* 상위메뉴 li 오버시 서브메뉴에 파란 밑줄 생성내기 */
-.gnb>ul>li.sm:hover::before {
+.gnb > ul > li.sm:hover::before {
     border-bottom: 2px solid darkblue;
     transition-duration: 0.3s;
 }
 /* 상위메뉴 li 오버시 서브메뉴 보이기 */
-.gnb>ul>li:first-child:hover::before,
-.gnb>ul>li:first-child:hover .smenu {
+.gnb > ul > li:first-child:hover::before,
+.gnb > ul > li:first-child:hover .smenu {
     height: 100px;
 }
-.gnb>ul>li:nth-child(2):hover::before,
-.gnb>ul>li:nth-child(2):hover .smenu {
+.gnb > ul > li:nth-child(2):hover::before,
+.gnb > ul > li:nth-child(2):hover .smenu {
     height: 160px;
 }
 
-.gnb>ul>li:nth-child(3):hover::before,
-.gnb>ul>li:nth-child(3):hover .smenu {
+.gnb > ul > li:nth-child(3):hover::before,
+.gnb > ul > li:nth-child(3):hover .smenu {
     height: 70px;
 }
-.gnb>ul>li:last-child:hover::before,
-.gnb>ul>li:last-child:hover .smenu {
+.gnb > ul > li:last-child:hover::before,
+.gnb > ul > li:last-child:hover .smenu {
     height: 100px;
 }
 /* 가상 요소로 상위메뉴에 움직이는 바 애니만들기 */
-.gnb>ul>li>a::after {
+.gnb > ul > li > a::after {
     content: "";
     display: block;
     /* 변경속성 - 바가 중앙에 있음! */
@@ -88,7 +88,7 @@
     transition: all 0.3s;
 }
 /* 오버시 바 보이기 - 중앙에서 펼져짐! */
-.gnb>ul>li:hover>a::after {
+.gnb > ul > li:hover > a::after {
     width: 100%;
     margin-left: 0%;
 }
@@ -98,7 +98,7 @@
     position: relative;
     /* .smenu 앱솔루트의 부모 */
 }
-.smenu{
+.smenu {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -109,11 +109,11 @@
     white-space: nowrap;
     height: 0;
     overflow: hidden;
-    transition: .4s ease-out;
+    transition: 0.4s ease-out;
 }
 /* 서브메뉴 a */
-.smenu a{
-    font-family: 'Nanum Gothic', sans-serif;
+.smenu a {
+    font-family: "Nanum Gothic", sans-serif;
     /* a요소 확장 */
     display: block;
     /* 글자셋팅 */
@@ -121,10 +121,10 @@
     text-decoration: none;
     font-size: 1.6rem;
     line-height: 1.8;
-    transition: .1s;
-    }
-    /* 서브메뉴 a 오버시 */
-    .smenu a:hover{
+    transition: 0.1s;
+}
+/* 서브메뉴 a 오버시 */
+.smenu a:hover {
     color: blue;
     font-weight: bold;
     transform: scale(1.1);
@@ -134,7 +134,7 @@
 .sns > li + li {
     margin-left: 10px;
 }
-.sns{
+.sns {
     display: flex;
 }
 .sns li {
@@ -212,61 +212,108 @@
     overflow: hidden;
 }
 
-
 /* 메인 페이지 */
-.cont2{
+.cont2 {
     position: relative;
     width: 1600px;
-    height: 1050px;
+    /* height: 1050px; */
     margin: 0 auto;
-    /* background-color: #fff; */
 }
-.left_menu{
-    position: absolute;
+
+/* 왼쪽 메뉴 */
+.gnb_L {
     width: 270px;
-    height: 100%;
+    height: 1200px;
     background-color: #fff;
-    box-sizing: border-box;
-    /* border: 1px solid #ccc; */
 }
-.left_menu div{
-    box-sizing: border-box;
-}
-.lm01{
-    width: 100%;
+.name {
+    width: 270px;
     height: 120px;
+    font-size: 32px;
+    line-height: 120px;
+    color: #fff;
+    text-align: center;
     background-color: #3f70af;
 }
-.lm02{
-    width: 100%;
-    height: 55px;
-    background-color: #339e67;
+.m_name {
+    height: 60px;
 }
-.lm03{
+.m_name a {
+    display: block;
     width: 100%;
-    height: 55px;
+    height: 100%;
+    font-size: 24px;
+    line-height: 60px;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
     background-color: #fff;
+    box-sizing: border-box;
     border: 1px solid #ccc;
+    transition: 0.3s;
 }
-.ddd{
-    background-color: #e8e8e8;
+#cont .onck {
+    color: #fff;
+    background-color: #339e67;
+    border: none;
 }
 
+.gnb_L > ul > li {
+    position: relative;
+    height: 40px;
+}
 
+.gnb_L > ul > li::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 45%;
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+    transform: rotate(45deg);
+    width: 4px;
+    height: 4px;
+}
+.gnb_L > ul > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-left: 30px;
+    font-size: 16px;
+    line-height: 40px;
+    color: #333;
+    text-decoration: none;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    transition: 0.3s;
+}
+.gnb_L > ul > li:last-child > a {
+    border-bottom: 1px solid #ccc;
+}
+.gnb_L > ul > li:hover > a {
+    color: #19529d;
+    text-decoration: underline;
+}
+.gnb_L > ul > li:hover::before {
+    border-top: 2px solid #19529d;
+    border-right: 2px solid #19529d;
+}
 
-.video{
+.video {
     position: absolute;
     top: 50px;
     left: 50%;
     transform: translate(-50%);
     width: 1000px;
-    margin:  auto;
+    margin: auto;
 }
-.video video{
+.video video {
     width: 1000px;
 }
 
-.map{
+.map {
     /* position: absolute;
     top: 780px;
     left: 530px; */
@@ -274,8 +321,9 @@
     height: 400px;
     background: url(../img/map00.png) no-repeat;
     background-position: 0px -480px; */
-    margin-top: 50px;   
+    margin-top: 50px;
+    margin-left: 20px;
 }
-.map img{
+.map img {
     width: 450px;
 }
