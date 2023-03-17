@@ -102,6 +102,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 location.href = url + ".html"+ (atxt==="북구청로고"?"?code=m":"");
             } // else //
             return false;
-        }; // click 이벤트함수 //
+        }; // mousedown 이벤트함수 //
     } // for of문 //
 }); //////////////////// 로드구역 ////////////////////

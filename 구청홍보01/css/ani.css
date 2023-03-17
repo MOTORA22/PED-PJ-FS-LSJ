@@ -106,16 +106,43 @@ body {
     background-position: -200px 0px;
     animation: girlRotate 2s ease-in-out 1 forwards;
 }
+.mascot div:nth-child(1) a::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -120px;
+    left: 20px;
+    width: 200px;
+    height: 100px;
+    opacity: 0;
+    background: url(../img/BUk-gu_ci.png) no-repeat center/contain;
+}
+.mascot div:nth-child(2) a::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -152px;
+    left: -35px;
+    width: 200px;
+    height: 100px;
+    opacity: 0;
+    background: url(../img/bukgu_maeul.png) no-repeat center/contain;
+}
 .mascot a {
+    width: 0;
+    height: 0;
     display: block;
     animation: mascot_link .1s linear 3.5s 1 forwards;
+}
+.mascot div a:hover::after{
+    opacity: 1;
 }
 @keyframes manRotate {
     50%{
         transform: rotate(10deg);
     }
     100%{
-        transform: rotate(-2deg);
+        transform: rotate(0deg);
     }
 }
 @keyframes girlRotate {
@@ -123,12 +150,12 @@ body {
         transform: rotate(-10deg);
     }
     100%{
-        transform: rotate(2deg);
+        transform: rotate(0deg);
     }
 }
 @keyframes mascotMove {
     to{
-        width: 1600px;
+        width: 1700px;
     }
 }
 @keyframes mascot_link {
@@ -148,12 +175,17 @@ body {
     background-position: 0px -480px;
     opacity: 0;
     animation:
-    birdFlying 2.5s ease-in-out 4.5s 1 forwards,
+    birdFlying1 2.5s ease-out 4s 1 forwards,
+    birdFlying2 2s ease-in 4.5s 1 forwards,
     birdFadeOut 3s ease-in-out 4s 1 forwards;
 }
-@keyframes birdFlying {
+@keyframes birdFlying1 {
     to{
         top: 620px;
+    }
+}
+@keyframes birdFlying2 {
+    to{
         left: 970px;
     }
 }
