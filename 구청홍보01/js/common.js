@@ -2,156 +2,147 @@
 window.addEventListener("DOMContentLoaded", loadFn);
 
 function loadFn() {
-    const mName = document.querySelectorAll(".m_name");
-    console.log(mName);
 
-    for (let x of mName) {
-        const Y = x.querySelector("a");
-        console.log(Y);
-        let num = 1;
-        Y.onclick = () => {
-            const Z = x.querySelector("ul");
-            console.log(Z);
-            if (num === 1) {
-                Z.style.display = "none";
-            } else {
-                Z.style.display = "block";
-            }
-            num = num * -1;
-        };
-    }
+    const gnbT = document.querySelector("#top");
+    console.log(gnbT);
+    let gcode = "";
+    gcode +=`
+    <header class="top ibx">
+        <!-- 1-1.로고 -->
+        <h1 class="logo">
+            <a href="index.html">
+                <img src="./img/head-logo.png" alt="북구청로고" />
+            </a>
+        </h1>
+        <!-- 1-2.GNB메뉴 -->
+        <nav class="gnb">
+            <ul>
+                <li class="sm">
+                    <a href="#">마을공동체</a>
+                    <!-- 서브메뉴박스 -->
+                    <div class="smbx">
+                        <ol class="smenu">
+                            <li>
+                                <a href="#">마을공동체활성화지원사업</a>
+                            </li>
+                            <li>
+                                <a href="#">마을모임지원사업</a>
+                            </li>
+                            <li>
+                                <a href="#">광주형협치마을모델사업</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li class="sm">
+                    <a href="#">미래학교</a>
+                    <!-- 서브메뉴박스 -->
+                    <div class="smbx">
+                        <ol class="smenu">
+                            <li>
+                                <a href="#">洞마을의제실행력제고워크숍</a>
+                            </li>
+                            <li>
+                                <a href="#">분야별성장지원워크숍</a>
+                            </li>
+                            <li>
+                                <a href="#">사회적경제기반교육</a>
+                            </li>
+                            <li>
+                                <a href="#">마을환경실천활동가양성교육</a>
+                            </li>
+                            <li>
+                                <a href="#">마을미디어주민활동가양성교육</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li class="sm">
+                    <a href="#">마을분쟁해결지원센터</a>
+                    <!-- 서브메뉴박스 -->
+                    <div class="smbx">
+                        <ol class="smenu">
+                            <li>
+                                <a href="#">북구마을분쟁해결지원센터</a>
+                            </li>
+                            <li>
+                                <a href="#">소통방</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li class="sm">
+                    <a href="#">부록</a>
+                    <!-- 서브메뉴박스 -->
+                    <div class="smbx">
+                        <ol class="smenu">
+                            <li>
+                                <a href="#">찾아가는어린이환경리더교육</a>
+                            </li>
+                            <li>
+                                <a href="#">마을활동가토크쇼</a>
+                            </li>
+                            <li>
+                                <a href="#">탄소중립그린마을동행</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- SNS 바로가기 -->
+        <aside>
+            <ol class="sns">
+                <li>
+                    <a href="https://pf.kakao.com/_Jxhucj" target="_blank">
+                        <span class="ir"> 광주 북구청 카카오톡 채널 바로가기 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://story.kakao.com/ch/gjbukgu" target="_blank">
+                        <span class="ir"> 광주 북구청 카카오스토리 바로가기 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://blog.naver.com/gjbukgu" target="_blank">
+                        <span class="ir"> 광주 북구청 블로그 바로가기 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/gjbukguofficial" target="_blank">
+                        <span class="ir"> 광주 북구청 페이스북 바로가기 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/gjbukgu/" target="_blank">
+                        <span class="ir"> 광주 북구청 인스타그램 바로가기 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/gjbukgu" target="_blank">
+                        <span class="ir"> 광주 북구청 트위터 바로가기 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/channel/UCOUWDDkH2m4dvJvXP-GObHw" target="_blank">
+                        <span class="ir"> 광주 북구청 유투브 바로가기 </span>
+                    </a>
+                </li>
+            </ol>
+        </aside>
+    </header>
+    `;
+    gnbT.innerHTML=gcode;
 
-    const aName = document.querySelectorAll(".m_name a");
-    console.log(aName);
-    for (let x of aName) {
+
+    
+    const gnbA = document.querySelectorAll(".sm a");
+    console.log(gnbA);
+    for (let x of gnbA) {
         x.onclick = () => {
-            let a_txt = x.innerText;
-            console.log(a_txt);
-
-            const changeM = document.querySelector("video");
-
-            switch (a_txt) {
-                case "마을공동체 활성화 지원사업":
-                    changeM.src = "./video/1A01.mp4";
-                    break;
-                case "중흥3동주민자치위원회":
-                    changeM.src = "./video/1A01.mp4";
-                    break;
-                case "신안동주민자치위원회":
-                    changeM.src = "./video/1A02.mp4";
-                    break;
-                case "용봉동주민자치회":
-                    changeM.src = "./video/1A03.mp4";
-                    break;
-                case "운암3동주민자치회(1)":
-                    changeM.src = "./video/1A04.mp4";
-                    break;
-                case "운암3동주민자치회(2)":
-                    changeM.src = "./video/1A05.mp4";
-                    break;
-                case "문화동주민자치회":
-                    changeM.src = "./video/1A06.mp4";
-                    break;
-                case "문흥1동주민자치회(1)":
-                    changeM.src = "./video/1A07.mp4";
-                    break;
-                case "문흥1동주민자치회(2)":
-                    changeM.src = "./video/1A08.mp4";
-                    break;
-                case "두암3동주민자치위원회":
-                    changeM.src = "./video/1A09.mp4";
-                    break;
-                case "석곡동주민자치위원회":
-                    changeM.src = "./video/1A10.mp4";
-                    break;
-                case "양산동주민자치회":
-                    changeM.src = "./video/1A11.mp4";
-                    break;
-                case "중흥2동_몸맘살림":
-                    changeM.src = "./video/1A12.mp4";
-                    break;
-                case "중흥2동_쓰담쓰담 예술나눔":
-                    changeM.src = "./video/1A13.mp4";
-                    break;
-                case "신안동_빛고을공예협동조합":
-                    changeM.src = "./video/1A14.mp4";
-                    break;
-                case "용봉동_용봉마을연극단":
-                    changeM.src = "./video/1A15.mp4";
-                    break;
-                case "운암1동_벽산블루밍 운암메가씨티3단지":
-                    changeM.src = "./video/1A16.mp4";
-                    break;
-                case "운암1동_벽산블루밍1단지 마을여성회":
-                    changeM.src = "./video/1A17.mp4";
-                    break;
-                case "운암2동_운암2동 365민생행복지원단":
-                    changeM.src = "./video/1A18.mp4";
-                    break;
-                case "동림동_행복한공동체 모다":
-                    changeM.src = "./video/1A19.mp4";
-                    break;
-                case "동림동_동림동지역사회보장협의체":
-                    changeM.src = "./video/1A20.mp4";
-                    break;
-                case "우산동_기마전아트공동체":
-                    changeM.src = "./video/1A21.mp4";
-                    break;
-                case "우산동_꿈나무사회복지관":
-                    changeM.src = "./video/1A22.mp4";
-                    break;
-                case "풍향동_코리아문화예술단":
-                    changeM.src = "./video/1A23.mp4";
-                    break;
-                case "문화동_각화종합사회복지관":
-                    changeM.src = "./video/1A24.mp4";
-                    break;
-                case "문흥2동_문흥골목대장":
-                    changeM.src = "./video/1A25.mp4";
-                    break;
-                case "두암3동_두암종합사회복지관":
-                    changeM.src = "./video/1A26.mp4";
-                    break;
-                case "두암3동_무등종합사회복지관":
-                    changeM.src = "./video/1A27.mp4";
-                    break;
-                case "오치1동_오치종합사회복지관":
-                    changeM.src = "./video/1A28.mp4";
-                    break;
-                case "오치1동_대금연주단 여울림":
-                    changeM.src = "./video/1A29.mp4";
-                    break;
-                case "석곡동_원시인마을":
-                    changeM.src = "./video/1A30.mp4";
-                    break;
-                case "석곡동_월산마을번영회":
-                    changeM.src = "./video/1A31.mp4";
-                    break;
-                case "양산동_교육네트워크희망팩토리":
-                    changeM.src = "./video/1A32.mp4";
-                    break;
-                case "양산동_연제주공아파트관리소":
-                    changeM.src = "./video/1A33.mp4";
-                    break;
-                case "양산동_JS뮤지션스그룹":
-                    changeM.src = "./video/1A34.mp4";
-                    break;
-                case "신용동_신용동지역사회보장협의체":
-                    changeM.src = "./video/1A35.mp4";
-                    break;
-                case "신용동_꿈틀어린이작은도서관":
-                    changeM.src = "./video/1A36.mp4";
-                    break;
-                case "북구_동운마을기후환경연합공동체'이음'":
-                    changeM.src = "./video/1A37.mp4";
-                    break;
-                case "북구_광주북구문화예술연합":
-                    changeM.src = "./video/1A38.mp4";
-                    break;
-                case "북구_북구마을네트워크":
-                    changeM.src = "./video/1A39.mp4";
-                    break;
-            }
+            let atxt = x.innerText;
+            console.log(atxt);
+            location.href = "main.html?A="+encodeURIComponent(atxt);
         };
     }
 }
