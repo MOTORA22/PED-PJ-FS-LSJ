@@ -222,12 +222,13 @@
 
 /* 왼쪽 메뉴 */
 .gnb_L {
-    width: 270px;
-    height: 1200px;
+    width: 340px;
+    height: calc(100vh - 212px);
     background-color: #fff;
+    overflow-Y: scroll;
 }
 .name {
-    width: 270px;
+    width: 340px;
     height: 120px;
     font-size: 32px;
     line-height: 120px;
@@ -235,38 +236,30 @@
     text-align: center;
     background-color: #3f70af;
 }
-.m_name {
+
+.m_name>a {
     height: 60px;
-}
-.m_name a {
     display: block;
     width: 100%;
     height: 100%;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: bold;
     line-height: 60px;
-    color: #000;
+    color: #fff;
     text-align: center;
     text-decoration: none;
-    background-color: #fff;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
+    background-color: #339e67;
     transition: 0.3s;
 }
-#cont .onck {
-    color: #fff;
-    background-color: #339e67;
-    border: none;
-}
-
-.gnb_L > ul > li {
+.m_name > ul > li {
     position: relative;
     height: 40px;
 }
 
-.gnb_L > ul > li::before {
+.m_name > ul > li::before {
     content: "";
     position: absolute;
-    left: 15px;
+    left: 10px;
     top: 45%;
     border-top: 2px solid #333;
     border-right: 2px solid #333;
@@ -274,11 +267,11 @@
     width: 4px;
     height: 4px;
 }
-.gnb_L > ul > li > a {
+.m_name > ul > li > a {
     display: block;
     width: 100%;
     height: 100%;
-    padding-left: 30px;
+    padding-left: 20px;
     font-size: 16px;
     line-height: 40px;
     color: #333;
@@ -289,23 +282,23 @@
     border-right: 1px solid #ccc;
     transition: 0.3s;
 }
-.gnb_L > ul > li:last-child > a {
+.m_name > ul > li:last-child > a {
     border-bottom: 1px solid #ccc;
 }
-.gnb_L > ul > li:hover > a {
+.m_name > ul > li:hover > a {
     color: #19529d;
+    font-weight: bold;
     text-decoration: underline;
 }
-.gnb_L > ul > li:hover::before {
+.m_name > ul > li:hover::before {
     border-top: 2px solid #19529d;
     border-right: 2px solid #19529d;
 }
 
 .video {
     position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translate(-50%);
+    top: 20px;
+    left: 360px;
     width: 1000px;
     margin: auto;
 }
@@ -321,7 +314,7 @@
     height: 400px;
     background: url(../img/map00.png) no-repeat;
     background-position: 0px -480px; */
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 20px;
 }
 .map img {
