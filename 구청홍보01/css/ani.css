@@ -5,7 +5,7 @@
 모든 애니메이션은 body.on 인 경우에 적용됨! */
 
 /* 메인 페이지 배경 이동 애니메이션 */
-body.on{
+body{
     animation: bgMove 1.5s ease-in 1.9s 1 forwards;
 }
 @keyframes bgMove {
@@ -14,9 +14,10 @@ body.on{
     }
 }
 
-/* 마스코트가 밖으로 퇴장시 가로 스크롤바가 생겨서 오버플로우 주기 */
-body {
-    overflow-x: hidden;
+.cbx{
+    position: relative;
+    width: 1800px;
+    margin: 0 auto;
 }
 
 @keyframes opacity01 {
@@ -71,8 +72,8 @@ body {
 /* 슬로건 옆에 반투명 로고 */
 .slogan_logo{
     position: absolute;
-    top: 240px;
-    left: 1330px;
+    top: 50px;
+    left: 1270px;
     width: 242px;
     height: 231px;
     background: url(../img/character.png) no-repeat;
@@ -93,6 +94,7 @@ body {
     background: url(../img/character.png) no-repeat;
     transform: rotate(0deg);
     transform-origin: bottom center;
+    overflow: hidden;
 }
 .mascot div:nth-child(1){
     width: 194px;
@@ -167,8 +169,8 @@ body {
 /* 날아오는 새 */
 .fly_bird{
     position: absolute;
-    top: 200px;
-    left: 1250px;
+    top: 10px;
+    left: 1180px;
     width: 86px;
     height: 102px;
     background: url(../img/character.png) no-repeat;
@@ -181,12 +183,12 @@ body {
 }
 @keyframes birdFlying1 {
     to{
-        top: 620px;
+        top: 420px;
     }
 }
 @keyframes birdFlying2 {
     to{
-        left: 970px;
+        left: 920px;
     }
 }
 @keyframes birdFadeOut {

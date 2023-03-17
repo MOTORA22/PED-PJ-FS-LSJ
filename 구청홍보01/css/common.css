@@ -221,23 +221,24 @@
 }
 
 /* 왼쪽 메뉴 */
-.gnb_L {
+.gnbL {
     width: 340px;
-    height: calc(100vh - 212px);
+    height: calc(100vh - 192px);
     background-color: #fff;
     overflow-Y: scroll;
 }
 .name {
     width: 340px;
-    height: 120px;
-    font-size: 32px;
-    line-height: 120px;
+    height: 100px;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 100px;
     color: #fff;
     text-align: center;
     background-color: #3f70af;
 }
 
-.m_name>a {
+.m_name>span {
     height: 60px;
     display: block;
     width: 100%;

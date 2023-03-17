@@ -8,4 +8,5 @@
 
 body{
     background: url(../img/blue_bg01.jpg) no-repeat fixed right/cover;
+    /* overflow-x: hidden; */
 }
