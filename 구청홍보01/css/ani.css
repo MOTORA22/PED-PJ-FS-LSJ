@@ -89,12 +89,12 @@ body{
     width: 500px;
     margin: -150px auto 0;
     animation: mascotMove 1.5s ease-in 1 1.9s forwards;
+    overflow: hidden;
 }
 .mascot div{
     background: url(../img/character.png) no-repeat;
     transform: rotate(0deg);
     transform-origin: bottom center;
-    overflow: hidden;
 }
 .mascot div:nth-child(1){
     width: 194px;
