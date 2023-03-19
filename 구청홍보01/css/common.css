@@ -6,28 +6,30 @@
 #top {
     position: relative;
     z-index: 999;
-    /* background-color: #e0f0f8; */
     background-color: #fff;
-    border-bottom: 2px solid #777;
+    border-bottom: 2px solid #ccc;
 }
 .top {
-    width: 1200px;
-    height: 90px;
+    width: 1280px;
+    height: 88px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 /* 로고 */
+.logo{
+    margin-left: 20px;
+}
 .logo img {
-    width: 240px;
+    width: 220px;
 }
 
 /* GNB 메뉴 */
 .gnb ul {
     display: flex;
-    margin-top: 5px;
+    margin-top: 12px;
+    margin-left: 110px;
 }
 .gnb > ul > li + li {
     margin-left: 20px;
@@ -37,7 +39,7 @@
     color: #222;
     text-decoration: none;
     font-size: 2.5rem;
-    line-height: 8.1rem;
+    line-height: 7.8rem;
     white-space: nowrap;
     letter-spacing: -1px;
 }
@@ -45,7 +47,7 @@
 .gnb > ul > li.sm::before {
     content: "";
     position: absolute;
-    top: 91px;
+    top: 90px;
     left: 0;
     width: 100%;
     height: 0;
@@ -83,7 +85,7 @@
     /* 변경속성 - 바가 중앙에 있음! */
     width: 0%;
     margin-left: 50%;
-    height: 4px;
+    height: 2px;
     background-color: darkblue;
     transition: all 0.3s;
 }
@@ -128,88 +130,6 @@
     color: blue;
     font-weight: bold;
     transform: scale(1.1);
-}
-
-/* tmenu */
-.sns > li + li {
-    margin-left: 10px;
-}
-.sns {
-    display: flex;
-}
-.sns li {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: url(../img/sns_logo.png) no-repeat;
-    transition: 0.2s;
-}
-/* 카카오톡 채널 */
-.sns li:nth-child(1) {
-    background-position: 0px 0px;
-}
-/* 카카오톡 채널 오버시 */
-.sns li:nth-child(1):hover {
-    background-position: 0px -40px;
-}
-/* 카카오스토리 */
-.sns li:nth-child(2) {
-    background-position: -40px 0px;
-}
-/* 카카오스토리 오버시 */
-.sns li:nth-child(2):hover {
-    background-position: -40px -40px;
-}
-/* 블로그 */
-.sns li:nth-child(3) {
-    background-position: -80px 0px;
-}
-/* 블로그 오버시 */
-.sns li:nth-child(3):hover {
-    background-position: -80px -40px;
-}
-/* 카카오톡 채널 */
-.sns li:nth-child(4) {
-    background-position: -120px 0px;
-}
-/* 카카오톡 채널 오버시 */
-.sns li:nth-child(4):hover {
-    background-position: -120px -40px;
-}
-/* 카카오톡 채널 */
-.sns li:nth-child(5) {
-    background-position: -160px 0px;
-}
-/* 카카오톡 채널 오버시 */
-.sns li:nth-child(5):hover {
-    background-position: -160px -40px;
-}
-/* 카카오톡 채널 */
-.sns li:nth-child(6) {
-    background-position: -200px 0px;
-}
-/* 카카오톡 채널 오버시 */
-.sns li:nth-child(6):hover {
-    background-position: -200px -40px;
-}
-/* 카카오톡 채널 */
-.sns li:nth-child(7) {
-    background-position: -240px 0px;
-}
-/* 카카오톡 채널 오버시 */
-.sns li:nth-child(7):hover {
-    background-position: -240px -40px;
-}
-.sns a {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-.ir {
-    display: block;
-    width: 0;
-    height: 0;
-    overflow: hidden;
 }
 
 /* 메인 페이지 */
@@ -294,19 +214,4 @@
 }
 .video video {
     width: 1000px;
-}
-
-.map {
-    /* position: absolute;
-    top: 780px;
-    left: 530px; */
-    /* width: 450px;
-    height: 400px;
-    background: url(../img/map00.png) no-repeat;
-    background-position: 0px -480px; */
-    margin-top: 20px;
-    margin-left: 20px;
-}
-.map img {
-    width: 450px;
 }

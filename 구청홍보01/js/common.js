@@ -90,46 +90,6 @@ function loadFn() {
                 </li>
             </ul>
         </nav>
-        <!-- SNS 바로가기 -->
-        <aside>
-            <ol class="sns">
-                <li>
-                    <a href="https://pf.kakao.com/_Jxhucj" target="_blank">
-                        <span class="ir"> 광주 북구청 카카오톡 채널 바로가기 </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://story.kakao.com/ch/gjbukgu" target="_blank">
-                        <span class="ir"> 광주 북구청 카카오스토리 바로가기 </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://blog.naver.com/gjbukgu" target="_blank">
-                        <span class="ir"> 광주 북구청 블로그 바로가기 </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/gjbukguofficial" target="_blank">
-                        <span class="ir"> 광주 북구청 페이스북 바로가기 </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/gjbukgu/" target="_blank">
-                        <span class="ir"> 광주 북구청 인스타그램 바로가기 </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/gjbukgu" target="_blank">
-                        <span class="ir"> 광주 북구청 트위터 바로가기 </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/channel/UCOUWDDkH2m4dvJvXP-GObHw" target="_blank">
-                        <span class="ir"> 광주 북구청 유투브 바로가기 </span>
-                    </a>
-                </li>
-            </ol>
-        </aside>
     </header>
     `;
     gnbT.innerHTML=gcode;
