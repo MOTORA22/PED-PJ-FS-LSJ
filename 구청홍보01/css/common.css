@@ -22,14 +22,14 @@
     margin-left: 20px;
 }
 .logo img {
-    width: 220px;
+    width: 270px;
 }
 
 /* GNB 메뉴 */
 .gnb ul {
     display: flex;
     margin-top: 12px;
-    margin-left: 120px;
+    margin-left: 30px;
 }
 .gnb > ul > li + li {
     margin-left: 20px;
