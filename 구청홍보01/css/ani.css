@@ -116,7 +116,6 @@ body{
     left: 20px;
     width: 200px;
     height: 100px;
-    opacity: 0;
     background: url(../img/BUk-gu_ci.png) no-repeat center/contain;
 }
 .mascot div:nth-child(2) a::after{
@@ -127,7 +126,6 @@ body{
     left: -35px;
     width: 200px;
     height: 100px;
-    opacity: 0;
     background: url(../img/bukgu_maeul.png) no-repeat center/contain;
 }
 .mascot a {
