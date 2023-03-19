@@ -36,12 +36,12 @@
 }
 .gnb > ul > li > a {
     font-family: "Nanum Gothic", sans-serif;
+    font-weight: 700;
     color: #222;
-    text-decoration: none;
     font-size: 2.5rem;
     line-height: 7.8rem;
     white-space: nowrap;
-    letter-spacing: -1px;
+    text-decoration: none;
 }
 /* GNB 서브메뉴용 배경을 ul>li.sm에 가상요소로 만들기 */
 .gnb > ul > li.sm::before {
@@ -84,8 +84,8 @@
     display: block;
     /* 변경속성 - 바가 중앙에 있음! */
     width: 0%;
-    margin-left: 50%;
     height: 2px;
+    margin-left: 50%;
     background-color: darkblue;
     transition: all 0.3s;
 }
@@ -104,18 +104,18 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0 10px;
-    /* 상단 위치이동 */
+    height: 0;
     margin-top: 10px;
+    padding: 0 10px;
     text-align: center;
     white-space: nowrap;
-    height: 0;
     overflow: hidden;
     transition: 0.4s ease-out;
 }
 /* 서브메뉴 a */
 .smenu a {
     font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400;
     /* a요소 확장 */
     display: block;
     /* 글자셋팅 */
@@ -128,7 +128,7 @@
 /* 서브메뉴 a 오버시 */
 .smenu a:hover {
     color: blue;
-    font-weight: bold;
+    font-weight: 700;
     transform: scale(1.1);
 }
 
@@ -142,28 +142,29 @@
 /* 왼쪽 메뉴 */
 .gnbL {
     width: 340px;
-    height: calc(100vh - 192px);
+    height: calc(100vh - 90px);
+    font-family: 'Noto Sans KR', sans-serif;
     background-color: #fff;
     overflow-Y: scroll;
 }
 
 .m_name>span {
-    height: 60px;
     display: block;
     width: 100%;
     height: 100%;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 60px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 55px;
     color: #fff;
     text-align: center;
     text-decoration: none;
-    background-color: #339e67;
-    transition: 0.3s;
+    background-color: #3769aa;
+    border-bottom: 5px solid #339e67;
+    /* transition: 0.3s; */
 }
 .m_name > ul > li {
     position: relative;
-    height: 40px;
+    height: 36px;
 }
 
 .m_name > ul > li::before {
@@ -182,14 +183,18 @@
     width: 100%;
     height: 100%;
     padding-left: 20px;
-    font-size: 16px;
-    line-height: 40px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    word-spacing: -3px;
+    line-height: 36px;
     color: #333;
     text-decoration: none;
     background-color: #fff;
+    border-radius: 18px;
     box-sizing: border-box;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    /* border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc; */
     transition: 0.3s;
 }
 .m_name > ul > li:last-child > a {
@@ -197,8 +202,9 @@
 }
 .m_name > ul > li:hover > a {
     color: #19529d;
-    font-weight: bold;
-    text-decoration: underline;
+    font-weight: 700;
+    /* text-decoration: underline; */
+    border: 1px solid #19529d;   
 }
 .m_name > ul > li:hover::before {
     border-top: 2px solid #19529d;
@@ -207,11 +213,19 @@
 
 .video {
     position: absolute;
-    top: 20px;
+    top: 0;
     left: 360px;
-    width: 1000px;
+    width: 920px;
     margin: auto;
 }
+.video span{
+    display: block;
+    height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    line-height: 6rem;
+}
 .video video {
-    width: 1000px;
+    width: 920px;
 }

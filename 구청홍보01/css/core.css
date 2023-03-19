@@ -2,7 +2,7 @@
 /* 웹폰트, 공통클래스 셋팅 CSS - core.css */
 
 /* 웹폰트 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 /* 
     1. GNB 메뉴 폰트
     font-family: 'Nanum Gothic', sans-serif;
