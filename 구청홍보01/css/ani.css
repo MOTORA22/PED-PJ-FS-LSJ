@@ -16,7 +16,7 @@ body{
 
 .cbx{
     position: relative;
-    width: 1800px;
+    width: 1280px;
     margin: 0 auto;
 }
 
@@ -81,89 +81,7 @@ body{
     opacity:0;
     animation: opacity01 1.5s ease-out 2.3s 1 forwards;
 }
-/* 마스코트 캐릭터 */
-.mascot{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    width: 500px;
-    margin: -150px auto 0;
-    animation: mascotMove 1.5s ease-in 1 1.9s forwards;
-    overflow: hidden;
-}
-.mascot div{
-    background: url(../img/character.png) no-repeat;
-    transform: rotate(0deg);
-    transform-origin: bottom center;
-}
-.mascot div:nth-child(1){
-    width: 194px;
-    height: 471px;
-    background-position: 0px 0px;
-    animation: manRotate 2s ease-in-out 1 forwards;
-}
-.mascot div:nth-child(2){
-    width: 156px;
-    height: 439px;
-    background-position: -200px 0px;
-    animation: girlRotate 2s ease-in-out 1 forwards;
-}
-.mascot div:nth-child(1) a::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: -120px;
-    left: 20px;
-    width: 200px;
-    height: 100px;
-    background: url(../img/BUk-gu_ci.png) no-repeat center/contain;
-}
-.mascot div:nth-child(2) a::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: -152px;
-    left: -35px;
-    width: 200px;
-    height: 100px;
-    background: url(../img/bukgu_maeul.png) no-repeat center/contain;
-}
-.mascot a {
-    width: 0;
-    height: 0;
-    display: block;
-    animation: mascot_link .1s linear 3.5s 1 forwards;
-}
-.mascot div a:hover::after{
-    opacity: 1;
-}
-@keyframes manRotate {
-    50%{
-        transform: rotate(10deg);
-    }
-    100%{
-        transform: rotate(0deg);
-    }
-}
-@keyframes girlRotate {
-    50%{
-        transform: rotate(-10deg);
-    }
-    100%{
-        transform: rotate(0deg);
-    }
-}
-@keyframes mascotMove {
-    to{
-        width: 1700px;
-    }
-}
-@keyframes mascot_link {
-    to{
-        width: 100%;
-        height: 100%;
-    }
-}
+
 /* 날아오는 새 */
 .fly_bird{
     position: absolute;
