@@ -91,11 +91,11 @@ function loadFn() {
         </nav>
         <!-- 1-3. 바로가기 -->
         <div class="link01">
-            <a href="index.html">
+            <a href="https://bukgu.gwangju.kr/index.es?sid=b3" target="_blank">
             </a>
         </div>
         <div class="link02">
-            <a href="index.html">
+            <a href="https://bukgu.gwangju.kr/index.es?sid=a1" target="_blank">
             </a>
         </div>
     </header>
