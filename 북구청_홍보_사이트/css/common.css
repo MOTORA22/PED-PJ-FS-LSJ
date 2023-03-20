@@ -217,7 +217,7 @@
 .m_name > ul > li > a {
     display: block;
     width: 95%;
-    height: 95%;
+    height: 200%;
     margin: 0 auto;
     padding-left: 25px;
     font-size: 1.6rem;
