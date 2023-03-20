@@ -41,21 +41,22 @@ window.addEventListener("DOMContentLoaded", function () {
     for (let x of mName) {
         const Y = x.querySelector("span");
         console.log(Y);
-        let num = 1;
-        Y.onclick = () => {
-            const Z = x.querySelector("ul");
-            // console.log(Z);
-            const L = Z.querySelectorAll("li").length;
-            // console.log(L);
-            Z.style.height = L*36 + "px";
+        const Z = x.querySelector("ul");
+        // console.log(Z);
+        const L = Z.querySelectorAll("li").length;
+        // console.log(L);
+        Z.style.height = L*36 + 20 + "px";
 
+        let num = 1;
+
+        Y.onclick = () => {
             if (num === 1) {
                 Y.style.borderBottom = "5px solid #3769aa";
                 Z.style.height = "0";
                 // Z.style.cssText = 'height :0; overflow: hidden';
             } else {
                 Y.style.borderBottom = "5px solid #339e67";
-                Z.style.height = L*36 + "px";
+                Z.style.height = L*36 + 40 + "px";
                 // Z.style.cssText = 'height :auto; overflow: hidden';
             }
             num = num * -1;

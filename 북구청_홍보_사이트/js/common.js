@@ -8,13 +8,12 @@ function loadFn() {
     let gcode = "";
     gcode +=`
     <header class="top ibx">
-        <!-- 1-1.로고 -->
-        <h1 class="logo">
+        <!-- 1-1. 로고 -->
+        <div class="logo">
             <a href="index.html">
-                <img src="./img/head-logo.png" alt="북구청로고" />
             </a>
-        </h1>
-        <!-- 1-2.GNB메뉴 -->
+        </div>
+        <!-- 1-2. GNB 메뉴 -->
         <nav class="gnb">
             <ul>
                 <li class="sm">
@@ -90,6 +89,15 @@ function loadFn() {
                 </li>
             </ul>
         </nav>
+        <!-- 1-3. 바로가기 -->
+        <div class="link01">
+            <a href="index.html">
+            </a>
+        </div>
+        <div class="link02">
+            <a href="index.html">
+            </a>
+        </div>
     </header>
     `;
     gnbT.innerHTML=gcode;
