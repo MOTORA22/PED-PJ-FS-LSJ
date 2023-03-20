@@ -56,7 +56,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 // Z.style.cssText = 'height :0; overflow: hidden';
             } else {
                 Y.style.borderBottom = "5px solid #339e67";
-                Z.style.height = L*36 + 40 + "px";
+                Z.style.height = L*36 + 20 + "px";
                 // Z.style.cssText = 'height :auto; overflow: hidden';
             }
             num = num * -1;
