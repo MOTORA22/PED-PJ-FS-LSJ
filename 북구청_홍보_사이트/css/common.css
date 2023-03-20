@@ -82,7 +82,7 @@
 }
 /* 상위메뉴 li 오버시 서브메뉴에 파란 밑줄 생성내기 */
 .gnb > ul > li.sm:hover::before {
-    border-bottom: 2px solid #1ca4fc;
+    border-bottom: 2px solid #011c2b;
     transition-duration: 0.3s;
 }
 /* 상위메뉴 li 오버시 서브메뉴 보이기 */
@@ -111,7 +111,7 @@
     width: 0%;
     height: 2px;
     margin-left: 50%;
-    background-color: #1ca4fc;
+    background-color: #011c2b;
     transition: all 0.3s;
 }
 /* 오버시 바 보이기 - 중앙에서 펼져짐! */
