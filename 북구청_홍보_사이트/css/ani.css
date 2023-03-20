@@ -6,7 +6,7 @@
 
 /* 메인 페이지 배경 이동 애니메이션 */
 body{
-    animation: bgMove 1.5s ease-in 1.9s 1 forwards;
+    /* animation: bgMove 1.5s ease-in 1.9s 1 forwards; */
 }
 @keyframes bgMove {
     to{
