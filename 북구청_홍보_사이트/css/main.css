@@ -7,7 +7,7 @@
 @import url(common.css);
 
 body.on{
-    background: url(../img/abstract_bg01.jpg) no-repeat center/cover;
+    background: url(../img/abstract_bg01.jpg) no-repeat fixed center/cover;
 }
 body.off{
     background: url(../img/blue_bg02.jpg) no-repeat fixed right/cover;

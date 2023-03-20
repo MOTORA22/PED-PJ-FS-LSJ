@@ -1,6 +1,6 @@
 let pm = location.href;
 console.log(pm.indexOf("?"));
-if(pm.indexOf("?")===-1){
+if (pm.indexOf("?") === -1) {
     alert("비정상적인 접근입니다~!");
     location.href = "index.html";
     // 클릭해서 들어오는 메인으로 돌려보냄!
@@ -12,7 +12,6 @@ pm = decodeURIComponent(pm);
 console.log(pm);
 
 window.addEventListener("DOMContentLoaded", function () {
-
     const vd = document.querySelector("video");
     // console.log(vd);
     const movie_name = document.querySelector(".video span");
@@ -29,12 +28,12 @@ window.addEventListener("DOMContentLoaded", function () {
         <ul>
         `;
         for (let sm in sdata[pm]["사이드메뉴"][tm]) {
-            hcode += `<li><a class="lA" href="#">${sm}</a></li>`
+            hcode += `<li><a class="lA" href="#">${sm}</a></li>`;
         }
-        hcode += `</ul></div>`
+        hcode += `</ul></div>`;
     }
     gnbL.innerHTML = hcode;
-    
+
     const mName = document.querySelectorAll(".m_name");
     console.log(mName);
 
@@ -45,7 +44,7 @@ window.addEventListener("DOMContentLoaded", function () {
         // console.log(Z);
         const L = Z.querySelectorAll("li").length;
         // console.log(L);
-        Z.style.height = L*36 + 20 + "px";
+        Z.style.height = L * 36 + 20 + "px";
 
         let num = 1;
 
@@ -56,7 +55,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 // Z.style.cssText = 'height :0; overflow: hidden';
             } else {
                 Y.style.borderBottom = "5px solid #339e67";
-                Z.style.height = L*36 + 20 + "px";
+                Z.style.height = L * 36 + 20 + "px";
                 // Z.style.cssText = 'height :auto; overflow: hidden';
             }
             num = num * -1;
@@ -69,15 +68,16 @@ window.addEventListener("DOMContentLoaded", function () {
         // console.log(this);
         // 콘솔창을 보면 둘다 동일한 값이 나온다
 
-        console.log(event.target.classList);
-
+        // console.log(event.target.classList.contains("change_color"));
+        if(event.target.classList.contains("change_color")) return;
+        
         if (event.target.classList[1] === "change_color") {
-          event.target.classList.remove("change_color");
+            event.target.classList.remove("change_color");
         } else {
-          for (var i = 0; i < lA.length; i++) {
-            lA[i].classList.remove("change_color");
-          }
-          event.target.classList.add("change_color");
+            for (var i = 0; i < lA.length; i++) {
+                lA[i].classList.remove("change_color");
+            }
+            event.target.classList.add("change_color");
         }
     }
     function init() {
@@ -91,10 +91,10 @@ window.addEventListener("DOMContentLoaded", function () {
     console.log(lmA);
 
     for (let x of lmA) {
-        
         let btxt = x.innerText;
 
         x.onclick = () => {
+            event.preventDefault();
             switch (btxt) {
                 // mdata01 //
                 case "중흥3동주민자치위원회":
@@ -608,7 +608,7 @@ window.addEventListener("DOMContentLoaded", function () {
                     vd.muted = false;
                     movie_name.innerText = btxt;
                     break;
-                
+
                 // mdata04 //
                 case "효동초등학교":
                     vd.src = "./video/4A01.mp4";
@@ -633,5 +633,4 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         };
     }
-
 });
