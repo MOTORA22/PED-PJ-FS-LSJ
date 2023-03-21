@@ -77,7 +77,7 @@
     left: 1000px;
     width: 240px;
     height: 231px;
-    background: url(../img/character03.png) no-repeat;
+    background: url(../img/character02.png) no-repeat;
     background-position: 0px -290px;
     opacity:0;
     animation: opacity01 1.5s ease-out .5s 1 forwards;
@@ -90,7 +90,7 @@
     left: 900px;
     width: 86px;
     height: 102px;
-    background: url(../img/character03.png) no-repeat;
+    background: url(../img/character02.png) no-repeat;
     background-position: -430px -290px;
     opacity: 0;
     animation:
@@ -128,7 +128,7 @@
     margin: 20px auto 0;
 }
 .villagers div{
-    background: url(../img/character03.png) no-repeat;
+    background: url(../img/character02.png) no-repeat;
     opacity: 0;
 }
 .villagers div:nth-child(1){
