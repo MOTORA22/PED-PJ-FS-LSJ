@@ -44,7 +44,7 @@ window.addEventListener("DOMContentLoaded", function () {
         // console.log(Z);
         const L = Z.querySelectorAll("li").length;
         // console.log(L);
-        Z.style.height = L * 36 + 20 + "px";
+        Z.style.height = L * 34 + 18 + "px";
 
         let num = 1;
 
@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 // Z.style.cssText = 'height :0; overflow: hidden';
             } else {
                 Y.style.borderBottom = "5px solid #339e67";
-                Z.style.height = L * 36 + 20 + "px";
+                Z.style.height = L * 34 + 18 + "px";
                 // Z.style.cssText = 'height :auto; overflow: hidden';
             }
             num = num * -1;

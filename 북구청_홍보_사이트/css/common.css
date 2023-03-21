@@ -30,6 +30,10 @@
     margin-bottom: 10px;
 }
 
+.link00{
+    display: flex;
+    align-items: flex-end;
+}
 .link01{
     width: 175px;
     height: 80px;
@@ -42,6 +46,7 @@
     height: 80px;
     background: url(../img/head-logo.png) no-repeat;
     background-position: 0px -160px;
+    margin-left: 20px;
     margin-bottom: 5px;
 }
 .logo a,
@@ -55,15 +60,19 @@
 /* GNB 메뉴 */
 .gnb ul {
     display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin-left: 10px;
 }
-.gnb > ul > li + li {
-    margin-left: 20px;
-}
+
+/* .gnb > ul > li + li {
+    margin-left: 30px;
+} */
 .gnb > ul > li > a {
     font-family: "Nanum Gothic", sans-serif;
     font-weight: 500;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 6rem;
     white-space: nowrap;
     text-decoration: none;
@@ -185,9 +194,9 @@
     width: calc(100% - 18px);
     height: 100%;
     padding-left: 18px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 50px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 40px;
     color: #fff;
     text-decoration: none;
     background-color: #304f76;
@@ -200,14 +209,14 @@
 }
 .m_name > ul > li {
     position: relative;
-    height: 36px;
+    height: 34px;
 }
 
 .m_name > ul > li::before {
     content: "";
     position: absolute;
     left: 20px;
-    top: 38%;
+    top: 40%;
     border-top: 2px solid #fff;
     border-right: 2px solid #fff;
     transform: rotate(45deg);
@@ -220,11 +229,11 @@
     height: 200%;
     margin: 0 auto;
     padding-left: 25px;
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.4rem;
+    font-weight: 300;
     letter-spacing: -1px;
     word-spacing: -1px;
-    line-height: 33px;
+    line-height: 30px;
     color: #fff;
     text-decoration: none;
     background-color: #3d5a7e;
@@ -258,13 +267,13 @@
 }
 .video span{
     display: block;
-    height: 60px;
+    height: 40px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 2.2rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 500;
     padding-left: 5px;
     color: #fff;
-    line-height: 6rem;
+    line-height: 4rem;
 }
 .video video {
     width: 880px;

@@ -90,13 +90,15 @@ function loadFn() {
             </ul>
         </nav>
         <!-- 1-3. 바로가기 -->
-        <div class="link01">
-            <a href="https://bukgu.gwangju.kr/index.es?sid=b3" target="_blank">
-            </a>
-        </div>
-        <div class="link02">
-            <a href="https://bukgu.gwangju.kr/index.es?sid=a1" target="_blank">
-            </a>
+        <div class="link00">
+            <div class="link01">
+                <a href="https://bukgu.gwangju.kr/index.es?sid=b3" target="_blank">
+                </a>
+            </div>
+            <div class="link02">
+                <a href="https://bukgu.gwangju.kr/index.es?sid=a1" target="_blank">
+                </a>
+            </div>
         </div>
     </header>
     `;
