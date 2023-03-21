@@ -57,13 +57,13 @@
     display: flex;
 }
 .gnb > ul > li + li {
-    margin-left: 10px;
+    margin-left: 20px;
 }
 .gnb > ul > li > a {
     font-family: "Nanum Gothic", sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 6rem;
     white-space: nowrap;
     text-decoration: none;
@@ -185,7 +185,7 @@
     width: calc(100% - 18px);
     height: 100%;
     padding-left: 18px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     line-height: 50px;
     color: #fff;
@@ -260,7 +260,9 @@
     display: block;
     height: 60px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 3rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+    padding-left: 5px;
     color: #fff;
     line-height: 6rem;
 }
