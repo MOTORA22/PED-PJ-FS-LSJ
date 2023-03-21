@@ -5,18 +5,18 @@
 모든 애니메이션은 body.on 인 경우에 적용됨! */
 
 /* 메인 페이지 배경 이동 애니메이션 */
-/* body.on{
-    animation: bgMove 20s linear infinite forwards;
+body.on{
+    /* animation: bgMove 20s linear infinite forwards; */
 }
 @keyframes bgMove {
     to{
         background: url(../img/blue_bg01.jpg) no-repeat fixed left/cover;
     }
-} */
+}
 
 .cbx{
     position: relative;
-    width: 1280px;
+    width: 1200px;
     margin: 0 auto;
 }
 
@@ -37,7 +37,7 @@
     animation: opacity01 1.5s ease-out .5s 1 forwards;
 }
 .slogan div{
-    background: url(../img/slogan.png) no-repeat;
+    background: url(../img/slogan01.png) no-repeat;
 }
 .slogan div:nth-child(1){
     width: 300px;
@@ -49,7 +49,7 @@
     height: 130px;
     background-position: 0px -160px;
     filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
-    animation: gradation 2s ease-in-out 1s infinite forwards;
+    animation: gradation 2.5s ease-in-out 1s infinite forwards;
 
 }
 .slogan div:nth-child(3){
@@ -63,7 +63,7 @@
     height: 130px;
     background-position: 0px -300px;
     filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
-    animation: gradation 2s ease-in-out 3.5s infinite forwards;
+    animation: gradation 2s ease-in-out 1.5s infinite forwards;
 }
 @keyframes gradation {
     to{
@@ -74,38 +74,38 @@
 .slogan_logo{
     position: absolute;
     top: 50px;
-    left: 1270px;
-    width: 242px;
+    left: 1000px;
+    width: 240px;
     height: 231px;
-    background: url(../img/character.png) no-repeat;
-    background-position: -360px -300px;
+    background: url(../img/character03.png) no-repeat;
+    background-position: 0px -290px;
     opacity:0;
-    animation: opacity01 1.5s ease-out 2.3s 1 forwards;
+    animation: opacity01 1.5s ease-out .5s 1 forwards;
 }
 
 /* 날아오는 새 */
 .fly_bird{
     position: absolute;
     top: 10px;
-    left: 1180px;
+    left: 900px;
     width: 86px;
     height: 102px;
-    background: url(../img/character.png) no-repeat;
-    background-position: 0px -480px;
+    background: url(../img/character03.png) no-repeat;
+    background-position: -430px -290px;
     opacity: 0;
     animation:
-    birdFlying1 2.5s ease-out 4s 1 forwards,
-    birdFlying2 2s ease-in 4.5s 1 forwards,
-    birdFadeOut 3s ease-in-out 4s 1 forwards;
+    birdFlying1 2.5s ease-out 2.5s 1 forwards,
+    birdFlying2 2s ease-in 3s 1 forwards,
+    birdFadeOut 3s ease-in-out 2.5s 1 forwards;
 }
 @keyframes birdFlying1 {
     to{
-        top: 420px;
+        top: 400px;
     }
 }
 @keyframes birdFlying2 {
     to{
-        left: 920px;
+        left: 600px;
     }
 }
 @keyframes birdFadeOut {
@@ -125,39 +125,39 @@
     align-items: flex-end;
     justify-content: space-between;
     width: 900px;
-    margin: -280px auto 0;
+    margin: 20px auto 0;
 }
 .villagers div{
-    background: url(../img/character.png) no-repeat;
+    background: url(../img/character03.png) no-repeat;
     opacity: 0;
 }
 .villagers div:nth-child(1){
     width: 229px;
     height: 280px;
-    background-position: -360px 0px;
-    animation: opacity01 2s ease-out 3.5s 1 forwards;
+    background-position: 0px 0px;
+    animation: opacity01 2s ease-out 2s 1 forwards;
 }
 .villagers div:nth-child(2){
     width: 85px;
     height: 160px;
-    background-position: -610px -300px;
-    animation: opacity01 2s ease-out 2.5s 1 forwards;
+    background-position: -340px -290px;
+    animation: opacity01 2s ease-out 1s 1 forwards;
 }
 .villagers div:nth-child(3){
     width: 126px;
     height: 82px;
-    background-position: -100px -480px;
-    animation: opacity01 2s ease-in-out 6s 1 forwards;
+    background-position: -340px -455px;
+    animation: opacity01 2s ease-in-out 4.5s 1 forwards;
 }
 .villagers div:nth-child(4){
     width: 219px;
     height: 259px;
-    background-position: -600px 0px;
-    animation: opacity01 2s ease-out 3s 1 forwards;
+    background-position: -230px 0px;
+    animation: opacity01 2s ease-out 1.5s 1 forwards;
 }
 .villagers div:nth-child(5){
     width: 86px;
     height: 258px;
-    background-position: -710px -300px;
-    animation: opacity01 2s ease-out 3.5s 1 forwards;
+    background-position: -245px -290px;
+    animation: opacity01 2s ease-out 2s 1 forwards;
 }
