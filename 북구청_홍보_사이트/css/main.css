@@ -6,20 +6,18 @@
 @import url(core.css);
 @import url(common.css);
 
-/* body.on{
-    background: url(../img/bg01.png) no-repeat fixed center/cover;
-} */
-.aa{
+.in_bg{
     position: fixed;
     width: 100%;
     height: calc(100% - 90px);
     margin-top: 90px;
     opacity: 0;
-    transition: all 1s;
+    transition: all 1.5s;
 }
-.aa:first-child{
+.in_bg:first-child{
     opacity: 1;
 }
-body.off{
+
+body.on{
     background: url(../img/blue_bg02.jpg) no-repeat fixed right/cover;
 }
