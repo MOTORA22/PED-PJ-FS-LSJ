@@ -1,10 +1,5 @@
 @charset "utf-8";
-/* 구청 홍보 사이트 애니메이션 CSS - main.css */
-
-/* 전제조건:
-모든 애니메이션은 body.on 인 경우에 적용됨! */
-
-/* 메인 페이지 배경 이동 애니메이션 */
+/* index.html 페이지 애니메이션 CSS - ani.css */
 
 .cbx{
     position: relative;

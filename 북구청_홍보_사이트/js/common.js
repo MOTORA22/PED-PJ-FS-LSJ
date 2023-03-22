@@ -3,8 +3,9 @@ window.addEventListener("DOMContentLoaded", loadFn);
 
 function loadFn() {
 
+    // 상단 gnb 메뉴에 목록 넣어주기
     const gnbT = document.querySelector("#top");
-    console.log(gnbT);
+    // console.log(gnbT);
     let gcode = "";
     gcode +=`
     <header class="top ibx">
@@ -104,14 +105,13 @@ function loadFn() {
     `;
     gnbT.innerHTML=gcode;
 
-
-    
+    // gnb 목록을 클릭해서 main.html로 이동시 클릭한 데이터 넘기기
     const gnbA = document.querySelectorAll(".sm a");
-    console.log(gnbA);
+    // console.log(gnbA);
     for (let x of gnbA) {
         x.onclick = () => {
             let atxt = x.innerText;
-            console.log(atxt);
+            // console.log(atxt);
             location.href = "main.html?A="+encodeURIComponent(atxt);
         };
     }

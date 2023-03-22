@@ -1,27 +1,29 @@
-// main.html 전용 JS - main.js
+// main.html 전용 JS - main.js //
 
+// index.html에서 넘어온 데이터 변수에 담기
 let pm = location.href;
-console.log(pm.indexOf("?"));
+// console.log(pm.indexOf("?"));
 if (pm.indexOf("?") === -1) {
     alert("비정상적인 접근입니다~!");
     location.href = "index.html";
     // 클릭해서 들어오는 메인으로 돌려보냄!
 }
-
 pm = pm.split("?")[1];
 pm = pm.split("=")[1];
 pm = decodeURIComponent(pm);
-console.log(pm);
+// console.log(pm);
 
 window.addEventListener("DOMContentLoaded", function () {
+
+    // gnb 목록을 뭘 누르냐에 따라 동영상 정보와 배경색 변경하기
     const vd = document.querySelector("video");
     // console.log(vd);
     const movie_name = document.querySelector(".video span");
     // console.log(movie_name);
-
     vd.src = sdata[pm]["동영상"];
     movie_name.innerText = pm;
 
+    // 좌측 서브 메뉴에 목록 생성하기
     const gnbL = document.querySelector(".gnbL");
     let hcode = "";
     for (let tm in sdata[pm]["사이드메뉴"]) {
@@ -36,20 +38,21 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     gnbL.innerHTML = hcode;
 
+    // 좌측 서브 메뉴 높이값 설정하기
     const mName = document.querySelectorAll(".m_name");
-    console.log(mName);
+    // console.log(mName);
 
     for (let x of mName) {
         const Y = x.querySelector("span");
-        console.log(Y);
+        // console.log(Y);
         const Z = x.querySelector("ul");
         // console.log(Z);
         const L = Z.querySelectorAll("li").length;
         // console.log(L);
         Z.style.height = L * 34 + 18 + "px";
 
+        // 좌측 서브 메뉴 열고 닫는 기능 추가하기
         let num = 1;
-
         Y.onclick = () => {
             if (num === 1) {
                 Y.style.borderBottom = "5px solid #3769aa";
@@ -64,6 +67,7 @@ window.addEventListener("DOMContentLoaded", function () {
         };
     }
 
+    // 좌측 서브 메뉴 클릭시 확인하기 쉽게 표시 남겨두기
     var lA = document.getElementsByClassName("lA");
     function handleClick(event) {
         console.log(event.target);
@@ -89,8 +93,9 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     init();
 
+    // 각 좌측 서브메뉴 클릭시 동영상 정보 변경하기
     const lmA = document.querySelectorAll(".m_name a");
-    console.log(lmA);
+    // console.log(lmA);
 
     for (let x of lmA) {
         let btxt = x.innerText;
