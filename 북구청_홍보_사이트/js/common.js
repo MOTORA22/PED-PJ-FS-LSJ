@@ -1,4 +1,4 @@
-// 구청 홍보 사이트 공통 JS - common.js //
+// index.html이랑 main.html양쪽다 적용되는 gnb 메뉴 JS - common.js //
 window.addEventListener("DOMContentLoaded", loadFn);
 
 function loadFn() {

@@ -1,3 +1,5 @@
+// index.html 배경 변경 JS - bg.js //
+
 window.addEventListener("DOMContentLoaded", function () {
 
     const bgC = this.document.querySelector(".on");

@@ -1,3 +1,5 @@
+// main.html 전용 JS - main.js
+
 let pm = location.href;
 console.log(pm.indexOf("?"));
 if (pm.indexOf("?") === -1) {
