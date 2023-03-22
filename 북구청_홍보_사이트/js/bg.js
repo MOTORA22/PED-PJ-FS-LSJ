@@ -24,16 +24,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
     let num = 0;
     setInterval(()=>{
-        aa[num+1].style.opacity = 1;
         aa[num].style.opacity = 0;
         num++;
-        if(num === 7){
-            setTimeout(()=>{
-                console.log(num);
-                // aa[num].style.opacity = 0;
-                aa[7].style.opacity = 0;
-            },2000);
-            num = 0;
-        }
-    },2000);
+        if(num===7)num=0;
+        aa[num].style.opacity = 1;
+    },6000);
 });
