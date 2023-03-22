@@ -11,6 +11,13 @@ window.addEventListener("DOMContentLoaded", function () {
     let in_bg = this.document.querySelectorAll(".in_bg");
     console.log(in_bg);
 
+    // for(i=1;0<i<7;i++){
+    // 0<i<7 이라고 하면 크롬이 렉걸린다.
+    for(i=1;i<7;i++){
+        console.log(in_bg[i]);
+    }
+
+
     let num = 0;
     setInterval(()=>{
         in_bg[num].style.opacity = 0;
