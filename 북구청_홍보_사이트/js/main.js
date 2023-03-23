@@ -18,10 +18,16 @@ window.addEventListener("DOMContentLoaded", function () {
     // gnb 목록을 뭘 누르냐에 따라 동영상 정보와 배경색 변경하기
     const vd = document.querySelector("video");
     // console.log(vd);
-    const movie_name = document.querySelector(".video span");
+    const movie = document.querySelector(".video");
+    // console.log(movie);
+    const movie_name = movie.querySelector("span");
     // console.log(movie_name);
+    const mainBg = document.querySelector("body.on");
+    // console.log(mainBg);
+    
     vd.src = sdata[pm]["동영상"];
     movie_name.innerText = pm;
+    mainBg.style.background = `url(./img/${sdata[pm]["배경색"]}.jpg) no-repeat fixed right/cover`;
 
     // 좌측 서브 메뉴에 목록 생성하기
     const gnbL = document.querySelector(".gnbL");
@@ -37,6 +43,69 @@ window.addEventListener("DOMContentLoaded", function () {
         hcode += `</ul></div>`;
     }
     gnbL.innerHTML = hcode;
+
+    // 부록 목록에는 별도의 정보 삽입하기
+    if(pm === "부록"){
+        console.log("성공01");
+        movie.innerHTML += `
+        <div class="abc">
+            <span><p class="ddd">▶</p>  설명 제목</span>
+            <div class="def">
+
+            </div>
+        </div>
+        `;
+    }
+    else if(pm === "찾아가는어린이환경리더교육"){
+        console.log("성공02");
+        movie.innerHTML += `
+        <div class="abc">
+            <span><p class="ddd">▶</p>  설명 제목</span>
+            <div class="def">
+
+            </div>
+        </div>
+        `;
+    }
+    else if(pm === "마을활동가토크쇼"){
+        console.log("성공03");
+        movie.innerHTML += `
+        <div class="abc">
+            <span><p class="ddd">▶</p>  설명 제목</span>
+            <div class="def">
+
+            </div>
+        </div>
+        `;
+    }
+    else if(pm === "탄소중립그린마을동행"){
+        console.log("성공04");
+        movie.innerHTML += `
+        <div class="abc">
+            <span><p class="ddd">▶</p>  설명 제목</span>
+            <div class="def">
+
+            </div>
+        </div>
+        `;
+    }
+
+    const abc = document.querySelector(".abc span");
+    const ddd = document.querySelector(".ddd");
+    const def = document.querySelector(".def");
+    let onoff = -1;
+    abc.onclick = () =>{
+        if (onoff === 1) {
+            ddd.style.transform = "rotate(0)";
+            def.style.height = "0";
+        } else {
+            ddd.style.transform = "rotate(90deg)";
+            def.style.height = "200px";
+        }
+        onoff = onoff * -1;
+        // console.log(onoff);
+    }
+
 
     // 좌측 서브 메뉴 높이값 설정하기
     const mName = document.querySelectorAll(".m_name");
@@ -70,7 +139,7 @@ window.addEventListener("DOMContentLoaded", function () {
     // 좌측 서브 메뉴 클릭시 확인하기 쉽게 표시 남겨두기
     var lA = document.getElementsByClassName("lA");
     function handleClick(event) {
-        console.log(event.target);
+        // console.log(event.target);
         // console.log(this);
         // 콘솔창을 보면 둘다 동일한 값이 나온다
 
@@ -84,6 +153,19 @@ window.addEventListener("DOMContentLoaded", function () {
                 lA[i].classList.remove("change_color");
             }
             event.target.classList.add("change_color");
+        }
+
+        if(event.target.innerText === "효동초등학교"){
+            console.log("성공05");
+        }
+        else if(event.target.innerText === "용주초등학교"){
+            console.log("성공06");
+        }
+        else if(event.target.innerText === "마을활동가 토크쇼"){
+            console.log("성공07");
+        }
+        else if(event.target.innerText === "탄소중립 그린마을 동행"){
+            console.log("성공08");
         }
     }
     function init() {

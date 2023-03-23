@@ -13,6 +13,27 @@
     }
 }
 
+/* 배경 */
+.in_bg{
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 90px);
+    margin-top: 90px;
+    opacity: 0;
+    transition: all 1.5s;
+}
+.in_bg:first-child{
+    opacity: 1;
+    background: url(../img/blue_bg01.jpg) no-repeat fixed right/cover;
+    animation: bgMove 2s ease-in .5s 1 forwards;
+}
+
+@keyframes bgMove {
+    to{
+        background: url(../img/blue_bg01.jpg) no-repeat fixed left/cover;
+    }
+}
+
 /* 슬로건 */
 .slogan{
     display: flex;
