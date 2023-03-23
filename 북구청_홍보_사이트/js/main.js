@@ -14,17 +14,16 @@ pm = decodeURIComponent(pm);
 // console.log(pm);
 
 window.addEventListener("DOMContentLoaded", function () {
-
     // gnb 목록을 뭘 누르냐에 따라 동영상 정보와 배경색 변경하기
     const vd = document.querySelector("video");
     // console.log(vd);
     const movie = document.querySelector(".video");
     // console.log(movie);
-    const movie_name = movie.querySelector("span");
-    // console.log(movie_name);
+    const movie_name = document.querySelector(".video>span");
+    console.log(movie_name);
     const mainBg = document.querySelector("body.on");
     // console.log(mainBg);
-    
+
     vd.src = sdata[pm]["동영상"];
     movie_name.innerText = pm;
     mainBg.style.background = `url(./img/${sdata[pm]["배경색"]}.jpg) no-repeat fixed right/cover`;
@@ -43,80 +42,6 @@ window.addEventListener("DOMContentLoaded", function () {
         hcode += `</ul></div>`;
     }
     gnbL.innerHTML = hcode;
-
-    // 부록 목록에는 별도의 정보 삽입하기
-    if(pm === "부록"){
-        console.log("성공01");
-        movie.innerHTML += `
-        <div class="abc">
-            <span><p class="ddd">▶</p>  설명 제목</span>
-            <div class="def">
-                <span>
-                    찾아가는 어린이 환경리더 교육<br />
-                    <br />
-                    "학교 안 탄소중립 실천" 찾아가는 어린이 환경리더 교육<br />
-                    지구를 살리는 자원순환 교육 및 올바른 분리배출 실습과 환경캠페인 활동<br />
-                    <br />
-                    ● 효동초등학교<br />
-                    - 일시 : 22. 10. 5.(수) ~ 10. 19.(수)<br />
-                    - 대상 : 효동초등학교 3학년
-                </span>
-            </div>
-        </div>
-        `;
-    }
-    else if(pm === "찾아가는어린이환경리더교육"){
-        console.log("성공02");
-        movie.innerHTML += `
-        <div class="abc">
-            <span><p class="ddd">▶</p>  설명 제목</span>
-            <div class="def">
-
-            </div>
-        </div>
-        `;
-    }
-    else if(pm === "마을활동가토크쇼"){
-        console.log("성공03");
-        movie.innerHTML += `
-        <div class="abc">
-            <span><p class="ddd">▶</p>  설명 제목</span>
-            <div class="def">
-
-            </div>
-        </div>
-        `;
-    }
-    else if(pm === "탄소중립그린마을동행"){
-        console.log("성공04");
-        movie.innerHTML += `
-        <div class="abc">
-            <span><p class="ddd">▶</p>  설명 제목</span>
-            <div class="def">
-
-            </div>
-        </div>
-        `;
-    }
-
-    const abc = document.querySelector(".abc span");
-    const ddd = document.querySelector(".ddd");
-    const def = document.querySelector(".def");
-    let onoff = -1;
-    abc.onclick = () =>{
-        if (onoff === 1) {
-            ddd.style.transform = "rotate(0)";
-            def.style.height = "0";
-            def.style.border = "0px solid #fff";
-        } else {
-            ddd.style.transform = "rotate(90deg)";
-            def.style.height = "500px";
-            def.style.border = "2px solid #fff";
-        }
-        onoff = onoff * -1;
-        // console.log(onoff);
-    }
-
 
     // 좌측 서브 메뉴 높이값 설정하기
     const mName = document.querySelectorAll(".m_name");
@@ -155,8 +80,8 @@ window.addEventListener("DOMContentLoaded", function () {
         // 콘솔창을 보면 둘다 동일한 값이 나온다
 
         // console.log(event.target.classList.contains("change_color"));
-        if(event.target.classList.contains("change_color")) return;
-        
+        if (event.target.classList.contains("change_color")) return;
+
         if (event.target.classList[1] === "change_color") {
             event.target.classList.remove("change_color");
         } else {
@@ -166,16 +91,13 @@ window.addEventListener("DOMContentLoaded", function () {
             event.target.classList.add("change_color");
         }
 
-        if(event.target.innerText === "효동초등학교"){
+        if (event.target.innerText === "효동초등학교") {
             console.log("성공05");
-        }
-        else if(event.target.innerText === "용주초등학교"){
+        } else if (event.target.innerText === "용주초등학교") {
             console.log("성공06");
-        }
-        else if(event.target.innerText === "마을활동가 토크쇼"){
+        } else if (event.target.innerText === "마을활동가 토크쇼") {
             console.log("성공07");
-        }
-        else if(event.target.innerText === "탄소중립 그린마을 동행"){
+        } else if (event.target.innerText === "탄소중립 그린마을 동행") {
             console.log("성공08");
         }
     }
@@ -190,17 +112,23 @@ window.addEventListener("DOMContentLoaded", function () {
     const lmA = document.querySelectorAll(".m_name a");
     // console.log(lmA);
 
+    const setCd = (btxt,mv) => {
+        
+        vd.src = "./video/"+mv+".mp4";
+        vd.muted = false;
+        movie_name.innerText = btxt;
+
+    }; ////////// setCd ////////////////
+
     for (let x of lmA) {
         let btxt = x.innerText;
-
+        console.log(btxt);
         x.onclick = () => {
             event.preventDefault();
             switch (btxt) {
                 // mdata01 //
                 case "중흥3동주민자치위원회":
-                    vd.src = "./video/1A01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(btxt,"1A01");
                     break;
                 case "신안동주민자치위원회":
                     vd.src = "./video/1A02.mp4";
@@ -711,26 +639,82 @@ window.addEventListener("DOMContentLoaded", function () {
 
                 // mdata04 //
                 case "효동초등학교":
-                    vd.src = "./video/4A01.mp4";
-                    vd.muted = false;
+                    // vd.src = "./video/1A01.mp4";
+                    // vd.muted = false;
                     movie_name.innerText = btxt;
+                    console.log(movie_name);
                     break;
                 case "용주초등학교":
-                    vd.src = "./video/4A02.mp4";
+                    vd.src = "./video/1A01.mp4";
                     vd.muted = false;
                     movie_name.innerText = btxt;
+                    console.log(movie_name.parentElement);
                     break;
                 case "마을활동가 토크쇼":
-                    vd.src = "./video/4B01.mp4";
+                    vd.src = "./video/1A01.mp4";
                     vd.muted = false;
                     movie_name.innerText = btxt;
                     break;
                 case "탄소중립 그린마을 동행":
-                    vd.src = "./video/4C01.mp4";
+                    vd.src = "./video/1A01.mp4";
                     vd.muted = false;
                     movie_name.innerText = btxt;
                     break;
             }
+        };
+    }
+    // 부록 목록에는 별도의 정보 삽입하기
+    const makeCode = (hcd) => `
+        <div class="abc">
+            <span><p class="ddd">▶</p>  설명 제목</span>
+            <div class="def">
+                ${hcd}
+            </div>
+        </div>
+    `;
+
+    if (pm === "부록") {
+        console.log("성공01");
+        movie.querySelector(".tspan").innerHTML += makeCode(`
+            <span>
+                찾아가는 어린이 환경리더 교육<br />
+                <br />
+                "학교 안 탄소중립 실천" 찾아가는 어린이 환경리더 교육<br />
+                지구를 살리는 자원순환 교육 및 올바른 분리배출 실습과 환경캠페인 활동<br />
+                <br />
+                ● 효동초등학교<br />
+                - 일시 : 22. 10. 5.(수) ~ 10. 19.(수)<br />
+                - 대상 : 효동초등학교 3학년
+            </span>
+        `);
+    } else if (pm === "찾아가는어린이환경리더교육") {
+        console.log("성공02");
+        movie.innerHTML += makeCode(`찾아가는어린이환경리더교육`);
+    } else if (pm === "마을활동가토크쇼") {
+        console.log("성공03");
+        movie.innerHTML += makeCode(`마을활동가토크쇼`);
+    } else if (pm === "탄소중립그린마을동행") {
+        console.log("성공04");
+        movie.innerHTML += makeCode(`탄소중립그린마을동행`);
+    }
+
+    const abc = document.querySelector(".abc span");
+    if(abc){
+        const ddd = document.querySelector(".ddd");
+        const def = document.querySelector(".def");
+        let onoff = -1;
+        abc.onclick = () => {
+            if (onoff === 1) {
+                ddd.style.transform = "rotate(0)";
+                def.style.height = "0";
+                def.style.border = "0px solid #fff";
+            } else {
+                ddd.style.transform = "rotate(90deg)";
+                def.style.height = "500px";
+                def.style.border = "2px solid #fff";
+            }
+            onoff = onoff * -1;
+            // console.log(onoff);
         };
     }
 });
