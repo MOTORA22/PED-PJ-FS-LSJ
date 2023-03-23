@@ -51,7 +51,16 @@ window.addEventListener("DOMContentLoaded", function () {
         <div class="abc">
             <span><p class="ddd">▶</p>  설명 제목</span>
             <div class="def">
-
+                <span>
+                    찾아가는 어린이 환경리더 교육<br />
+                    <br />
+                    "학교 안 탄소중립 실천" 찾아가는 어린이 환경리더 교육<br />
+                    지구를 살리는 자원순환 교육 및 올바른 분리배출 실습과 환경캠페인 활동<br />
+                    <br />
+                    ● 효동초등학교<br />
+                    - 일시 : 22. 10. 5.(수) ~ 10. 19.(수)<br />
+                    - 대상 : 효동초등학교 3학년
+                </span>
             </div>
         </div>
         `;
@@ -98,9 +107,11 @@ window.addEventListener("DOMContentLoaded", function () {
         if (onoff === 1) {
             ddd.style.transform = "rotate(0)";
             def.style.height = "0";
+            def.style.border = "0px solid #fff";
         } else {
             ddd.style.transform = "rotate(90deg)";
-            def.style.height = "200px";
+            def.style.height = "500px";
+            def.style.border = "2px solid #fff";
         }
         onoff = onoff * -1;
         // console.log(onoff);
