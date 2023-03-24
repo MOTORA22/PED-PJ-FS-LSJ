@@ -43,7 +43,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 1070px;
+    width: 1150px;
     margin: 100px auto 0;
     opacity:0;
     animation: opacity1 1.5s ease-out .5s 1 forwards;
@@ -67,7 +67,7 @@ body{
 .slogan div:nth-child(3){
     width: 450px;
     height: 70px;
-    margin-left: 20%;
+    margin-left: 18%;
     background-position: 0px -80px;
 }
 .slogan div:nth-child(4){
@@ -87,7 +87,7 @@ body{
 .slogan_logo{
     position: absolute;
     top: 50px;
-    left: 1000px;
+    left: 960px;
     width: 240px;
     height: 231px;
     background: url(../img/character.png) no-repeat;
