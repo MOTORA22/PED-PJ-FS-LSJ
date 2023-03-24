@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* main.html CSS - main.css */
 
-body.on{
+body{
     background: url(../img/blue_bg02.jpg) no-repeat fixed right/cover;
 }
 

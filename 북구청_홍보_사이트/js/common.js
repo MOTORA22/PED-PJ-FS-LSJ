@@ -17,35 +17,35 @@ function loadFn() {
             <nav class="gnbT">
                 <ul>
                     <li>
-                        <a href="#">마을공동체</a>
+                        <a href="#">마을 공동체</a>
                         <!-- 서브 메뉴 -->
                         <div class="subBox">
                             <ol class="subMenu">
-                                <li><a href="#">마을공동체활성화지원사업</a></li>
-                                <li><a href="#">마을모임지원사업</a></li>
-                                <li><a href="#">광주형협치마을모델사업</a></li>
+                                <li><a href="#">마을공동체 활성화 지원사업</a></li>
+                                <li><a href="#">마을모임 지원사업</a></li>
+                                <li><a href="#">광주형 협치마을 모델사업</a></li>
                             </ol>
                         </div>
                     </li>
                     <li>
-                        <a href="#">미래학교</a>
+                        <a href="#">미래 학교</a>
                         <!-- 서브 메뉴 -->
                         <div class="subBox">
                             <ol class="subMenu">
-                                <li><a href="#">洞마을의제실행력제고워크숍</a></li>
-                                <li><a href="#">분야별성장지원워크숍</a></li>
-                                <li><a href="#">사회적경제기반교육</a></li>
-                                <li><a href="#">마을환경실천활동가양성교육</a></li>
-                                <li><a href="#">마을미디어주민활동가양성교육</a></li>
+                                <li><a href="#">洞 마을의제 실행력 제고 워크숍</a></li>
+                                <li><a href="#">분야별 성장지원 워크숍</a></li>
+                                <li><a href="#">사회적 경제기반 교육</a></li>
+                                <li><a href="#">마을환경 실천활동가 양성교육</a></li>
+                                <li><a href="#">마을미디어 주민활동가 양성교육</a></li>
                             </ol>
                         </div>
                     </li>
                     <li>
-                        <a href="#">마을분쟁해결지원센터</a>
+                        <a href="#">마을 분쟁 해결 지원센터</a>
                         <!-- 서브 메뉴 -->
                         <div class="subBox">
                             <ol class="subMenu">
-                                <li><a href="#">북구마을분쟁해결지원센터</a></li>
+                                <li><a href="#">북구마을 분쟁해결 지원센터</a></li>
                                 <li><a href="#">소통방</a></li>
                             </ol>
                         </div>
@@ -55,9 +55,9 @@ function loadFn() {
                         <!-- 서브 메뉴 -->
                         <div class="subBox">
                             <ol class="subMenu">
-                                <li><a href="#">찾아가는어린이환경리더교육</a></li>
-                                <li><a href="#">마을활동가토크쇼</a></li>
-                                <li><a href="#">탄소중립그린마을동행</a></li>
+                                <li><a href="#">찾아가는 어린이 환경리더 교육</a></li>
+                                <li><a href="#">마을활동가 토크쇼</a></li>
+                                <li><a href="#">탄소중립 그린마을 동행</a></li>
                             </ol>
                         </div>
                     </li>

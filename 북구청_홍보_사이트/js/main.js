@@ -13,8 +13,9 @@ pm = pm.split("=")[1];
 pm = decodeURIComponent(pm);
 // console.log(pm);
 
-window.addEventListener("DOMContentLoaded", function () {
-    // gnb 목록을 뭘 누르냐에 따라 동영상 정보와 배경색 변경하기
+window.addEventListener("DOMContentLoaded", function () {   
+    console.log(click_data["마을 공동체"]["blue_bg01"]);
+    // gnb 목록을 뭘 누르냐에 따라 동영상 정보와 이미지 변경하기
     const vd = document.querySelector("video");
     // console.log(vd);
     const movie = document.querySelector(".video");
@@ -24,19 +25,19 @@ window.addEventListener("DOMContentLoaded", function () {
     const mainBg = document.querySelector("body.on");
     // console.log(mainBg);
 
-    vd.src = sdata[pm]["동영상"];
+    vd.src = click_data[pm]["동영상"];
     movie_name.innerText = pm;
-    mainBg.style.background = `url(./img/${sdata[pm]["배경색"]}.jpg) no-repeat fixed right/cover`;
+    mainBg.style.background = `url(./img/${click_data[pm]["이미지"]}.jpg) no-repeat fixed right/cover`;
 
     // 좌측 서브 메뉴에 목록 생성하기
     const gnbL = document.querySelector(".gnbL");
     let hcode = "";
-    for (let tm in sdata[pm]["사이드메뉴"]) {
+    for (let tm in click_data[pm]["사이드메뉴"]) {
         hcode += `
         <div class="m_name"><span>${tm}</span>
         <ul>
         `;
-        for (let sm in sdata[pm]["사이드메뉴"][tm]) {
+        for (let sm in click_data[pm]["사이드메뉴"][tm]) {
             hcode += `<li><a class="lA" href="#">${sm}</a></li>`;
         }
         hcode += `</ul></div>`;
