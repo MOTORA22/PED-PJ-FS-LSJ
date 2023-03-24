@@ -1,5 +1,4 @@
 // main.html 메뉴 관련 데이터 JS - mdata.js //
-const fff = [];
 const mdata01 = {
     "마을공동체 활성화 지원사업": [
         "중흥3동 주민자치위원회",

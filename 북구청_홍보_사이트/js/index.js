@@ -2,7 +2,7 @@
 
 window.addEventListener("DOMContentLoaded", function () {
 
-    // 1. index.html의 빈곳을 채워준다. (#top은 common.js에서 채워준다.)
+    ///// 1. index.html의 빈곳을 채워준다. (#top은 common.js에서 채워준다.)
     const in_bgi = document.querySelector("#bgi");
     // console.log(in_bgi);
     const in_cont = document.querySelector("#cont");
@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", function () {
         <div class="fly_bird"></div>
     `;
 
-    // 2. index.html의 배경을 순서대로 변하게 한다.
+    ///// 2. index.html의 배경을 순서대로 변하게 한다.
     // 6초 간격으로 배경의 투명도를 변경하기
     let bgi_change = in_bgi.querySelectorAll("img");
     // console.log(bgi_change);

@@ -1,12 +1,12 @@
 // main.html 전용 JS - main.js //
 
-// index.html에서 넘어온 데이터 변수에 담기
+///// 0. index.html에서 넘어온 데이터 변수에 담기
 let pm = location.href;
 // console.log(pm.indexOf("?"));
 if (pm.indexOf("?") === -1) {
     alert("비정상적인 접근입니다~!");
     location.href = "index.html";
-    // 클릭해서 들어오는 메인으로 돌려보냄!
+    // 메인으로 돌려보냄!
 }
 pm = pm.split("?")[1];
 pm = pm.split("=")[1];
@@ -14,7 +14,22 @@ pm = decodeURIComponent(pm);
 // console.log(pm);
 
 window.addEventListener("DOMContentLoaded", function () {   
-    console.log(click_data["마을 공동체"]["blue_bg01"]);
+
+    ///// 1. main.html의 빈곳을 채워준다. (#top은 common.js에서 채워준다.)
+    const main_cont = document.querySelector("#cont");
+    // console.log(main_cont);
+
+    main_cont.innerHTML = `
+        <!-- 2-1. 좌측 서브 메뉴 -->
+        <nav class="gnbL scbar"></nav>
+        <!-- 2-2. 동영상 -->
+        <div class="video">
+            <span></span>
+            <video src="" autoplay controls muted></video>
+            <div class="exp"></div>
+        </div>
+    `;
+
     // gnb 목록을 뭘 누르냐에 따라 동영상 정보와 이미지 변경하기
     const vd = document.querySelector("video");
     // console.log(vd);
