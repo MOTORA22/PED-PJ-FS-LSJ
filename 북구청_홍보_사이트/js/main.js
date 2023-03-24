@@ -23,714 +23,496 @@ window.addEventListener("DOMContentLoaded", function () {
         <!-- 2-1. 좌측 서브 메뉴 -->
         <nav class="gnbL scbar"></nav>
         <!-- 2-2. 동영상 -->
-        <div class="video">
+        <div class="movie">
             <span></span>
             <video src="" autoplay controls muted></video>
             <div class="exp"></div>
         </div>
     `;
 
-    // gnb 목록을 뭘 누르냐에 따라 동영상 정보와 이미지 변경하기
-    const vd = document.querySelector("video");
-    // console.log(vd);
-    const movie = document.querySelector(".video");
-    // console.log(movie);
-    const movie_name = document.querySelector(".video>span");
-    console.log(movie_name);
-    const mainBg = document.querySelector("body.on");
-    // console.log(mainBg);
-
-    vd.src = click_data[pm]["동영상"];
-    movie_name.innerText = pm;
-    mainBg.style.background = `url(./img/${click_data[pm]["이미지"]}.jpg) no-repeat fixed right/cover`;
-
-    // 좌측 서브 메뉴에 목록 생성하기
-    const gnbL = document.querySelector(".gnbL");
-    let hcode = "";
-    for (let tm in click_data[pm]["사이드메뉴"]) {
-        hcode += `
-        <div class="m_name"><span>${tm}</span>
+    ///// 2. 상단 메뉴를 무엇을 눌렀는지에 따라 좌측 서브 메뉴 내용물 채우기
+    const gnb_left = document.querySelector(".gnbL");
+    // console.log(gnb_left);
+    let aa = pm;
+    if((aa === "마을공동체 활성화 지원사업")||(aa === "마을모임 지원사업")||(aa === "광주형 협치마을 모델사업")){aa="마을 공동체";}
+    if((aa === "洞 마을의제 실행력 제고 워크숍")||(aa === "분야별 성장지원 워크숍")||(aa === "사회적 경제기반 교육")||(aa === "마을환경 실천활동가 양성교육")||(aa === "마을미디어 주민활동가 양성교육")){aa="미래 학교";}
+    if((aa === "북구마을 분쟁해결 지원센터")||(aa === "소통방")){aa="마을 분쟁 해결 지원센터";}
+    if((aa === "찾아가는 어린이 환경리더 교육")||(aa === "마을활동가 토크쇼")||(aa === "탄소중립 그린마을 동행")){aa="부록";}
+    // console.log(aa);
+    let codeL = "";
+    for (let tm in click_data[aa][0]) {
+        // console.log(tm);
+        codeL += `
+        <div class="l_menu"><span>${tm}</span>
         <ul>
         `;
-        for (let sm in click_data[pm]["사이드메뉴"][tm]) {
-            hcode += `<li><a class="lA" href="#">${sm}</a></li>`;
+        for (let sm in click_data[aa][0][tm]) {
+            // console.log(sm);
+            codeL += `<li><a class="a_click" href="#">${click_data[aa][0][tm][sm]}</a></li>`;
         }
-        hcode += `</ul></div>`;
+        codeL += `</ul></div>`;
     }
-    gnbL.innerHTML = hcode;
+    gnb_left.innerHTML = codeL;
 
-    // 좌측 서브 메뉴 높이값 설정하기
-    const mName = document.querySelectorAll(".m_name");
-    // console.log(mName);
+    ///// 3. 좌측 서브 메뉴 높이값 설정하기
+    const menuL = document.querySelectorAll(".l_menu");
+    // console.log(menuL);
 
-    for (let x of mName) {
-        const Y = x.querySelector("span");
-        // console.log(Y);
-        const Z = x.querySelector("ul");
-        // console.log(Z);
-        const L = Z.querySelectorAll("li").length;
-        // console.log(L);
-        Z.style.height = L * 34 + 18 + "px";
+    for (let x of menuL) {
+        const spanL = x.querySelector("span");
+        // console.log(spanL);
+        const ulL = x.querySelector("ul");
+        // console.log(ulL);
+        const liLen = ulL.querySelectorAll("li").length;
+        // console.log(liLen);
+        ulL.style.height = liLen * 34 + 18 + "px";
 
-        // 좌측 서브 메뉴 열고 닫는 기능 추가하기
+        ///// 5. 좌측 서브 메뉴 열고 닫는 기능 추가하기
         let num = 1;
-        Y.onclick = () => {
+        spanL.onclick = () => {
             if (num === 1) {
-                Y.style.borderBottom = "5px solid #3769aa";
-                Z.style.height = "0";
-                // Z.style.cssText = 'height :0; overflow: hidden';
+                spanL.style.borderBottom = "5px solid #3769aa";
+                ulL.style.height = "0";
+                // ulL.style.cssText = 'height :0; overflow: hidden';
             } else {
-                Y.style.borderBottom = "5px solid #339e67";
-                Z.style.height = L * 34 + 18 + "px";
-                // Z.style.cssText = 'height :auto; overflow: hidden';
+                spanL.style.borderBottom = "5px solid #339e67";
+                ulL.style.height = liLen * 34 + 18 + "px";
+                // ulL.style.cssText = 'height :auto; overflow: hidden';
             }
             num = num * -1;
         };
     }
 
-    // 좌측 서브 메뉴 클릭시 확인하기 쉽게 표시 남겨두기
-    var lA = document.getElementsByClassName("lA");
+    ///// 6. 좌측 서브 메뉴 클릭시 확인하기 쉽게 표시 남겨두기
+    let clickA = document.getElementsByClassName("a_click");
     function handleClick(event) {
         // console.log(event.target);
         // console.log(this);
         // 콘솔창을 보면 둘다 동일한 값이 나온다
 
-        // console.log(event.target.classList.contains("change_color"));
+        // 2번 클릭시 표시가 사라지지 않게 return하기
         if (event.target.classList.contains("change_color")) return;
 
         if (event.target.classList[1] === "change_color") {
             event.target.classList.remove("change_color");
         } else {
-            for (var i = 0; i < lA.length; i++) {
-                lA[i].classList.remove("change_color");
+            for (var i = 0; i < clickA.length; i++) {
+                clickA[i].classList.remove("change_color");
             }
             event.target.classList.add("change_color");
         }
-
-        if (event.target.innerText === "효동초등학교") {
-            console.log("성공05");
-        } else if (event.target.innerText === "용주초등학교") {
-            console.log("성공06");
-        } else if (event.target.innerText === "마을활동가 토크쇼") {
-            console.log("성공07");
-        } else if (event.target.innerText === "탄소중립 그린마을 동행") {
-            console.log("성공08");
-        }
     }
     function init() {
-        for (var i = 0; i < lA.length; i++) {
-            lA[i].addEventListener("click", handleClick);
+        for (var i = 0; i < clickA.length; i++) {
+            clickA[i].addEventListener("click", handleClick);
         }
     }
     init();
 
-    // 각 좌측 서브메뉴 클릭시 동영상 정보 변경하기
-    const lmA = document.querySelectorAll(".m_name a");
-    // console.log(lmA);
+    ///// 7. 상단 메뉴중 어떤 것을 누르는지에 따라 각종 정보 변경하기
+    const mainBody = document.querySelector("body");
+    // console.log(mainBody);
+    const movie = document.querySelector(".movie");
+    // console.log(movie);
+    const movie_name = document.querySelector(".movie>span");
+    // console.log(movie_name);
+    const vd = document.querySelector("video");
+    // console.log(vd);
 
-    const setCd = (btxt,mv) => {
-        
+    mainBody.style.background = `url(./img/${click_data[aa][1]}.jpg) no-repeat fixed right/cover`;
+    if(pm === "마을 공동체"){
+        vd.src = click_data[aa][2];
+    }
+    else if(pm === "마을공동체 활성화 지원사업"){
+        vd.src = click_data[aa][2];
+    }
+    else if(pm === "마을모임 지원사업"){
+        vd.src = click_data[aa][3];
+    }
+    else if(pm === "광주형 협치마을 모델사업"){
+        vd.src = click_data[aa][4];
+    }
+    else if(pm === "미래 학교"){
+        vd.src = click_data[aa][2];
+    }
+    else if(pm === "洞 마을의제 실행력 제고 워크숍"){
+        vd.src = click_data[aa][2];
+    }
+    else if(pm === "분야별 성장지원 워크숍"){
+        vd.src = click_data[aa][3];
+    }
+    else if(pm === "사회적 경제기반 교육"){
+        vd.src = click_data[aa][4];
+    }
+    else if(pm === "마을환경 실천활동가 양성교육"){
+        vd.src = click_data[aa][5];
+    }
+    else if(pm === "마을미디어 주민활동가 양성교육"){
+        vd.src = click_data[aa][6];
+    }
+    else if(pm === "마을 분쟁 해결 지원센터"){
+        vd.src = click_data[aa][2];
+    }
+    else if(pm === "북구마을 분쟁해결 지원센터"){
+        vd.src = click_data[aa][2];
+    }
+    else if(pm === "소통방"){
+        vd.src = click_data[aa][3];
+    }
+    else if(pm === "부록"){
+        vd.src = click_data[aa][2];
+    }
+    else if(pm === "찾아가는 어린이 환경리더 교육"){
+        vd.src = click_data[aa][2];
+    }
+    else if(pm === "마을활동가 토크쇼"){
+        vd.src = click_data[aa][3];
+    }
+    else if(pm === "탄소중립 그린마을 동행"){
+        vd.src = click_data[aa][4];
+    }
+    movie_name.innerText = pm;
+
+    ///// 8. 좌측 서브 메뉴 클릭시 동영상 정보 변경하기
+    const lmA = document.querySelectorAll(".l_menu a");
+    // console.log(lmA);
+    const setCd = (txt,mv) => {
         vd.src = "./video/"+mv+".mp4";
         vd.muted = false;
-        movie_name.innerText = btxt;
-
-    }; ////////// setCd ////////////////
-
+        movie_name.innerText = txt;
+    }; // setCd //
+    
     for (let x of lmA) {
-        let btxt = x.innerText;
-        console.log(btxt);
+        let ltxt = x.innerText;
+        // console.log(ltxt);
         x.onclick = () => {
             event.preventDefault();
-            switch (btxt) {
+            switch (ltxt) {
                 // mdata01 //
-                case "중흥3동주민자치위원회":
-                    setCd(btxt,"1A01");
+                case "중흥3동 주민자치위원회":
+                    setCd(ltxt,"1A01");
                     break;
-                case "신안동주민자치위원회":
-                    vd.src = "./video/1A02.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "신안동 주민자치위원회":
+                    setCd(ltxt,"1A02");
                     break;
-                case "용봉동주민자치회":
-                    vd.src = "./video/1A03.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "용봉동 주민자치회":
+                    setCd(ltxt,"1A03");
                     break;
-                case "운암3동주민자치회(1)":
-                    vd.src = "./video/1A04.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암3동 주민자치회(1)":
+                    setCd(ltxt,"1A04");
                     break;
-                case "운암3동주민자치회(2)":
-                    vd.src = "./video/1A05.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암3동 주민자치회(2)":
+                    setCd(ltxt,"1A05");
                     break;
-                case "문화동주민자치회":
-                    vd.src = "./video/1A06.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "문화동 주민자치회":
+                    setCd(ltxt,"1A06");
                     break;
-                case "문흥1동주민자치회(1)":
-                    vd.src = "./video/1A07.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "문흥1동 주민자치회(1)":
+                    setCd(ltxt,"1A07");
                     break;
-                case "문흥1동주민자치회(2)":
-                    vd.src = "./video/1A08.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "문흥1동 주민자치회(2)":
+                    setCd(ltxt,"1A08");
                     break;
-                case "두암3동주민자치위원회":
-                    vd.src = "./video/1A09.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "두암3동 주민자치위원회":
+                    setCd(ltxt,"1A09");
                     break;
-                case "석곡동주민자치위원회":
-                    vd.src = "./video/1A10.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "석곡동 주민자치위원회":
+                    setCd(ltxt,"1A10");
                     break;
-                case "양산동주민자치회":
-                    vd.src = "./video/1A11.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "양산동 주민자치회":
+                    setCd(ltxt,"1A11");
                     break;
-                case "중흥2동_몸맘살림":
-                    vd.src = "./video/1A12.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "중흥2동 몸맘살림":
+                    setCd(ltxt,"1A12");
                     break;
-                case "중흥2동_쓰담쓰담 예술나눔":
-                    vd.src = "./video/1A13.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "중흥2동 쓰담쓰담 예술나눔":
+                    setCd(ltxt,"1A13");
                     break;
-                case "신안동_빛고을공예협동조합":
-                    vd.src = "./video/1A14.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "신안동 빛고을 공예 협동조합":
+                    setCd(ltxt,"1A14");
                     break;
-                case "용봉동_용봉마을연극단":
-                    vd.src = "./video/1A15.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "용봉동 용봉마을 연극단":
+                    setCd(ltxt,"1A15");
                     break;
-                case "운암1동_벽산블루밍 운암메가씨티3단지":
-                    vd.src = "./video/1A16.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암1동 벽산블루밍 운암메가씨티3단지":
+                    setCd(ltxt,"1A16");
                     break;
-                case "운암1동_벽산블루밍1단지 마을여성회":
-                    vd.src = "./video/1A17.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암1동 벽산블루밍1단지 마을여성회":
+                    setCd(ltxt,"1A17");
                     break;
-                case "운암2동_운암2동 365민생행복지원단":
-                    vd.src = "./video/1A18.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암2동 365민생행복지원단":
+                    setCd(ltxt,"1A18");
                     break;
-                case "동림동_행복한공동체 모다":
-                    vd.src = "./video/1A19.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "동림동 행복한 공동체 모다":
+                    setCd(ltxt,"1A19");
                     break;
-                case "동림동_동림동지역사회보장협의체":
-                    vd.src = "./video/1A20.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "동림동 동림동 지역사회 보장협의체":
+                    setCd(ltxt,"1A20");
                     break;
-                case "우산동_기마전아트공동체":
-                    vd.src = "./video/1A21.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "우산동 기마전 아트공동체":
+                    setCd(ltxt,"1A21");
                     break;
-                case "우산동_꿈나무사회복지관":
-                    vd.src = "./video/1A22.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "우산동 꿈나무 사회복지관":
+                    setCd(ltxt,"1A22");
                     break;
-                case "풍향동_코리아문화예술단":
-                    vd.src = "./video/1A23.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "풍향동 코리아 문화예술단":
+                    setCd(ltxt,"1A23");
                     break;
-                case "문화동_각화종합사회복지관":
-                    vd.src = "./video/1A24.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "문화동 각화 종합사회복지관":
+                    setCd(ltxt,"1A24");
                     break;
-                case "문흥2동_문흥골목대장":
-                    vd.src = "./video/1A25.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "문흥2동 문흥 골목대장":
+                    setCd(ltxt,"1A25");
                     break;
-                case "두암3동_두암종합사회복지관":
-                    vd.src = "./video/1A26.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "두암3동 두암 종합사회복지관":
+                    setCd(ltxt,"1A26");
                     break;
-                case "두암3동_무등종합사회복지관":
-                    vd.src = "./video/1A27.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "두암3동 무등 종합사회복지관":
+                    setCd(ltxt,"1A27");
                     break;
-                case "오치1동_오치종합사회복지관":
-                    vd.src = "./video/1A28.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "오치1동 오치 종합사회복지관":
+                    setCd(ltxt,"1A28");
                     break;
-                case "오치1동_대금연주단 여울림":
-                    vd.src = "./video/1A29.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "오치1동 대금연주단 여울림":
+                    setCd(ltxt,"1A29");
                     break;
-                case "석곡동_원시인마을":
-                    vd.src = "./video/1A30.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "석곡동 원시인마을":
+                    setCd(ltxt,"1A30");
                     break;
-                case "석곡동_월산마을번영회":
-                    vd.src = "./video/1A31.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "석곡동 월산 마을번영회":
+                    setCd(ltxt,"1A31");
                     break;
-                case "양산동_교육네트워크희망팩토리":
-                    vd.src = "./video/1A32.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "양산동 교육네트워크 희망팩토리":
+                    setCd(ltxt,"1A32");
                     break;
-                case "양산동_연제주공아파트관리소":
-                    vd.src = "./video/1A33.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "양산동 연제 주공아파트관리소":
+                    setCd(ltxt,"1A33");
                     break;
-                case "양산동_JS뮤지션스그룹":
-                    vd.src = "./video/1A34.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "양산동 JS뮤지션스그룹":
+                    setCd(ltxt,"1A34");
                     break;
-                case "신용동_신용동지역사회보장협의체":
-                    vd.src = "./video/1A35.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "신용동 신용동 지역사회 보장협의체":
+                    setCd(ltxt,"1A35");
                     break;
-                case "신용동_꿈틀어린이작은도서관":
-                    vd.src = "./video/1A36.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "신용동 꿈틀어린이 작은도서관":
+                    setCd(ltxt,"1A36");
                     break;
-                case "북구_동운마을기후환경연합공동체'이음'":
-                    vd.src = "./video/1A37.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "북구 동운마을 기후환경 연합공동체'이음'":
+                    setCd(ltxt,"1A37");
                     break;
-                case "북구_광주북구문화예술연합":
-                    vd.src = "./video/1A38.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "북구 광주북구 문화예술연합":
+                    setCd(ltxt,"1A38");
                     break;
-                case "북구_북구마을네트워크":
-                    vd.src = "./video/1A39.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "북구 북구 마을네트워크":
+                    setCd(ltxt,"1A39");
                     break;
 
-                case "중흥2동_광주역다사로움아파트":
-                    vd.src = "./video/1B01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "중흥2동 광주역 다사로움 아파트":
+                    setCd(ltxt,"1B01");
                     break;
-                case "용봉동_비건어게인":
-                    vd.src = "./video/1B02.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "용봉동 비건 어게인":
+                    setCd(ltxt,"1B02");
                     break;
-                case "용봉동_광주5·18청소년오케스트라":
-                    vd.src = "./video/1B03.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "용봉동 광주5·18 청소년 오케스트라":
+                    setCd(ltxt,"1B03");
                     break;
-                case "운암1동_대주아파트입주자대표회의":
-                    vd.src = "./video/1B04.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암1동 대주아파트 입주자 대표회의":
+                    setCd(ltxt,"1B04");
                     break;
-                case "운암1동_운암 빛고을 봉사단":
-                    vd.src = "./video/1B05.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암1동 운암 빛고을 봉사단":
+                    setCd(ltxt,"1B05");
                     break;
-                case "운암2동_글로벌노르딕워킹협회":
-                    vd.src = "./video/1B06.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암2동 글로벌 노르딕 워킹협회":
+                    setCd(ltxt,"1B06");
                     break;
-                case "동림동_그린뉴딜 공동체 우아미":
-                    vd.src = "./video/1B07.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "동림동 그린뉴딜 공동체 우아미":
+                    setCd(ltxt,"1B07");
                     break;
-                case "동림동_친수마을사랑수레":
-                    vd.src = "./video/1B08.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "동림동 친수마을 사랑수레":
+                    setCd(ltxt,"1B08");
                     break;
-                case "동림동_동림주공2차경로당":
-                    vd.src = "./video/1B09.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "동림동 동림주공2차 경로당":
+                    setCd(ltxt,"1B09");
                     break;
-                case "우산동_우산3사랑회":
-                    vd.src = "./video/1B10.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "우산동 우산3사랑회":
+                    setCd(ltxt,"1B10");
                     break;
-                case "문화동_각화사랑회":
-                    vd.src = "./video/1B11.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "문화동 각화사랑회":
+                    setCd(ltxt,"1B11");
                     break;
-                case "문흥1동_문흥1동아파트자치회연합회":
-                    vd.src = "./video/1B12.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "문흥1동 아파트 자치회연합회":
+                    setCd(ltxt,"1B12");
                     break;
                 case "두암2동 두암동무등파크":
-                    vd.src = "./video/1B13.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"1B13");
                     break;
-                case "두암2동_해성숲사랑":
-                    vd.src = "./video/1B14.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "두암2동 해성숲사랑":
+                    setCd(ltxt,"1B14");
                     break;
-                case "오치1동_자연드러와":
-                    vd.src = "./video/1B15.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "오치1동 자연드러와":
+                    setCd(ltxt,"1B15");
                     break;
-                case "오치1동_국제공예문화총연합회 광주지부":
-                    vd.src = "./video/1B16.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "오치1동 국제공예문화 총연합회 광주지부":
+                    setCd(ltxt,"1B16");
                     break;
-                case "오치2동_올치오치":
-                    vd.src = "./video/1B17.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "오치2동 올치오치":
+                    setCd(ltxt,"1B17");
                     break;
-                case "양산동_광주샛별마을공동체":
-                    vd.src = "./video/1B18.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "양산동 광주샛별마을 공동체":
+                    setCd(ltxt,"1B18");
                     break;
 
-                case "운암1동해오름마을공동체":
-                    vd.src = "./video/1C01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "운암1동 해오름 마을공동체":
+                    setCd(ltxt,"1C01");
                     break;
-                case "오치1동주민협의체":
-                    vd.src = "./video/1C02.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "오치1동 주민협의체":
+                    setCd(ltxt,"1C02");
                     break;
-                case "오치2동주민자치위원회":
-                    vd.src = "./video/1C03.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "오치2동 주민자치위원회":
+                    setCd(ltxt,"1C03");
                     break;
-                case "석곡무등산마을협의회":
-                    vd.src = "./video/1C04.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                case "석곡무등산 마을협의회":
+                    setCd(ltxt,"1C04");
                     break;
 
                 // mdata02 //
                 case "운암권역":
-                    vd.src = "./video/2A01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A01");
                     break;
                 case "문화권역":
-                    vd.src = "./video/2A02.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A02");
                     break;
                 case "일곡권역":
-                    vd.src = "./video/2A03.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A03");
                     break;
                 case "용봉권역":
-                    vd.src = "./video/2A04.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A04");
                     break;
                 case "두암권역":
-                    vd.src = "./video/2A05.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A05");
                     break;
                 case "중흥권역":
-                    vd.src = "./video/2A06.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A06");
                     break;
                 case "마을복지":
-                    vd.src = "./video/2A07.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A07");
                     break;
                 case "기후환경":
-                    vd.src = "./video/2A08.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A08");
                     break;
                 case "문화예술·도시재생":
-                    vd.src = "./video/2A09.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2A09");
                     break;
                 case "사회적 경제 이해":
-                    vd.src = "./video/2B01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2B01");
                     break;
                 case "정부 사업에 대한 이해":
-                    vd.src = "./video/2B02.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2B02");
                     break;
                 case "마을 자원 발굴":
-                    vd.src = "./video/2B03.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2B03");
                     break;
                 case "마을 자원 연계 사회적 경제 모델 구축":
-                    vd.src = "./video/2B04.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2B04");
                     break;
                 case "마을 내 경제 조직 구성":
-                    vd.src = "./video/2B05.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2B05");
                     break;
                 case "서류 작성 및 준비 Ⅰ":
-                    vd.src = "./video/2B06.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2B06");
                     break;
                 case "서류 작성 및 준비 Ⅱ":
-                    vd.src = "./video/2B07.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2B07");
                     break;
                 case "생활 속 탄소중립 실천마을":
-                    vd.src = "./video/2C01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C01");
                     break;
                 case "자원순환 마을 만들기":
-                    vd.src = "./video/2C02.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C02");
                     break;
                 case "환경기초시설 견학":
-                    vd.src = "./video/2C03.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C03");
                     break;
                 case "생활 속 업사이클링 아트마을":
-                    vd.src = "./video/2C04.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C04");
                     break;
                 case "마을 속 도시농업":
-                    vd.src = "./video/2C05.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C05");
                     break;
                 case "수료식":
-                    vd.src = "./video/2C06.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C06");
                     break;
                 case "마을미디어 콘텐츠 이해":
-                    vd.src = "./video/2C07.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C07");
                     break;
                 case "기획 및 촬연":
-                    vd.src = "./video/2C08.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C08");
                     break;
                 case "녹화 및 편집":
-                    vd.src = "./video/2C09.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C09");
                     break;
                 case "편집 및 업로드":
-                    vd.src = "./video/2C10.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C10");
                     break;
                 case "360 VR 사진촬영을 활용한 마을 아카이브":
-                    vd.src = "./video/2C11.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C11");
                     break;
                 case "3D 사진촬영을 활용한 마을 아카이브":
-                    vd.src = "./video/2C12.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C12");
                     break;
                 case "메타버스를 활용한 마을 아카이브":
-                    vd.src = "./video/2C13.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"2C13");
                     break;
 
                 // mdata03 //
                 case "북구마을 분쟁해결 지원센터":
-                    vd.src = "./video/3A01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3A01");
                     break;
                 case "임동 세대공감":
-                    vd.src = "./video/3B01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B01");
                     break;
                 case "신안동 징검다리":
-                    vd.src = "./video/3B02.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B02");
                     break;
                 case "용봉동 두루모아":
-                    vd.src = "./video/3B03.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B03");
                     break;
                 case "용봉동 아름다운 화해":
-                    vd.src = "./video/3B04.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B04");
                     break;
                 case "운암1동 이심(⼼)전심(⼼)":
-                    vd.src = "./video/3B05.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B05");
                     break;
                 case "동림동 오손도손 사랑방":
-                    vd.src = "./video/3B06.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B06");
                     break;
                 case "삼각동 들樂날樂":
-                    vd.src = "./video/3B07.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B07");
                     break;
                 case "일곡동 행복나눔 사랑방":
-                    vd.src = "./video/3B08.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B08");
                     break;
                 case "오치1동 한울타리":
-                    vd.src = "./video/3B09.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B09");
                     break;
                 case "오치2동 오치골":
-                    vd.src = "./video/3B10.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"3B10");
                     break;
 
                 // mdata04 //
-                case "효동초등학교":
-                    // vd.src = "./video/1A01.mp4";
-                    // vd.muted = false;
-                    movie_name.innerText = btxt;
-                    console.log(movie_name);
+                case "효동 초등학교":
+                    setCd(ltxt,"4A01");
                     break;
-                case "용주초등학교":
-                    vd.src = "./video/1A01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
-                    console.log(movie_name.parentElement);
+                case "용주 초등학교":
+                    setCd(ltxt,"4A02");
                     break;
                 case "마을활동가 토크쇼":
-                    vd.src = "./video/1A01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"4B01");
                     break;
                 case "탄소중립 그린마을 동행":
-                    vd.src = "./video/1A01.mp4";
-                    vd.muted = false;
-                    movie_name.innerText = btxt;
+                    setCd(ltxt,"4C01");
                     break;
             }
-        };
-    }
-    // 부록 목록에는 별도의 정보 삽입하기
-    const makeCode = (hcd) => `
-        <div class="abc">
-            <span><p class="ddd">▶</p>  설명 제목</span>
-            <div class="def">
-                ${hcd}
-            </div>
-        </div>
-    `;
-
-    if (pm === "부록") {
-        console.log("성공01");
-        movie.querySelector(".tspan").innerHTML += makeCode(`
-            <span>
-                찾아가는 어린이 환경리더 교육<br />
-                <br />
-                "학교 안 탄소중립 실천" 찾아가는 어린이 환경리더 교육<br />
-                지구를 살리는 자원순환 교육 및 올바른 분리배출 실습과 환경캠페인 활동<br />
-                <br />
-                ● 효동초등학교<br />
-                - 일시 : 22. 10. 5.(수) ~ 10. 19.(수)<br />
-                - 대상 : 효동초등학교 3학년
-            </span>
-        `);
-    } else if (pm === "찾아가는어린이환경리더교육") {
-        console.log("성공02");
-        movie.innerHTML += makeCode(`찾아가는어린이환경리더교육`);
-    } else if (pm === "마을활동가토크쇼") {
-        console.log("성공03");
-        movie.innerHTML += makeCode(`마을활동가토크쇼`);
-    } else if (pm === "탄소중립그린마을동행") {
-        console.log("성공04");
-        movie.innerHTML += makeCode(`탄소중립그린마을동행`);
-    }
-
-    const abc = document.querySelector(".abc span");
-    if(abc){
-        const ddd = document.querySelector(".ddd");
-        const def = document.querySelector(".def");
-        let onoff = -1;
-        abc.onclick = () => {
-            if (onoff === 1) {
-                ddd.style.transform = "rotate(0)";
-                def.style.height = "0";
-                def.style.border = "0px solid #fff";
-            } else {
-                ddd.style.transform = "rotate(90deg)";
-                def.style.height = "500px";
-                def.style.border = "2px solid #fff";
-            }
-            onoff = onoff * -1;
-            // console.log(onoff);
         };
     }
 });

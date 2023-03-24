@@ -73,7 +73,7 @@ function loadFn() {
 
     // 2. index.html에서 상단 gnb 메뉴를 클릭해서 main.html로 이동할 시, 클릭한 목록 데이터 넘기기
     const gnb_click = document.querySelectorAll(".gnbT a");
-    console.log(gnb_click);
+    // console.log(gnb_click);
     for (let x of gnb_click) {
         x.onclick = () => {
             let click_txt = x.innerText;

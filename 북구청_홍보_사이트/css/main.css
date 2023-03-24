@@ -1,18 +1,14 @@
 @charset "utf-8";
 /* main.html CSS - main.css */
 
-body{
-    background: url(../img/blue_bg02.jpg) no-repeat fixed right/cover;
-}
-
-/* 메인 페이지 */
-.cont2 {
+/******************** 2. 메인 영역 ********************/
+#cont {
     position: relative;
     width: 1200px;
     margin: 0 auto;
 }
 
-/* 왼쪽 메뉴 */
+/***** 2-1. 왼쪽 메뉴 *****/
 .gnbL {
     width: 300px;
     height: calc(100vh - 90px);
@@ -20,8 +16,7 @@ body{
     background-color: #3d5a7e;
     overflow-Y: scroll;
 }
-
-.m_name>span {
+.l_menu>span {
     display: block;
     width: calc(100% - 18px);
     height: 100%;
@@ -35,16 +30,15 @@ body{
     border-bottom: 5px solid #339e67;
     transition: height 0.3s;
 }
-.m_name > ul{
+.l_menu>ul{
     overflow: hidden;
     transition: height 0.3s;
 }
-.m_name > ul > li {
+.l_menu>ul>li {
     position: relative;
     height: 34px;
 }
-
-.m_name > ul > li::before {
+.l_menu>ul>li::before {
     content: "";
     position: absolute;
     left: 20px;
@@ -55,7 +49,11 @@ body{
     width: 4px;
     height: 4px;
 }
-.m_name > ul > li > a {
+.l_menu>ul>li:hover::before {
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+}
+.l_menu>ul>li>a {
     display: block;
     width: 95%;
     height: 200%;
@@ -73,31 +71,28 @@ body{
     box-sizing: border-box;
     transition: 0.3s;
 }
-.m_name > ul > li:hover > a {
+.l_menu>ul>li:hover>a {
     color: #333;
     background-color: #fff;
     font-weight: 700;
     border: 1px solid #19529d;
 }
-.m_name > ul > li:hover::before {
-    border-top: 2px solid #333;
-    border-right: 2px solid #333;
-}
-.m_name > ul > li > a.change_color{
+.l_menu>ul>li>a.change_color{
     font-weight: 700;
     color: #333;
     background-color: #fff;
     border: 1px solid #082b58;
 }
 
-.video {
+/***** 2-2. 동영상 *****/
+.movie {
     position: absolute;
     top: 0;
     left: 320px;
     width: 880px;
     margin: auto;
 }
-.video span{
+.movie span{
     display: block;
     height: 40px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -107,33 +102,6 @@ body{
     color: #fff;
     line-height: 4rem;
 }
-.video video {
+.movie video {
     width: 880px;
-}
-
-.abc{
-    width: 880px;
-    height: 400px;
-    margin-top: 20px;
-}
-.abc>span{
-    height: 35px;
-    line-height: 32px;
-    padding-left: 10px;
-    border: 2px solid #fff;
-    border-radius: 10px;
-}
-.ddd{
-    display: inline-block;
-    transition: all .5s;
-}
-.def{
-    width: 100%;
-    /* height: 200px; */
-    height: 0;
-    margin-top: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: height .5s, border .2s;
-    box-sizing: border-box;
 }
