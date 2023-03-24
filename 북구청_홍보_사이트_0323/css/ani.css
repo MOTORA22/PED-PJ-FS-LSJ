@@ -1,0 +1,171 @@
+@charset "utf-8";
+/* index.html 페이지 애니메이션 CSS - ani.css */
+
+.cbx{
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+@keyframes opacity01 {
+    to{
+        opacity:1;
+    }
+}
+
+/* 배경 */
+.in_bg{
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 90px);
+    margin-top: 90px;
+    opacity: 0;
+    transition: all 1.5s;
+}
+.in_bg:first-child{
+    opacity: 1;
+    background: url(../img/blue_bg01.jpg) no-repeat fixed right/cover;
+    animation: bgMove 2s ease-in .5s 1 forwards;
+}
+
+@keyframes bgMove {
+    to{
+        background: url(../img/blue_bg01.jpg) no-repeat fixed left/cover;
+    }
+}
+
+/* 슬로건 */
+.slogan{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 1070px;
+    margin: 100px auto 0;
+    opacity:0;
+    animation: opacity01 1.5s ease-out .5s 1 forwards;
+}
+.slogan div{
+    background: url(../img/slogan.png) no-repeat;
+}
+.slogan div:nth-child(1){
+    width: 300px;
+    height: 70px;
+    background-position: 0px 0px;
+}
+.slogan div:nth-child(2){
+    width: 420px;
+    height: 130px;
+    background-position: 0px -160px;
+    filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
+    animation: gradation 2.5s ease-in-out 1s infinite forwards;
+
+}
+.slogan div:nth-child(3){
+    width: 450px;
+    height: 70px;
+    margin: 0px 0 0 20%;
+    background-position: 0px -80px;
+}
+.slogan div:nth-child(4){
+    width: 380px;
+    height: 130px;
+    background-position: 0px -300px;
+    filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(0deg);
+    animation: gradation 2s ease-in-out 1.5s infinite forwards;
+}
+@keyframes gradation {
+    to{
+        filter: brightness(150%) contrast(110%) saturate(110%) hue-rotate(360deg);
+    }
+}
+/* 슬로건 옆에 반투명 로고 */
+.slogan_logo{
+    position: absolute;
+    top: 50px;
+    left: 1000px;
+    width: 240px;
+    height: 231px;
+    background: url(../img/character.png) no-repeat;
+    background-position: 0px -290px;
+    opacity:0;
+    animation: opacity01 1.5s ease-out .5s 1 forwards;
+}
+
+/* 날아오는 새 */
+.fly_bird{
+    position: absolute;
+    top: 10px;
+    left: 900px;
+    width: 86px;
+    height: 102px;
+    background: url(../img/character.png) no-repeat;
+    background-position: -430px -290px;
+    opacity: 0;
+    animation:
+    birdFlying1 2.5s ease-out 2.5s 1 forwards,
+    birdFlying2 2s ease-in 3s 1 forwards,
+    birdFadeOut 3s ease-in-out 2.5s 1 forwards;
+}
+@keyframes birdFlying1 {
+    to{
+        top: 400px;
+    }
+}
+@keyframes birdFlying2 {
+    to{
+        left: 600px;
+    }
+}
+@keyframes birdFadeOut {
+    15%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+/* 마을 주민들 */
+.villagers{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 900px;
+    margin: 20px auto 0;
+}
+.villagers div{
+    background: url(../img/character.png) no-repeat;
+    opacity: 0;
+}
+.villagers div:nth-child(1){
+    width: 229px;
+    height: 280px;
+    background-position: 0px 0px;
+    animation: opacity01 2s ease-out 2s 1 forwards;
+}
+.villagers div:nth-child(2){
+    width: 85px;
+    height: 160px;
+    background-position: -340px -290px;
+    animation: opacity01 2s ease-out 1s 1 forwards;
+}
+.villagers div:nth-child(3){
+    width: 126px;
+    height: 82px;
+    background-position: -340px -455px;
+    animation: opacity01 2s ease-in-out 4.5s 1 forwards;
+}
+.villagers div:nth-child(4){
+    width: 219px;
+    height: 259px;
+    background-position: -230px 0px;
+    animation: opacity01 2s ease-out 1.5s 1 forwards;
+}
+.villagers div:nth-child(5){
+    width: 86px;
+    height: 258px;
+    background-position: -245px -290px;
+    animation: opacity01 2s ease-out 2s 1 forwards;
+}

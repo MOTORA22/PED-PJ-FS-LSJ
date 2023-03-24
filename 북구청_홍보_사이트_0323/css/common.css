@@ -1,0 +1,307 @@
+@charset "utf-8";
+/* 공통모듈 디자인 CSS - common.css */
+
+
+/*************** 1.상단영역 ***************/
+#top {
+    position: relative;
+    z-index: 999;
+    height: 90px;
+    background-color: #2c4f67;
+    border-bottom: 2px solid #ccc;
+    box-sizing: border-box;
+}
+.top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 1200px;
+    height: 90px;
+    margin: 0 auto;
+}
+
+/* 로고 */
+.logo{
+    width: 270px;
+    height: 80px;
+    background: url(../img/head-logo.png) no-repeat;
+    background-position: 0px 0px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.link00{
+    display: flex;
+    align-items: flex-end;
+}
+.link01{
+    width: 175px;
+    height: 80px;
+    background: url(../img/head-logo.png) no-repeat;
+    background-position: 0px -80px;
+    margin-bottom: 15px;
+}
+.link02{
+    width: 150px;
+    height: 80px;
+    background: url(../img/head-logo.png) no-repeat;
+    background-position: 0px -160px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+.logo a,
+.link01 a,
+.link02 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* GNB 메뉴 */
+.gnb ul {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin-left: 10px;
+}
+
+/* .gnb > ul > li + li {
+    margin-left: 30px;
+} */
+.gnb > ul > li > a {
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 6rem;
+    white-space: nowrap;
+    text-decoration: none;
+}
+/* GNB 서브메뉴용 배경을 ul>li.sm에 가상요소로 만들기 */
+.gnb > ul > li.sm::before {
+    content: "";
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    /* background-color: #e0f0f8; */
+    background-color: #fff;
+    transition: 0.45s ease-out;
+}
+/* 상위메뉴 li 오버시 서브메뉴에 파란 밑줄 생성내기 */
+.gnb > ul > li.sm:hover::before {
+    border-bottom: 2px solid #011c2b;
+    transition-duration: 0.3s;
+}
+/* 상위메뉴 li 오버시 서브메뉴 보이기 */
+.gnb > ul > li:first-child:hover::before,
+.gnb > ul > li:first-child:hover .smenu {
+    height: 100px;
+}
+.gnb > ul > li:nth-child(2):hover::before,
+.gnb > ul > li:nth-child(2):hover .smenu {
+    height: 160px;
+}
+
+.gnb > ul > li:nth-child(3):hover::before,
+.gnb > ul > li:nth-child(3):hover .smenu {
+    height: 70px;
+}
+.gnb > ul > li:last-child:hover::before,
+.gnb > ul > li:last-child:hover .smenu {
+    height: 100px;
+}
+/* 가상 요소로 상위메뉴에 움직이는 바 애니만들기 */
+.gnb > ul > li > a::after {
+    content: "";
+    display: block;
+    /* 변경속성 - 바가 중앙에 있음! */
+    width: 0%;
+    height: 2px;
+    margin-left: 50%;
+    background-color: #011c2b;
+    transition: all 0.3s;
+}
+/* 오버시 바 보이기 - 중앙에서 펼져짐! */
+.gnb > ul > li:hover > a::after {
+    width: 100%;
+    margin-left: 0%;
+}
+
+/* GNB 서브메뉴 */
+.smbx {
+    position: relative;
+    /* .smenu 앱솔루트의 부모 */
+}
+.smenu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+    margin-top: 10px;
+    padding: 0 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 0.4s ease-out;
+}
+/* 서브메뉴 a */
+.smenu a {
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400;
+    /* a요소 확장 */
+    display: block;
+    /* 글자셋팅 */
+    color: black;
+    text-decoration: none;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    transition: 0.1s;
+}
+/* 서브메뉴 a 오버시 */
+.smenu a:hover {
+    color: darkblue;
+    font-weight: 700;
+    transform: scale(1.1);
+}
+
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 메인 페이지 */
+.cont2 {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 왼쪽 메뉴 */
+.gnbL {
+    width: 300px;
+    height: calc(100vh - 90px);
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #3d5a7e;
+    overflow-Y: scroll;
+}
+
+.m_name>span {
+    display: block;
+    width: calc(100% - 18px);
+    height: 100%;
+    padding-left: 18px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 40px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #304f76;
+    border-bottom: 5px solid #339e67;
+    transition: height 0.3s;
+}
+.m_name > ul{
+    overflow: hidden;
+    transition: height 0.3s;
+}
+.m_name > ul > li {
+    position: relative;
+    height: 34px;
+}
+
+.m_name > ul > li::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 40%;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+    width: 4px;
+    height: 4px;
+}
+.m_name > ul > li > a {
+    display: block;
+    width: 95%;
+    height: 200%;
+    margin: 0 auto;
+    padding-left: 25px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #3d5a7e;
+    border-radius: 18px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+.m_name > ul > li:hover > a {
+    color: #333;
+    background-color: #fff;
+    font-weight: 700;
+    border: 1px solid #19529d;
+}
+.m_name > ul > li:hover::before {
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+}
+.m_name > ul > li > a.change_color{
+    font-weight: 700;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #082b58;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 320px;
+    width: 880px;
+    margin: auto;
+}
+.video span{
+    display: block;
+    height: 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    padding-left: 5px;
+    color: #fff;
+    line-height: 4rem;
+}
+.video video {
+    width: 880px;
+}
+
+.abc{
+    width: 880px;
+    height: 400px;
+    margin-top: 20px;
+}
+.abc>span{
+    height: 35px;
+    line-height: 32px;
+    padding-left: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+.ddd{
+    display: inline-block;
+    transition: all .5s;
+}
+.def{
+    width: 100%;
+    /* height: 200px; */
+    height: 0;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .5s, border .2s;
+    box-sizing: border-box;
+}
