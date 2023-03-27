@@ -2,8 +2,9 @@
 /* 상단 메뉴 CSS - gnb.css */
 
 #top {
-    position: relative;
+    position: fixed;
     z-index: 99;
+    width: 100%;
     height: 90px;
     background-color: #3c6482;
     border-bottom: 2px solid #ddd;

@@ -10,6 +10,8 @@
 
 /***** 2-1. 왼쪽 메뉴 *****/
 .gnbL {
+    position: fixed;
+    top: 90px;
     width: 300px;
     height: calc(100vh - 90px);
     font-family: 'Noto Sans KR', sans-serif;
@@ -87,7 +89,7 @@
 /***** 2-2. 동영상 *****/
 .movie {
     position: absolute;
-    top: 0;
+    top: 90px;
     left: 320px;
     width: 880px;
     margin: auto;
@@ -106,6 +108,13 @@
     width: 880px;
 }
 /* 설명문 */
+.exp{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #eee;
+    line-height: 2;
+}
 .exp01{
     display: none;
 }
@@ -114,6 +123,9 @@
 }
 .exp03{
     display: none;
+}
+.exp04 img{
+    width: 800px;
 }
 .exp04{
     display: none;
