@@ -142,9 +142,9 @@ window.addEventListener("DOMContentLoaded", function () {
         <div class="l_menu"><span>${tm}</span>
         <ul>
         `;
-        for (let sm in click_data[combine_pm][0][tm]) {
+        for (let sm of click_data[combine_pm][0][tm]) {
             // console.log(sm);
-            codeL += `<li><a class="a_click" href="#">${click_data[combine_pm][0][tm][sm]}</a></li>`;
+            codeL += `<li><a class="a_click" href="#">${[sm]}</a></li>`;
         }
         codeL += `</ul></div>`;
     }
