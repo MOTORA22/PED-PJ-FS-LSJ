@@ -114,12 +114,24 @@
     font-weight: 500;
     color: #eee;
     line-height: 2;
+    border-top: 3px solid #333;
+    margin-bottom: 30px;
+    word-break: keep-all;
+}
+.exp ul li:first-child{
+    font-size: 2.4rem;
+}
+.exp ul li:not(:first-child){
+    margin-left: 30px;
 }
 .exp01{
     display: none;
 }
 .exp02{
     display: none;
+}
+.exp02>div{
+    font-size: 1.4rem;
 }
 .exp03{
     display: none;

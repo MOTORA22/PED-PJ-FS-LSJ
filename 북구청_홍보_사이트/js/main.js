@@ -48,10 +48,10 @@ window.addEventListener("DOMContentLoaded", function () {
                     </ul>
                 </div>
                 <div class="exp02">
-                    주민자치(위원)회, 마을공동체, 마을활동가, 일반 주민을 위한 마을교육<br />
-                    역량 있는 마을활동가 양성 및 주민자치 역량 강화를 위한 체계적이고 지속적인 마을 교육<br />
+                    <div>주민자치(위원)회, 마을공동체, 마을활동가, 일반 주민을 위한 마을교육</div>
+                    <div>역량 있는 마을활동가 양성 및 주민자치 역량 강화를 위한 체계적이고 지속적인 마을 교육</div>
                     <ul>
-                        <li>a. 기본과정</li>
+                        <li>A. 기본과정</li>
                         <li>洞 마을의제 실행력 제고 워크숍</li>
                         <li>의제 워크북을 활용한 실현 가능한 의제 재점검 및 우리 마을 의제 수정해보기</li>
                         <li>사업 확장성을 위한 권역별 컨설팅</li>
@@ -61,14 +61,14 @@ window.addEventListener("DOMContentLoaded", function () {
                         <li>문화예술·도시재생 - 마을공동체 주도의 문화예술을 통한 도시재생 성공사례</li>
                     </ul>
                     <ul>
-                        <li>b. 심화과정</li>
+                        <li>B. 심화과정</li>
                         <li>사회적 경제 기반 교육</li>
                         <li>마을과 사회적 경제에 대한 이해</li>
                         <li>동 의제에 기반한 마을 자원 발굴 및 비즈니스 모델 개발</li>
                         <li>우리 마을의 사회적 경제 모델 사업계획서 작성해보기 실제 워크숍</li>
                     </ul>
                     <ul>
-                        <li>c. 전문과정</li>
+                        <li>C. 전문과정</li>
                         <li>마을환경실천활동가 양성교육</li>
                         <li>기후위기에 대응하는 생활 속 탄소중립 이론 및 실천사례 교육</li>
                         <li>자원순환에 대한 이해 및 올바른 분리배출 실습</li>
@@ -96,11 +96,11 @@ window.addEventListener("DOMContentLoaded", function () {
                         <li>「학교 안 탄소중립 실천」 찾아가는 어린이 환경리더 교육</li>
                         <li>지구를 살리는 자원순환 교육 및 올바른 분리배출 실습과 환경캠페인 활동</li>
                         <li>효동초등학교</li>
-                        <li>- 일시 : 22. 10. 5.(수) ~ 10. 19.(수)</li>
-                        <li>- 대상 : 효동초등학교 3학년</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;- 일시 : 22. 10. 5.(수) ~ 10. 19.(수)</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;- 대상 : 효동초등학교 3학년</li>
                         <li>용주초등학교</li>
-                        <li>- 일시 : 22. 10. 26.(수) ~ 11. 9.(수)</li>
-                        <li>- 대상 : 용주초등학교 3학년</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;- 일시 : 22. 10. 26.(수) ~ 11. 9.(수)</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;- 대상 : 용주초등학교 3학년</li>
                     </ul>
                     <img src="./img/poster.jpg" alt="마을 포스터">
                     <ul>
@@ -109,9 +109,9 @@ window.addEventListener("DOMContentLoaded", function () {
                         <li>주제 : 북구마을 기후위기 실천 활동 논의 및 기후변화 대책 모색</li>
                         <li>좌장 : 허승희, 광주전남녹색소비자연대 대표</li>
                         <li>토론 : 장현규, 용봉마을발전소 사무국장</li>
-                        <li>윤경화, 한새봉두레 활동가</li>
-                        <li>정 희, 오치·문흥전환마을네트워크 에너지컨설턴트</li>
-                        <li>양정훈, 동운마을기후환경연합공동체 “이음” 감사</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;윤경화, 한새봉두레 활동가</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정 희, 오치·문흥전환마을네트워크 에너지컨설턴트</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;양정훈, 동운마을기후환경연합공동체 “이음” 감사</li>
                     </ul>
                     <ul>
                         <li>C. 탄소중립 그린마을 동행</li>
