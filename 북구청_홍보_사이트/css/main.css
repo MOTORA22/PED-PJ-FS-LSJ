@@ -105,3 +105,16 @@
 .movie video {
     width: 880px;
 }
+/* 설명문 */
+.exp01{
+    display: none;
+}
+.exp02{
+    display: none;
+}
+.exp03{
+    display: none;
+}
+.exp04{
+    display: none;
+}

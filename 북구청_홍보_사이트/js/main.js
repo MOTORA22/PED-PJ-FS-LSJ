@@ -26,7 +26,10 @@ window.addEventListener("DOMContentLoaded", function () {
         <div class="movie">
             <span></span>
             <video src="" autoplay controls muted></video>
-            <div class="exp"></div>
+            <div class="exp01">111</div>
+            <div class="exp02">222</div>
+            <div class="exp03">333</div>
+            <div class="exp04">444</div>
         </div>
     `;
 
@@ -34,10 +37,10 @@ window.addEventListener("DOMContentLoaded", function () {
     const gnb_left = document.querySelector(".gnbL");
     // console.log(gnb_left);
     let combine_pm = pm;
-    if((combine_pm === "마을공동체 활성화 지원사업")||(combine_pm === "마을모임 지원사업")||(combine_pm === "광주형 협치마을 모델사업")){combine_pm=biglist[0];}
-    if((combine_pm === "洞 마을의제 실행력 제고 워크숍")||(combine_pm === "분야별 성장지원 워크숍")||(combine_pm === "사회적 경제기반 교육")||(combine_pm === "마을환경 실천활동가 양성교육")||(combine_pm === "마을미디어 주민활동가 양성교육")){combine_pm=biglist[1];}
-    if((combine_pm === "북구마을 분쟁해결 지원센터")||(combine_pm === "소통방")){combine_pm=biglist[2];}
-    if((combine_pm === "찾아가는 어린이 환경리더 교육")||(combine_pm === "마을활동가 토크쇼")||(combine_pm === "탄소중립 그린마을 동행")){combine_pm=biglist[3];}
+    if((combine_pm === "마을공동체 활성화 지원사업")||(combine_pm === "마을모임 지원사업")||(combine_pm === "광주형 협치마을 모델사업")){combine_pm=bigList[0];}
+    if((combine_pm === "洞 마을의제 실행력 제고 워크숍")||(combine_pm === "분야별 성장지원 워크숍")||(combine_pm === "사회적 경제기반 교육")||(combine_pm === "마을환경 실천활동가 양성교육")||(combine_pm === "마을미디어 주민활동가 양성교육")){combine_pm=bigList[1];}
+    if((combine_pm === "북구마을 분쟁해결 지원센터")||(combine_pm === "소통방")){combine_pm=bigList[2];}
+    if((combine_pm === "찾아가는 어린이 환경리더 교육")||(combine_pm === "마을활동가 토크쇼")||(combine_pm === "탄소중립 그린마을 동행")){combine_pm=bigList[3];}
     // console.log(combine_pm);
     let codeL = "";
     for (let tm in click_data[combine_pm][0]) {
@@ -122,22 +125,15 @@ window.addEventListener("DOMContentLoaded", function () {
     mainBody.style.background = `url(./img/${click_data[combine_pm][1]}.jpg) no-repeat fixed right/cover`;
 
     for(i=0;i<13;i++){
-        if(pm === middlelist[i]){
+        if(pm === middleList[i]){
             vd.src = videoList[i];
         }
     }
-    
-    if(pm === "마을 공동체"){
-        vd.src = click_data[combine_pm][2];
-    }
-    else if(pm === "미래 학교"){
-        vd.src = click_data[combine_pm][2];
-    }
-    else if(pm === "마을 분쟁 해결 지원센터"){
-        vd.src = click_data[combine_pm][2];
-    }
-    else if(pm === "부록"){
-        vd.src = click_data[combine_pm][2];
+    for(i=0;i<4;i++){
+        if(pm === bigList[i]){
+            vd.style.display = "none";
+            document.querySelector(`.exp0${i+1}`).style.display = "block";
+        }
     }
     movie_name.innerText = pm;
 
@@ -145,6 +141,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const lmA = document.querySelectorAll(".l_menu a");
     // console.log(lmA);
     const setCd = (txt,mv) => {
+        vd.style.display = "inline";
         vd.src = "./video/"+mv+".mp4";
         vd.muted = false;
         movie_name.innerText = txt;
