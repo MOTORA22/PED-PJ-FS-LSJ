@@ -33,22 +33,22 @@ window.addEventListener("DOMContentLoaded", function () {
     ///// 2. 상단 메뉴를 무엇을 눌렀는지에 따라 좌측 서브 메뉴 내용물 채우기
     const gnb_left = document.querySelector(".gnbL");
     // console.log(gnb_left);
-    let aa = pm;
-    if((aa === "마을공동체 활성화 지원사업")||(aa === "마을모임 지원사업")||(aa === "광주형 협치마을 모델사업")){aa="마을 공동체";}
-    if((aa === "洞 마을의제 실행력 제고 워크숍")||(aa === "분야별 성장지원 워크숍")||(aa === "사회적 경제기반 교육")||(aa === "마을환경 실천활동가 양성교육")||(aa === "마을미디어 주민활동가 양성교육")){aa="미래 학교";}
-    if((aa === "북구마을 분쟁해결 지원센터")||(aa === "소통방")){aa="마을 분쟁 해결 지원센터";}
-    if((aa === "찾아가는 어린이 환경리더 교육")||(aa === "마을활동가 토크쇼")||(aa === "탄소중립 그린마을 동행")){aa="부록";}
-    // console.log(aa);
+    let combine_pm = pm;
+    if((combine_pm === "마을공동체 활성화 지원사업")||(combine_pm === "마을모임 지원사업")||(combine_pm === "광주형 협치마을 모델사업")){combine_pm=biglist[0];}
+    if((combine_pm === "洞 마을의제 실행력 제고 워크숍")||(combine_pm === "분야별 성장지원 워크숍")||(combine_pm === "사회적 경제기반 교육")||(combine_pm === "마을환경 실천활동가 양성교육")||(combine_pm === "마을미디어 주민활동가 양성교육")){combine_pm=biglist[1];}
+    if((combine_pm === "북구마을 분쟁해결 지원센터")||(combine_pm === "소통방")){combine_pm=biglist[2];}
+    if((combine_pm === "찾아가는 어린이 환경리더 교육")||(combine_pm === "마을활동가 토크쇼")||(combine_pm === "탄소중립 그린마을 동행")){combine_pm=biglist[3];}
+    // console.log(combine_pm);
     let codeL = "";
-    for (let tm in click_data[aa][0]) {
+    for (let tm in click_data[combine_pm][0]) {
         // console.log(tm);
         codeL += `
         <div class="l_menu"><span>${tm}</span>
         <ul>
         `;
-        for (let sm in click_data[aa][0][tm]) {
+        for (let sm in click_data[combine_pm][0][tm]) {
             // console.log(sm);
-            codeL += `<li><a class="a_click" href="#">${click_data[aa][0][tm][sm]}</a></li>`;
+            codeL += `<li><a class="a_click" href="#">${click_data[combine_pm][0][tm][sm]}</a></li>`;
         }
         codeL += `</ul></div>`;
     }
@@ -67,7 +67,7 @@ window.addEventListener("DOMContentLoaded", function () {
         // console.log(liLen);
         ulL.style.height = liLen * 34 + 18 + "px";
 
-        ///// 5. 좌측 서브 메뉴 열고 닫는 기능 추가하기
+        ///// 4. 좌측 서브 메뉴 열고 닫는 기능 추가하기
         let num = 1;
         spanL.onclick = () => {
             if (num === 1) {
@@ -83,7 +83,7 @@ window.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    ///// 6. 좌측 서브 메뉴 클릭시 확인하기 쉽게 표시 남겨두기
+    ///// 5. 좌측 서브 메뉴 클릭시 확인하기 쉽게 표시 남겨두기
     let clickA = document.getElementsByClassName("a_click");
     function handleClick(event) {
         // console.log(event.target);
@@ -109,7 +109,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     init();
 
-    ///// 7. 상단 메뉴중 어떤 것을 누르는지에 따라 각종 정보 변경하기
+    ///// 6. 상단 메뉴중 어떤 것을 누르는지에 따라 각종 정보 변경하기
     const mainBody = document.querySelector("body");
     // console.log(mainBody);
     const movie = document.querySelector(".movie");
@@ -119,61 +119,29 @@ window.addEventListener("DOMContentLoaded", function () {
     const vd = document.querySelector("video");
     // console.log(vd);
 
-    mainBody.style.background = `url(./img/${click_data[aa][1]}.jpg) no-repeat fixed right/cover`;
+    mainBody.style.background = `url(./img/${click_data[combine_pm][1]}.jpg) no-repeat fixed right/cover`;
+
+    for(i=0;i<13;i++){
+        if(pm === middlelist[i]){
+            vd.src = videoList[i];
+        }
+    }
+    
     if(pm === "마을 공동체"){
-        vd.src = click_data[aa][2];
-    }
-    else if(pm === "마을공동체 활성화 지원사업"){
-        vd.src = click_data[aa][2];
-    }
-    else if(pm === "마을모임 지원사업"){
-        vd.src = click_data[aa][3];
-    }
-    else if(pm === "광주형 협치마을 모델사업"){
-        vd.src = click_data[aa][4];
+        vd.src = click_data[combine_pm][2];
     }
     else if(pm === "미래 학교"){
-        vd.src = click_data[aa][2];
-    }
-    else if(pm === "洞 마을의제 실행력 제고 워크숍"){
-        vd.src = click_data[aa][2];
-    }
-    else if(pm === "분야별 성장지원 워크숍"){
-        vd.src = click_data[aa][3];
-    }
-    else if(pm === "사회적 경제기반 교육"){
-        vd.src = click_data[aa][4];
-    }
-    else if(pm === "마을환경 실천활동가 양성교육"){
-        vd.src = click_data[aa][5];
-    }
-    else if(pm === "마을미디어 주민활동가 양성교육"){
-        vd.src = click_data[aa][6];
+        vd.src = click_data[combine_pm][2];
     }
     else if(pm === "마을 분쟁 해결 지원센터"){
-        vd.src = click_data[aa][2];
-    }
-    else if(pm === "북구마을 분쟁해결 지원센터"){
-        vd.src = click_data[aa][2];
-    }
-    else if(pm === "소통방"){
-        vd.src = click_data[aa][3];
+        vd.src = click_data[combine_pm][2];
     }
     else if(pm === "부록"){
-        vd.src = click_data[aa][2];
-    }
-    else if(pm === "찾아가는 어린이 환경리더 교육"){
-        vd.src = click_data[aa][2];
-    }
-    else if(pm === "마을활동가 토크쇼"){
-        vd.src = click_data[aa][3];
-    }
-    else if(pm === "탄소중립 그린마을 동행"){
-        vd.src = click_data[aa][4];
+        vd.src = click_data[combine_pm][2];
     }
     movie_name.innerText = pm;
 
-    ///// 8. 좌측 서브 메뉴 클릭시 동영상 정보 변경하기
+    ///// 7. 좌측 서브 메뉴 클릭시 동영상 정보 변경하기
     const lmA = document.querySelectorAll(".l_menu a");
     // console.log(lmA);
     const setCd = (txt,mv) => {

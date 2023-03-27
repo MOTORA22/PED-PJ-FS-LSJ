@@ -143,34 +143,60 @@ const mdata04 = {
 }; // mdata04 //
 
 // .gnbT에서 어떤 목록을 눌렀는지에 따라 실행되는 동영상이나 .gnbL목록, 이미지 등을 담은 배열
-let click_data = {
+const click_data = {
     "마을 공동체": [
         mdata01,
-        "blue_bg02",
-        "./video/1A01.mp4",
-        "./video/1B01.mp4",
-        "./video/1C01.mp4"
+        "blue_bg02"
     ],
     "미래 학교": [
         mdata02,
-        "blue_bg03",
-        "./video/2A01.mp4",
-        "./video/2A07.mp4",
-        "./video/2B01.mp4",
-        "./video/2C01.mp4",
-        "./video/2C07.mp4"
+        "blue_bg03"
     ],
     "마을 분쟁 해결 지원센터": [
         mdata03,
-        "blue_bg04",
-        "./video/3A01.mp4",
-        "./video/3B01.mp4",
+        "blue_bg04"
     ],
     "부록": [
         mdata04,
-        "blue_bg05",
-        "./video/4A01.mp4",
-        "./video/4B01.mp4",
-        "./video/4C01.mp4"
+        "blue_bg05"
     ]
 }; // click_data //
+
+const bigList = [
+    "마을 공동체",
+    "미래 학교",
+    "마을 분쟁 해결 지원센터",
+    "부록"
+];
+
+const middleList = [
+    "마을공동체 활성화 지원사업",
+    "마을모임 지원사업",
+    "광주형 협치마을 모델사업",
+    "洞 마을의제 실행력 제고 워크숍",
+    "분야별 성장지원 워크숍",
+    "사회적 경제기반 교육",
+    "마을환경 실천활동가 양성교육",
+    "마을미디어 주민활동가 양성교육",
+    "북구마을 분쟁해결 지원센터",
+    "소통방",
+    "찾아가는 어린이 환경리더 교육",
+    "마을활동가 토크쇼",
+    "탄소중립 그린마을 동행"
+];
+
+const videoList = [
+    "./video/1A01.mp4",
+    "./video/1B01.mp4",
+    "./video/1C01.mp4",
+    "./video/2A01.mp4",
+    "./video/2A07.mp4",
+    "./video/2B01.mp4",
+    "./video/2C01.mp4",
+    "./video/2C07.mp4",
+    "./video/3A01.mp4",
+    "./video/3B01.mp4",
+    "./video/4A01.mp4",
+    "./video/4B01.mp4",
+    "./video/4C01.mp4"
+];
