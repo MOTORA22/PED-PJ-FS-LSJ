@@ -122,6 +122,10 @@ window.addEventListener("DOMContentLoaded", function () {
                         <li>주관 : 동운마을기후환경연합공동체 “이음” / 북구마을네트워크 / 광주북구문화예술연합</li>
                     </ul>
                 </div>
+                <div class="svg">
+                    <img src="./img/logo_B.svg">
+                    <img src="./img/logo_W.svg">
+                </div>
             </div>
         </div>
     `;
