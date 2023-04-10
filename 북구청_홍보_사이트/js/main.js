@@ -504,7 +504,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 case "마을미디어 콘텐츠 이해":
                     setCd(ltxt,"2C07");
                     break;
-                case "기획 및 촬연":
+                case "기획 및 촬영":
                     setCd(ltxt,"2C08");
                     break;
                 case "녹화 및 편집":
