@@ -122,10 +122,10 @@ window.addEventListener("DOMContentLoaded", function () {
                         <li>주관 : 동운마을기후환경연합공동체 “이음” / 북구마을네트워크 / 광주북구문화예술연합</li>
                     </ul>
                 </div>
-                <div class="svg">
-                    <img src="./img/logo_B.svg">
-                    <img src="./img/logo_W.svg">
-                </div>
+            </div>
+            <div class="svg">
+                <ul><li>디지털 컨텐츠 <br /> 제작 및 배포</li></ul>
+                <a href="http://webppt.co.kr" target='_blank'><img src="./img/logo_W.svg"></a>
             </div>
         </div>
     `;
@@ -230,6 +230,12 @@ window.addEventListener("DOMContentLoaded", function () {
         if(pm === bigList[i]){
             vd.style.display = "none";
             document.querySelector(`.exp0${i+1}`).style.display = "block";
+        }
+        if(pm === "미래 학교"){
+            movie.style.height = "1200px";
+        }
+        if(pm === "부록"){
+            movie.style.height = "2300px";
         }
     }
     movie_name.innerText = pm;

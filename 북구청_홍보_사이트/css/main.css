@@ -92,6 +92,7 @@
     top: 90px;
     left: 320px;
     width: 880px;
+    height: 850px;
     margin: auto;
 }
 .movie span{
@@ -141,4 +142,24 @@
 }
 .exp04{
     display: none;
+}
+
+/* svg */
+.svg{
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+.svg li{
+    margin-right: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: right;
+    color: #fff;
+}
+.svg img{
+    width: 150px;
 }
