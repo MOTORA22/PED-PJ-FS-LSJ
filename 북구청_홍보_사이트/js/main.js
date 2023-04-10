@@ -249,6 +249,7 @@ window.addEventListener("DOMContentLoaded", function () {
         vd.muted = false;
         movie_name.innerText = txt;
         document.querySelector(".exp").style.display = "none";
+        movie.style.height = "840px";
     }; // setCd //
     
     for (let x of lmA) {
