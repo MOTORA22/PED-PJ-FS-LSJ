@@ -153,13 +153,13 @@
     align-items: center;
 }
 .svg li{
-    margin-right: 20px;
+    margin-right: 10px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 500;
-    font-size: 2rem;
+    font-weight: 400;
+    font-size: 1.5rem;
     text-align: right;
     color: #fff;
 }
 .svg img{
-    width: 150px;
+    width: 100px;
 }
